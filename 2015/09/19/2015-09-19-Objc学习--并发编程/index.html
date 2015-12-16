@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,objc中国," />
 
 
 
@@ -53,19 +53,64 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="从今天开始学习objc中国的所有博客。
+并发编程
+卷首语
+
+并发编程：API 及挑战
+
+常见的后台实践
+
+底层并发 API
+
+线程安全类的设计
+
+测试并发程序
+
+
+线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。
+直接使用线程可能会引发的一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yeziahehe.com/2015/12/16/hello-world/index.html">
+<meta property="og:title" content="objc中国学习--并发编程">
+<meta property="og:url" content="http://yeziahehe.com/2015/09/19/2015-09-19-Objc学习--并发编程/index.html">
 <meta property="og:site_name" content="叶帆的技术博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-12-16T13:43:56.000Z">
+<meta property="og:description" content="从今天开始学习objc中国的所有博客。
+并发编程
+卷首语
+
+并发编程：API 及挑战
+
+常见的后台实践
+
+底层并发 API
+
+线程安全类的设计
+
+测试并发程序
+
+
+线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。
+直接使用线程可能会引发的一">
+<meta property="og:updated_time" content="2015-12-16T15:22:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="objc中国学习--并发编程">
+<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。
+并发编程
+卷首语
+
+并发编程：API 及挑战
+
+常见的后台实践
+
+底层并发 API
+
+线程安全类的设计
+
+测试并发程序
+
+
+线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。
+直接使用线程可能会引发的一">
 
 
 
@@ -77,7 +122,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | 叶帆的技术博客 </title>
+  <title> objc中国学习--并发编程 | 叶帆的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +262,7 @@ Quick">
             
             
               
-                Hello World
+                objc中国学习--并发编程
               
             
           </h1>
@@ -226,19 +271,34 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-16T21:44:13+08:00" content="2015-12-16">
-              2015-12-16
+            <time itemprop="dateCreated" datetime="2015-09-19T23:21:37+08:00" content="2015-09-19">
+              2015-09-19
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/objc中国/" itemprop="url" rel="index">
+                    <span itemprop="name">objc中国</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/16/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2015/09/19/2015-09-19-Objc学习--并发编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/2015-09-19-Objc学习--并发编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -257,22 +317,66 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
+<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u53D1_u7F16_u7A0B" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
+<li><p>卷首语</p>
+</li>
+<li><p>并发编程：API 及挑战</p>
+</li>
+<li><p>常见的后台实践</p>
+</li>
+<li><p>底层并发 API</p>
+</li>
+<li><p>线程安全类的设计</p>
+</li>
+<li><p>测试并发程序</p>
+</li>
+</ul>
+<h3 id="u7EBF_u7A0B"><a href="#u7EBF_u7A0B" class="headerlink" title="线程"></a>线程</h3><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。</p>
+<p>直接使用线程可能会引发的一个问题是，如果你的代码和所基于的框架代码都创建自己的线程时，那么活动的线程数量有可能以指数级增长。这在大型工程中是一个常见问题。</p>
+<p>接下来，我们将介绍两个基于队列的并发编程 API ：GCD 和 operation queue 。它们通过集中管理一个被大家协同使用的线程池，来解决上面遇到的问题。</p>
+<h3 id="Grand_Central_Dispatch"><a href="#Grand_Central_Dispatch" class="headerlink" title="Grand Central Dispatch"></a>Grand Central Dispatch</h3><p>通过 GCD，开发者不用再直接跟线程打交道了，只需要向队列中添加代码块即可，GCD 在后端管理着一个线程池。GCD 不仅决定着你的代码块将在哪个线程被执行，它还根据可用的系统资源对这些线程进行管理。这样可以将开发者从线程管理的工作中解放出来，通过集中的管理线程，来缓解大量线程被创建的问题。</p>
+<p>GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为一个队列，而不是一堆线程，这种并行的抽象模型更容易掌握和使用。</p>
+<p>GCD 公开有 5 个不同的队列：运行在主线程中的 main queue，3 个不同优先级的后台队列，以及一个优先级更低的后台队列（用于 I/O）。<br>另外，开发者可以创建自定义队列：串行或者并行队列。自定义队列非常强大，在自定义队列中被调度的所有 block 最终都将被放入到系统的全局队列中和线程池中。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">      <span class="comment">//单例模式，GCD应用的最多的模式</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Operation_Queues"><a href="#Operation_Queues" class="headerlink" title="Operation Queues"></a>Operation Queues</h3><p>操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。GCD 提供了更加底层的控制，而操作队列则在 GCD 之上实现了一些方便的功能，这些功能对于 app 的开发者来说通常是最好最安全的选择。</p>
+<p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
+<h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
+<p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/objc中国/" rel="tag">#objc中国</a>
+          
+        </div>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/" rel="next" title="objc中国学习--更轻量的 View Controllers">
+                <i class="fa fa-chevron-left"></i> objc中国学习--更轻量的 View Controllers
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/23/2015-09-23-Coding iOS客户端学习--项目框架(持续更新)/" rel="prev" title="Coding iOS客户端学习--项目框架(持续更新)">
+                Coding iOS客户端学习--项目框架(持续更新) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -296,8 +400,8 @@ Quick">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/16/hello-world/"
-           data-title="Hello World" data-url="http://yeziahehe.com/2015/12/16/hello-world/">
+      <div class="ds-thread" data-thread-key="2015/09/19/2015-09-19-Objc学习--并发编程/"
+           data-title="objc中国学习--并发编程" data-url="http://yeziahehe.com/2015/09/19/2015-09-19-Objc学习--并发编程/">
       </div>
     
   </div>
@@ -341,21 +445,21 @@ Quick">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -398,14 +502,6 @@ Quick">
                 </a>
               </span>
             
-              <span class="links-of-author-item">
-                <a href="yeziahehe@gmail.com" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> Mail
-                  
-                </a>
-              </span>
-            
           
         </div>
 
@@ -428,7 +524,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E76_u53D1_u7F16_u7A0B"><span class="nav-number">1.</span> <span class="nav-text">并发编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7EBF_u7A0B"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grand_Central_Dispatch"><span class="nav-number">3.</span> <span class="nav-text">Grand Central Dispatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation_Queues"><span class="nav-number">4.</span> <span class="nav-text">Operation Queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_Loops"><span class="nav-number">5.</span> <span class="nav-text">Run Loops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

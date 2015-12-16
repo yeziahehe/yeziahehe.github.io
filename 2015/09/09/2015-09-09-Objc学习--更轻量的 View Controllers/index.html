@@ -1,0 +1,830 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,objc中国," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="叶帆的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="从今天开始学习objc中国的所有博客。
+更轻量的 View Controllers
+介绍
+
+更轻量的 View Controllers
+
+整洁的 Table View 代码
+
+测试 View Controllers
+
+View Controller 容器
+
+
+NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
+
+属性列表：基本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="objc中国学习--更轻量的 View Controllers">
+<meta property="og:url" content="http://yeziahehe.com/2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/index.html">
+<meta property="og:site_name" content="叶帆的技术博客">
+<meta property="og:description" content="从今天开始学习objc中国的所有博客。
+更轻量的 View Controllers
+介绍
+
+更轻量的 View Controllers
+
+整洁的 Table View 代码
+
+测试 View Controllers
+
+View Controller 容器
+
+
+NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
+
+属性列表：基本的">
+<meta property="og:updated_time" content="2015-12-16T15:20:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="objc中国学习--更轻量的 View Controllers">
+<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。
+更轻量的 View Controllers
+介绍
+
+更轻量的 View Controllers
+
+整洁的 Table View 代码
+
+测试 View Controllers
+
+View Controller 容器
+
+
+NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
+
+属性列表：基本的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> objc中国学习--更轻量的 View Controllers | 叶帆的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">叶帆的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                objc中国学习--更轻量的 View Controllers
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-09-09T23:19:20+08:00" content="2015-09-09">
+              2015-09-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/objc中国/" itemprop="url" rel="index">
+                    <span itemprop="name">objc中国</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
+<h3 id="u66F4_u8F7B_u91CF_u7684_View_Controllers"><a href="#u66F4_u8F7B_u91CF_u7684_View_Controllers" class="headerlink" title="更轻量的 View Controllers"></a>更轻量的 View Controllers</h3><ul>
+<li><p>介绍</p>
+</li>
+<li><p>更轻量的 View Controllers</p>
+</li>
+<li><p>整洁的 Table View 代码</p>
+</li>
+<li><p>测试 View Controllers</p>
+</li>
+<li><p>View Controller 容器</p>
+</li>
+</ul>
+<h3 id="NSCoding_u534F_u8BAE_NSKeyedArchiver_u5F52_u6863"><a href="#NSCoding_u534F_u8BAE_NSKeyedArchiver_u5F52_u6863" class="headerlink" title="NSCoding协议  NSKeyedArchiver归档"></a>NSCoding协议 <br> NSKeyedArchiver归档</h3><p>为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：</p>
+<ul>
+<li>属性列表：基本的文件API、Property List序列化</li>
+<li>数据库：SQLite、CoreData</li>
+<li>序列化：NSKeyedArchiver以及NSCoding</li>
+</ul>
+<p>对于轻量级的数据要求，NSCoding因其简单而成为一种比较合适的方式。 NSCoding是一个你需要在数据类上要实现的协议以支持数据类和数据流间的编码和解码。数据流可以持久化到硬盘。</p>
+<p>使用NSCoding协议可以实现归档自定义的类，NSKeyedArchiver可以归档我们自定义的类。</p>
+<p>归档 NSKeyedArchiver（又名序列化），把对象转为字节码，以文件的形式存储到磁盘上；程序运行过程中或者当再次重写打开程序的时候，可以通过解归档（反序列化）还原这些对象。</p>
+<p>归档方式：</p>
+<ul>
+<li>对Foundation框架中对象进行归档  (一次只能归档一个对象，如果是多个对象归档需要分开进行)</li>
+<li>对自定义的内容进行归档</li>
+<li>对自定义的对象进行归档  (用到NSCoding协议，一次可以归档多个对象，通过归档的文件都是加密的)</li>
+</ul>
+<p>要实现自定义类的归档，需要实现encodeWithCoder(编码/序列化)和initWithCoder(解码/反序列化)。</p>
+<p>要编码的对象，必须实现NSCoding协议。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSCoding</span></span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) encoderWithCoder:(<span class="built_in">NSCoder</span> *) aCoder;<span class="comment">//保存</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">id</span>) initWithCoder:(<span class="built_in">NSCoder</span> *) aDecoder;<span class="comment">//加载</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>Mantle是一个意在减少写NSCoding样板文件的类库。如果你正在寻找更方便使用NSCoding代替Core Data创建model的方法，那Mantle值得一看。</p>
+<p>可以参考我之前写的<a href="http://yeziahehe.com/ios/2015/08/10/objective-c%E4%B8%ADModel%E7%9A%84%E5%B0%81%E8%A3%85--Mantle%E5%AD%A6%E4%B9%A0.html">文章</a>。</p>
+<h3 id="u628A_u7F51_u7EDC_u8BF7_u6C42_u903B_u8F91_u79FB_u5230_Model__u5C42"><a href="#u628A_u7F51_u7EDC_u8BF7_u6C42_u903B_u8F91_u79FB_u5230_Model__u5C42" class="headerlink" title="把网络请求逻辑移到 Model 层"></a>把网络请求逻辑移到 Model 层</h3><p>和上面的主题相似：不要在 view controller 中做网络请求的逻辑。取而代之，你应该将它们封装到另一个类中。这样，你的 view controller 就可以在之后通过使用带有回调（比如一个 completion 的 block）来请求网络了。这样的好处是，缓存和错误控制也可以在这个类里面完成。</p>
+<h3 id="u8BA9_u4E8B_u60C5_u4FDD_u6301_u7B80_u5355"><a href="#u8BA9_u4E8B_u60C5_u4FDD_u6301_u7B80_u5355" class="headerlink" title="让事情保持简单"></a>让事情保持简单</h3><p>测试简单的事情很简单，同样，测试复杂的事会很复杂。就像我们在其他文章中指出的那样，让事情保持简单小巧总是好的。除此之外，它还有利于我们测试。</p>
+<p>让我们来看看测试驱动开发（简称 TDD）。我们在这里不深入讨论，只是如果用 TDD，你得在写代码之前先写好测试。</p>
+<p>通常，如果你发现有些地方很难做测试，这就说明你的设计出了问题，你应该重构它。</p>
+<p>测试会被 build 成一个 bundle，其中包含一个动态库和你选择的资源文件。如果你要测试某些资源文件，你得把它们加到测试的 target 中，Xcode 就会将它们打包到一个 bundle 中。</p>
+<p>Xcode 中的每个 scheme 定义了相应的测试 bundle 是哪个。通过 ⌘-R 运行程序，⌘-U 运行测试。</p>
+<p>测试的运行依附于程序的运行，当程序运行时，测试 bundle 将被注入（injected）。测试时，你可能不想让你的程序做太多的事，那样会对测试造成干扰。可以把下面的代码加到 app delegate 中：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>) __attribute__((<span class="keyword">const</span>));</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">        didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (isRunningTests()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Normal logic goes here</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span>* environment = [[<span class="built_in">NSProcessInfo</span> processInfo] environment];</span><br><span class="line">    <span class="built_in">NSString</span>* injectBundle = environment[<span class="string">@"XCInjectBundle"</span>];</span><br><span class="line">    <span class="keyword">return</span> [[injectBundle pathExtension] isEqualToString:<span class="string">@"octest"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://objccn.io/issue-1/" target="_blank" rel="external">#1 更轻量的 View Controllers</a></p>
+<p><a href="http://onevcat.com/2014/02/ios-test-with-kiwi/" target="_blank" rel="external">TDD的iOS开发初步以及Kiwi使用入门Kiwi</a></p>
+<p><a href="http://www.onevcat.com/2014/05/kiwi-mock-stub-test/" target="_blank" rel="external">Kiwi 使用进阶 Mock, Stub, 参数捕获和异步测试</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/objc中国/" rel="tag">#objc中国</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/10/2015-08-10-objective-c中Model的封装--Mantle学习/" rel="next" title="objective-c中Model的封装--Mantle学习">
+                <i class="fa fa-chevron-left"></i> objective-c中Model的封装--Mantle学习
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/19/2015-09-19-Objc学习--并发编程/" rel="prev" title="objc中国学习--并发编程">
+                objc中国学习--并发编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/"
+           data-title="objc中国学习--更轻量的 View Controllers" data-url="http://yeziahehe.com/2015/09/09/2015-09-09-Objc学习--更轻量的 View Controllers/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/logo.png" alt="叶帆" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">叶帆</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">写「优雅」的代码</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-linkedin"></i> Linkedin
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u66F4_u8F7B_u91CF_u7684_View_Controllers"><span class="nav-number">1.</span> <span class="nav-text">更轻量的 View Controllers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSCoding_u534F_u8BAE_NSKeyedArchiver_u5F52_u6863"><span class="nav-number">2.</span> <span class="nav-text">NSCoding协议  NSKeyedArchiver归档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u628A_u7F51_u7EDC_u8BF7_u6C42_u903B_u8F91_u79FB_u5230_Model__u5C42"><span class="nav-number">3.</span> <span class="nav-text">把网络请求逻辑移到 Model 层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BA9_u4E8B_u60C5_u4FDD_u6301_u7B80_u5355"><span class="nav-number">4.</span> <span class="nav-text">让事情保持简单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶帆</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yeziahehe"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>

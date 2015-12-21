@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2015-12-16T16:17:43.000Z</updated>
+  <updated>2015-12-21T14:31:38.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,11 +15,113 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Objective-C新纪元--ReactiveCocoa框架]]></title>
+    <link href="http://yeziahehe.com/2015/12/15/Objective-C%E6%96%B0%E7%BA%AA%E5%85%83--ReactiveCocoa%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yeziahehe.com/2015/12/15/Objective-C新纪元--ReactiveCocoa框架/</id>
+    <published>2015-12-15T06:56:46.000Z</published>
+    <updated>2015-12-21T14:31:38.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCocoa的文章篇幅都很长，其实大家都在简洁的语言来讲，我的这边文章应该写完也是长篇幅，希望大家可以耐心的看完。</p>
+<h1 id="u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B"><a href="#u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B" class="headerlink" title="函数响应式编程"></a>函数响应式编程</h1><p>ReactiveCocoa的基本思想就是<code>函数响应式编程（Function Reactive Programming，以下简称FRP）</code>。FRP是一种响应变化的编程范式。我们通常会拿一个经典的例子来解释概念。</p>
+<h2 id="u7406_u5FF5"><a href="#u7406_u5FF5" class="headerlink" title="理念"></a>理念</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b<span class="comment">// c = 4</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line"><span class="comment">// 现在c的值是多少？</span></span><br></pre></td></tr></table></figure>
+<p>上面的问题，正常人一眼就能看出答案，因为我们<code>响应</code>了<code>b = 2</code>这个值的变化，所以说<code>c</code>的值会随着<code>b</code>的值的改变而改变。FRP就是使用这样的基本原理，所以称之为<code>响应式编程</code>。</p>
+<h2 id="u5982_u4F55_u5B9E_u73B0"><a href="#u5982_u4F55_u5B9E_u73B0" class="headerlink" title="如何实现"></a>如何实现</h2><p>FRP提供了<code>信号（Signal）</code>机制来实现这样的效果，通过信号来记录值的变化。通过信号的组合，从而不再去监听值的变化，甚至是事件的变化。在上述例子中加入了signal的图解：<br><img src="http://7xp57v.com1.z0.glb.clouddn.com/coryphaei/FRP_signal.png" alt="FRP_signal"></p>
+<h2 id="ReactiveCocoa_u4F5C_u8005_u5BF9_u4E8EFRP_u7684_u89E3_u91CA"><a href="#ReactiveCocoa_u4F5C_u8005_u5BF9_u4E8EFRP_u7684_u89E3_u91CA" class="headerlink" title="ReactiveCocoa作者对于FRP的解释"></a>ReactiveCocoa作者对于FRP的解释</h2><p><a href="http://blog.maybeapps.com/post/42894317939/input-and-output" target="_blank" rel="external">Josh Abernathy这样解释它：</a></p>
+<blockquote>
+<p>程序接收输入产生输出。输出就是对输入做了一些事的结果。输入，转换，输出，完成。<br>输入是应用动作的全部来源。点击、键盘事件、定时器事件、GPS时间、网络请求响应都算是输入。这些事件被传递到应用中，应用将他们以某种方式混合，产生了结果：就是输出。<br>输出通常会改变应用的UI。开关状态变化、列表有了新的元素都是UI变化。也有可能让磁盘上某个文件产生变化，或者产生一个API请求，这都是应用的输出。<br>但不像传统的输入输出设计，应用的输入输出可以产生很多次。应用打开后，不只是一个简单的 输入→工作→输出 就构成了一个生命周期。应用经常有大量的输入并基于这些输入产生输出。</p>
+</blockquote>
+<h2 id="u8BDD_u5916"><a href="#u8BDD_u5916" class="headerlink" title="话外"></a>话外</h2><p>关于ReactiveCocoa的灵感来源，我们可以看到官方README中提到了<code>ReactiveCocoa深受Microsoft&#39;s Reactive Extension的思想，并基于Reactive Extension（Rx）</code>。但是官方列举了很多ReactiveCocoa有别于Rx的地方，有兴趣的可以去了解下。</p>
+<h1 id="ReactiveCocoa"><a href="#ReactiveCocoa" class="headerlink" title="ReactiveCocoa"></a>ReactiveCocoa</h1><p><a href="http://reactivecocoa.io/" target="_blank" rel="external">ReactiveCocoa</a> is a framework developed by <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="external">GitHub</a> to support functional reactive programming on iOS and OS X.</p>
+<h2 id="u8D77_u56E0"><a href="#u8D77_u56E0" class="headerlink" title="起因"></a>起因</h2><p>作为一个移动开发者，应用中经常有大量的输入，大部分的代码都用来响应这些输出并且基于这些输入来产生输出。我们需要响应的事件非常多：按钮点击事件（target-action）、网络消息回调事件（Block or delegate）、属性变化事件（KVO）、通知事件（NSNotification）等，而这边响应事件在代码中的表现形式却并不统一。为了定义一个标准统一的事件处理接口，并且通过定义的接口来进行组合使用，ReactiveCocoa出现了。</p>
+<h2 id="u57FA_u672C_u601D_u60F3"><a href="#u57FA_u672C_u601D_u60F3" class="headerlink" title="基本思想"></a>基本思想</h2><p>我们GitHub主页上看到，官方这样给出了概念：</p>
+<blockquote>
+<p>ReactiveCocoa (RAC)是采用FRP的一个Cocoa framework。RAC提供了API用来组合、转换一直变化的数据流。</p>
+</blockquote>
+<p>ReactiveCocoa采用FRP思想，<code>信号</code>则是这个思想的精髓所在，灵魂所在。在ReactiveCocoa简称是RAC，所有的类都以<code>RAC</code>开头，所以说ReactiveCocoa中的信号就用<code>RACSignal</code>类来表示，用来展示<code>事件流</code>的变化，并且可以通过链接、过滤、组合等方式来进行处理。</p>
+<blockquote>
+<p>引用我在很多博客中看到的一段话，但是我对其做了改动，加入了桶的概念：<br>可以把信号(signal)想象成水龙头，只不过里面不是水，而是玻璃球(stream of value)，直径跟水管的内径一样，这样就能保证玻璃球是依次排列，不会出现并排的情况(数据都是线性处理的，不会出现并发情况)。只要你打开水龙头的开关，就会有玻璃球出来。但是，并不是所有的玻璃球都能被使用，除非有了桶(subscriber)来接收掉下来的玻璃球，这样才能运往需要的地方。这样有新的玻璃球进来，有桶在监听，就会自动传送给接收者。可以在水龙头上加一个过滤嘴(filter)，不符合的不让通过，也可以加一个改动装置，把球改变成符合自己的需求(map)。也可以把多个水龙头合并成一个新的水龙头(combineLatest:reduce:)，这样只要其中的一个水龙头有玻璃球出来，这个新合并的水龙头就会得到这个球。</p>
+</blockquote>
+<h2 id="u601D_u8003"><a href="#u601D_u8003" class="headerlink" title="思考"></a>思考</h2><p>通过上述对其的了解，总结ReactiveCocoa带来的影响。</p>
+<ul>
+<li>定义标准的事件处理接口</li>
+<li>解决了状态过多依赖的问题</li>
+</ul>
+<p>PS：关于巧哥说的给Controller瘦身的问题，我认为这个是MVVM框架所带来的影响，ReactiveCocoa只是很好的配合了MVVM。因此我并没有把这一点归纳在内。</p>
+<h1 id="u5F00_u59CB"><a href="#u5F00_u59CB" class="headerlink" title="开始"></a>开始</h1><p>进入正轨，开始介绍ReactiveCocoa的机制和常用方法。</p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>推荐大家用<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods</a>进行安装，这么好的工具肯定要掌握的。<br><img src="http://7xp57v.com1.z0.glb.clouddn.com/coryphaei/cocoapods.png" alt="CocoaPods"><br>目前4.0的alpha版本正在开发，建议大家先使用发布的版本。如果你用swift来写可以用3.0，我是用的Objective，所以用的2.5版本，Podfile:<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line">pod <span class="string">'ReactiveCocoa'</span>, <span class="string">'~&gt; 2.5'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="RACStreams"><a href="#RACStreams" class="headerlink" title="RACStreams"></a>RACStreams</h2><p><code>RACStreams</code>官方定义<code>An abstract class representing any stream of values</code>，我翻译下RACStreams是展现任何数据流的一个抽象类。RACStreams通俗点讲就是上面那段话中<code>水管里面线性流动的、具有顺序的玻璃球</code>。RACStreams因为是一个抽象类，我们使用中很少直接接触到，我们一般是使用继承自RACStreams的<code>RACSignal</code>和<code>RACSequence</code>。对于RACSignal和RACSequence与RACStreams联系，我觉得可以直接用<a href="http://nshipster.cn/reactivecocoa/" target="_blank" rel="external">NShipster</a>中一句话：</p>
+<blockquote>
+<p>signal是push驱动的stream，sequence是pull驱动的stream。</p>
+</blockquote>
+<h2 id="RACSignal_and_RACSubscriber"><a href="#RACSignal_and_RACSubscriber" class="headerlink" title="RACSignal and RACSubscriber"></a>RACSignal and RACSubscriber</h2><p><code>RACSignal</code>是ReactiveCocoa的核心所在，有了它就能开始使用ReactiveCocoa。RACSignal通俗点讲就是上面那段话中所提到的<code>水龙头</code>，表示未来要到到达的值。比较类似于一个概念，叫做<code>future and promise</code>，大家可以自行去了解下。<br><code>RACSubscriber</code>是订阅者，通俗点说就是上面那段话中用来装玻璃球的<code>桶</code>。我们可以用一个更好的比喻来理解一下。把RACSignal比作插头，把RACSubscriber比作插座，插头负责去用电，插座负责去取点，插头插座配套才能使用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span><span class="variable">.usernameTextField</span><span class="variable">.rac_textSignal</span> subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="u51B7_u4FE1_u53F7_28Cold_29_u548C_u70ED_u4FE1_u53F7_28Hot_29"><a href="#u51B7_u4FE1_u53F7_28Cold_29_u548C_u70ED_u4FE1_u53F7_28Hot_29" class="headerlink" title="冷信号(Cold)和热信号(Hot)"></a>冷信号(Cold)和热信号(Hot)</h3><p>在上文中提到的插头插座比喻中，如果说只有插头，没有插座，即只有RACSignal，而没有RACSubscriber，则把RACSignal称之为冷信号，而冷信号默认是不进行任何操作的。只要加上RACSubscriber，就可以进行操作，这个时候RACSignal就被称作是热信号。如果说只有插座，没有插头，那么只要去找到插头就能解决问题。</p>
+<h3 id="RACReplaySubject"><a href="#RACReplaySubject" class="headerlink" title="RACReplaySubject"></a>RACReplaySubject</h3><p>我们继续上文中的插头插座比喻，如果现在同时有多个插座在等待一个插头用电，那么我就要把这个插头多次拔下来插到所有的插座上。大家都不愿意重复这个操作，ReactiveCocoa提供了<code>RACReplaySubject</code>方法，保证<code>RACSignal</code>只触发一次。把需要send的value存起来，直接发送缓存数据。</p>
+<h3 id="u8BE6_u89E3"><a href="#u8BE6_u89E3" class="headerlink" title="详解"></a>详解</h3><p>RACSignal一共会发送三种事件给RACSubscriber，RACSubscriber通过-subscribeNext:error:completed:对不同事件作出相应反应</p>
+<ul>
+<li>next 继续进行发送</li>
+<li>error 出现错误  </li>
+<li>completed 完成</li>
+</ul>
+<p>一个RACSignal会因为error和completed的出现而终止，即生命周期中只会有一个errot或者completed，但是却可以多次发送next事件。而我们接下来要讨论的就是如何来处理这些多次next事件。</p>
+<h2 id="RACSequence"><a href="#RACSequence" class="headerlink" title="RACSequence"></a>RACSequence</h2><p><code>RACSequence</code>官方的解释是一组immutable且有序的values，很多人说把这个看做是<code>NSArray</code>。但是注意用词是<code>看做</code>，因为这些values的值是<code>懒加载</code>(只有需要的时候才加载)，这样sequence只有一部分被用到，会一定程度得提升性能。那么NSArray可以通过rac_sequence方法转换成RACSequence来调用RAC中的方法了。像Cocoa的集合类型一样，RACSequence不接受<code>nil</code>。</p>
+<h2 id="map__u2013__u4FEE_u6539"><a href="#map__u2013__u4FEE_u6539" class="headerlink" title="map – 修改"></a>map – 修改</h2><p><code>map</code> calls its block with each user that’s fetched and returns a new. 解释一下就是将事件中获得的数据映射为你想要的对象，可以看做对玻璃球的重新包装。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="keyword">self</span><span class="variable">.usernameTextField</span><span class="variable">.rac_textSignal</span> map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *text) &#123;</span><br><span class="line">    <span class="keyword">return</span> @(text<span class="variable">.length</span>);</span><br><span class="line"> &#125;]</span><br><span class="line"> subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure></p>
+<h2 id="filter__u2013__u8FC7_u6EE4"><a href="#filter__u2013__u8FC7_u6EE4" class="headerlink" title="filter – 过滤"></a>filter – 过滤</h2><p><code>Filters</code> out values in the receiver that don’t pass the given test. 非常简单对事件中的内容进行过滤，可以看做不合要求的玻璃球进行拦击，不允许通过水管。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="keyword">self</span><span class="variable">.usernameTextField</span><span class="variable">.rac_textSignal</span> map:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *text) &#123;</span><br><span class="line">    <span class="keyword">return</span> @(text<span class="variable">.length</span>);</span><br><span class="line"> &#125;]</span><br><span class="line"> filter:^<span class="built_in">BOOL</span>(<span class="built_in">NSNumber</span> *length) &#123;</span><br><span class="line">     <span class="keyword">return</span> [length intValue] &gt; <span class="number">3</span>;</span><br><span class="line"> &#125;]</span><br><span class="line"> subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</span><br><span class="line"> &#125;];</span><br></pre></td></tr></table></figure></p>
+<h2 id="combineLatest__u2013__u7EC4_u5408"><a href="#combineLatest__u2013__u7EC4_u5408" class="headerlink" title="combineLatest – 组合"></a>combineLatest – 组合</h2><p><code>Combines</code> the latest values from the receiver and the given signal into RACTuples, once both have sent at least one next. 将一组事件组合为一个输出最新事件的signal。可以看做是对水管进行改造，使得任何时刻都输出最新的玻璃球。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validUsernameSignal, validPasswordSignal]</span><br><span class="line">                                                  reduce:^<span class="keyword">id</span>(<span class="built_in">NSNumber</span> *usernameValid, <span class="built_in">NSNumber</span> *passwordValid)&#123;</span><br><span class="line">                                                      <span class="keyword">return</span> @([usernameValid boolValue] &amp;&amp; [passwordValid boolValue]);</span><br><span class="line">                                                  &#125;];</span><br></pre></td></tr></table></figure></p>
+<h2 id="flatten__u2013__u5408_u5E76"><a href="#flatten__u2013__u5408_u5E76" class="headerlink" title="flatten – 合并"></a>flatten – 合并</h2><p><code>flatten</code>把事件进行合并，对于其中的内容都进行显示，来一个显示一个，可以交叉显示。可以看做把多个水管进行了合并，哪个水管中的玻璃球到了就放出玻璃球。</p>
+<h2 id="flattenMap__u2013__u89E3_u51B3signal_of_signals"><a href="#flattenMap__u2013__u89E3_u51B3signal_of_signals" class="headerlink" title="flattenMap – 解决signal of signals"></a>flattenMap – 解决signal of signals</h2><p>Maps <code>block</code> across the values in the receiver and flattens the result.<br>这个问题首先要先解释一下。就是说事件完成block后有可能会返回signal的实例，这个时候外部信号中就会包含一个内部信号，这个时候使用map去讲信号转换为另一种信号，造成了嵌套的麻烦。所以说通过flattenMap将事件从内部信号发送到外部信号，并且映射到另外一个信号上去，这样这个过程就变得扁平化。Signal被按序的链接起来执行异步操作，而且不用嵌套block。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (RACSignal *)signInSignal</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.signInService</span> signInWithUsername:<span class="keyword">self</span><span class="variable">.usernameTextField</span><span class="variable">.text</span></span><br><span class="line">                                      password:<span class="keyword">self</span><span class="variable">.passwordTextField</span><span class="variable">.text</span></span><br><span class="line">                                      complete:^(<span class="built_in">BOOL</span> success) &#123;</span><br><span class="line">                                          [subscriber sendNext:@(success)];</span><br><span class="line">                                          [subscriber sendCompleted];</span><br><span class="line">                                      &#125;];</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[[[<span class="keyword">self</span><span class="variable">.signInButton</span> rac_signalForControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>] flattenMap:^RACStream *(<span class="keyword">id</span> value) &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> signInSignal];</span><br><span class="line">&#125;] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Sign in result: %@"</span>, x);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<h2 id="u5FAA_u73AF_u5F15_u7528"><a href="#u5FAA_u73AF_u5F15_u7528" class="headerlink" title="循环引用"></a>循环引用</h2><p>ReactiveCocoa使用时大量的使用了block，而由于Ojective-C语言的内存管理机制使用的引用计数，会造成循环引用的问题。为了避免循环引用的问题，通常的解决办法是声明其中的一个变量为弱引用weak，将其赋值给self，在block中来使用这个弱引用的self，为了简单，通常使用了一个语法糖：<code>@weakify(self)</code>和<code>@strongify(self)</code>。</p>
+<h2 id="u5E38_u7528_u5B8F_u5B9A_u4E49"><a href="#u5E38_u7528_u5B8F_u5B9A_u4E49" class="headerlink" title="常用宏定义"></a>常用宏定义</h2><ul>
+<li><p>RAC()可以将信号的某个属性与其他的信号进行联动。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span><span class="variable">.submitButton</span><span class="variable">.enabled</span>) = [RACSignal combineLatest:@[<span class="keyword">self</span><span class="variable">.usernameField</span><span class="variable">.rac_textSignal</span>, <span class="keyword">self</span><span class="variable">.passwordField</span><span class="variable">.rac_textSignal</span>] reduce:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *userName, <span class="built_in">NSString</span> *password) &#123;</span><br><span class="line">    <span class="keyword">return</span> @(userName<span class="variable">.length</span> &gt;= <span class="number">6</span> &amp;&amp; password<span class="variable">.length</span> &gt;= <span class="number">6</span>);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RACObserve()监听信号的属性的改变，使用block的KVO</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[RACObserve(<span class="keyword">self</span><span class="variable">.textField</span>, text) subscribeNext:^(<span class="built_in">NSString</span> *newName) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, newName);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p><img src="http://7xp57v.com1.z0.glb.clouddn.com/coryphaei/mvvm.png" alt="MVVM"></p>
+<h2 id="u4E3A_u4EC0_u4E48_u8981_u63D0_u5230MVVM"><a href="#u4E3A_u4EC0_u4E48_u8981_u63D0_u5230MVVM" class="headerlink" title="为什么要提到MVVM"></a>为什么要提到MVVM</h2><p>MVVM其实是MVC的变形框架，主要来解决目前iOS应用中日益增长的重量级Controller的问题。在你使用ReactiveCocoa的时候会发现将事件定义统一接口后确实方便了代码的编写，但是都在Controller中来进行使得Conttroller异常的臃肿。这个也就是为什么很多人写到ReactiveCocoa的时候一定会提到MVVM的原因，建议大家配合使用，将ReactiveCocoa处理事件的代码写在ViewModel中，这样也方便做测试，昨天听了LeanCloud智维大神的自动化和测试之后，也准备来探究一下，应该到时候会出一篇博客。</p>
+<h2 id="u5173_u4E8EMVVM"><a href="#u5173_u4E8EMVVM" class="headerlink" title="关于MVVM"></a>关于MVVM</h2><p>关于MVVM，这里不做详细的讲解，不是本章的重点。但是可以给出几篇参考，有兴趣的同学可以去了解一下。</p>
+<ul>
+<li><a href="http://objccn.io/issue-13-1/" target="_blank" rel="external">MVVM 介绍</a></li>
+<li><a href="http://www.infoq.com/cn/articles/rethinking-mvc-mvvm" target="_blank" rel="external">被误解的MVC和被神化的MVVM
+</a></li>
+</ul>
+<h1 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h1><p>我尽管认真的学习了一周ReactiveCocoa，但是仍然还处在入门阶段，也许等我实战之后会有更多的体会和坑来告诉大家，但是这个是重框架，入门还是比较难的，我尽我所能的理解写下这个博客，希望能帮助大家入个门，同时我也给出几篇参考文章，希望对大家有帮助。</p>
+<ul>
+<li><a href="http://nshipster.cn/reactivecocoa/" target="_blank" rel="external">Reactive​Cocoa</a></li>
+<li><a href="http://limboy.me/ios/2013/12/27/reactivecocoa-2.html" target="_blank" rel="external">说说ReactiveCocoa 2</a></li>
+<li><a href="http://yulingtianxia.com/blog/2014/07/29/reactivecocoa/" target="_blank" rel="external">ReactiveCocoa学习笔记</a></li>
+<li><a href="http://southpeak.github.io/blog/2014/08/02/reactivecocoazhi-nan-%5B%3F%5D-:xin-hao/" target="_blank" rel="external">ReactiveCocoa Tutorial – the Definitive Introduction: Part 1/2</a></li>
+<li><a href="http://www.itiger.me/?p=38" target="_blank" rel="external">使用ReactiveCocoa实现iOS平台响应式编程</a></li>
+<li><a href="http://blog.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">唐巧 ReactiveCocoa - iOS开发的新框架</a></li>
+</ul>
+<h1 id="u89C6_u9891"><a href="#u89C6_u9891" class="headerlink" title="视频"></a>视频</h1><iframe height="498" width="510" src="http://player.youku.com/embed/XNzQ3OTAxNzYw" frameborder="0" allowfullscreen></iframe>
+
+<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li>2015.12.22 上周六的时候，<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>讲了有关于ReactiveCocoa的很多干货，我写了一篇<a href="">博客</a>，大部分都是对他将的内容的整理和一点感悟。</li>
+</ul>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没]]>
+    </summary>
+    
+      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
+    
+      <category term="ReactiveCocoa" scheme="http://yeziahehe.com/tags/ReactiveCocoa/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[使用Travis CI自动构建Hexo静态博客]]></title>
     <link href="http://yeziahehe.com/2015/12/13/2015-12-13-%E4%BD%BF%E7%94%A8Travis%20CI%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAHexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yeziahehe.com/2015/12/13/2015-12-13-使用Travis CI自动构建Hexo静态博客/</id>
     <published>2015-12-13T15:35:55.000Z</published>
-    <updated>2015-12-16T16:17:43.000Z</updated>
+    <updated>2015-12-21T14:26:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。</p>
 <p>我2014年的时候自己买了域名，用<code>jekyll + GitHub Pages</code>搭建了自己的博客（目前正在考虑换到Hexo，而Coryphaei技术博客就是采用的Hexo）。我同样也了搭建我们公司的<a href="http://blog.coryphaei.com/" target="_blank" rel="external">技术博客</a>，大家有兴趣可以访问，我的很多干货也将发表到那边。</p>
 <h1 id="u6280_u672F"><a href="#u6280_u672F" class="headerlink" title="技术"></a>技术</h1><p>Coryphaei技术博客采用的是<code>Hexo + GitHub Pages + Travis CI</code>的技术方案，实现了多人同时更新博客并且自动化构建。</p>
@@ -88,6 +190,7 @@
 </ul>
 <p>解决办法就是<code>hexo g</code>命令做两遍，这个也是为什么我<code>.travis.yml</code>中的Hexo配置命令写了两遍的原因。被这个问题纠缠了很久，希望写出来能帮到大家，如果你没有问题就不需要在<code>.travis.yml</code>中写两遍命令。</p>
 <h1 id="u7ED3_u8BED"><a href="#u7ED3_u8BED" class="headerlink" title="结语"></a>结语</h1><p>这个是我搭建这个博客写的第一篇文章，我也发现我这次解决问题回去弄个明白，回想之前写的博客，其实干货真的很少，知识也很肤浅，这次搭建博客-发现问题-解决问题给了我很好的体验，也让我学到了很多，我会尽可能的去写很多的干货去和大家分享！共勉！</p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常]]>

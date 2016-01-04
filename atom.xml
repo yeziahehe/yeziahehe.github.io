@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2015-12-21T14:31:38.000Z</updated>
+  <updated>2016-01-04T13:46:51.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,11 +15,368 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Bye 2015，Hi 2016]]></title>
+    <link href="http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/"/>
+    <id>http://yeziahehe.com/2016/01/04/Bye 2015，Hi 2016/</id>
+    <published>2016-01-04T07:25:09.000Z</published>
+    <updated>2016-01-04T13:46:51.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢慢的开始长大，开始离开父母的庇护，一个人去体验这个世界。</p>
+<h1 id="u5173_u4E8E_u5B66_u4E1A"><a href="#u5173_u4E8E_u5B66_u4E1A" class="headerlink" title="关于学业"></a>关于学业</h1><p>2015年下半年，我大四了，临近毕业，正好对四年大学的生活做一个总结。<br>我记得我刚刚进大学的时候一心就是要参与学校的组织里面去，希望能够慢慢的做个有影响力的人。我今年最大的感悟，发现彦祖和百万都再利用自己的影响力，去给整个移动开发生态圈营造良好的学习和分享氛围。我很感谢他们，也很感谢这个信息爆炸的时代。继续说我，当初刚刚进大学的想法，因为我摔了脚，无奈做了手术，在家休养了很久。等我再回学校的时候，发现我和学生组织已经脱节了，他们玩的很开心，彼此都熟悉了。我也庆幸，我卧床休养的那几个月，我把我的windows系统删了，装了个OS X系统，捣鼓了iOS的开发。这么说来，我从2012年的年底就开始接触移动开发了。<br>大二大三的时候，我慢慢离开了学生组织，辞去了班长，加入了实验室，正式开始做iOS的开发。说实话，我承认自己的学校确实大氛围并没有那么好，江苏某发展很好的城市的唯一一所211，我自己一个人捣鼓，那一年多的时间，技术进步的很慢。但是没有比较就不知道人外有人、天外有天。大二的暑假我没回家，在实验室捣鼓了一暑假，给学校做了个app。大三暑假我也没有回家，去了一家很小的公司实习，学到了不少。<br>大四了，我也要毕业，我感觉大学这四年，我的学业我没有花心思，我的技术投入了很多精力，但是却也没有成为大牛。总结下来，其实还是觉得自己四年书读的太少，对于问题的思考也没有那么积极。</p>
+<h1 id="u5173_u4E8E_u521B_u4E1A"><a href="#u5173_u4E8E_u521B_u4E1A" class="headerlink" title="关于创业"></a>关于创业</h1><p>创业，这个字眼本来根本不会出现在我人生的字典轨迹里面。我大四的时候准备出国，在考完GRE之后，还是跟我的两个室友一拍即合，成立了公司。<br>我觉得对于我们来说，根本不能用创业这个词来描述我们所做的工作，应该用 <strong>生存</strong> 这个词来描述。<br>年轻气盛，什么都不怕，我们从今年的4月份开始准备公司注册，到成立公司，到现在运营，回头看看真的像做梦一样。<br>我的两个室友，一个做Android开发，一个做服务端开发，我们就是铁三角组合。最初，其实想法很简单，搞一个项目，拿到融资，当上CEO，赢取白富美，走上人生巅峰。后来发现，现实不是这样，资本寒冬来了之后，融资变得异常困难。我们开始接外包，为了生存下去，7月份到11月份，我自己从公司拿了4k做生活费。 <strong>等你正真开始走进社会的时候，你才知道，社会比你想象的要残酷的多。</strong> 我们经历很多奇奇怪怪的客户，要求苛刻的客户，而项目的款项也并没有如期的收回来，公司的处境越来越难。11月被迫，解散了其他的同事，只剩下我们三个人。<br>今年，我觉得我从社会里面学到了太多太多，我也从一个学生思维转变到了社会思维，我没有后悔没出国，也没有后悔这几个月艰苦的日子，我觉得这是我这辈子的财富。<br>我也希望，所有创业的大学生小伙伴，都能够成功，但是大家如果没有好的idea，没有足够运营经验的人帮助，大家轻易不要去尝试。 <strong>路还长，等我们装备精良，再出发。</strong></p>
+<h1 id="u5173_u4E8E_u804C_u4E1A_u751F_u6DAF"><a href="#u5173_u4E8E_u804C_u4E1A_u751F_u6DAF" class="headerlink" title="关于职业生涯"></a>关于职业生涯</h1><p>我对于职业生涯，其实想的很简单， <strong>我想去看更大的世界。</strong> 我创过业，自己折腾了很久的技术，我也看到影响力大的人在传播技术、分享技术。我想加入他们，与他们一起去看更大的世界。<br>对于即将要毕业的我，只剩下明年的春招，我觉得我该去试试，离开我自己折腾这么久的地方，去远方看看。</p>
+<h1 id="u5173_u4E8E_u7231_u60C5"><a href="#u5173_u4E8E_u7231_u60C5" class="headerlink" title="关于爱情"></a>关于爱情</h1><p>年初，分手了，后来断断续续的也有过恋爱。现在单着，我觉得自己还是不够成熟，不够稳重。我无数次期待未来的生活，期待未来的她，我也不知道我以后会怎么样， <strong>我爱着她，她也爱着我，这是我心里最理想的状态。</strong></p>
+<h1 id="u5173_u4E8E_u751F_u6D3B_u548C_u672A_u6765"><a href="#u5173_u4E8E_u751F_u6D3B_u548C_u672A_u6765" class="headerlink" title="关于生活和未来"></a>关于生活和未来</h1><p>我看完了很多人的总结，我发现我根本不热爱生活，我的生活总是那么的单调，没有生活情趣。生活中的很多细节，会让一个人慢慢的热爱上生活，热爱上工作，也变得积极。<br>今年在自己的城市买了房子，但是应该会出现几年，看看更大的世界，最后再回到这里。希望未来，越来越好。<br>关于未来，我希望：</p>
+<ul>
+<li><strong>读书，不再全部是技术类的书，读点其他方面的书，争取写出读书笔记，今年目标10本。</strong></li>
+<li><strong>健身，我办了健身卡，却一直放在包里，今年努力健身，练出好的身材，每周健身2次。</strong></li>
+<li><strong>摄影，我开始慢慢的喜欢上欣赏美的东西，今年希望自己能赚到钱买到入门级的单反，学好摄影。</strong></li>
+<li><strong>练字，下半年毕业后，准备重拾丢了多年的楷书。</strong></li>
+<li><strong>设备，2012mid的MBP要换了，还是努力挣钱，或者称手的家伙。</strong></li>
+<li><strong>工作，我心里有了目标，希望今年加油。</strong></li>
+<li><strong>技术，左右影响力的事情，热爱开源，多认识大牛。</strong></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢]]>
+    </summary>
+    
+      <category term="2015" scheme="http://yeziahehe.com/tags/2015/"/>
+    
+      <category term="总结" scheme="http://yeziahehe.com/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="随想" scheme="http://yeziahehe.com/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS开发工程师职业图谱]]></title>
+    <link href="http://yeziahehe.com/2016/01/04/iOS%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E5%9B%BE%E8%B0%B1/"/>
+    <id>http://yeziahehe.com/2016/01/04/iOS开发工程师职业图谱/</id>
+    <published>2016-01-04T03:11:07.000Z</published>
+    <updated>2016-01-04T13:46:42.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https://github.com/jikexueyuanwiki/skillmap" target="_blank" rel="external">IT技能图谱</a>，针对<a href="https://github.com/jikexueyuanwiki/skillmap/blob/master/iOS.md" target="_blank" rel="external">iOS 开发工程师</a>的职业图谱，我决定做个技能树的完成度评估。</p>
+<h1 id="u8BF4_u660E"><a href="#u8BF4_u660E" class="headerlink" title="说明"></a>说明</h1><ul>
+<li>难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5)</li>
+<li>达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5)</li>
+<li><del>删除线</del>代表该项基本完成，未完成的部分准备补上进度百分比。</li>
+</ul>
+<h1 id="u804C_u4E1A_u56FE_u8C31"><a href="#u804C_u4E1A_u56FE_u8C31" class="headerlink" title="职业图谱"></a>职业图谱</h1><ul>
+<li>通用基础(R3,P2)<ul>
+<li>理论基础(R4,P3)<ul>
+<li>数据结构(R4,P3)</li>
+<li>算法(R4,P3)</li>
+</ul>
+</li>
+<li>编程语言(R3,P2)<ul>
+<li>Objective-C(R3,P3)</li>
+<li>Swift(R3,P2)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Objective-C基础(R3,P3)<ul>
+<li>Objective-C基本语法(R2,P4)<ul>
+<li><del>变量(R2,P4)</del></li>
+<li><del>常量(R2,P4)</del></li>
+<li><del>数据类型(R2,P4)</del></li>
+<li><del>运算符和表达式(R2,P4)</del></li>
+<li><del>判断(R2,P4)</del></li>
+<li><del>循环(R2,P4)</del></li>
+<li><a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese" target="_blank" rel="external">Objective-C编码规范</a>(R2,P4)</li>
+</ul>
+</li>
+<li>Objective-C语法进阶(R3,P3)<ul>
+<li><del>类和对象(R3,P3)</del></li>
+<li><del>属性和变量(R3,P3)</del></li>
+<li><del>继承(R3,P3)</del></li>
+<li><del>多态(R3,P3)</del></li>
+<li>动态绑定(R3,P3)</li>
+<li>block块(R3,P3)</li>
+<li>异常处理(R3,P3)</li>
+<li><del>Category类别(R3,P3)</del></li>
+<li>Extension扩展(R3,P3)</li>
+<li><del>Protocol协议 (R3,P3)</del></li>
+</ul>
+</li>
+<li>Objective-C高级语法(R4,P2)<ul>
+<li>KVC(R4,P2)</li>
+<li>KVO(R4,P2)</li>
+<li><del>Notification(R4,P2)</del></li>
+<li><del>引用计数与ARC(R4,P2)</del></li>
+<li>内存管理(R4,P4)</li>
+<li>多线程(R4,P3)</li>
+</ul>
+</li>
+<li>Objective-C Foundation框架(R3,P3)<ul>
+<li><del>NSNumber(R3,P3)</del></li>
+<li><del>NSString(R3,P4)</del></li>
+<li><del>NSArray(R3,P4)</del></li>
+<li><del>NSDictionary(R3,P4)</del></li>
+<li><del>NSSet(R3,P2)</del></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Swift基础(R2,P2)<ul>
+<li>Swift基本语法(R2,P2)<ul>
+<li>变量(R2,P2)</li>
+<li>常量(R2,P2)</li>
+<li>数据类型(R2,P2)</li>
+<li>判断(R2,P2)</li>
+<li>循环(R2,P2)</li>
+<li>Swift编码规范(R2,P2)</li>
+</ul>
+</li>
+<li>Swift语法进阶(R3,P2)<ul>
+<li>Swift字符串(R3,P2)</li>
+<li>数组(R3,P2)</li>
+<li>字典(R3,P2)</li>
+<li>元组(R3,P2)</li>
+<li>函数(R3,P2)</li>
+<li>可选型optionals(R3,P2)</li>
+<li>枚举(R3,P2)</li>
+<li>闭包 (R3,P2)</li>
+</ul>
+</li>
+<li>Swift高级语法(R4,P1)<ul>
+<li>Swift和Objective-C混合编程(R3,P1)</li>
+<li>Swift源码(R5,P1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>iOS开发基础(R2,P3)<ul>
+<li>iOS基础(R2,P3)<ul>
+<li>iOS生命周期(R3,P3)</li>
+<li>事件与消息(R3,P3)</li>
+<li><del>模拟器(R2,P2)</del></li>
+<li><del>真机调试(R2,P2)</del></li>
+</ul>
+</li>
+<li>UI控件(R2,P4)<ul>
+<li><del>Button(R2,P4)</del></li>
+<li><del>Label(R2,P4)</del></li>
+<li><del>ImageView(R2,P4)</del></li>
+<li><del>ScrollView(R2,P4)</del></li>
+<li><del>TableView(R4,P4)</del></li>
+<li><del>CollectionView(R4,P3)</del></li>
+<li><del>自定义控件(R4,P2)</del></li>
+</ul>
+</li>
+<li>界面布局(R3,P3)<ul>
+<li>代码布局(R3,P3)</li>
+<li><del>nib/xib文件(R2,P3)</del></li>
+<li>storyboard(R2,P3)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>iOS开发进阶(R3,P3)<ul>
+<li>动画效果(R3,P2)<ul>
+<li>UIView动画(R3,P2)</li>
+<li>Core Animation(R3,P2)</li>
+<li>第三方动画库pop(R3,P1)</li>
+</ul>
+</li>
+<li>多线程(R4,P4)<ul>
+<li>NSThread(R4,P3)</li>
+<li>NSOperationQueue(R4,P4)</li>
+<li>GCD(R3,P4)   </li>
+</ul>
+</li>
+<li>数据存储(R3,P4)<ul>
+<li><del>NSUserDefault(R3,P4)</del></li>
+<li>SQLite(R3,P2)</li>
+<li>CoreData(R3,P4)</li>
+</ul>
+</li>
+<li>数据处理(R3,P3)<ul>
+<li><del>Model(R4,P3)</del></li>
+<li>XML解析(R3,P4)</li>
+<li><del>JSON解析(R3,P4)</del></li>
+</ul>
+</li>
+<li>物理特性(R3,P1)<ul>
+<li><del>各类传感器(R3,P1)</del></li>
+<li><del>摄像头(R3,P1)</del></li>
+<li>指纹识别(R3,P1)</li>
+<li>Force Touch(R3,P1)</li>
+</ul>
+</li>
+<li>网络与通信(R3,P3)<ul>
+<li><del>Http(R3,P4)</del></li>
+<li>Socket(R3,P2)</li>
+<li>SOAP(R3,P2)</li>
+<li><del>抓包(R4,P1)</del></li>
+</ul>
+</li>
+<li>屏幕适配(R3,P3)<ul>
+<li>代码适配(R3,P4)</li>
+<li><del>Autoresizing(R2,P4)</del></li>
+<li><del>AutoLayout(R3,P3)</del></li>
+<li>Size Classes(R4,P2)    </li>
+</ul>
+</li>
+<li>其他(R3,P2)<ul>
+<li>多点触控(R3,P1)</li>
+<li><del>手势识别(R3,P1)</del></li>
+<li>传感器(R3,P1)</li>
+<li><del>定位(R3,P3)</del></li>
+<li>电源管理(R3,P1)</li>
+<li><del>消息推送(R3,P3)</del>  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>iOS高级开发(R4,P2)<ul>
+<li>iOS架构(R4，P2)<ul>
+<li><del>MVC(R3,P2)</del></li>
+<li><del>MVVM(R4,P1)</del></li>
+<li>设计模式(R5,P2)</li>
+</ul>
+</li>
+<li>第三方框架(R3,P2)<ul>
+<li><del>AFNetworking(R3,P3)</del></li>
+<li><del>SDWebImage(R3,P2)</del></li>
+<li><del>MBProgressHUD(R3,P2)</del></li>
+<li>Masonry(R3,P1)     </li>
+</ul>
+</li>
+<li>第三方SDK(R3,P2)<ul>
+<li><del>分享(R3,P3)</del></li>
+<li>第三方登录(R4,P2)</li>
+<li><del>短信验证码(R3,P3)</del>  </li>
+<li>其他各类API(R3,P2)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>开发效率(R3,P3)<ul>
+<li>IDE(R2,P4)<ul>
+<li>Xcode(R2,P4)</li>
+</ul>
+</li>
+<li>插件(R2,P1)<ul>
+<li><del>Alcatraz(R2,P1)</del>   </li>
+</ul>
+</li>
+<li>包管理(R2,P3)<ul>
+<li><del>Cocoapods</del>   </li>
+</ul>
+</li>
+<li>版本控制(R2,P3)<ul>
+<li><del>Git(R2,P3)</del></li>
+<li><del>SVN(R2,P3)</del></li>
+</ul>
+</li>
+<li>应用内测与分发(R2,P1)<ul>
+<li>Pre.im(R2,P1)</li>
+<li><del>蒲公英(R2,P1)</del></li>
+</ul>
+</li>
+<li>后台服务(R2,P1)<ul>
+<li><a href="http://www.bmob.cn/" target="_blank" rel="external">Bmob</a>(R2,P1)</li>
+<li><a href="http://www.parse.com/" target="_blank" rel="external">Parse</a> (R2,P1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https:]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="skillmap" scheme="http://yeziahehe.com/tags/skillmap/"/>
+    
+      <category term="skillmap" scheme="http://yeziahehe.com/categories/skillmap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[浅谈iOS中Library和Framework]]></title>
+    <link href="http://yeziahehe.com/2015/12/30/%E6%B5%85%E8%B0%88iOS%E4%B8%ADLibrary%E5%92%8CFramework/"/>
+    <id>http://yeziahehe.com/2015/12/30/浅谈iOS中Library和Framework/</id>
+    <published>2015-12-30T02:40:25.000Z</published>
+    <updated>2016-01-04T13:47:25.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打包。打包好的代码是编译完成的二进制文件，在项目进行编译的时候链接上，确实一定程度的减少编译时间。</p>
+<h1 id="u5E93_u7684_u672C_u8D28"><a href="#u5E93_u7684_u672C_u8D28" class="headerlink" title="库的本质"></a>库的本质</h1><p>库的本质，我觉得非常好理解。我们首先要知道对于所有的库，都是进行编译的，而编译生成的其实是一段二进制代码。所以我们可以给库下个定义：</p>
+<blockquote>
+<p>提供头文件的编译好的二进制代码。</p>
+</blockquote>
+<p>对于库的链接，分为了动态链接和静态链接，这也就产生了iOS中的静态库和动态库。</p>
+<h1 id="u9759_u6001_u5E93_u548C_u52A8_u6001_u5E93"><a href="#u9759_u6001_u5E93_u548C_u52A8_u6001_u5E93" class="headerlink" title="静态库和动态库"></a>静态库和动态库</h1><p>静态库（Windows 下的 .lib，Linux 和 Mac 下的 .a）。<br>动态库（Windows 下的 .dll，Linux 下的 .so，Mac 下的 .dylib）。</p>
+<p>和所有平台所理解静态链接库、动态链接库一样，静态和动态都是相对于编译和运行来讲的：静态库在编译的时候就会被拷贝到目标程序中，运行的时候就不会在改变了；动态库在编译的时候是不会拷贝到目标程序中，在运行的时候会将库加载进来。</p>
+<h2 id="u7F16_u8BD1_u548C_u8FD0_u884C"><a href="#u7F16_u8BD1_u548C_u8FD0_u884C" class="headerlink" title="编译和运行"></a>编译和运行</h2><p>区分下编译和运行的概念。在Xcode中我们进行CMD+R的时候其实做了很多的步骤，编译和运行都包括在其中。</p>
+<p>编译：如果我们自己打包的时候，使用的是CMD+B的命令，其实是调用了LLVM编译器，进行编译，编程计算机能识别的二进制码。<br>运行：将编译生成的文件链接为可执行文件并进行运行。</p>
+<p>静态库就是在目标程序编译的时候已经存在了编译好了的二进制代码，所以说目标程序编译的时候不需要对这段代码进行改变，而且还减少了编译时间。<br>动态库就是在目标程序编译的时候不去链接，而是创建了引用，在运行的时候，进行对动态库的链接和编译。</p>
+<h2 id="u4F18_u7F3A_u70B9"><a href="#u4F18_u7F3A_u70B9" class="headerlink" title="优缺点"></a>优缺点</h2><p>静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。</p>
+<p>动态库的优点，不需要拷贝到目标程序中，不会影响目标程序的体积，而且同一份库可以被多个程序使用（因为这个原因，动态库也被称作共享库）。同时，编译时才载入的特性，也可以让我们随时对库进行替换，而不需要重新编译代码，这样就可以实现动态更新。动态库带来的问题主要是，动态载入会带来一部分性能损失，使用动态库也会使得程序依赖于外部环境。如果环境缺少动态库或者库的版本不正确，就会导致程序无法运行。</p>
+<h1 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h1><p>Framework是Mac OS/iOS平台特有的一种打包方式，将编译生成的二进制文件、头文件、资源文件统一打包。可以包含如下的东西：</p>
+<ul>
+<li>共享库</li>
+<li>描述API的头文件</li>
+<li>文档</li>
+<li>资源文件（UI，Assets，配置文件）</li>
+</ul>
+<p>在iOS 8之前我们Framework其实就是静态库，原因很简单，之前Apple官方不支持动态打包，我们只能使用官方的UIKit或者Foundation等Framework。从iOS 8之后苹果开放了对动态Framework的支持，这应该是苹果为支持 Extension 这一特性而做出的选择（Extension 和 App 是两个分开的可执行文件，它们之间共享代码，所以需要 Framework 支持）。不过我们这个和系统还是有区别，系统的 Framework 不需要拷贝到目标程序中，我们自己做出来的 Framework 哪怕是动态的，最后也还是要拷贝到 App 中，因此苹果又把这种 Framework 称为Embedded Framework。这个时候所谓的动态库其实意义就是升级版的静态库，因为动态库使用的前提是项目在发布前添加到项目中，这和我们所谓的插件（即插即用，随时在自己的服务器上下载一个动态库运行，而不需要重新打包，我们可以选择在需要的时候再加载动态库）完全是两码事。当然我们可以通过方法去实现Framework的动态更新，这里不做赘述。</p>
+<h2 id="u521B_u5EFA"><a href="#u521B_u5EFA" class="headerlink" title="创建"></a>创建</h2><p>应该说现在创建一个Framework非常的方便，我们基本上不需要很简单的就能够制作一个Framework。<br>首先我们新建一个Framwork的项目<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fcreate_framework.png" alt="新建项目"></p>
+<p>然后把我们需要创建的文件加入其中，注意这边添加的是Swift的文件，因为Swift中是没有.h和.m的，所以会默认会帮你生成一个xxx-Swift.h的头文件，其中是所有public属性和方法都暴露了出来。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fadd_file.png" alt="添加文件"></p>
+<h2 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h2><p>接下来应该是有个配置的过程，这边需要详细讲下这些变量是什么意思。</p>
+<h3 id="arm"><a href="#arm" class="headerlink" title="arm"></a>arm</h3><p>arm代表的是使用的设备的处理器的型号，大致分为以下几种：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arm64 = iPhone <span class="number">5</span>s, iPad Air, Retina iPad Mini</span><br><span class="line">armv7s = iPhone <span class="number">5</span>, iPhone <span class="number">5</span>c, iPad <span class="number">4</span></span><br><span class="line">armv7  = iPhone <span class="number">3</span>GS, iPhone <span class="number">4</span>, iPhone <span class="number">4</span>S, iPod <span class="number">3</span>G/<span class="number">4</span>G/<span class="number">5</span>G, iPad, iPad <span class="number">2</span>, iPad <span class="number">3</span>, iPad Mini   </span><br><span class="line">i386 = <span class="number">32</span> bit simulator</span><br><span class="line">x86_64 = <span class="number">64</span> bit simulator</span><br></pre></td></tr></table></figure></p>
+<h3 id="u51E0_u4E2A_u8BBE_u7F6E"><a href="#u51E0_u4E2A_u8BBE_u7F6E" class="headerlink" title="几个设置"></a>几个设置</h3><p>Architectures：该编译选项指定了工程将被编译成支持哪些指令集，支持指令集是通过编译生成对应的二进制数据包实现的，如果支持的指令集数目有多个，就会编译出包含多个指令集代码的数据包，造成最终编译的包很大。<br>Valid Architectures：该编译项指定可能支持的指令集。<br>最后生成的支持工程的指令集应该是上面两个所产生的交集。</p>
+<p>Build Active Architecture Only：该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>当这个选项设置为YES的时候，不管Architectures和Valid Architectures设置为什么，最后都只会输出支持当前使用设备对应的arm指令集。<br>通常debug选择YES，release选择NO。</p>
+<p>有关于指令集的选择，因为指令集有着向下兼容的特性，所以说为了减少包的大小，我们通常选择只支持armv7，在armv7s和arm64的机器上同样可以使用，当然性能有部分损失，可以忽略不计。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fconfig.png" alt="config"></p>
+<h2 id="u7F16_u8BD1"><a href="#u7F16_u8BD1" class="headerlink" title="编译"></a>编译</h2><p>有关于编译，一共有两种方式：release和debug。<br>可以手动设置run的方式。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run.png" alt="modify_run"><br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run_release.png" alt="modify_run_release"></p>
+<h2 id="u5B8C_u6210"><a href="#u5B8C_u6210" class="headerlink" title="完成"></a>完成</h2><p>Products里面生成了Framework，找到Framework的位置。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png" alt="Fframework_finish"></p>
+<h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</span><br></pre></td></tr></table></figure></p>
+<p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有关于库的出现场景，其实很简单的回答就是，不愿意]]>
+    </summary>
+    
+      <category term="Framework" scheme="http://yeziahehe.com/tags/Framework/"/>
+    
+      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
+    
+      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="叶帆" scheme="http://yeziahehe.com/categories/%E5%8F%B6%E5%B8%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[《Effective Objective-C 2.0--编写高质量iOS与OS X代码的52个有效方法》总结]]></title>
+    <link href="http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0--%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8FiOS%E4%B8%8EOS%20X%E4%BB%A3%E7%A0%81%E7%9A%8452%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E3%80%8B%E6%80%BB%E7%BB%93/"/>
+    <id>http://yeziahehe.com/2015/12/26/《Effective Objective-C 2.0--编写高质量iOS与OS X代码的52个有效方法》总结/</id>
+    <published>2015-12-26T04:36:48.000Z</published>
+    <updated>2015-12-26T05:45:20.000Z</updated>
+    <content type="html"><![CDATA[<p>TODO</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>TODO</p>
+]]>
+    </summary>
+    
+      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="读书笔记" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Objective-C新纪元--ReactiveCocoa框架]]></title>
     <link href="http://yeziahehe.com/2015/12/15/Objective-C%E6%96%B0%E7%BA%AA%E5%85%83--ReactiveCocoa%E6%A1%86%E6%9E%B6/"/>
     <id>http://yeziahehe.com/2015/12/15/Objective-C新纪元--ReactiveCocoa框架/</id>
     <published>2015-12-15T06:56:46.000Z</published>
-    <updated>2015-12-21T14:31:38.000Z</updated>
+    <updated>2016-01-04T13:47:25.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCocoa的文章篇幅都很长，其实大家都在简洁的语言来讲，我的这边文章应该写完也是长篇幅，希望大家可以耐心的看完。</p>
 <h1 id="u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B"><a href="#u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B" class="headerlink" title="函数响应式编程"></a>函数响应式编程</h1><p>ReactiveCocoa的基本思想就是<code>函数响应式编程（Function Reactive Programming，以下简称FRP）</code>。FRP是一种响应变化的编程范式。我们通常会拿一个经典的例子来解释概念。</p>
 <h2 id="u7406_u5FF5"><a href="#u7406_u5FF5" class="headerlink" title="理念"></a>理念</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b<span class="comment">// c = 4</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line"><span class="comment">// 现在c的值是多少？</span></span><br></pre></td></tr></table></figure>
@@ -95,12 +452,11 @@
 <li><a href="http://www.itiger.me/?p=38" target="_blank" rel="external">使用ReactiveCocoa实现iOS平台响应式编程</a></li>
 <li><a href="http://blog.devtang.com/blog/2014/02/11/reactivecocoa-introduction/" target="_blank" rel="external">唐巧 ReactiveCocoa - iOS开发的新框架</a></li>
 </ul>
-<h1 id="u89C6_u9891"><a href="#u89C6_u9891" class="headerlink" title="视频"></a>视频</h1><iframe height="498" width="510" src="http://player.youku.com/embed/XNzQ3OTAxNzYw" frameborder="0" allowfullscreen></iframe>
+<h1 id="u89C6_u9891"><a href="#u89C6_u9891" class="headerlink" title="视频"></a>视频</h1><iframe height="498" width="510" src="http://player.youku.com/embed/XMTQxOTIyOTQyMA==" frameborder="0" allowfullscreen></iframe>
 
 <h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
 <li>2015.12.22 上周六的时候，<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>讲了有关于ReactiveCocoa的很多干货，我写了一篇<a href="">博客</a>，大部分都是对他将的内容的整理和一点感悟。</li>
 </ul>
-<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没]]>
@@ -112,7 +468,7 @@
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
-      <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
+      <category term="叶帆" scheme="http://yeziahehe.com/categories/%E5%8F%B6%E5%B8%86/"/>
     
   </entry>
   
@@ -805,95 +1161,6 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[UINavigationBar点击事件]]></title>
-    <link href="http://yeziahehe.com/2015/07/29/2015-07-29-UINavigationBar%E6%B7%BB%E5%8A%A0%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://yeziahehe.com/2015/07/29/2015-07-29-UINavigationBar添加点击事件/</id>
-    <published>2015-07-29T15:13:08.000Z</published>
-    <updated>2015-12-16T15:13:17.000Z</updated>
-    <content type="html"><![CDATA[<p>最近写项目遇到了UINavigationBar需要点击选择校区，发现有个很简单的方法，同样是要重写UINavigationController的方法，并且继承</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  CustomNavigationController.m</span></span><br><span class="line"><span class="comment">//  SJFood</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 叶帆 on 14/11/25.</span></span><br><span class="line"><span class="comment">//  Copyright (c) 2014年 Ye Fan. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"CustomNavigationController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CustomNavigationController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CustomNavigationController</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - Private Methods</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationBarTappedWithGesture:(<span class="built_in">UITapGestureRecognizer</span> *)tapGesture</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIViewController</span> *vc = <span class="keyword">self</span><span class="variable">.visibleViewController</span>;</span><br><span class="line">    <span class="keyword">if</span>([vc respondsToSelector:<span class="keyword">@selector</span>(extraItemTapped)])</span><br><span class="line">    &#123;</span><br><span class="line">        [vc performSelector:<span class="keyword">@selector</span>(extraItemTapped)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - UIViewController Methods</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//加入头部点击手势</span></span><br><span class="line">    <span class="built_in">UITapGestureRecognizer</span> *tapGesture = [[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(navigationBarTappedWithGesture:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.navigationBar</span> addGestureRecognizer:tapGesture];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>最近写项目遇到了UINavigationBar需要点击选择校区，发现有个很简单的方法，同样是要重写UINavigationController的方法，并且继承</p>
-<figure class="highlight objc"><table><tr><td class="]]>
-    </summary>
-    
-      <category term="UINavigationBar" scheme="http://yeziahehe.com/tags/UINavigationBar/"/>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Masonry源码学习]]></title>
-    <link href="http://yeziahehe.com/2015/07/21/2015-07-21-Masonry%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yeziahehe.com/2015/07/21/2015-07-21-Masonry学习/</id>
-    <published>2015-07-21T15:00:57.000Z</published>
-    <updated>2015-12-16T15:12:49.000Z</updated>
-    <content type="html"><![CDATA[<p>如果做iOS开发，那么布局的学习肯定是逃不掉的，目前最好的布局工具就是<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a>。</p>
-<h3 id="u65B9_u6CD5_u5206_u6790"><a href="#u65B9_u6CD5_u5206_u6790" class="headerlink" title="方法分析"></a>方法分析</h3><p>Masonry添加约束的方法有三个</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)mas_makeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)mas_updateConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)mas_remakeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">mas_makeConstraints 只负责新增约束 Autolayout不能同时存在两条针对于同一对象的约束 否则会报错</span><br><span class="line">mas_updateConstraints 针对上面的情况 会更新在block中出现的约束 不会导致出现两个相同约束的情况</span><br><span class="line">mas_remakeConstraints 则会清除之前的所有约束 仅保留最新的约束</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>如果做iOS开发，那么布局的学习肯定是逃不掉的，目前最好的布局工具就是<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a>。</p>
-<h3 id="u]]>
-    </summary>
-    
-      <category term="Masonry" scheme="http://yeziahehe.com/tags/Masonry/"/>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[jekyll环境安装]]></title>
-    <link href="http://yeziahehe.com/2015/07/15/2015-07-15-jekyll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yeziahehe.com/2015/07/15/2015-07-15-jekyll环境搭建/</id>
-    <published>2015-07-15T14:55:00.000Z</published>
-    <updated>2015-12-16T15:01:41.000Z</updated>
-    <content type="html"><![CDATA[<p>在狗爹上面买了域名之后，忍不住搭了博客，这次用的github page + jekyll的静态博客。</p>
-<p>jekyll的口号就是将纯文本转化成静态网站和博客，尝试了一下，发现很好用，官方网站:<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">http://jekyll.bootcss.com/</a></p>
-<p>安装Homebrew的开发环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>可能会碰到以下情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access <span class="string">'https://github.com/Homebrew/homebrew/'</span>: SSLRead() <span class="built_in">return</span> error -<span class="number">9806</span> Failed during: git fetch origin</span><br><span class="line">master:refs/remotes/origin/master -n --depth=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>需要在/etc/resolv.conf中加上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver <span class="number">8.8</span>.<span class="number">8.8</span>&lt;br&gt;</span><br><span class="line">nameserver <span class="number">114.114</span>.<span class="number">114.114</span></span><br></pre></td></tr></table></figure>
-<p>如果出现了Permission denied需要分配权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R <span class="variable">$USER</span> /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
-<p>在Mac上面配置jekyll的开发环境首先需要需要配置好rvm，否则会报各种花式错误！</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash <span class="operator">-s</span> stable</span><br></pre></td></tr></table></figure>
-<p>然后重新source一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
-<p>接下我就开始安装ruby-2.1.1，但是报了如下错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Searching <span class="keyword">for</span> binary rubies, this might take some time.</span><br><span class="line">No binary rubies available <span class="keyword">for</span>: osx/<span class="number">10.10</span>/x86_64/ruby-<span class="number">2.1</span>.<span class="number">1</span>.</span><br><span class="line">Continuing with compilation. Please <span class="built_in">read</span> <span class="string">'rvm help mount'</span> to get more information on binary rubies.</span><br><span class="line">Checking requirements <span class="keyword">for</span> osx.</span><br><span class="line">Installing requirements <span class="keyword">for</span> osx.</span><br><span class="line">Updating system.......</span><br><span class="line">Error running <span class="string">'requirements_osx_brew_update_system ruby-2.1.1'</span>,</span><br><span class="line">showing last <span class="number">15</span> lines of /Users/ivan/.rvm/<span class="built_in">log</span>/<span class="number">1436855825</span>_ruby-<span class="number">2.1</span>.<span class="number">1</span>/update_system.log</span><br><span class="line">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span><br><span class="line">and make sure `brew update` works before continuing.<span class="string">'</span><br><span class="line">++ rvm_pretty_print stderr</span><br><span class="line">++ case "$&#123;rvm_pretty_print_flag:=auto&#125;" in</span><br><span class="line">++ case "$&#123;TERM:-dumb&#125;" in</span><br><span class="line">++ case "$1" in</span><br><span class="line">++ [[ -t 2 ]]</span><br><span class="line">++ return 1</span><br><span class="line">++ printf %b '</span>Failed to update Homebrew, follow instructions here:</span><br><span class="line">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span><br><span class="line">and make sure `brew update` works before continuing.\n<span class="string">'</span><br><span class="line">Failed to update Homebrew, follow instructions here:</span><br><span class="line">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span><br><span class="line">and make sure `brew update` works before continuing.</span><br><span class="line">++ return 1</span><br><span class="line">Requirements installation failed with status: 1.</span></span><br></pre></td></tr></table></figure>
-<p>谷歌了很久，提供的方案就是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew install autoconf</span><br><span class="line">brew install automake</span><br><span class="line">brew install libtool</span><br><span class="line">brew install homebrew/dupes/apple-gcc42</span><br><span class="line">brew install libyaml</span><br><span class="line">brew install libxslt</span><br><span class="line">brew install libksba</span><br><span class="line">brew install openssl</span><br></pre></td></tr></table></figure>
-<p>然后运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install <span class="number">2.1</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>接着开始安装jekyll</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll</span><br><span class="line">jekyll new my-awesome-site</span><br><span class="line"><span class="built_in">cd</span> my-awesome-site  </span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure>
-<p>最后就是Markdown语法高亮的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install redcarpet</span><br></pre></td></tr></table></figure>
-<p>然后去修改_congif.yml</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">markdown: redcarpet</span><br><span class="line">redcarpet:</span><br><span class="line">  extensions: [<span class="string">"no_intra_emphasis"</span>, <span class="string">"fenced_code_blocks"</span>, <span class="string">"autolink"</span>, <span class="string">"strikethrough"</span>, <span class="string">"superscript"</span>]</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在狗爹上面买了域名之后，忍不住搭了博客，这次用的github page + jekyll的静态博客。</p>
-<p>jekyll的口号就是将纯文本转化成静态网站和博客，尝试了一下，发现很好用，官方网站:<a href="http://jekyll.bootcss.com/"]]>
-    </summary>
-    
-      <category term="jekyll" scheme="http://yeziahehe.com/tags/jekyll/"/>
-    
-      <category term="blog" scheme="http://yeziahehe.com/categories/blog/"/>
     
   </entry>
   

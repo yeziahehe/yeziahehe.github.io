@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/about/index.html</loc>
+    <lastmod>2016-01-10T04:08:10.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/2016/01/09/2016%E5%B9%B4%E4%B9%A6%E5%8D%95/</loc>
-    <lastmod>2016-01-09T13:37:34.000Z</lastmod>
+    <lastmod>2016-01-10T03:34:09.000Z</lastmod>
   </url>
   
   <url>
@@ -149,11 +154,6 @@
   <url>
     <loc>http://yeziahehe.com/2015/07/15/2015-07-15-jekyll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2015-12-16T15:01:41.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/about/index.html</loc>
-    <lastmod>2015-12-16T14:19:54.000Z</lastmod>
   </url>
   
 </urlset>

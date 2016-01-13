@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[2016年书单和购物清单]]></title>
-    <link href="http://yeziahehe.com/2016/01/09/2016%E5%B9%B4%E4%B9%A6%E5%8D%95/"/>
-    <id>http://yeziahehe.com/2016/01/09/2016年书单/</id>
+    <link href="http://yeziahehe.com/2016/01/09/2016_year_book_list/"/>
+    <id>http://yeziahehe.com/2016/01/09/2016_year_book_list/</id>
     <published>2016-01-09T12:07:02.000Z</published>
     <updated>2016-01-10T03:34:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2016年的目标是读80本书，以前开复老师在微博上面讲过，一年读到100本书才算合格。今年的计划是80本书，在范围上，首先从手上买的一堆技术书籍开始，在逐步扩充到其他类别的图书。<br>另外今年手头上的设备慢慢要开始换了，这四年上大学都是老爸老妈给买的，准备开始逐步自己进行更换。</p>
@@ -81,8 +81,8 @@
   
   <entry>
     <title><![CDATA[Objective-C封装技巧（三）：比继承更加灵活的overwrite方法 -- Method Swizzling]]></title>
-    <link href="http://yeziahehe.com/2016/01/06/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E6%AF%94%E7%BB%A7%E6%89%BF%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E7%9A%84overwrite%E6%96%B9%E6%B3%95%20--%20Method%20Swizzling/"/>
-    <id>http://yeziahehe.com/2016/01/06/Objective-C封装技巧（三）：比继承更加灵活的overwrite方法 -- Method Swizzling/</id>
+    <link href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3)%EF%BC%9Aoverwrite_method--%20Method%20Swizzling/"/>
+    <id>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3)：overwrite_method-- Method Swizzling/</id>
     <published>2016-01-06T02:38:24.000Z</published>
     <updated>2016-01-07T16:03:50.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
@@ -150,8 +150,8 @@
   
   <entry>
     <title><![CDATA[Objective-C封装技巧（二）：与“魔鬼的交易” -- Associated Objects]]></title>
-    <link href="http://yeziahehe.com/2016/01/06/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E4%B8%8E%E2%80%9C%E9%AD%94%E9%AC%BC%E7%9A%84%E4%BA%A4%E6%98%93%E2%80%9D%20--%20Associated%20Objects/"/>
-    <id>http://yeziahehe.com/2016/01/06/Objective-C封装技巧（二）：与“魔鬼的交易” -- Associated Objects/</id>
+    <link href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2)%EF%BC%9A%20--%20Associated%20Objects/"/>
+    <id>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2)： -- Associated Objects/</id>
     <published>2016-01-06T01:42:32.000Z</published>
     <updated>2016-01-07T16:03:10.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
@@ -258,10 +258,10 @@
   
   <entry>
     <title><![CDATA[Objective-C封装技巧（一）：Category和继承的博弈]]></title>
-    <link href="http://yeziahehe.com/2016/01/05/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ACategory%E5%92%8C%E7%BB%A7%E6%89%BF%E7%9A%84%E5%8D%9A%E5%BC%88/"/>
-    <id>http://yeziahehe.com/2016/01/05/Objective-C封装技巧（一）：Category和继承的博弈/</id>
+    <link href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/"/>
+    <id>http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/</id>
     <published>2016-01-05T07:24:19.000Z</published>
-    <updated>2016-01-06T15:53:51.000Z</updated>
+    <updated>2016-01-09T12:05:44.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
 <p>平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。另外在继承的基础上我们发现了比继承更加灵活的Swizzling和在Category的使用过程出现的Associated Objects。关于上述的所有方法，我将会写一个系列来阐述。</p>
 <ul>
@@ -325,7 +325,7 @@
     <link href="http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/"/>
     <id>http://yeziahehe.com/2016/01/04/Bye 2015，Hi 2016/</id>
     <published>2016-01-04T07:25:09.000Z</published>
-    <updated>2016-01-04T13:46:51.000Z</updated>
+    <updated>2016-01-13T14:18:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢慢的开始长大，开始离开父母的庇护，一个人去体验这个世界。</p>
 <h1 id="u5173_u4E8E_u5B66_u4E1A"><a href="#u5173_u4E8E_u5B66_u4E1A" class="headerlink" title="关于学业"></a>关于学业</h1><p>2015年下半年，我大四了，临近毕业，正好对四年大学的生活做一个总结。<br>我记得我刚刚进大学的时候一心就是要参与学校的组织里面去，希望能够慢慢的做个有影响力的人。我今年最大的感悟，发现彦祖和百万都再利用自己的影响力，去给整个移动开发生态圈营造良好的学习和分享氛围。我很感谢他们，也很感谢这个信息爆炸的时代。继续说我，当初刚刚进大学的想法，因为我摔了脚，无奈做了手术，在家休养了很久。等我再回学校的时候，发现我和学生组织已经脱节了，他们玩的很开心，彼此都熟悉了。我也庆幸，我卧床休养的那几个月，我把我的windows系统删了，装了个OS X系统，捣鼓了iOS的开发。这么说来，我从2012年的年底就开始接触移动开发了。<br>大二大三的时候，我慢慢离开了学生组织，辞去了班长，加入了实验室，正式开始做iOS的开发。说实话，我承认自己的学校确实大氛围并没有那么好，江苏某发展很好的城市的唯一一所211，我自己一个人捣鼓，那一年多的时间，技术进步的很慢。但是没有比较就不知道人外有人、天外有天。大二的暑假我没回家，在实验室捣鼓了一暑假，给学校做了个app。大三暑假我也没有回家，去了一家很小的公司实习，学到了不少。<br>大四了，我也要毕业，我感觉大学这四年，我的学业我没有花心思，我的技术投入了很多精力，但是却也没有成为大牛。总结下来，其实还是觉得自己四年书读的太少，对于问题的思考也没有那么积极。</p>
 <h1 id="u5173_u4E8E_u521B_u4E1A"><a href="#u5173_u4E8E_u521B_u4E1A" class="headerlink" title="关于创业"></a>关于创业</h1><p>创业，这个字眼本来根本不会出现在我人生的字典轨迹里面。我大四的时候准备出国，在考完GRE之后，还是跟我的两个室友一拍即合，成立了公司。<br>我觉得对于我们来说，根本不能用创业这个词来描述我们所做的工作，应该用 <strong>生存</strong> 这个词来描述。<br>年轻气盛，什么都不怕，我们从今年的4月份开始准备公司注册，到成立公司，到现在运营，回头看看真的像做梦一样。<br>我的两个室友，一个做Android开发，一个做服务端开发，我们就是铁三角组合。最初，其实想法很简单，搞一个项目，拿到融资，当上CEO，赢取白富美，走上人生巅峰。后来发现，现实不是这样，资本寒冬来了之后，融资变得异常困难。我们开始接外包，为了生存下去，7月份到11月份，我自己从公司拿了4k做生活费。 <strong>等你正真开始走进社会的时候，你才知道，社会比你想象的要残酷的多。</strong> 我们经历很多奇奇怪怪的客户，要求苛刻的客户，而项目的款项也并没有如期的收回来，公司的处境越来越难。11月被迫，解散了其他的同事，只剩下我们三个人。<br>今年，我觉得我从社会里面学到了太多太多，我也从一个学生思维转变到了社会思维，我没有后悔没出国，也没有后悔这几个月艰苦的日子，我觉得这是我这辈子的财富。<br>我也希望，所有创业的大学生小伙伴，都能够成功，但是大家如果没有好的idea，没有足够运营经验的人帮助，大家轻易不要去尝试。 <strong>路还长，等我们装备精良，再出发。</strong></p>
@@ -339,7 +339,7 @@
 <li><strong>练字，下半年毕业后，准备重拾丢了多年的楷书。</strong></li>
 <li><strong>设备，2012mid的MBP要换了，还是努力挣钱，或者称手的家伙。</strong></li>
 <li><strong>工作，我心里有了目标，希望今年加油。</strong></li>
-<li><strong>技术，左右影响力的事情，热爱开源，多认识大牛。</strong></li>
+<li><strong>技术，做有影响力的事情，热爱开源，多认识大牛。</strong></li>
 </ul>
 ]]></content>
     <summary type="html">
@@ -356,8 +356,8 @@
   
   <entry>
     <title><![CDATA[iOS开发工程师职业图谱]]></title>
-    <link href="http://yeziahehe.com/2016/01/04/iOS%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E5%9B%BE%E8%B0%B1/"/>
-    <id>http://yeziahehe.com/2016/01/04/iOS开发工程师职业图谱/</id>
+    <link href="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/"/>
+    <id>http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</id>
     <published>2016-01-04T03:11:07.000Z</published>
     <updated>2016-01-04T13:46:42.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https://github.com/jikexueyuanwiki/skillmap" target="_blank" rel="external">IT技能图谱</a>，针对<a href="https://github.com/jikexueyuanwiki/skillmap/blob/master/iOS.md" target="_blank" rel="external">iOS 开发工程师</a>的职业图谱，我决定做个技能树的完成度评估。</p>
@@ -603,8 +603,8 @@
   
   <entry>
     <title><![CDATA[浅谈iOS中Library和Framework]]></title>
-    <link href="http://yeziahehe.com/2015/12/30/%E6%B5%85%E8%B0%88iOS%E4%B8%ADLibrary%E5%92%8CFramework/"/>
-    <id>http://yeziahehe.com/2015/12/30/浅谈iOS中Library和Framework/</id>
+    <link href="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/"/>
+    <id>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</id>
     <published>2015-12-30T02:40:25.000Z</published>
     <updated>2016-01-05T15:48:04.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打包。打包好的代码是编译完成的二进制文件，在项目进行编译的时候链接上，确实一定程度的减少编译时间。</p>
@@ -658,8 +658,8 @@
   
   <entry>
     <title><![CDATA[《Effective Objective-C 2.0--编写高质量iOS与OS X代码的52个有效方法》总结]]></title>
-    <link href="http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0--%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8FiOS%E4%B8%8EOS%20X%E4%BB%A3%E7%A0%81%E7%9A%8452%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E3%80%8B%E6%80%BB%E7%BB%93/"/>
-    <id>http://yeziahehe.com/2015/12/26/《Effective Objective-C 2.0--编写高质量iOS与OS X代码的52个有效方法》总结/</id>
+    <link href="http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0%E3%80%8Bsummarize/"/>
+    <id>http://yeziahehe.com/2015/12/26/《Effective Objective-C 2.0》summarize/</id>
     <published>2015-12-26T04:36:48.000Z</published>
     <updated>2015-12-26T05:45:20.000Z</updated>
     <content type="html"><![CDATA[<p>TODO</p>
@@ -679,8 +679,8 @@
   
   <entry>
     <title><![CDATA[Objective-C新纪元--ReactiveCocoa框架]]></title>
-    <link href="http://yeziahehe.com/2015/12/15/Objective-C%E6%96%B0%E7%BA%AA%E5%85%83--ReactiveCocoa%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yeziahehe.com/2015/12/15/Objective-C新纪元--ReactiveCocoa框架/</id>
+    <link href="http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/"/>
+    <id>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</id>
     <published>2015-12-15T06:56:46.000Z</published>
     <updated>2016-01-05T15:47:44.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCocoa的文章篇幅都很长，其实大家都在简洁的语言来讲，我的这边文章应该写完也是长篇幅，希望大家可以耐心的看完。</p>
@@ -780,8 +780,8 @@
   
   <entry>
     <title><![CDATA[使用Travis CI自动构建Hexo静态博客]]></title>
-    <link href="http://yeziahehe.com/2015/12/13/2015-12-13-%E4%BD%BF%E7%94%A8Travis%20CI%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAHexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yeziahehe.com/2015/12/13/2015-12-13-使用Travis CI自动构建Hexo静态博客/</id>
+    <link href="http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/"/>
+    <id>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</id>
     <published>2015-12-13T15:35:55.000Z</published>
     <updated>2015-12-21T14:26:35.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。</p>
@@ -868,8 +868,8 @@
   
   <entry>
     <title><![CDATA[博客迁移]]></title>
-    <link href="http://yeziahehe.com/2015/12/12/2015-12-12-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/"/>
-    <id>http://yeziahehe.com/2015/12/12/2015-12-12-博客迁移/</id>
+    <link href="http://yeziahehe.com/2015/12/12/blog_trasfer/"/>
+    <id>http://yeziahehe.com/2015/12/12/blog_trasfer/</id>
     <published>2015-12-12T15:45:56.000Z</published>
     <updated>2015-12-16T16:14:51.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u7F18_u7531"><a href="#u7F18_u7531" class="headerlink" title="缘由"></a>缘由</h1><p>最近开始搭建公司的<a href="http://blog.coryphaei.com" target="_blank" rel="external">博客</a>，了解到了<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>，一款非常优雅的静态博客。我之前的博客就是使用<code>jekyll</code>静态博客，但是jekyll的theme实在是不和我的胃口，自己也没有好好经营，再加上自己做了修改后Bug百出，所以催生了我转向Hexo的阵营。</p>
@@ -895,8 +895,8 @@
   
   <entry>
     <title><![CDATA[iOS面试题整理]]></title>
-    <link href="http://yeziahehe.com/2015/11/06/2015-11-06-iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
-    <id>http://yeziahehe.com/2015/11/06/2015-11-06-iOS面试题整理/</id>
+    <link href="http://yeziahehe.com/2015/11/06/iOS_interview_arrange/"/>
+    <id>http://yeziahehe.com/2015/11/06/iOS_interview_arrange/</id>
     <published>2015-11-06T15:34:44.000Z</published>
     <updated>2015-12-16T15:35:31.000Z</updated>
     <content type="html"><![CDATA[<h3 id="iOS_u9762_u8BD5_u9898_u6574_u7406"><a href="#iOS_u9762_u8BD5_u9898_u6574_u7406" class="headerlink" title="iOS面试题整理"></a>iOS面试题整理</h3><h4 id="1-__u98CE_u683C_u7EA0_u9519_u9898"><a href="#1-__u98CE_u683C_u7EA0_u9519_u9898" class="headerlink" title="1. 风格纠错题"></a>1. 风格纠错题</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span>&#123;</span><br><span class="line">    UserSex_Man,</span><br><span class="line">    UserSex_Woman</span><br><span class="line">&#125;UserSex;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UserModel</span> :<span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) UserSex sex;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">id</span>)initUserModelWithUserName: (<span class="built_in">NSString</span> *)name withAge:(<span class="keyword">int</span>)age;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)doLogIn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
@@ -920,8 +920,8 @@
   
   <entry>
     <title><![CDATA[自定义库封装思路和Cocoapods发布]]></title>
-    <link href="http://yeziahehe.com/2015/10/22/2015-10-22-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%93%E5%B0%81%E8%A3%85%E6%80%9D%E8%B7%AF%E5%92%8CCocoapods%E5%8F%91%E5%B8%83/"/>
-    <id>http://yeziahehe.com/2015/10/22/2015-10-22-自定义库封装思路和Cocoapods发布/</id>
+    <link href="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/"/>
+    <id>http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</id>
     <published>2015-10-22T15:32:23.000Z</published>
     <updated>2015-12-16T15:34:30.000Z</updated>
     <content type="html"><![CDATA[<h2 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h2><p>近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。</p>
@@ -971,8 +971,8 @@
   
   <entry>
     <title><![CDATA[Block学习]]></title>
-    <link href="http://yeziahehe.com/2015/10/10/2015-10-10-Block%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yeziahehe.com/2015/10/10/2015-10-10-Block学习/</id>
+    <link href="http://yeziahehe.com/2015/10/10/Block_learning/"/>
+    <id>http://yeziahehe.com/2015/10/10/Block_learning/</id>
     <published>2015-10-10T15:31:24.000Z</published>
     <updated>2015-12-16T15:32:12.000Z</updated>
     <content type="html"><![CDATA[<h3 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h3><p>首先对大家的Block进行下测试，这边有<a href="http://blog.parse.com/learn/engineering/objective-c-blocks-quiz/" target="_blank" rel="external">5道题</a>。</p>
@@ -1022,8 +1022,8 @@
   
   <entry>
     <title><![CDATA[fork项目同步更新]]></title>
-    <link href="http://yeziahehe.com/2015/10/06/2015-10-06-fork%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%AD%A5%E6%9B%B4%E6%96%B0/"/>
-    <id>http://yeziahehe.com/2015/10/06/2015-10-06-fork项目同步更新/</id>
+    <link href="http://yeziahehe.com/2015/10/06/fork_project_sync_update/"/>
+    <id>http://yeziahehe.com/2015/10/06/fork_project_sync_update/</id>
     <published>2015-10-06T15:30:29.000Z</published>
     <updated>2015-12-16T15:30:50.000Z</updated>
     <content type="html"><![CDATA[<p>对Coding客户端进行Fork后做了注释和源码解析，<a href="https://coding.net/u/yefan/p/Coding-iOS/git" target="_blank" rel="external">Fork地址</a>。</p>
@@ -1045,8 +1045,8 @@
   
   <entry>
     <title><![CDATA[Coding iOS客户端学习--AppDelegate(持续更新，有关Core Data的内容未来更新)]]></title>
-    <link href="http://yeziahehe.com/2015/10/06/2015-10-06-Coding%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%A6%E4%B9%A0--AppDelegate(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%9C%89%E5%85%B3Core%20Data%E7%9A%84%E5%86%85%E5%AE%B9%E6%9C%AA%E6%9D%A5%E6%9B%B4%E6%96%B0)/"/>
-    <id>http://yeziahehe.com/2015/10/06/2015-10-06-Coding iOS客户端学习--AppDelegate(持续更新，有关Core Data的内容未来更新)/</id>
+    <link href="http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/"/>
+    <id>http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/</id>
     <published>2015-10-06T15:28:44.000Z</published>
     <updated>2015-12-16T15:29:48.000Z</updated>
     <content type="html"><![CDATA[<h3 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h3><p><a href="https://coding.net/u/coding/p/Coding-iOS/git" target="_blank" rel="external">Coding客户端</a></p>
@@ -1073,8 +1073,8 @@
   
   <entry>
     <title><![CDATA[objc中国学习--架构]]></title>
-    <link href="http://yeziahehe.com/2015/09/27/2015-09-27-Objc%E5%AD%A6%E4%B9%A0--%E6%9E%B6%E6%9E%84/"/>
-    <id>http://yeziahehe.com/2015/09/27/2015-09-27-Objc学习--架构/</id>
+    <link href="http://yeziahehe.com/2015/09/27/Objc_learning--architecture/"/>
+    <id>http://yeziahehe.com/2015/09/27/Objc_learning--architecture/</id>
     <published>2015-09-27T15:23:51.000Z</published>
     <updated>2015-12-16T15:27:18.000Z</updated>
     <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
@@ -1178,8 +1178,8 @@
   
   <entry>
     <title><![CDATA[objc中国学习--Views]]></title>
-    <link href="http://yeziahehe.com/2015/09/24/2015-09-24-Objc%E5%AD%A6%E4%B9%A0--Views/"/>
-    <id>http://yeziahehe.com/2015/09/24/2015-09-24-Objc学习--Views/</id>
+    <link href="http://yeziahehe.com/2015/09/24/Objc_learning--Views/"/>
+    <id>http://yeziahehe.com/2015/09/24/Objc_learning--Views/</id>
     <published>2015-09-24T15:23:26.000Z</published>
     <updated>2015-12-16T15:23:39.000Z</updated>
     <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
@@ -1233,8 +1233,8 @@
   
   <entry>
     <title><![CDATA[Coding iOS客户端学习--项目框架(持续更新)]]></title>
-    <link href="http://yeziahehe.com/2015/09/23/2015-09-23-Coding%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%A6%E4%B9%A0--%E9%A1%B9%E7%9B%AE%E6%A1%86%E6%9E%B6(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/"/>
-    <id>http://yeziahehe.com/2015/09/23/2015-09-23-Coding iOS客户端学习--项目框架(持续更新)/</id>
+    <link href="http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/"/>
+    <id>http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/</id>
     <published>2015-09-23T15:22:51.000Z</published>
     <updated>2015-12-16T15:23:11.000Z</updated>
     <content type="html"><![CDATA[<p>最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现<a href="https://coding.net/u/coding/p/Coding-iOS/git" target="_blank" rel="external">Coding客户端</a>代码开源，准备做一次源码学习分析。</p>
@@ -1255,8 +1255,8 @@
   
   <entry>
     <title><![CDATA[objc中国学习--并发编程]]></title>
-    <link href="http://yeziahehe.com/2015/09/19/2015-09-19-Objc%E5%AD%A6%E4%B9%A0--%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yeziahehe.com/2015/09/19/2015-09-19-Objc学习--并发编程/</id>
+    <link href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/"/>
+    <id>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/</id>
     <published>2015-09-19T15:21:37.000Z</published>
     <updated>2015-12-16T15:22:34.000Z</updated>
     <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>

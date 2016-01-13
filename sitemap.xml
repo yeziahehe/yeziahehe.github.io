@@ -2,13 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/</loc>
+    <lastmod>2016-01-13T14:18:09.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/about/index.html</loc>
     <lastmod>2016-01-10T04:08:10.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/09/2016%E5%B9%B4%E4%B9%A6%E5%8D%95/</loc>
+    <loc>http://yeziahehe.com/2016/01/09/2016_year_book_list/</loc>
     <lastmod>2016-01-10T03:34:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/</loc>
+    <lastmod>2016-01-09T12:05:44.000Z</lastmod>
   </url>
   
   <url>
@@ -22,52 +32,42 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/06/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E6%AF%94%E7%BB%A7%E6%89%BF%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E7%9A%84overwrite%E6%96%B9%E6%B3%95%20--%20Method%20Swizzling/</loc>
+    <loc>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3)%EF%BC%9Aoverwrite_method--%20Method%20Swizzling/</loc>
     <lastmod>2016-01-07T16:03:50.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/06/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E4%B8%8E%E2%80%9C%E9%AD%94%E9%AC%BC%E7%9A%84%E4%BA%A4%E6%98%93%E2%80%9D%20--%20Associated%20Objects/</loc>
+    <loc>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2)%EF%BC%9A%20--%20Associated%20Objects/</loc>
     <lastmod>2016-01-07T16:03:10.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/05/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ACategory%E5%92%8C%E7%BB%A7%E6%89%BF%E7%9A%84%E5%8D%9A%E5%BC%88/</loc>
-    <lastmod>2016-01-06T15:53:51.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/12/30/%E6%B5%85%E8%B0%88iOS%E4%B8%ADLibrary%E5%92%8CFramework/</loc>
+    <loc>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</loc>
     <lastmod>2016-01-05T15:48:04.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/15/Objective-C%E6%96%B0%E7%BA%AA%E5%85%83--ReactiveCocoa%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
     <lastmod>2016-01-05T15:47:44.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/</loc>
-    <lastmod>2016-01-04T13:46:51.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2016/01/04/iOS%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E5%9B%BE%E8%B0%B1/</loc>
+    <loc>http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</loc>
     <lastmod>2016-01-04T13:46:42.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0--%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8FiOS%E4%B8%8EOS%20X%E4%BB%A3%E7%A0%81%E7%9A%8452%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E3%80%8B%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0%E3%80%8Bsummarize/</loc>
     <lastmod>2015-12-26T05:45:20.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/13/2015-12-13-%E4%BD%BF%E7%94%A8Travis%20CI%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAHexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
     <lastmod>2015-12-21T14:26:35.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/12/2015-12-12-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</loc>
+    <loc>http://yeziahehe.com/2015/12/12/blog_trasfer/</loc>
     <lastmod>2015-12-16T16:14:51.000Z</lastmod>
   </url>
   
@@ -77,82 +77,82 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/11/06/2015-11-06-iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</loc>
+    <loc>http://yeziahehe.com/2015/11/06/iOS_interview_arrange/</loc>
     <lastmod>2015-12-16T15:35:31.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/10/22/2015-10-22-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%93%E5%B0%81%E8%A3%85%E6%80%9D%E8%B7%AF%E5%92%8CCocoapods%E5%8F%91%E5%B8%83/</loc>
+    <loc>http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</loc>
     <lastmod>2015-12-16T15:34:30.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/10/10/2015-10-10-Block%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://yeziahehe.com/2015/10/10/Block_learning/</loc>
     <lastmod>2015-12-16T15:32:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/10/06/2015-10-06-fork%E9%A1%B9%E7%9B%AE%E5%90%8C%E6%AD%A5%E6%9B%B4%E6%96%B0/</loc>
+    <loc>http://yeziahehe.com/2015/10/06/fork_project_sync_update/</loc>
     <lastmod>2015-12-16T15:30:50.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/10/06/2015-10-06-Coding%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%A6%E4%B9%A0--AppDelegate(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%9C%89%E5%85%B3Core%20Data%E7%9A%84%E5%86%85%E5%AE%B9%E6%9C%AA%E6%9D%A5%E6%9B%B4%E6%96%B0)/</loc>
+    <loc>http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/</loc>
     <lastmod>2015-12-16T15:29:48.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/09/27/2015-09-27-Objc%E5%AD%A6%E4%B9%A0--%E6%9E%B6%E6%9E%84/</loc>
+    <loc>http://yeziahehe.com/2015/09/27/Objc_learning--architecture/</loc>
     <lastmod>2015-12-16T15:27:18.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/09/24/2015-09-24-Objc%E5%AD%A6%E4%B9%A0--Views/</loc>
+    <loc>http://yeziahehe.com/2015/09/24/Objc_learning--Views/</loc>
     <lastmod>2015-12-16T15:23:39.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/09/23/2015-09-23-Coding%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%A6%E4%B9%A0--%E9%A1%B9%E7%9B%AE%E6%A1%86%E6%9E%B6(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0)/</loc>
+    <loc>http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/</loc>
     <lastmod>2015-12-16T15:23:11.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/09/19/2015-09-19-Objc%E5%AD%A6%E4%B9%A0--%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <loc>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/</loc>
     <lastmod>2015-12-16T15:22:34.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/09/09/2015-09-09-Objc%E5%AD%A6%E4%B9%A0--%E6%9B%B4%E8%BD%BB%E9%87%8F%E7%9A%84%20View%20Controllers/</loc>
+    <loc>http://yeziahehe.com/2015/09/09/Objc_learning--lighter_View_Controllers/</loc>
     <lastmod>2015-12-16T15:20:15.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/08/10/2015-08-10-objective-c%E4%B8%ADModel%E7%9A%84%E5%B0%81%E8%A3%85--Mantle%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://yeziahehe.com/2015/08/10/objective-c_Model_package--Mantle_learning/</loc>
     <lastmod>2015-12-16T15:19:06.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/08/08/2015-08-08-AFNetworking%202.0%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E3%80%81%E5%B0%81%E8%A3%85/</loc>
+    <loc>http://yeziahehe.com/2015/08/08/AFNetworking_2.0_package/</loc>
     <lastmod>2015-12-16T15:17:06.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/07/29/2015-07-29-UINavigationBar%E9%80%8F%E6%98%8E%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_translate/</loc>
     <lastmod>2015-12-16T15:15:02.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/07/29/2015-07-29-UINavigationBar%E6%B7%BB%E5%8A%A0%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/</loc>
+    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_add_click_event/</loc>
     <lastmod>2015-12-16T15:13:17.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/07/21/2015-07-21-Masonry%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://yeziahehe.com/2015/07/21/Masonry_learning/</loc>
     <lastmod>2015-12-16T15:12:49.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/07/15/2015-07-15-jekyll%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
+    <loc>http://yeziahehe.com/2015/07/15/jekyll_env_build/</loc>
     <lastmod>2015-12-16T15:01:41.000Z</lastmod>
   </url>
   

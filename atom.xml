@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2016-03-14T11:28:50.000Z</updated>
+  <updated>2016-03-14T11:41:48.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/"/>
     <id>http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</id>
     <published>2016-03-08T07:26:31.000Z</published>
-    <updated>2016-03-14T11:28:50.000Z</updated>
+    <updated>2016-03-14T11:41:48.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
 <p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
 <h1 id="u5DE5_u5177"><a href="#u5DE5_u5177" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="external">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
@@ -29,6 +29,7 @@
 <p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="external">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
 <p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="external">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
 <p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
+<p>【未完待续】</p>
 <p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
@@ -702,27 +703,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[《Effective Objective-C 2.0--编写高质量iOS与OS X代码的52个有效方法》总结]]></title>
-    <link href="http://yeziahehe.com/2015/12/26/%E3%80%8AEffective%20Objective-C%202.0%E3%80%8Bsummarize/"/>
-    <id>http://yeziahehe.com/2015/12/26/《Effective Objective-C 2.0》summarize/</id>
-    <published>2015-12-26T04:36:48.000Z</published>
-    <updated>2015-12-26T05:45:20.000Z</updated>
-    <content type="html"><![CDATA[<p>TODO</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>TODO</p>
-]]>
-    </summary>
-    
-      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="读书笔记" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Objective-C新纪元--ReactiveCocoa框架]]></title>
     <link href="http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/"/>
     <id>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</id>
@@ -1296,6 +1276,53 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[objc中国学习--并发编程]]></title>
+    <link href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/"/>
+    <id>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/</id>
+    <published>2015-09-19T15:21:37.000Z</published>
+    <updated>2015-12-16T15:22:34.000Z</updated>
+    <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
+<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u53D1_u7F16_u7A0B" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
+<li><p>卷首语</p>
+</li>
+<li><p>并发编程：API 及挑战</p>
+</li>
+<li><p>常见的后台实践</p>
+</li>
+<li><p>底层并发 API</p>
+</li>
+<li><p>线程安全类的设计</p>
+</li>
+<li><p>测试并发程序</p>
+</li>
+</ul>
+<h3 id="u7EBF_u7A0B"><a href="#u7EBF_u7A0B" class="headerlink" title="线程"></a>线程</h3><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。</p>
+<p>直接使用线程可能会引发的一个问题是，如果你的代码和所基于的框架代码都创建自己的线程时，那么活动的线程数量有可能以指数级增长。这在大型工程中是一个常见问题。</p>
+<p>接下来，我们将介绍两个基于队列的并发编程 API ：GCD 和 operation queue 。它们通过集中管理一个被大家协同使用的线程池，来解决上面遇到的问题。</p>
+<h3 id="Grand_Central_Dispatch"><a href="#Grand_Central_Dispatch" class="headerlink" title="Grand Central Dispatch"></a>Grand Central Dispatch</h3><p>通过 GCD，开发者不用再直接跟线程打交道了，只需要向队列中添加代码块即可，GCD 在后端管理着一个线程池。GCD 不仅决定着你的代码块将在哪个线程被执行，它还根据可用的系统资源对这些线程进行管理。这样可以将开发者从线程管理的工作中解放出来，通过集中的管理线程，来缓解大量线程被创建的问题。</p>
+<p>GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为一个队列，而不是一堆线程，这种并行的抽象模型更容易掌握和使用。</p>
+<p>GCD 公开有 5 个不同的队列：运行在主线程中的 main queue，3 个不同优先级的后台队列，以及一个优先级更低的后台队列（用于 I/O）。<br>另外，开发者可以创建自定义队列：串行或者并行队列。自定义队列非常强大，在自定义队列中被调度的所有 block 最终都将被放入到系统的全局队列中和线程池中。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">      <span class="comment">//单例模式，GCD应用的最多的模式</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Operation_Queues"><a href="#Operation_Queues" class="headerlink" title="Operation Queues"></a>Operation Queues</h3><p>操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。GCD 提供了更加底层的控制，而操作队列则在 GCD 之上实现了一些方便的功能，这些功能对于 app 的开发者来说通常是最好最安全的选择。</p>
+<p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
+<h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
+<p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
+<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u5]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="objc中国" scheme="http://yeziahehe.com/tags/objc%E4%B8%AD%E5%9B%BD/"/>
+    
+      <category term="objc中国" scheme="http://yeziahehe.com/categories/objc%E4%B8%AD%E5%9B%BD/"/>
     
   </entry>
   

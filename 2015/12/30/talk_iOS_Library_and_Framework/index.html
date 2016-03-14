@@ -67,7 +67,7 @@
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run.png">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run_release.png">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png">
-<meta property="og:updated_time" content="2016-01-05T15:48:04.000Z">
+<meta property="og:updated_time" content="2016-03-14T11:27:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈iOS中Library和Framework">
 <meta name="twitter:description" content="写在前面有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打">
@@ -257,7 +257,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              2,466
+              2,498
           </span>
 
 
@@ -317,6 +317,7 @@
 <h2 id="u5B8C_u6210"><a href="#u5B8C_u6210" class="headerlink" title="完成"></a>完成</h2><p>Products里面生成了Framework，找到Framework的位置。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png" alt="Fframework_finish"></p>
 <h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</span><br></pre></td></tr></table></figure></p>
 <p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</span><br></pre></td></tr></table></figure></p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 </span>
       
     </div>
@@ -425,14 +426,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>

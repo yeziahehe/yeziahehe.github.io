@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2016-01-21T13:24:09.000Z</updated>
+  <updated>2016-03-14T11:28:50.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,11 +15,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[一步一步学习Swift]]></title>
+    <link href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/"/>
+    <id>http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</id>
+    <published>2016-03-08T07:26:31.000Z</published>
+    <updated>2016-03-14T11:28:50.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
+<p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
+<h1 id="u5DE5_u5177"><a href="#u5DE5_u5177" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="external">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Fgithub.png" alt="github"></p>
+<h1 id="u8D44_u6E90"><a href="#u8D44_u6E90" class="headerlink" title="资源"></a>资源</h1><p>首先，Swfit 是开源的，这个对于开发者来说应该是最开心的事情，可以了解到这门语言的实现。学习一门语言最重要的就是关注官方放出来的资料，全面、规范、最新是最大的优势，这里隆重的给出官方的资源网站 <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="external">Swift Resources</a>。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Fswift_reference.png" alt="swift_reference"></p>
+<p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="external">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
+<p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="external">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
+<p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上]]>
+    </summary>
+    
+      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[2016年书单和购物清单]]></title>
     <link href="http://yeziahehe.com/2016/01/09/2016_year_book_list/"/>
     <id>http://yeziahehe.com/2016/01/09/2016_year_book_list/</id>
     <published>2016-01-09T12:07:02.000Z</published>
-    <updated>2016-01-21T13:24:09.000Z</updated>
+    <updated>2016-03-14T11:28:21.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2016年的目标是读80本书，以前开复老师在微博上面讲过，一年读到100本书才算合格。今年的计划是80本书，在范围上，首先从手上买的一堆技术书籍开始，在逐步扩充到其他类别的图书。<br>另外今年手头上的设备慢慢要开始换了，这四年上大学都是老爸老妈给买的，准备开始逐步自己进行更换。</p>
 <h1 id="u4E66_u7C4D"><a href="#u4E66_u7C4D" class="headerlink" title="书籍"></a>书籍</h1><p>目前罗列29本。</p>
 <h2 id="u6280_u672F"><a href="#u6280_u672F" class="headerlink" title="技术"></a>技术</h2><ul>
@@ -74,6 +103,7 @@
 <li>kiehl’s    金盏花水(冬季用)</li>
 <li>kiehl’s    ULTRA FACIAL CREAM(冬季用)</li>
 </ul>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2016年的目标是读80本书，以前开复老师在微博]]>
@@ -94,7 +124,7 @@
     <link href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3)%EF%BC%9Aoverwrite_method--%20Method%20Swizzling/"/>
     <id>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3)：overwrite_method-- Method Swizzling/</id>
     <published>2016-01-06T02:38:24.000Z</published>
-    <updated>2016-01-07T16:03:50.000Z</updated>
+    <updated>2016-03-14T11:28:03.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
 <p>平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。另外在继承的基础上我们发现了比继承更加灵活的Swizzling和在Category的使用过程出现的Associated Objects。关于上述的所有方法，我将会写一个系列来阐述。</p>
 <ul>
@@ -139,6 +169,7 @@
 </li>
 </ol>
 <h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>至此，有关于这个系列的所有文章都已经结束，希望大家能够从文章有所收获，在自己的项目里面用到这些，多思考多重构。</p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考]]>
@@ -163,7 +194,7 @@
     <link href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2)%EF%BC%9A%20--%20Associated%20Objects/"/>
     <id>http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2)： -- Associated Objects/</id>
     <published>2016-01-06T01:42:32.000Z</published>
-    <updated>2016-01-07T16:03:10.000Z</updated>
+    <updated>2016-03-14T11:27:42.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
 <p>平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。另外在继承的基础上我们发现了比继承更加灵活的Swizzling和在Category的使用过程出现的Associated Objects。关于上述的所有方法，我将会写一个系列来阐述。</p>
 <ul>
@@ -247,6 +278,7 @@
 <p><strong>UIBarButtonItem+YYAdd.m</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"UIBarButtonItem+YYAdd.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"YYCategoriesMacro.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">YYSYNTH_DUMMY_CLASS(<span class="built_in">UIBarButtonItem_YYAdd</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> block_key;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">_YYUIBarButtonItemBlockTarget</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="keyword">void</span> (^block)(<span class="keyword">id</span> sender);</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithBlock:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> sender))block;</span><br><span class="line">- (<span class="keyword">void</span>)invoke:(<span class="keyword">id</span>)sender;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">_YYUIBarButtonItemBlockTarget</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithBlock:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> sender))block&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        _block = [block <span class="keyword">copy</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)invoke:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.block</span>) <span class="keyword">self</span><span class="variable">.block</span>(sender);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIBarButtonItem</span> (<span class="title">YYAdd</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setActionBlock:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> sender))block &#123;</span><br><span class="line">    _YY<span class="built_in">UIBarButtonItemBlockTarget</span> *target = [[_YY<span class="built_in">UIBarButtonItemBlockTarget</span> alloc] initWithBlock:block];</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, &amp;block_key, target, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> setTarget:target];</span><br><span class="line">    [<span class="keyword">self</span> setAction:<span class="keyword">@selector</span>(invoke:)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span> (^)(<span class="keyword">id</span>)) actionBlock &#123;</span><br><span class="line">    _YY<span class="built_in">UIBarButtonItemBlockTarget</span> *target = objc_getAssociatedObject(<span class="keyword">self</span>, &amp;block_key);</span><br><span class="line">    <span class="keyword">return</span> target<span class="variable">.block</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>对于Associated Objects，提供一种为Category添加自定义属性的方法。那么，在我们有自定义属性的时候，我们去使用继承还是使用Associated Objects呢？<a href="https://github.com/ibireme" target="_blank" rel="external">Yaoyuan</a>大神在issue中这样回复我：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/package%2FAssociatedObjects.png" alt="比较"></p>
 <p>所以大家还是根据自己的使用场景去确定，最后一个问题将在下篇博客中进行讲解。</p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考]]>
@@ -271,7 +303,7 @@
     <link href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/"/>
     <id>http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/</id>
     <published>2016-01-05T07:24:19.000Z</published>
-    <updated>2016-01-09T12:05:44.000Z</updated>
+    <updated>2016-03-14T11:28:12.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
 <p>平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。另外在继承的基础上我们发现了比继承更加灵活的Swizzling和在Category的使用过程出现的Associated Objects。关于上述的所有方法，我将会写一个系列来阐述。</p>
 <ul>
@@ -309,6 +341,7 @@
 </ul>
 <h2 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h2><p>大家对于Category的封装，可以参考<a href="https://github.com/ibireme" target="_blank" rel="external">Yaoyuan</a>大神的<a href="https://github.com/ibireme/YYCategories" target="_blank" rel="external">YYCategory</a>，直接拿来就能用。对他为开源做出的贡献表示感谢。</p>
 <h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>通过上述的展开，我们可以大概总结一下。对于需要重写的父类的方法，或者需要对实例属性进行操作的时候，我们需要选择继承，继承通常应在UIKit的对象中。对于现有类方法的扩展，或者对于Foundation中对象的封装，通常首先考虑使用Category。<br>最后，本篇文章回答了第一次问题，其他的两个问题，将在下面两篇博客中来展开。</p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考]]>
@@ -335,7 +368,7 @@
     <link href="http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/"/>
     <id>http://yeziahehe.com/2016/01/04/Bye 2015，Hi 2016/</id>
     <published>2016-01-04T07:25:09.000Z</published>
-    <updated>2016-01-13T14:18:09.000Z</updated>
+    <updated>2016-03-14T11:27:33.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢慢的开始长大，开始离开父母的庇护，一个人去体验这个世界。</p>
 <h1 id="u5173_u4E8E_u5B66_u4E1A"><a href="#u5173_u4E8E_u5B66_u4E1A" class="headerlink" title="关于学业"></a>关于学业</h1><p>2015年下半年，我大四了，临近毕业，正好对四年大学的生活做一个总结。<br>我记得我刚刚进大学的时候一心就是要参与学校的组织里面去，希望能够慢慢的做个有影响力的人。我今年最大的感悟，发现彦祖和百万都再利用自己的影响力，去给整个移动开发生态圈营造良好的学习和分享氛围。我很感谢他们，也很感谢这个信息爆炸的时代。继续说我，当初刚刚进大学的想法，因为我摔了脚，无奈做了手术，在家休养了很久。等我再回学校的时候，发现我和学生组织已经脱节了，他们玩的很开心，彼此都熟悉了。我也庆幸，我卧床休养的那几个月，我把我的windows系统删了，装了个OS X系统，捣鼓了iOS的开发。这么说来，我从2012年的年底就开始接触移动开发了。<br>大二大三的时候，我慢慢离开了学生组织，辞去了班长，加入了实验室，正式开始做iOS的开发。说实话，我承认自己的学校确实大氛围并没有那么好，江苏某发展很好的城市的唯一一所211，我自己一个人捣鼓，那一年多的时间，技术进步的很慢。但是没有比较就不知道人外有人、天外有天。大二的暑假我没回家，在实验室捣鼓了一暑假，给学校做了个app。大三暑假我也没有回家，去了一家很小的公司实习，学到了不少。<br>大四了，我也要毕业，我感觉大学这四年，我的学业我没有花心思，我的技术投入了很多精力，但是却也没有成为大牛。总结下来，其实还是觉得自己四年书读的太少，对于问题的思考也没有那么积极。</p>
 <h1 id="u5173_u4E8E_u521B_u4E1A"><a href="#u5173_u4E8E_u521B_u4E1A" class="headerlink" title="关于创业"></a>关于创业</h1><p>创业，这个字眼本来根本不会出现在我人生的字典轨迹里面。我大四的时候准备出国，在考完GRE之后，还是跟我的两个室友一拍即合，成立了公司。<br>我觉得对于我们来说，根本不能用创业这个词来描述我们所做的工作，应该用 <strong>生存</strong> 这个词来描述。<br>年轻气盛，什么都不怕，我们从今年的4月份开始准备公司注册，到成立公司，到现在运营，回头看看真的像做梦一样。<br>我的两个室友，一个做Android开发，一个做服务端开发，我们就是铁三角组合。最初，其实想法很简单，搞一个项目，拿到融资，当上CEO，赢取白富美，走上人生巅峰。后来发现，现实不是这样，资本寒冬来了之后，融资变得异常困难。我们开始接外包，为了生存下去，7月份到11月份，我自己从公司拿了4k做生活费。 <strong>等你正真开始走进社会的时候，你才知道，社会比你想象的要残酷的多。</strong> 我们经历很多奇奇怪怪的客户，要求苛刻的客户，而项目的款项也并没有如期的收回来，公司的处境越来越难。11月被迫，解散了其他的同事，只剩下我们三个人。<br>今年，我觉得我从社会里面学到了太多太多，我也从一个学生思维转变到了社会思维，我没有后悔没出国，也没有后悔这几个月艰苦的日子，我觉得这是我这辈子的财富。<br>我也希望，所有创业的大学生小伙伴，都能够成功，但是大家如果没有好的idea，没有足够运营经验的人帮助，大家轻易不要去尝试。 <strong>路还长，等我们装备精良，再出发。</strong></p>
@@ -351,6 +384,7 @@
 <li><strong>工作，我心里有了目标，希望今年加油。</strong></li>
 <li><strong>技术，做有影响力的事情，热爱开源，多认识大牛。</strong></li>
 </ul>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢]]>
@@ -616,7 +650,7 @@
     <link href="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/"/>
     <id>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</id>
     <published>2015-12-30T02:40:25.000Z</published>
-    <updated>2016-01-05T15:48:04.000Z</updated>
+    <updated>2016-03-14T11:27:04.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打包。打包好的代码是编译完成的二进制文件，在项目进行编译的时候链接上，确实一定程度的减少编译时间。</p>
 <h1 id="u5E93_u7684_u672C_u8D28"><a href="#u5E93_u7684_u672C_u8D28" class="headerlink" title="库的本质"></a>库的本质</h1><p>库的本质，我觉得非常好理解。我们首先要知道对于所有的库，都是进行编译的，而编译生成的其实是一段二进制代码。所以我们可以给库下个定义：</p>
 <blockquote>
@@ -649,6 +683,7 @@
 <h2 id="u5B8C_u6210"><a href="#u5B8C_u6210" class="headerlink" title="完成"></a>完成</h2><p>Products里面生成了Framework，找到Framework的位置。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png" alt="Fframework_finish"></p>
 <h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</span><br></pre></td></tr></table></figure></p>
 <p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</span><br></pre></td></tr></table></figure></p>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有关于库的出现场景，其实很简单的回答就是，不愿意]]>
@@ -692,7 +727,7 @@
     <link href="http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/"/>
     <id>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</id>
     <published>2015-12-15T06:56:46.000Z</published>
-    <updated>2016-01-05T15:47:44.000Z</updated>
+    <updated>2016-03-14T11:27:18.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCocoa的文章篇幅都很长，其实大家都在简洁的语言来讲，我的这边文章应该写完也是长篇幅，希望大家可以耐心的看完。</p>
 <h1 id="u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B"><a href="#u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B" class="headerlink" title="函数响应式编程"></a>函数响应式编程</h1><p>ReactiveCocoa的基本思想就是<code>函数响应式编程（Function Reactive Programming，以下简称FRP）</code>。FRP是一种响应变化的编程范式。我们通常会拿一个经典的例子来解释概念。</p>
 <h2 id="u7406_u5FF5"><a href="#u7406_u5FF5" class="headerlink" title="理念"></a>理念</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b<span class="comment">// c = 4</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line"><span class="comment">// 现在c的值是多少？</span></span><br></pre></td></tr></table></figure>
@@ -773,6 +808,7 @@
 <h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
 <li>2015.12.22 上周六的时候，<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>讲了有关于ReactiveCocoa的很多干货，我写了一篇<a href="">博客</a>，大部分都是对他将的内容的整理和一点感悟。</li>
 </ul>
+<p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没]]>
@@ -1260,53 +1296,6 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[objc中国学习--并发编程]]></title>
-    <link href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/"/>
-    <id>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/</id>
-    <published>2015-09-19T15:21:37.000Z</published>
-    <updated>2015-12-16T15:22:34.000Z</updated>
-    <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
-<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u53D1_u7F16_u7A0B" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
-<li><p>卷首语</p>
-</li>
-<li><p>并发编程：API 及挑战</p>
-</li>
-<li><p>常见的后台实践</p>
-</li>
-<li><p>底层并发 API</p>
-</li>
-<li><p>线程安全类的设计</p>
-</li>
-<li><p>测试并发程序</p>
-</li>
-</ul>
-<h3 id="u7EBF_u7A0B"><a href="#u7EBF_u7A0B" class="headerlink" title="线程"></a>线程</h3><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。</p>
-<p>直接使用线程可能会引发的一个问题是，如果你的代码和所基于的框架代码都创建自己的线程时，那么活动的线程数量有可能以指数级增长。这在大型工程中是一个常见问题。</p>
-<p>接下来，我们将介绍两个基于队列的并发编程 API ：GCD 和 operation queue 。它们通过集中管理一个被大家协同使用的线程池，来解决上面遇到的问题。</p>
-<h3 id="Grand_Central_Dispatch"><a href="#Grand_Central_Dispatch" class="headerlink" title="Grand Central Dispatch"></a>Grand Central Dispatch</h3><p>通过 GCD，开发者不用再直接跟线程打交道了，只需要向队列中添加代码块即可，GCD 在后端管理着一个线程池。GCD 不仅决定着你的代码块将在哪个线程被执行，它还根据可用的系统资源对这些线程进行管理。这样可以将开发者从线程管理的工作中解放出来，通过集中的管理线程，来缓解大量线程被创建的问题。</p>
-<p>GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为一个队列，而不是一堆线程，这种并行的抽象模型更容易掌握和使用。</p>
-<p>GCD 公开有 5 个不同的队列：运行在主线程中的 main queue，3 个不同优先级的后台队列，以及一个优先级更低的后台队列（用于 I/O）。<br>另外，开发者可以创建自定义队列：串行或者并行队列。自定义队列非常强大，在自定义队列中被调度的所有 block 最终都将被放入到系统的全局队列中和线程池中。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">      <span class="comment">//单例模式，GCD应用的最多的模式</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="Operation_Queues"><a href="#Operation_Queues" class="headerlink" title="Operation Queues"></a>Operation Queues</h3><p>操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。GCD 提供了更加底层的控制，而操作队列则在 GCD 之上实现了一些方便的功能，这些功能对于 app 的开发者来说通常是最好最安全的选择。</p>
-<p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
-<h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
-<p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
-<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u5]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="objc中国" scheme="http://yeziahehe.com/tags/objc%E4%B8%AD%E5%9B%BD/"/>
-    
-      <category term="objc中国" scheme="http://yeziahehe.com/categories/objc%E4%B8%AD%E5%9B%BD/"/>
     
   </entry>
   

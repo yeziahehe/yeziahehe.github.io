@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[叶帆的技术博客]]></title>
+  <title><![CDATA[Ivan's Blog]]></title>
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>

@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2016-03-14T11:41:48.000Z</updated>
+  <updated>2016-08-07T12:05:35.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,11 +15,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Swift中的文件管理-NSFileManager]]></title>
+    <link href="http://yeziahehe.com/2016/08/05/Swift_NSFileManager/"/>
+    <id>http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</id>
+    <published>2016-08-05T12:03:10.000Z</published>
+    <updated>2016-08-07T12:05:35.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行文件操作的。在代码层面，应用程序都是运行在自己的沙盒中，我们只能在当前应用目录下进行文件操作。</p>
+<h1 id="u6C99_u76D2_u673A_u5236"><a href="#u6C99_u76D2_u673A_u5236" class="headerlink" title="沙盒机制"></a>沙盒机制</h1><p>iOS应用程序只能对自己创建的文件系统读取文件，这个独立、封闭、安全的空间，叫做沙盒。它一般存放着程序包文件（可执行文件）、图片、音频、视频、plist文件、sqlite数据库以及其他文件。</p>
+<p>模拟器沙盒的位置<code>/User/userName/Library/Application Support/iPhone Simulator</code>。</p>
+<h1 id="u76EE_u5F55_u7ED3_u6784"><a href="#u76EE_u5F55_u7ED3_u6784" class="headerlink" title="目录结构"></a>目录结构</h1><p>默认情况下，每个应用的目录结构如下图所示：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/document.png" alt="document"></p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>是否同步到iTunes</th>
+<th>说明</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documents</td>
+<td>是</td>
+<td>最常用目录，适合存储重要数据</td>
+<td>不可再生的用户数据</td>
+</tr>
+<tr>
+<td>Library/Caches</td>
+<td>否</td>
+<td>常用目录，适合存储缓存文件和数据</td>
+<td>可再生的缓存图片、数据，==清除缓存就是清除这里的数据==</td>
+</tr>
+<tr>
+<td>Library/Preferences</td>
+<td>是</td>
+<td>通常保存应用的偏好设置信息</td>
+<td>NSUserDefaults</td>
+</tr>
+<tr>
+<td>tmp</td>
+<td>否</td>
+<td>存放临时数据，应用退出或者手机重启后会删除文件</td>
+<td>临时数据</td>
+</tr>
+</tbody>
+</table>
+<h1 id="NSFileManager"><a href="#NSFileManager" class="headerlink" title="NSFileManager"></a>NSFileManager</h1><p>NSFileManager是文件管理的对象，在使用的时候，我们通常使用了系统提供的方法：<code>NSFileManager.defaultManager()</code>,系统的方法获取了一个单例对象，线程安全的。如果在不同线程中使用，而且需要代理函数来监听事件，这时候要使用init来创建每个线程独立的fileManager。</p>
+<p>通过NSFileManager获取目录和文件创建、读写、删除、重命名等操作，具体的操作可以参考<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSFileManager_Class/" target="_blank" rel="external">Apple官方文档</a> 。接下来介绍几个常用的方法。</p>
+<h2 id="u83B7_u53D6_u8DEF_u5F84"><a href="#u83B7_u53D6_u8DEF_u5F84" class="headerlink" title="获取路径"></a>获取路径</h2><p>在项目中我们通常要缓存数据需要进行存放，这个时候<code>Library/Caches</code>文件目录就起到了非常重要的作用。通常使用这个方法来进统一获取这个目录，进行缓存的管理。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">yfCachesURL</span>() -&gt; <span class="title">NSURL</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().<span class="type">URLForDirectory</span>(.<span class="type">CachesDirectory</span>, inDomain: .<span class="type">UserDomainMask</span>, appropriateForURL: <span class="literal">nil</span>, create: <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="u7F13_u5B58"><a href="#u7F13_u5B58" class="headerlink" title="缓存"></a>缓存</h2><p>我们通常需要在项目中显示缓存的大小，只获取缓存的图片方法并不完整，使用以下遍历<code>Library/Caches</code>文件得出的缓存大小比较准确。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cachesSize</span>() -&gt; <span class="title">Float</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> files = <span class="type">NSFileManager</span>.defaultManager().subpathsAtPath(cacheURLStrng())</span><br><span class="line">    <span class="keyword">var</span> size: <span class="type">Float</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> files!&#123;</span><br><span class="line">        <span class="keyword">let</span> path = cacheURLStrng().stringByAppendingFormat(<span class="string">"/<span class="subst">\(fileName)</span>"</span>)</span><br><span class="line">        <span class="keyword">let</span> floder = <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().attributesOfItemAtPath(path)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (abc, bcd) <span class="keyword">in</span> floder &#123;</span><br><span class="line">            <span class="keyword">if</span> abc == <span class="type">NSFileSize</span> &#123;</span><br><span class="line">                size += bcd.floatValue</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> size/(<span class="number">1024</span>*<span class="number">1024</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外常用操作进行缓存的清除，代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cleanCachesDirectoryAtURL</span>(<span class="title">cachesDirectoryURL</span>: <span class="title">NSURL</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> fileURLs = (<span class="keyword">try</span>? fileManager.contentsOfDirectoryAtURL(cachesDirectoryURL, includingPropertiesForKeys: <span class="literal">nil</span>, options: <span class="type">NSDirectoryEnumerationOptions</span>())) &#123;</span><br><span class="line">        <span class="keyword">for</span> fileURL <span class="keyword">in</span> fileURLs &#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> fileManager.removeItemAtURL(fileURL)</span><br><span class="line">            &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</span><br><span class="line">                yfLog.error(<span class="string">"Clean Caches - removeItemAtURL: <span class="subst">\(fileURL)</span> error!"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>—- EOF —-<br>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行]]>
+    </summary>
+    
+      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[一步一步学习Swift]]></title>
     <link href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/"/>
     <id>http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</id>
     <published>2016-03-08T07:26:31.000Z</published>
-    <updated>2016-03-14T11:41:48.000Z</updated>
+    <updated>2016-07-19T06:18:29.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
 <p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
 <h1 id="u5DE5_u5177"><a href="#u5DE5_u5177" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="external">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
@@ -29,6 +94,7 @@
 <p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="external">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
 <p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="external">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
 <p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
+<h2 id="Github_Awesome-Swift"><a href="#Github_Awesome-Swift" class="headerlink" title="Github Awesome-Swift"></a>Github Awesome-Swift</h2><p>Swift 的资源整理，有三个不错的外国整理的 Awesome-Swift，<a href="https://github.com/matteocrippa/awesome-swift" target="_blank" rel="external">1</a>，<a href="https://github.com/Wolg/awesome-swift" target="_blank" rel="external">2</a>，<a href="https://github.com/vsouza/awesome-ios" target="_blank" rel="external">3</a>。另外，国人整理的<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">Swift语言指南</a>对于入门 Swift 的人来说是一大福音，希望大家都能好好的利用起来资源。</p>
 <p>【未完待续】</p>
 <p><strong>—- EOF —-</strong><br><strong>如无特殊说明，文章均为原创，转载需标明作者并与我联系。</strong></p>
 ]]></content>
@@ -1276,53 +1342,6 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[objc中国学习--并发编程]]></title>
-    <link href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/"/>
-    <id>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/</id>
-    <published>2015-09-19T15:21:37.000Z</published>
-    <updated>2015-12-16T15:22:34.000Z</updated>
-    <content type="html"><![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
-<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u53D1_u7F16_u7A0B" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
-<li><p>卷首语</p>
-</li>
-<li><p>并发编程：API 及挑战</p>
-</li>
-<li><p>常见的后台实践</p>
-</li>
-<li><p>底层并发 API</p>
-</li>
-<li><p>线程安全类的设计</p>
-</li>
-<li><p>测试并发程序</p>
-</li>
-</ul>
-<h3 id="u7EBF_u7A0B"><a href="#u7EBF_u7A0B" class="headerlink" title="线程"></a>线程</h3><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。</p>
-<p>直接使用线程可能会引发的一个问题是，如果你的代码和所基于的框架代码都创建自己的线程时，那么活动的线程数量有可能以指数级增长。这在大型工程中是一个常见问题。</p>
-<p>接下来，我们将介绍两个基于队列的并发编程 API ：GCD 和 operation queue 。它们通过集中管理一个被大家协同使用的线程池，来解决上面遇到的问题。</p>
-<h3 id="Grand_Central_Dispatch"><a href="#Grand_Central_Dispatch" class="headerlink" title="Grand Central Dispatch"></a>Grand Central Dispatch</h3><p>通过 GCD，开发者不用再直接跟线程打交道了，只需要向队列中添加代码块即可，GCD 在后端管理着一个线程池。GCD 不仅决定着你的代码块将在哪个线程被执行，它还根据可用的系统资源对这些线程进行管理。这样可以将开发者从线程管理的工作中解放出来，通过集中的管理线程，来缓解大量线程被创建的问题。</p>
-<p>GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为一个队列，而不是一堆线程，这种并行的抽象模型更容易掌握和使用。</p>
-<p>GCD 公开有 5 个不同的队列：运行在主线程中的 main queue，3 个不同优先级的后台队列，以及一个优先级更低的后台队列（用于 I/O）。<br>另外，开发者可以创建自定义队列：串行或者并行队列。自定义队列非常强大，在自定义队列中被调度的所有 block 最终都将被放入到系统的全局队列中和线程池中。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">      <span class="comment">//单例模式，GCD应用的最多的模式</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="Operation_Queues"><a href="#Operation_Queues" class="headerlink" title="Operation Queues"></a>Operation Queues</h3><p>操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。GCD 提供了更加底层的控制，而操作队列则在 GCD 之上实现了一些方便的功能，这些功能对于 app 的开发者来说通常是最好最安全的选择。</p>
-<p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
-<h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
-<p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
-<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u5]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="objc中国" scheme="http://yeziahehe.com/tags/objc%E4%B8%AD%E5%9B%BD/"/>
-    
-      <category term="objc中国" scheme="http://yeziahehe.com/categories/objc%E4%B8%AD%E5%9B%BD/"/>
     
   </entry>
   

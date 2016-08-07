@@ -93,6 +93,7 @@
 
 线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。
 直接使用线程可能会引发的一">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2015-12-16T15:22:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="objc中国学习--并发编程">
@@ -299,7 +300,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,042
+              1,238
           </span>
 
           
@@ -350,6 +351,12 @@
 <h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
 <p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
 <h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="/cc.png" alt=""></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent">http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent</a> Programming/</p>
 </span>
       
     </div>
@@ -429,9 +436,6 @@
         </div>
 
         
-
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
         

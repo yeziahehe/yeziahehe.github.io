@@ -65,6 +65,7 @@
 <meta property="og:description" content="如果做iOS开发，那么布局的学习肯定是逃不掉的，目前最好的布局工具就是Masonry。
 方法分析Masonry添加约束的方法有三个
 12345678- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block;- (NSArray *)mas_updateConstraints:(void(^)(MASConst">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2015-12-16T15:12:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Masonry源码学习">
@@ -257,7 +258,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              310
+              504
           </span>
 
           
@@ -284,6 +285,12 @@
         <span itemprop="articleBody"><p>如果做iOS开发，那么布局的学习肯定是逃不掉的，目前最好的布局工具就是<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">Masonry</a>。</p>
 <h3 id="u65B9_u6CD5_u5206_u6790"><a href="#u65B9_u6CD5_u5206_u6790" class="headerlink" title="方法分析"></a>方法分析</h3><p>Masonry添加约束的方法有三个</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)mas_makeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)mas_updateConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)mas_remakeConstraints:(<span class="keyword">void</span>(^)(MASConstraintMaker *make))block;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">mas_makeConstraints 只负责新增约束 Autolayout不能同时存在两条针对于同一对象的约束 否则会报错</span><br><span class="line">mas_updateConstraints 针对上面的情况 会更新在block中出现的约束 不会导致出现两个相同约束的情况</span><br><span class="line">mas_remakeConstraints 则会清除之前的所有约束 仅保留最新的约束</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="/cc.png" alt=""></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2015/07/21/Masonry_learning/">http://yeziahehe.com/2015/07/21/Masonry_learning/</a></p>
 </span>
       
     </div>
@@ -363,9 +370,6 @@
         </div>
 
         
-
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
         

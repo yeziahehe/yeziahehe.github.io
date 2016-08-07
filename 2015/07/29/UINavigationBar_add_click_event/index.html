@@ -63,6 +63,7 @@
 <meta property="og:site_name" content="Ivan's Blog">
 <meta property="og:description" content="最近写项目遇到了UINavigationBar需要点击选择校区，发现有个很简单的方法，同样是要重写UINavigationController的方法，并且继承
 1234567891011121314151617181920212223242526272829303132333435363738////  CustomNavigationController.m//  SJFood////  Cre">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2015-12-16T15:13:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UINavigationBar点击事件">
@@ -254,7 +255,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              731
+              925
           </span>
 
           
@@ -280,6 +281,12 @@
       
         <span itemprop="articleBody"><p>最近写项目遇到了UINavigationBar需要点击选择校区，发现有个很简单的方法，同样是要重写UINavigationController的方法，并且继承</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  CustomNavigationController.m</span></span><br><span class="line"><span class="comment">//  SJFood</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 叶帆 on 14/11/25.</span></span><br><span class="line"><span class="comment">//  Copyright (c) 2014年 Ye Fan. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"CustomNavigationController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CustomNavigationController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CustomNavigationController</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - Private Methods</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationBarTappedWithGesture:(<span class="built_in">UITapGestureRecognizer</span> *)tapGesture</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIViewController</span> *vc = <span class="keyword">self</span><span class="variable">.visibleViewController</span>;</span><br><span class="line">    <span class="keyword">if</span>([vc respondsToSelector:<span class="keyword">@selector</span>(extraItemTapped)])</span><br><span class="line">    &#123;</span><br><span class="line">        [vc performSelector:<span class="keyword">@selector</span>(extraItemTapped)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - UIViewController Methods</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.interactivePopGestureRecognizer</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//加入头部点击手势</span></span><br><span class="line">    <span class="built_in">UITapGestureRecognizer</span> *tapGesture = [[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(navigationBarTappedWithGesture:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.navigationBar</span> addGestureRecognizer:tapGesture];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="/cc.png" alt=""></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2015/07/29/UINavigationBar_add_click_event/">http://yeziahehe.com/2015/07/29/UINavigationBar_add_click_event/</a></p>
 </span>
       
     </div>
@@ -359,9 +366,6 @@
         </div>
 
         
-
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
         

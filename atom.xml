@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2016-08-07T16:20:55.000Z</updated>
+  <updated>2016-08-07T16:22:05.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/"/>
     <id>http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</id>
     <published>2016-08-07T12:12:14.000Z</published>
-    <updated>2016-08-07T16:20:55.000Z</updated>
+    <updated>2016-08-07T16:22:05.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。</p>
 <p>持续集成的优点：</p>
 <ul>
@@ -79,7 +79,9 @@
 <p>编辑 scripts/sign-and-upload.sh 文件，增加以下脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ ! -z <span class="string">"<span class="variable">$FIR_APP_TOKEN</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"***************************"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"*   Uploading to Fir.im   *"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"***************************"</span></span><br><span class="line">  fir p <span class="variable">$OUTPUTDIR</span>/<span class="variable">$APP_NAME</span>.ipa \</span><br><span class="line">  -T <span class="variable">$FIR_APP_TOKEN</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
 <p>最后需要添加 Fir.im 上传命令的环境。在 .travis.yml 文件中添加如下内容：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">before_install:</span></span><br><span class="line">- brew update</span><br><span class="line">- gem install fir-cli</span><br></pre></td></tr></table></figure></p>
 <p>到这里就实现了持续集成、持续交付，并且持续部署到Fir.im，是不是很简单呢！</p>
-<h1 id="u793A_u4F8B_u9879_u76EE"><a href="#u793A_u4F8B_u9879_u76EE" class="headerlink" title="示例项目"></a>示例项目</h1><p><a href="https://github.com/yeziahehe/YFSwiftFramework" target="_blank" rel="external">YFSwiftFramework</a></p>
+<h1 id="u793A_u4F8B_u9879_u76EE"><a href="#u793A_u4F8B_u9879_u76EE" class="headerlink" title="示例项目"></a>示例项目</h1><ul>
+<li><a href="https://github.com/yeziahehe/YFSwiftFramework" target="_blank" rel="external">YFSwiftFramework</a></li>
+</ul>
 <h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://objccn.io/issue-6-5/" target="_blank" rel="external">为 iOS 建立 Travis CI</a></li>
 </ul>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</loc>
+    <lastmod>2016-08-08T11:45:26.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/about/index.html</loc>
     <lastmod>2016-08-07T20:33:36.000Z</lastmod>
   </url>
@@ -49,11 +54,6 @@
   <url>
     <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
     <lastmod>2016-08-07T20:30:36.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</loc>
-    <lastmod>2016-08-07T20:30:29.000Z</lastmod>
   </url>
   
   <url>

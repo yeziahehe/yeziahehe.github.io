@@ -248,7 +248,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              2,660
+              2,663
           </span>
 
           
@@ -304,13 +304,7 @@
 <h2 id="u5B8C_u6210"><a href="#u5B8C_u6210" class="headerlink" title="完成"></a>完成</h2><p>Products里面生成了Framework，找到Framework的位置。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png" alt="Fframework_finish"></p>
 <h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</span><br></pre></td></tr></table></figure></p>
 <p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><img src="/cc.png" alt=""></p>
-<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
-<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/">http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</a></p>
-</span>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/">http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</a></blockquote></span>
       
     </div>
 

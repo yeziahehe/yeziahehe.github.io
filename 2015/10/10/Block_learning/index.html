@@ -272,7 +272,7 @@ Block">
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,880
+              1,883
           </span>
 
           
@@ -328,13 +328,7 @@ Block">
 </ul>
 <h3 id="u89E3_u51B3_u529E_u6CD5_u4F7F_u7528_u5F31_u5F15_u7528__weak"><a href="#u89E3_u51B3_u529E_u6CD5_u4F7F_u7528_u5F31_u5F15_u7528__weak" class="headerlink" title="解决办法使用弱引用 _weak"></a>解决办法使用弱引用 _weak</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ClassA* objA = [[[ClassA alloc] init] autorelease];</span><br><span class="line"></span><br><span class="line">MyClass* weakSelf = <span class="keyword">self</span>;</span><br><span class="line">objA<span class="variable">.myBlock</span> = ^&#123;</span><br><span class="line">  [weakSelf doSomething];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.objA</span> = objA;</span><br></pre></td></tr></table></figure>
 <h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/" target="_blank" rel="external">谈Objective-C Block的实现</a><br><a href="http://tanqisen.github.io/blog/2013/04/19/gcd-block-cycle-retain/" target="_blank" rel="external">正确使用Block避免Cycle Retain和Crash</a></p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><img src="/cc.png" alt=""></p>
-<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
-<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2015/10/10/Block_learning/">http://yeziahehe.com/2015/10/10/Block_learning/</a></p>
-</span>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/10/Block_learning/">http://yeziahehe.com/2015/10/10/Block_learning/</a></blockquote></span>
       
     </div>
 

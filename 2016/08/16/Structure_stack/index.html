@@ -59,12 +59,12 @@
 栈是一种形式的表，属于表类型中的受限表，即插入和删除只发生在一端。在栈当中我们把这端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构学习（一）--栈">
-<meta property="og:url" content="http://yeziahehe.com/2016/08/11/Structure_stack/index.html">
+<meta property="og:url" content="http://yeziahehe.com/2016/08/16/Structure_stack/index.html">
 <meta property="og:site_name" content="Ivan's Blog">
 <meta property="og:description" content="栈栈是所有数据结构中最简单但却是最重要的一种，栈出现的情况在对内含反转数据的应用非常适合。栈是属于 后进先出 - Last In, First Out（LIFO） ，最后压入栈中的项总是最先从栈中弹出的项，生活中举个例子说明下，装薯片的时候按顺序装入罐子中，但是吃薯片的时候就要从开口处把最后一个装入的薯片先吃掉。
 栈是一种形式的表，属于表类型中的受限表，即插入和删除只发生在一端。在栈当中我们把这端">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-08-16T09:12:57.000Z">
+<meta property="og:updated_time" content="2016-08-16T09:41:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构学习（一）--栈">
 <meta name="twitter:description" content="栈栈是所有数据结构中最简单但却是最重要的一种，栈出现的情况在对内含反转数据的应用非常适合。栈是属于 后进先出 - Last In, First Out（LIFO） ，最后压入栈中的项总是最先从栈中弹出的项，生活中举个例子说明下，装薯片的时候按顺序装入罐子中，但是吃薯片的时候就要从开口处把最后一个装入的薯片先吃掉。
@@ -221,8 +221,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T16:53:29+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-08-16T17:41:32+08:00" content="2016-08-16">
+              2016-08-16
             </time>
           </span>
 
@@ -275,7 +275,7 @@
 <p>目前栈中间的元素为[“i”]，从栈里面出栈当前的元素：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack.pop()</span><br></pre></td></tr></table></figure></p>
 <p>这样返回了元素”i”，并且当前栈为空。继续出栈会导致返回nil，通常在实际应用中这里会做错误处理，“栈下溢（stack underflow）”。</p>
 <h1 id="u6E90_u4EE3_u7801"><a href="#u6E90_u4EE3_u7801" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Stack.swift</span></span><br><span class="line"><span class="comment">//  Stack</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 叶帆 on 16/8/15.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">Element</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> array = <span class="type">Array</span>&lt;<span class="type">Element</span>&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     获取当前栈的长度</span><br><span class="line">     - returns: 返回栈的长度，如果Stack为空，则值为0</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.<span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     判断是否为空</span><br><span class="line">     - returns: 如果Stack为空，则值为true，否则值为false</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="func"><span class="keyword">func</span> <span class="title">isEmpty</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.isEmpty</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     获取栈顶元素的值</span><br><span class="line">     - returns: 栈顶元素的值，如果为空返回nil</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="func"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">Element</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> array.last</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     向栈顶插入一个元素</span><br><span class="line">     - parameter element: 需要插入的值</span><br><span class="line">     - 时间复杂度: O(1)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="func"><span class="keyword">func</span> <span class="title">push</span><span class="params">(element: Element)</span></span> &#123;</span><br><span class="line">        array.append(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     删除栈顶元素</span><br><span class="line">     - returns: 返回删除栈顶元素的值，如果为空返回nil</span><br><span class="line">     - 时间复杂度: O(1)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="func"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> array.popLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span>: <span class="title">SequenceType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="func"><span class="keyword">func</span> <span class="title">generate</span><span class="params">()</span></span> -&gt; <span class="type">AnyGenerator</span>&lt;<span class="type">Element</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">var</span> curr = <span class="keyword">self</span></span><br><span class="line">        <span class="keyword">return</span> <span class="type">AnyGenerator</span> &#123;</span><br><span class="line">            <span class="number">_</span> -&gt; <span class="type">Element</span>? <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">return</span> curr.pop()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/11/Structure_stack/">http://yeziahehe.com/2016/08/11/Structure_stack/</a></blockquote></span>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/16/Structure_stack/">http://yeziahehe.com/2016/08/16/Structure_stack/</a></blockquote></span>
       
     </div>
 
@@ -324,17 +324,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/07/use_travis_ci_for_ios_project/" rel="next" title="iOS 持续集成--Travis CI + Fir.im自动编译发布">
-                <i class="fa fa-chevron-left"></i> iOS 持续集成--Travis CI + Fir.im自动编译发布
+              <a href="/2016/08/11/How_Google_Works/" rel="next" title="读《重新定义公司》">
+                <i class="fa fa-chevron-left"></i> 读《重新定义公司》
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/How_Google_Works/" rel="prev" title="读《重新定义公司》">
-                读《重新定义公司》 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -361,8 +357,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/11/Structure_stack/"
-           data-title="数据结构学习（一）--栈" data-url="http://yeziahehe.com/2016/08/11/Structure_stack/">
+      <div class="ds-thread" data-thread-key="2016/08/16/Structure_stack/"
+           data-title="数据结构学习（一）--栈" data-url="http://yeziahehe.com/2016/08/16/Structure_stack/">
       </div>
     
   </div>

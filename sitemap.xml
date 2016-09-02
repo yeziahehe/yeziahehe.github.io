@@ -2,6 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</loc>
+    <lastmod>2016-09-02T03:05:14.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</loc>
+    <lastmod>2016-09-02T03:04:54.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2016/01/09/2016_year_book_list/</loc>
+    <lastmod>2016-09-02T03:04:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</loc>
+    <lastmod>2016-09-02T03:03:29.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/09/24/Objc_learning--Views/</loc>
+    <lastmod>2016-09-02T03:03:19.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/09/27/Objc_learning--architecture/</loc>
+    <lastmod>2016-09-02T03:03:14.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/10/06/fork_project_sync_update/</loc>
+    <lastmod>2016-09-02T03:02:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/</loc>
+    <lastmod>2016-09-02T03:02:39.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/</loc>
+    <lastmod>2016-09-02T03:02:32.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/10/10/Block_learning/</loc>
+    <lastmod>2016-09-02T03:02:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/08/10/objective-c_Model_package--Mantle_learning/</loc>
+    <lastmod>2016-09-02T03:01:55.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/09/09/Objc_learning--lighter_View_Controllers/</loc>
+    <lastmod>2016-09-02T03:01:51.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/</loc>
+    <lastmod>2016-09-02T03:01:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/08/08/AFNetworking_2.0_package/</loc>
+    <lastmod>2016-09-02T03:01:43.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_translate/</loc>
+    <lastmod>2016-09-02T03:01:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_add_click_event/</loc>
+    <lastmod>2016-09-02T03:01:18.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/2016/08/31/August_Reading/</loc>
     <lastmod>2016-09-02T02:55:07.000Z</lastmod>
   </url>
@@ -19,11 +99,6 @@
   <url>
     <loc>http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</loc>
     <lastmod>2016-08-08T11:45:26.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2016/01/09/2016_year_book_list/</loc>
-    <lastmod>2016-08-07T20:31:22.000Z</lastmod>
   </url>
   
   <url>
@@ -57,11 +132,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</loc>
-    <lastmod>2016-08-07T20:30:41.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
     <lastmod>2016-08-07T20:30:36.000Z</lastmod>
   </url>
@@ -82,11 +152,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</loc>
-    <lastmod>2016-01-04T13:46:42.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2015/12/12/blog_trasfer/</loc>
     <lastmod>2015-12-16T16:14:51.000Z</lastmod>
   </url>
@@ -94,81 +159,6 @@
   <url>
     <loc>http://yeziahehe.com/README.html</loc>
     <lastmod>2015-12-16T16:06:28.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/11/06/iOS_interview_arrange/</loc>
-    <lastmod>2015-12-16T15:35:31.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</loc>
-    <lastmod>2015-12-16T15:34:30.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/10/10/Block_learning/</loc>
-    <lastmod>2015-12-16T15:32:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/10/06/fork_project_sync_update/</loc>
-    <lastmod>2015-12-16T15:30:50.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/</loc>
-    <lastmod>2015-12-16T15:29:48.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/09/27/Objc_learning--architecture/</loc>
-    <lastmod>2015-12-16T15:27:18.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/09/24/Objc_learning--Views/</loc>
-    <lastmod>2015-12-16T15:23:39.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/</loc>
-    <lastmod>2015-12-16T15:23:11.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/</loc>
-    <lastmod>2015-12-16T15:22:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/09/09/Objc_learning--lighter_View_Controllers/</loc>
-    <lastmod>2015-12-16T15:20:15.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/08/10/objective-c_Model_package--Mantle_learning/</loc>
-    <lastmod>2015-12-16T15:19:06.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/08/08/AFNetworking_2.0_package/</loc>
-    <lastmod>2015-12-16T15:17:06.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_translate/</loc>
-    <lastmod>2015-12-16T15:15:02.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/07/29/UINavigationBar_add_click_event/</loc>
-    <lastmod>2015-12-16T15:13:17.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/07/21/Masonry_learning/</loc>
-    <lastmod>2015-12-16T15:12:49.000Z</lastmod>
   </url>
   
   <url>

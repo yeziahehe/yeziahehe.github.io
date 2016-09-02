@@ -898,7 +898,7 @@
     <link href="http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/"/>
     <id>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</id>
     <published>2015-12-15T06:56:46.000Z</published>
-    <updated>2016-08-07T20:31:10.000Z</updated>
+    <updated>2016-09-02T03:08:16.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCocoa的文章篇幅都很长，其实大家都在简洁的语言来讲，我的这边文章应该写完也是长篇幅，希望大家可以耐心的看完。</p>
 <h1 id="u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B"><a href="#u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B" class="headerlink" title="函数响应式编程"></a>函数响应式编程</h1><p>ReactiveCocoa的基本思想就是<code>函数响应式编程（Function Reactive Programming，以下简称FRP）</code>。FRP是一种响应变化的编程范式。我们通常会拿一个经典的例子来解释概念。</p>
 <h2 id="u7406_u5FF5"><a href="#u7406_u5FF5" class="headerlink" title="理念"></a>理念</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">c = a + b<span class="comment">// c = 4</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">4</span></span><br><span class="line"><span class="comment">// 现在c的值是多少？</span></span><br></pre></td></tr></table></figure>
@@ -990,7 +990,7 @@
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
-      <category term="iOS" scheme="http://yeziahehe.com/categories/iOS/"/>
+      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -1086,7 +1086,7 @@
     <link href="http://yeziahehe.com/2015/12/12/blog_trasfer/"/>
     <id>http://yeziahehe.com/2015/12/12/blog_trasfer/</id>
     <published>2015-12-12T15:45:56.000Z</published>
-    <updated>2015-12-16T16:14:51.000Z</updated>
+    <updated>2016-09-02T03:09:48.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u7F18_u7531"><a href="#u7F18_u7531" class="headerlink" title="缘由"></a>缘由</h1><p>最近开始搭建公司的<a href="http://blog.coryphaei.com" target="_blank" rel="external">博客</a>，了解到了<a href="http://hexo.io" target="_blank" rel="external">Hexo</a>，一款非常优雅的静态博客。我之前的博客就是使用<code>jekyll</code>静态博客，但是jekyll的theme实在是不和我的胃口，自己也没有好好经营，再加上自己做了修改后Bug百出，所以催生了我转向Hexo的阵营。</p>
 <h1 id="u5173_u4E8E_u535A_u5BA2"><a href="#u5173_u4E8E_u535A_u5BA2" class="headerlink" title="关于博客"></a>关于博客</h1><p>最近搭建完了公司的博客后，突然开始注重博客的质量，几个小伙伴一起写难免会认真起来。我花了很久写了<a href="http://yeziahehe.com/2015/12/13/2015-12-13-%E4%BD%BF%E7%94%A8Travis%20CI%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAHexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">使用Travis CI自动构建Hexo静态博客</a>这篇博客，当我写完的时候我意识到这次写博客我确实参与其中，把这一系列的问题都搞得很透彻。在GitHub的Hexo和hexo-theme-next中提了issue，把可能出现的问题都发现了一遍，也都解决了一遍，这下我可以完全打包票，下次搭建Hexo的博客肯定能够兵来将挡，水来土掩。我很享受这个过程，也意识到写出好的博客才能体现博客的价值，否则就是在浪费时间。</p>
 <h1 id="u53CD_u601D"><a href="#u53CD_u601D" class="headerlink" title="反思"></a>反思</h1><p>在这次博客的迁移和公司博客的搭建中，我清楚认识到几个问题：</p>
@@ -1102,9 +1102,7 @@
     
       <category term="随想" scheme="http://yeziahehe.com/tags/%E9%9A%8F%E6%83%B3/"/>
     
-      <category term="blog" scheme="http://yeziahehe.com/categories/blog/"/>
-    
-      <category term="随想" scheme="http://yeziahehe.com/categories/blog/%E9%9A%8F%E6%83%B3/"/>
+      <category term="随想" scheme="http://yeziahehe.com/categories/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   

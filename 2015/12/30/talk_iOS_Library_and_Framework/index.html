@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Framework,Objective-C,Swift,iOS," />
+  <meta name="keywords" content="iOS,Objective-C,Swift,Framework," />
 
 
 
@@ -56,10 +56,11 @@
 
 
 <meta name="description" content="写在前面有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打">
+<meta name="keywords" content="iOS,Objective-C,Swift,Framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈iOS中Library和Framework">
 <meta property="og:url" content="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/index.html">
-<meta property="og:site_name" content="Ivan's Blog">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fcreate_framework.png">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fadd_file.png">
@@ -72,6 +73,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈iOS中Library和Framework">
 <meta name="twitter:description" content="写在前面有关于库的出现场景，其实很简单的回答就是，不愿意把实现的源码暴露给其他人。虽然我是脑残的开源爱好者，但是总有些场景下，有这样的需求，比如外包公司的框架，比如我这次写NativeScript，需要自己将三方库打包然后使用在js中调用（当然后来我看到支持CocoaPods的时候，喷了一口老血）。不过这个是客观的一些原因，还有一些有想法的程序员，为了减少编译的时间，也会选择将改动不大的代码进行打">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fcreate_framework.png">
 
 
 
@@ -248,7 +250,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              2,663
+              2,584
           </span>
 
           
@@ -296,14 +298,14 @@
 <h2 id="u521B_u5EFA"><a href="#u521B_u5EFA" class="headerlink" title="创建"></a>创建</h2><p>应该说现在创建一个Framework非常的方便，我们基本上不需要很简单的就能够制作一个Framework。<br>首先我们新建一个Framwork的项目<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fcreate_framework.png" alt="新建项目"></p>
 <p>然后把我们需要创建的文件加入其中，注意这边添加的是Swift的文件，因为Swift中是没有.h和.m的，所以会默认会帮你生成一个xxx-Swift.h的头文件，其中是所有public属性和方法都暴露了出来。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fadd_file.png" alt="添加文件"></p>
 <h2 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h2><p>接下来应该是有个配置的过程，这边需要详细讲下这些变量是什么意思。</p>
-<h3 id="arm"><a href="#arm" class="headerlink" title="arm"></a>arm</h3><p>arm代表的是使用的设备的处理器的型号，大致分为以下几种：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arm64 = iPhone <span class="number">5</span>s, iPad Air, Retina iPad Mini</span><br><span class="line">armv7s = iPhone <span class="number">5</span>, iPhone <span class="number">5</span>c, iPad <span class="number">4</span></span><br><span class="line">armv7  = iPhone <span class="number">3</span>GS, iPhone <span class="number">4</span>, iPhone <span class="number">4</span>S, iPod <span class="number">3</span>G/<span class="number">4</span>G/<span class="number">5</span>G, iPad, iPad <span class="number">2</span>, iPad <span class="number">3</span>, iPad Mini   </span><br><span class="line">i386 = <span class="number">32</span> bit simulator</span><br><span class="line">x86_64 = <span class="number">64</span> bit simulator</span><br></pre></td></tr></table></figure></p>
+<h3 id="arm"><a href="#arm" class="headerlink" title="arm"></a>arm</h3><p>arm代表的是使用的设备的处理器的型号，大致分为以下几种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">arm64 = iPhone 5s, iPad Air, Retina iPad Mini</div><div class="line">armv7s = iPhone 5, iPhone 5c, iPad 4</div><div class="line">armv7  = iPhone 3GS, iPhone 4, iPhone 4S, iPod 3G/4G/5G, iPad, iPad 2, iPad 3, iPad Mini   </div><div class="line">i386 = 32 bit simulator</div><div class="line">x86_64 = 64 bit simulator</div></pre></td></tr></table></figure></p>
 <h3 id="u51E0_u4E2A_u8BBE_u7F6E"><a href="#u51E0_u4E2A_u8BBE_u7F6E" class="headerlink" title="几个设置"></a>几个设置</h3><p>Architectures：该编译选项指定了工程将被编译成支持哪些指令集，支持指令集是通过编译生成对应的二进制数据包实现的，如果支持的指令集数目有多个，就会编译出包含多个指令集代码的数据包，造成最终编译的包很大。<br>Valid Architectures：该编译项指定可能支持的指令集。<br>最后生成的支持工程的指令集应该是上面两个所产生的交集。</p>
 <p>Build Active Architecture Only：该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>当这个选项设置为YES的时候，不管Architectures和Valid Architectures设置为什么，最后都只会输出支持当前使用设备对应的arm指令集。<br>通常debug选择YES，release选择NO。</p>
 <p>有关于指令集的选择，因为指令集有着向下兼容的特性，所以说为了减少包的大小，我们通常选择只支持armv7，在armv7s和arm64的机器上同样可以使用，当然性能有部分损失，可以忽略不计。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fconfig.png" alt="config"></p>
 <h2 id="u7F16_u8BD1"><a href="#u7F16_u8BD1" class="headerlink" title="编译"></a>编译</h2><p>有关于编译，一共有两种方式：release和debug。<br>可以手动设置run的方式。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run.png" alt="modify_run"><br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fmodify_run_release.png" alt="modify_run_release"></p>
 <h2 id="u5B8C_u6210"><a href="#u5B8C_u6210" class="headerlink" title="完成"></a>完成</h2><p>Products里面生成了Framework，找到Framework的位置。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/coryphaei%2Fframework_finish.png" alt="Fframework_finish"></p>
-<h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</span><br></pre></td></tr></table></figure></p>
-<p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</span><br></pre></td></tr></table></figure></p>
+<h2 id="u5408_u5E76"><a href="#u5408_u5E76" class="headerlink" title="合并"></a>合并</h2><p>接下来应该是需要把模拟器和真机的Framework进行合并，网上应该有脚本，我是直接实用命令行的方式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lipo -create Debug-iphoneos/SocketIO.framework/SocketIO Debug-iphonesimulator/SocketIO.framework/SocketIO -output SocketIOLib</div></pre></td></tr></table></figure></p>
+<p>合并完成后进行查看，可以看到支持的指令集。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lipo -info ~/Library/Developer/Xcode/DerivedData/SocketIO-bwzuuvegsamvhtbdwasganalbadg/Build/Products/Debug-iphoneos/SocketIO.framework/SocketIO</div></pre></td></tr></table></figure></p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/">http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</a></blockquote></span>
       
     </div>
@@ -319,13 +321,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -340,13 +342,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Framework/" rel="tag">#Framework</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
             <a href="/tags/Objective-C/" rel="tag">#Objective-C</a>
           
             <a href="/tags/Swift/" rel="tag">#Swift</a>
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/Framework/" rel="tag">#Framework</a>
           
         </div>
       
@@ -437,7 +439,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -540,7 +542,7 @@
 <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

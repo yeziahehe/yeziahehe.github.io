@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mantle,Model,iOS," />
+  <meta name="keywords" content="iOS,Model,Mantle," />
 
 
 
@@ -55,26 +55,19 @@
 
 
 
-<meta name="description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。
-写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:
-
-每次都要用 -initWithDictionarty:(NSDictionary *)dict">
+<meta name="description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。 写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:  每次都要用 -initWithDictionarty:(NSDictionary *)dict">
+<meta name="keywords" content="iOS,Model,Mantle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="objective-c中Model的封装--Mantle学习">
 <meta property="og:url" content="http://yeziahehe.com/2015/08/10/objective-c_Model_package--Mantle_learning/index.html">
-<meta property="og:site_name" content="Ivan's Blog">
-<meta property="og:description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。
-写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:
-
-每次都要用 -initWithDictionarty:(NSDictionary *)dict">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。 写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:  每次都要用 -initWithDictionarty:(NSDictionary *)dict">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2016-09-02T03:01:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="objective-c中Model的封装--Mantle学习">
-<meta name="twitter:description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。
-写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:
-
-每次都要用 -initWithDictionarty:(NSDictionary *)dict">
+<meta name="twitter:description" content="今天看到了Mantle的开源库，于是对于objective-c中model的封装进行了思考。 写在前面在开发的过程中，我们常常会从网络获取数据，而数据通常又为JSON格式。 这时比较常见的做法是把JSON数据转为Model对象，这样我们可以从Model对象的属性读取数据。 但是常常会面临如下一些问题:  每次都要用 -initWithDictionarty:(NSDictionary *)dict">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
 
 
@@ -251,7 +244,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,399
+              1,351
           </span>
 
           
@@ -285,7 +278,7 @@
 <li><p>服务器给你返回的数据不是你期望的，例如：有些时候你需要的是一个NSString类型，但给你的是一个NSNumber。 有时你需要的是一个NSDate类型，但给你的是一个NSString类型，你还不得不去做一些判断，写一些转换的代码。还有一种严重的情况，由于服务器故障，给你返回了一个NSNull，如果你没有做一些判断处理，那么这时你的程序崩溃的几率很大！</p>
 </li>
 </ul>
-<h3 id="u6211_u7684Model_u5904_u7406_u529E_u6CD5"><a href="#u6211_u7684Model_u5904_u7406_u529E_u6CD5" class="headerlink" title="我的Model处理办法"></a>我的Model处理办法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  BaseModel.m</span></span><br><span class="line"><span class="comment">//  BOEFace</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 叶帆 on 15/6/15.</span></span><br><span class="line"><span class="comment">//  Copyright (c) 2015年 叶帆. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"BaseModel.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BaseModel</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithDict:(<span class="built_in">NSDictionary</span> *)dict &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">NSString</span> *key <span class="keyword">in</span> [dict allKeys]) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *value = [dict objectForKey:key];</span><br><span class="line">            <span class="keyword">if</span>([value isKindOfClass:[<span class="built_in">NSNumber</span> class]])</span><br><span class="line">                value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,value];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>([value isKindOfClass:[<span class="built_in">NSNull</span> class]])</span><br><span class="line">                value = <span class="string">@""</span>;</span><br><span class="line">            <span class="keyword">@try</span> &#123;</span><br><span class="line">                [<span class="keyword">self</span> setValue:value forKey:key];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">@catch</span> (<span class="built_in">NSException</span> *exception) &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"试图添加不存在的key:%@到实例:%@中."</span>,key,<span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> class]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h3 id="u6211_u7684Model_u5904_u7406_u529E_u6CD5"><a href="#u6211_u7684Model_u5904_u7406_u529E_u6CD5" class="headerlink" title="我的Model处理办法"></a>我的Model处理办法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  BaseModel.m</span></div><div class="line"><span class="comment">//  BOEFace</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by 叶帆 on 15/6/15.</span></div><div class="line"><span class="comment">//  Copyright (c) 2015年 叶帆. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"BaseModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BaseModel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)initWithDict:(<span class="built_in">NSDictionary</span> *)dict &#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">NSString</span> *key <span class="keyword">in</span> [dict allKeys]) &#123;</div><div class="line">            <span class="built_in">NSString</span> *value = [dict objectForKey:key];</div><div class="line">            <span class="keyword">if</span>([value isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]])</div><div class="line">                value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>,value];</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>([value isKindOfClass:[<span class="built_in">NSNull</span> <span class="keyword">class</span>]])</div><div class="line">                value = <span class="string">@""</span>;</div><div class="line">            <span class="keyword">@try</span> &#123;</div><div class="line">                [<span class="keyword">self</span> setValue:value forKey:key];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">@catch</span> (<span class="built_in">NSException</span> *exception) &#123;</div><div class="line">                <span class="built_in">NSLog</span>(<span class="string">@"试图添加不存在的key:%@到实例:%@中."</span>,key,<span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>]));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>首先看到的是我封装了一个BaseModel的类出来，对于其中的数字和空类型都做了处理，这种方法很大程度上解决了Model数据中nil类型引起崩溃的情况，但是缺点就是所有的类型都被转变成了NSString类型，这样的处理方式会使得在使用Model数据的时候类型转换产生部分问题。</p>
 <h3 id="Mantle"><a href="#Mantle" class="headerlink" title="Mantle"></a>Mantle</h3><p>Mantle框架在处理上述提出的问题中做了很好的优化，下面我们来认识一下Mantle。</p>
 <p>首先github官方是这么描述的：</p>
@@ -307,13 +300,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -328,11 +321,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mantle/" rel="tag">#Mantle</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
             <a href="/tags/Model/" rel="tag">#Model</a>
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/Mantle/" rel="tag">#Mantle</a>
           
         </div>
       
@@ -423,7 +416,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -526,7 +519,7 @@
 <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

@@ -55,62 +55,19 @@
 
 
 
-<meta name="description" content="从今天开始学习objc中国的所有博客。
-更轻量的 View Controllers
-介绍
-
-更轻量的 View Controllers
-
-整洁的 Table View 代码
-
-测试 View Controllers
-
-View Controller 容器
-
-
-NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
-
-属性列表：基本的">
+<meta name="description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
+<meta name="keywords" content="iOS,objc中国">
 <meta property="og:type" content="article">
 <meta property="og:title" content="objc中国学习--更轻量的 View Controllers">
 <meta property="og:url" content="http://yeziahehe.com/2015/09/09/Objc_learning--lighter_View_Controllers/index.html">
-<meta property="og:site_name" content="Ivan's Blog">
-<meta property="og:description" content="从今天开始学习objc中国的所有博客。
-更轻量的 View Controllers
-介绍
-
-更轻量的 View Controllers
-
-整洁的 Table View 代码
-
-测试 View Controllers
-
-View Controller 容器
-
-
-NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
-
-属性列表：基本的">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2016-09-02T03:01:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="objc中国学习--更轻量的 View Controllers">
-<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。
-更轻量的 View Controllers
-介绍
-
-更轻量的 View Controllers
-
-整洁的 Table View 代码
-
-测试 View Controllers
-
-View Controller 容器
-
-
-NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：
-
-属性列表：基本的">
+<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
 
 
@@ -287,7 +244,7 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,879
+              1,821
           </span>
 
           
@@ -341,7 +298,7 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
 </ul>
 <p>要实现自定义类的归档，需要实现encodeWithCoder(编码/序列化)和initWithCoder(解码/反序列化)。</p>
 <p>要编码的对象，必须实现NSCoding协议。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSCoding</span></span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>) encoderWithCoder:(<span class="built_in">NSCoder</span> *) aCoder;<span class="comment">//保存</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">id</span>) initWithCoder:(<span class="built_in">NSCoder</span> *) aDecoder;<span class="comment">//加载</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSCoding</span></span></div><div class="line"></div><div class="line">-(<span class="keyword">void</span>) encoderWithCoder:(<span class="built_in">NSCoder</span> *) aCoder;<span class="comment">//保存</span></div><div class="line"></div><div class="line">-(<span class="keyword">id</span>) initWithCoder:(<span class="built_in">NSCoder</span> *) aDecoder;<span class="comment">//加载</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>Mantle是一个意在减少写NSCoding样板文件的类库。如果你正在寻找更方便使用NSCoding代替Core Data创建model的方法，那Mantle值得一看。</p>
 <p>可以参考我之前写的<a href="http://yeziahehe.com/ios/2015/08/10/objective-c%E4%B8%ADModel%E7%9A%84%E5%B0%81%E8%A3%85--Mantle%E5%AD%A6%E4%B9%A0.html">文章</a>。</p>
 <h3 id="u628A_u7F51_u7EDC_u8BF7_u6C42_u903B_u8F91_u79FB_u5230_Model__u5C42"><a href="#u628A_u7F51_u7EDC_u8BF7_u6C42_u903B_u8F91_u79FB_u5230_Model__u5C42" class="headerlink" title="把网络请求逻辑移到 Model 层"></a>把网络请求逻辑移到 Model 层</h3><p>和上面的主题相似：不要在 view controller 中做网络请求的逻辑。取而代之，你应该将它们封装到另一个类中。这样，你的 view controller 就可以在之后通过使用带有回调（比如一个 completion 的 block）来请求网络了。这样的好处是，缓存和错误控制也可以在这个类里面完成。</p>
@@ -351,7 +308,7 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
 <p>测试会被 build 成一个 bundle，其中包含一个动态库和你选择的资源文件。如果你要测试某些资源文件，你得把它们加到测试的 target 中，Xcode 就会将它们打包到一个 bundle 中。</p>
 <p>Xcode 中的每个 scheme 定义了相应的测试 bundle 是哪个。通过 ⌘-R 运行程序，⌘-U 运行测试。</p>
 <p>测试的运行依附于程序的运行，当程序运行时，测试 bundle 将被注入（injected）。测试时，你可能不想让你的程序做太多的事，那样会对测试造成干扰。可以把下面的代码加到 app delegate 中：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>) __attribute__((<span class="keyword">const</span>));</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application</span><br><span class="line">        didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (isRunningTests()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Normal logic goes here</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span>* environment = [[<span class="built_in">NSProcessInfo</span> processInfo] environment];</span><br><span class="line">    <span class="built_in">NSString</span>* injectBundle = environment[<span class="string">@"XCInjectBundle"</span>];</span><br><span class="line">    <span class="keyword">return</span> [[injectBundle pathExtension] isEqualToString:<span class="string">@"octest"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>) __attribute__((<span class="keyword">const</span>));</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application</div><div class="line">        didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (isRunningTests()) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">// Normal logic goes here</span></div><div class="line">    <span class="comment">//</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="built_in">BOOL</span> isRunningTests(<span class="keyword">void</span>)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSDictionary</span>* environment = [[<span class="built_in">NSProcessInfo</span> processInfo] environment];</div><div class="line">    <span class="built_in">NSString</span>* injectBundle = environment[<span class="string">@"XCInjectBundle"</span>];</div><div class="line">    <span class="keyword">return</span> [[injectBundle pathExtension] isEqualToString:<span class="string">@"octest"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://objccn.io/issue-1/" target="_blank" rel="external">#1 更轻量的 View Controllers</a></p>
 <p><a href="http://onevcat.com/2014/02/ios-test-with-kiwi/" target="_blank" rel="external">TDD的iOS开发初步以及Kiwi使用入门Kiwi</a></p>
 <p><a href="http://www.onevcat.com/2014/05/kiwi-mock-stub-test/" target="_blank" rel="external">Kiwi 使用进阶 Mock, Stub, 参数捕获和异步测试</a></p>
@@ -370,13 +327,13 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -484,7 +441,7 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -587,7 +544,7 @@ NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实�
 <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

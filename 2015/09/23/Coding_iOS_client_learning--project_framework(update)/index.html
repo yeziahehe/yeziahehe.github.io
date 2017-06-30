@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Coding源码,iOS," />
+  <meta name="keywords" content="iOS,Coding源码," />
 
 
 
@@ -55,20 +55,19 @@
 
 
 
-<meta name="description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。
-项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
+<meta name="description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。 项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
+<meta name="keywords" content="iOS,Coding源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding iOS客户端学习--项目框架(持续更新)">
 <meta property="og:url" content="http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/index.html">
-<meta property="og:site_name" content="Ivan's Blog">
-<meta property="og:description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。
-项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。 项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2016-09-02T03:02:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coding iOS客户端学习--项目框架(持续更新)">
-<meta name="twitter:description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。
-项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
+<meta name="twitter:description" content="最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现Coding客户端代码开源，准备做一次源码学习分析。 项目架构1234567891011121314151617181920212223242526272829303132333435363738394041├── Coding_iOS│   ├── AppDelegate：入口类│   ├── Models：数据类│">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
 
 
@@ -245,7 +244,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              982
+              886
           </span>
 
           
@@ -270,7 +269,7 @@
 
       
         <span itemprop="articleBody"><p>最近发现Android组同事都使用的Coding作为git合作，下载把玩后发现<a href="https://coding.net/u/coding/p/Coding-iOS/git" target="_blank" rel="external">Coding客户端</a>代码开源，准备做一次源码学习分析。</p>
-<h3 id="u9879_u76EE_u67B6_u6784"><a href="#u9879_u76EE_u67B6_u6784" class="headerlink" title="项目架构"></a>项目架构</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">├── Coding_iOS</span><br><span class="line">│   ├── AppDelegate：入口类</span><br><span class="line">│   ├── Models：数据类</span><br><span class="line">│   ├── Views：视图类</span><br><span class="line">│   │   ├── CCell：所有的CollectionViewCell都在这里</span><br><span class="line">│   │   ├── Cell：所有的TableViewCell都在这里</span><br><span class="line">│   │   └── XXX：ListView（项目、动态、任务、讨论、文档、代码）和InputView（用于聊天和评论的输入框）</span><br><span class="line">│   ├── Controllers：控制器，对应app中的各个页面</span><br><span class="line">│   │   ├── Login：登录页面</span><br><span class="line">│   │   ├── RootControllers：登录后的根页面</span><br><span class="line">│   │   ├── MeSetting：设置信息页面</span><br><span class="line">│   │   └── XXX：其它页面</span><br><span class="line">│   ├── Images：app中用到的所有的图片都在这里</span><br><span class="line">│   ├── Resources：资源文件</span><br><span class="line">│   ├── Util：一些常用控件和Category、Manager之类</span><br><span class="line">│   │   ├── Common</span><br><span class="line">│   │   ├── Manager</span><br><span class="line">│   │   ├── OC_Category</span><br><span class="line">│   │   └── ObjcRuntime</span><br><span class="line">│   └── Vendor：用到的一些第三方类库，一般都有改动</span><br><span class="line">│       ├── AFNetworking</span><br><span class="line">│       ├── AGEmojiKeyboard</span><br><span class="line">│       ├── ASProgressPopUpView</span><br><span class="line">│       ├── ActionSheetPicker</span><br><span class="line">│       ├── FontAwesome+iOS</span><br><span class="line">│       ├── MJPhotoBrowser</span><br><span class="line">│       ├── MLEmojiLabel</span><br><span class="line">│       ├── NSDate+Helper</span><br><span class="line">│       ├── NSStringEmojize</span><br><span class="line">│       ├── PPiAwesomeButton</span><br><span class="line">│       ├── QBImagePickerController</span><br><span class="line">│       ├── RDVTabBarController</span><br><span class="line">│       ├── SMPageControl</span><br><span class="line">│       ├── SVPullToRefresh</span><br><span class="line">│       ├── SWTableViewCell</span><br><span class="line">│       ├── UMENG</span><br><span class="line">│       ├── UMessage<span class="emphasis">_Sdk_</span>1.1.0</span><br><span class="line">│       ├── XGPush</span><br><span class="line">│       ├── XTSegmentControl</span><br><span class="line">│       └── iCarousel</span><br><span class="line">└── Pods：项目使用了[<span class="link_label">CocoaPods</span>](<span class="link_url">http://code4app.com/article/cocoapods-install-usage</span>)这个类库管理工具</span><br></pre></td></tr></table></figure>
+<h3 id="u9879_u76EE_u67B6_u6784"><a href="#u9879_u76EE_u67B6_u6784" class="headerlink" title="项目架构"></a>项目架构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">├── Coding_iOS</div><div class="line">│   ├── AppDelegate：入口类</div><div class="line">│   ├── Models：数据类</div><div class="line">│   ├── Views：视图类</div><div class="line">│   │   ├── CCell：所有的CollectionViewCell都在这里</div><div class="line">│   │   ├── Cell：所有的TableViewCell都在这里</div><div class="line">│   │   └── XXX：ListView（项目、动态、任务、讨论、文档、代码）和InputView（用于聊天和评论的输入框）</div><div class="line">│   ├── Controllers：控制器，对应app中的各个页面</div><div class="line">│   │   ├── Login：登录页面</div><div class="line">│   │   ├── RootControllers：登录后的根页面</div><div class="line">│   │   ├── MeSetting：设置信息页面</div><div class="line">│   │   └── XXX：其它页面</div><div class="line">│   ├── Images：app中用到的所有的图片都在这里</div><div class="line">│   ├── Resources：资源文件</div><div class="line">│   ├── Util：一些常用控件和Category、Manager之类</div><div class="line">│   │   ├── Common</div><div class="line">│   │   ├── Manager</div><div class="line">│   │   ├── OC_Category</div><div class="line">│   │   └── ObjcRuntime</div><div class="line">│   └── Vendor：用到的一些第三方类库，一般都有改动</div><div class="line">│       ├── AFNetworking</div><div class="line">│       ├── AGEmojiKeyboard</div><div class="line">│       ├── ASProgressPopUpView</div><div class="line">│       ├── ActionSheetPicker</div><div class="line">│       ├── FontAwesome+iOS</div><div class="line">│       ├── MJPhotoBrowser</div><div class="line">│       ├── MLEmojiLabel</div><div class="line">│       ├── NSDate+Helper</div><div class="line">│       ├── NSStringEmojize</div><div class="line">│       ├── PPiAwesomeButton</div><div class="line">│       ├── QBImagePickerController</div><div class="line">│       ├── RDVTabBarController</div><div class="line">│       ├── SMPageControl</div><div class="line">│       ├── SVPullToRefresh</div><div class="line">│       ├── SWTableViewCell</div><div class="line">│       ├── UMENG</div><div class="line">│       ├── UMessage_Sdk_1.1.0</div><div class="line">│       ├── XGPush</div><div class="line">│       ├── XTSegmentControl</div><div class="line">│       └── iCarousel</div><div class="line">└── Pods：项目使用了[CocoaPods](http://code4app.com/article/cocoapods-install-usage)这个类库管理工具</div></pre></td></tr></table></figure>
 <h3 id="u67B6_u6784_u89E3_u91CA"><a href="#u67B6_u6784_u89E3_u91CA" class="headerlink" title="架构解释"></a>架构解释</h3><p>不断更新</p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/">http://yeziahehe.com/2015/09/23/Coding_iOS_client_learning--project_framework(update)/</a></blockquote></span>
       
@@ -287,13 +286,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -308,9 +307,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Coding源码/" rel="tag">#Coding源码</a>
-          
             <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/Coding源码/" rel="tag">#Coding源码</a>
           
         </div>
       
@@ -401,7 +400,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -504,7 +503,7 @@
 <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

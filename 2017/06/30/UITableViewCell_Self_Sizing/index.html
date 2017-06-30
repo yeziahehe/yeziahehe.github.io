@@ -65,8 +65,9 @@
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/print_twice.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-06-30T15:25:36.000Z">
+<meta property="og:updated_time" content="2017-06-30T16:51:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableViewCell 高度自适应牵扯出的若干问题">
 <meta name="twitter:description" content="写在前面阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。 Self-Sizing CellSelf-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图">
@@ -247,7 +248,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,831
+              2,658
           </span>
 
           
@@ -279,7 +280,7 @@
 <p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png" alt="设置 StoryBoard"></p>
 <h2 id="Step_Two"><a href="#Step_Two" class="headerlink" title="Step Two"></a>Step Two</h2><p>在代码中添加两个方法，接下来加载出数据的时候就可以自动计算高度。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></div><div class="line">    tableView.estimatedRowHeight = <span class="number">100</span><span class="comment">//估算高度尽可能的接近 cell 的高度</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><a href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898" class="headerlink" title="由此引发的问题"></a>由此引发的问题</h1><p>在关于优化 UITableView 的文章中，提到了一个优化方案。</p>
+<h1 id="u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><a href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898" class="headerlink" title="由此引发的问题"></a>由此引发的问题</h1><h2 id="1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A"><a href="#1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A" class="headerlink" title="1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:"></a>1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:</h2><p>在关于优化 UITableView 的文章中，提到了一个优化方案。</p>
 <blockquote>
 <p>我们经常在注意cellForRowAtIndexPath：中为每一个cell绑定数据，实际上在调用cellForRowAtIndexPath：的时候cell还没有被显示出来，为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行，可以在tableView：willDisplayCell：forRowAtIndexPath：方法中绑定数据。</p>
 </blockquote>
@@ -299,7 +300,26 @@
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.reloadData()</div><div class="line"><span class="comment">// 3 new lines of codes to force size adjustment</span></div><div class="line"><span class="keyword">self</span>.tableView.setNeedsLayout()</div><div class="line"><span class="keyword">self</span>.tableView.layoutIfNeeded()</div><div class="line"><span class="keyword">self</span>.tableView.reloadData()</div></pre></td></tr></table></figure>
 <p>上述两个方案，第二个方案是强制高度自适应，具体可以参考这边文章 <a href="http://jianjye.com/swift-resize-uitextview-tableviewcell-correctly-json-fetch/#comment-512" target="_blank" rel="external">Swift: How to Resize UITextView + TableViewCell Correctly After JSON Fetch</a>，但是这个方法显得很臃肿，也并不能算是优雅的解决方案。于是我看到第一个方案时产生了疑问：</p>
-<p><strong>【为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行】</strong> 这个观点是正确的吗？</p>
+<p><strong>【为了提高效率我们应该把数据绑定的操作放在 cell 显示出来后再执行】</strong> 这个观点是正确的吗？</p>
+<h2 id="u6570_u636E_u7ED1_u5B9A_u5E94_u8BE5_u653E_u5728_u54EA_u513F_uFF1F"><a href="#u6570_u636E_u7ED1_u5B9A_u5E94_u8BE5_u653E_u5728_u54EA_u513F_uFF1F" class="headerlink" title="数据绑定应该放在哪儿？"></a>数据绑定应该放在哪儿？</h2><p>我们首先看下苹果官方文档关于 <code>willDisplayCell:forRowAtIndexPath:</code> 的解释，该方法应该是修改状态类型基本属性，比如选择状态、背景颜色等等：</p>
+<blockquote>
+<p>This method gives the delegate a chance to override state-based properties set earlier by the table view, such as selection and background color.</p>
+</blockquote>
+<p>官方文档关于 <code>cellForRowAtIndexPath:</code> 的解释，该方法应该是讲数据源插入到 UITableView 正确的位置：</p>
+<blockquote>
+<p>Asks the data source for a cell to insert in a particular location of the table view.</p>
+</blockquote>
+<p>在此同时，我看到了一篇详细的文章 <a href="https://tech.zalando.com/blog/proper-use-of-cellforrowatindexpath-and-willdisplaycell/" target="_blank" rel="external">Proper Use of CellForRowAtIndexPath and WillDisplayCell</a>，文章中指出：</p>
+<blockquote>
+<p>Orlov’s article is an important guide for advanced programming. However, he is lacking proof for the tableView delegate method willDisplayCell:forRowAtIndexPath:. This has been something that has bothered me for a while, as so many people quoted the paragraph about willDisplayCell from the article.</p>
+</blockquote>
+<p>很重要的一句话，<strong>并没有任何理由能够支持他说的绑定数据在 willDisplayCell 能够提高 UITableView 的性能</strong>。并且他做了实验，发现 <code>layoutSubviews</code> 是在 <code>willDisplayCell:forRowAtIndexPath:</code> 和 <code>cellForRowAtIndexPath:</code> 两个方法之后，也就是说不管你在哪个方法中去绑定数据，cell 被 layouted 总在他们之后，那么在这之前就不会 Rendering，也就不存在绑定数据在 <code>cellForRowAtIndexPath:</code> 方法中会影响性能。</p>
+<p>那么，这个优化方案并没有任何理论根据，于是忘了吧，<del>我们经常在注意cellForRowAtIndexPath：中为每一个cell绑定数据，实际上在调用cellForRowAtIndexPath：的时候cell还没有被显示出来，为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行，可以在tableView：willDisplayCell：forRowAtIndexPath：方法中绑定数据。</del></p>
+<p><strong>注意，关于 Orlov’s article 虽然提升这一点没有被佐证，但是其他的优化方案非常值得学习，</strong> 我这边附上链接，有兴趣可以学习！注意使用梯子~~ <a href="https://medium.com/ios-os-x-development/perfect-smooth-scrolling-in-uitableviews-fd609d5275a5" target="_blank" rel="external">文章：perfect smooth scrolling in uitableviews</a></p>
+<h2 id="u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F"><a href="#u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F" class="headerlink" title="自动计算加载了几次？"></a>自动计算加载了几次？</h2><p>本来到这边应该结束文章，但是在探讨上述问题的时候，发现了很奇怪的一件事情。如果你在 UITableView Delegate 或者 DataSource 方法中打印一下，会发现每个方法中的打印出现了2遍。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/print_twice.png" alt="打印两边"></p>
+<p>于是，我参考了两篇文章：<a href="https://stackoverflow.com/questions/41318864/scrollviewdidscroll-is-called-twice-after-set-table-offset" target="_blank" rel="external">scrollViewDidScroll is called “twice” after set table offset</a>、<a href="https://discussions.apple.com/thread/7111979?start=0&amp;tstart=0" target="_blank" rel="external">heightForRowAtIndexPath called twice in iOS 8 but one time in iOS 7</a></p>
+<p><code>tableView.estimatedRowHeight = 100</code> 这句话是引起 UITableView 加载两次的原因，注释掉这句话后，发现打印一次。我并没有找到合理的解释去解释这个原因，网上部分猜测是 Apple 官方的 Bug，如果大家对这个问题有合理的解释，不妨联系我。</p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/">http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/</a></blockquote></span>
       
     </div>
@@ -504,7 +524,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-Sizing_Cell"><span class="nav-number">2.</span> <span class="nav-text">Self-Sizing Cell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step_One"><span class="nav-number">2.1.</span> <span class="nav-text">Step One</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step_Two"><span class="nav-number">2.2.</span> <span class="nav-text">Step Two</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><span class="nav-number">3.</span> <span class="nav-text">由此引发的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-Sizing_Cell"><span class="nav-number">2.</span> <span class="nav-text">Self-Sizing Cell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step_One"><span class="nav-number">2.1.</span> <span class="nav-text">Step One</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step_Two"><span class="nav-number">2.2.</span> <span class="nav-text">Step Two</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><span class="nav-number">3.</span> <span class="nav-text">由此引发的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A"><span class="nav-number">3.1.</span> <span class="nav-text">1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6570_u636E_u7ED1_u5B9A_u5E94_u8BE5_u653E_u5728_u54EA_u513F_uFF1F"><span class="nav-number">3.2.</span> <span class="nav-text">数据绑定应该放在哪儿？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F"><span class="nav-number">3.3.</span> <span class="nav-text">自动计算加载了几次？</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -62,15 +62,15 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。 Self-Sizing CellSelf-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750">
 <meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-06-30T14:16:21.000Z">
+<meta property="og:updated_time" content="2017-06-30T14:32:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableViewCell 高度自适应牵扯出的若干问题">
 <meta name="twitter:description" content="写在前面阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。 Self-Sizing CellSelf-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750">
 
 
 
@@ -247,7 +247,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,390
+              1,398
           </span>
 
           
@@ -273,7 +273,7 @@
       
         <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。</p>
 <h1 id="Self-Sizing_Cell"><a href="#Self-Sizing_Cell" class="headerlink" title="Self-Sizing Cell"></a>Self-Sizing Cell</h1><p>Self-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图所示的就是配合 Self-Sizing 推出的系统修改字体。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg" alt="文字大小"></p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750" alt="文字大小"></p>
 <p>在 iOS8 以前，决定 tableviewcell 的高度的都是 <code>tableView:heightForRowAt:</code>，在该方法中手动计算 cell 的高度。iOS 8 之后，Apple 推出了新技术 Self-Sizing，通过 Working with Self-Sizing Tableview cells，将 cell 和 Self-Sizing 进行配合使用后这个协议函数就不用管了，高度系统会自动进行计算。具体的实现方式如下：</p>
 <h2 id="Step_One"><a href="#Step_One" class="headerlink" title="Step One"></a>Step One</h2><p>通过 StoryBoard 新建 Custom TableView Cell，并且把要自适应文本高度的 UILabel 添加上约束。约束的原则如果上下左右没有其他元素，直接和 SuperView 做相对约束，如果有其他元素，则其他元素需要布局确定，UILabel 做相对约束。注意很重要的一点，<strong>最后 UILabel 的约束最后对宽和高都没有做约束，只有上下左右四边的约束看</strong>，这样的 Cell 才可以进行高度自适应。</p>
 <p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png" alt="设置 StoryBoard"></p>
@@ -286,7 +286,7 @@
 <p>我刚刚开始对这个观点是认可，并且也确实这么做了，于是代码如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</div><div class="line">    <span class="keyword">let</span> cell: <span class="type">CustomCell</span> = tableView.dequeueReusableCell()</div><div class="line">    <span class="keyword">return</span> cell</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)</span></span> &#123;</div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> cell = cell <span class="keyword">as</span>? <span class="type">CustomCell</span> <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    cell.titleLabel.text = <span class="type">Json</span>.desc</div><div class="line">    <span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在执行上述代码之后，我发现了一个问题，UITableViewCell 的高度加载并不正确，是估算的高度，并不是计算的高度，如下图。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png" alt="未计算出正确高度"></p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750" alt="未计算出正确高度"></p>
 <p>滑动之后新加载的 TableViewCell 高度为计算出来且正确。（继承 UITableViewViewController 即 Delegate and DataSource 方法为 override 可以滑动加载正确高度；而继承自 UIViewController 即 Delegate and DataSource 方法是 extension 滑动也不可以加载正确高度。<strong>注意，后面的继承未写 Demo 论证，若有不对请指出</strong>）</p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/">http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/</a></blockquote></span>
       

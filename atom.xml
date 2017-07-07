@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-07-01T04:47:28.000Z</updated>
+  <updated>2017-07-07T16:45:17.000Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[使用 UIFeedbackGenerator 来实现触觉反馈]]></title>
+    <link href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/"/>
+    <id>http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</id>
+    <published>2017-07-07T07:47:29.000Z</published>
+    <updated>2017-07-07T16:45:17.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。</strong></p>
+<p>最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg" alt=""></th>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ele.jpg" alt=""></th>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Apple_Pay.jpg" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">系统触感强度设置</td>
+<td style="text-align:center">饿了么刷新触觉反馈</td>
+<td style="text-align:center">Apple Pay 支付成功和失败触觉反馈</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u89E6_u89C9_u53CD_u9988"><a href="#u89E6_u89C9_u53CD_u9988" class="headerlink" title="触觉反馈"></a>触觉反馈</h1><p>iOS 10 引入了一种新的产生触觉反馈的方式，通过使用系统的预定义震动模式，让用户在进行操作时得到不同的震动反馈。这个功能有新增的 <code>UIFeedbackGenerator</code> 提供，根据官方的<a href="https://developer.apple.com/documentation/uikit/uifeedbackgenerator" target="_blank" rel="external">文档</a>：</p>
+<blockquote>
+<p>The abstract superclass for all feedback generators.</p>
+</blockquote>
+<p>该类为一个抽象类，提供三个子类 <code>UIImpactFeedbackGenerator</code>、<code>UISelectionFeedbackGenerator</code> 和 <code>UINotificationFeedbackGenerator</code>。</p>
+<h2 id="UIImpactFeedbackGenerator"><a href="#UIImpactFeedbackGenerator" class="headerlink" title="UIImpactFeedbackGenerator"></a>UIImpactFeedbackGenerator</h2><blockquote>
+<p>Use impact feedback generators to indicate that an impact has occurred.</p>
+</blockquote>
+<p>预示着按压发生了。比如系统触感强度设置就是为了在你按 Home 键的时候给你一反馈，实际上 iPhone 7 的 Home 键并可以按动。</p>
+<p><code>UIImpactFeedbackStyle</code> 一共是三种：<code>.light</code>、<code>.medium</code>、<code>heavy</code>，分别对应了系统触感强度里面的 1、2、3。</p>
+<h2 id="UISelectionFeedbackGenerator"><a href="#UISelectionFeedbackGenerator" class="headerlink" title="UISelectionFeedbackGenerator"></a>UISelectionFeedbackGenerator</h2><blockquote>
+<p>Use selection feedback generators to indicate a change in selection.</p>
+</blockquote>
+<p>预示着选择的变化。比如饿了么的刷新触觉反馈，这里普及一下，这种刷新反馈是因为饿了么使用的系统的 <code>UIRefreshControl</code> 方法去做的下拉刷新，而系统为这种方法下拉的 <code>offsetY</code> 做了触觉反馈的适配。</p>
+<h2 id="UINotificationFeedbackGenerator"><a href="#UINotificationFeedbackGenerator" class="headerlink" title="UINotificationFeedbackGenerator"></a>UINotificationFeedbackGenerator</h2><blockquote>
+<p>Use notification feedback generators to indicate successes, failures, and warnings.</p>
+</blockquote>
+<p>预示着成功、失败和警告。比如 Apple_Pay 支付成功和失败的反馈，这里比较了下三种情况的反馈，应该是在力度上面有所差别。和 Impact 的差别在于，这里的触觉反馈类似左右摇动两下。</p>
+<p><code>UINotificationFeedbackType</code> 同样也是三种：<code>.success</code>、<code>.warning</code>、<code>error</code>。</p>
+<h1 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h1><p>最后讲一下用法，掘金的翻译计划 <a href="https://juejin.im/entry/5810433ac4c9710058a74100" target="_blank" rel="external">[译] 如何使用 UIFeedbackGenerator 让应用支持 iOS 10 的触觉反馈</a> 中，给出了一个 Demo。注意 Demo 中有个问题，<strong>addsubview 应该在添加约束之前，否则会引起崩溃。</strong></p>
+<p>不过根据官方的文档,触发触觉效果之前，在你的生成器 (generator) 内调用 prepare() 方法，这样可以有效的减少延迟。可以参考官方文档中的代码，也可以参考如下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> feedbackGenerator : <span class="type">UIImpactFeedbackGenerator</span>? = <span class="type">UIImpactFeedbackGenerator</span>(style: .heavy)</div><div class="line"></div><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">    feedbackGenerator = <span class="literal">nil</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    feedbackGenerator?.prepare()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">getNewGank</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</div><div class="line">    feedbackGenerator?.impactOccurred()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：触觉反馈的特性从 iO]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[UITableViewCell 高度自适应牵扯出的若干问题]]></title>
@@ -1003,9 +1062,9 @@
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
-      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
-    
       <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
     
       <category term="Framework" scheme="http://yeziahehe.com/tags/Framework/"/>
     
@@ -1272,57 +1331,6 @@
     </summary>
     
       <category term="iOS，Cocoapods" scheme="http://yeziahehe.com/tags/iOS%EF%BC%8CCocoapods/"/>
-    
-      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Block学习]]></title>
-    <link href="http://yeziahehe.com/2015/10/10/Block_learning/"/>
-    <id>http://yeziahehe.com/2015/10/10/Block_learning/</id>
-    <published>2015-10-10T15:31:24.000Z</published>
-    <updated>2016-09-02T03:02:18.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h3><p>首先对大家的Block进行下测试，这边有<a href="http://blog.parse.com/learn/engineering/objective-c-blocks-quiz/" target="_blank" rel="external">5道题</a>。</p>
-<h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>Block是Objective-C对于闭包的实现，有关闭包，我正在想一个通俗的方式给大家定义下。</p>
-<blockquote>
-<p>闭包：函数中的函数。</p>
-</blockquote>
-<h3 id="Block_u7684_u57FA_u672C_u7406_u89E3"><a href="#Block_u7684_u57FA_u672C_u7406_u89E3" class="headerlink" title="Block的基本理解"></a>Block的基本理解</h3><p>Block的两种使用方式：</p>
-<ol>
-<li>Block变量，这种就是相当于内联函数，很简单。</li>
-<li>Block函数，这个就是Block强大的地方，block外的变量可以无缝地直接在block内部使用。</li>
-</ol>
-<p>Block在使用时是可以调用外部变量的，Block将使用到的、作用域附近到的变量的值建立一份快照拷贝到栈上。而在ARC下就可能会出现循环引用的情况，我们等下来讲。</p>
-<h3 id="Block_u7684_u5185_u5B58_u7BA1_u7406"><a href="#Block_u7684_u5185_u5B58_u7BA1_u7406" class="headerlink" title="Block的内存管理"></a>Block的内存管理</h3><p>在 Objective-C 语言中，一共有 3 种类型的 block：</p>
-<ol>
-<li><p>NSConcreteGlobalBlock 全局的静态 block，不会访问任何外部变量。</p>
-</li>
-<li><p>NSConcreteStackBlock 保存在栈中的 block，当函数返回时会被销毁。</p>
-</li>
-<li><p>NSConcreteMallocBlock 保存在堆中的 block，当引用计数为 0 时会被销毁。</p>
-</li>
-</ol>
-<blockquote>
-<p>在ARC下，不使用第二种内存管理方式，所有的外部变量使用时都是第三种方式。</p>
-</blockquote>
-<h3 id="u5FAA_u73AF_u5F15_u7528_u7684_u95EE_u9898"><a href="#u5FAA_u73AF_u5F15_u7528_u7684_u95EE_u9898" class="headerlink" title="循环引用的问题"></a>循环引用的问题</h3><p><em>循环引用</em> （retain cycle）问题的根源在于ARC中Block和obj可能会互相强引用，互相retain对方，这样就导致了retain cycle，无法释放，造成内存泄露。</p>
-<p>首先看下面的代码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> : <span class="title">NSObject</span> </span>&#123;</div><div class="line">    <span class="built_in">NSObject</span>* _instanceObj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyClass</span></span></div><div class="line"></div><div class="line"><span class="built_in">NSObject</span>* __globalObj = <span class="literal">nil</span>;</div><div class="line"></div><div class="line">- (<span class="keyword">id</span>) init &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        _instanceObj = [[<span class="built_in">NSObject</span> alloc] init];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) test &#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">NSObject</span>* __staticObj = <span class="literal">nil</span>;</div><div class="line">    __globalObj = [[<span class="built_in">NSObject</span> alloc] init];</div><div class="line">    __staticObj = [[<span class="built_in">NSObject</span> alloc] init];</div><div class="line"></div><div class="line">    <span class="built_in">NSObject</span>* localObj = [[<span class="built_in">NSObject</span> alloc] init];</div><div class="line">    __block <span class="built_in">NSObject</span>* blockObj = [[<span class="built_in">NSObject</span> alloc] init];</div><div class="line"></div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^MyBlock)(<span class="keyword">void</span>) ;</div><div class="line">    MyBlock aBlock = ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, __globalObj);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, __staticObj);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, _instanceObj);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, localObj);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, blockObj);</div><div class="line">    &#125;;</div><div class="line">    aBlock = [[aBlock <span class="keyword">copy</span>] autorelease];</div><div class="line">    aBlock();</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, [__globalObj retainCount]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, [__staticObj retainCount]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, [_instanceObj retainCount]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, [localObj retainCount]);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, [blockObj retainCount]);</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        MyClass* obj = [[[MyClass alloc] init] autorelease];</div><div class="line">        [obj test];</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>执行结果为 <code>1 1 1 2 1</code></p>
-<p>localObj在Block copy时，系统自动retain对象，增加其引用计数。</p>
-<ul>
-<li>非ObjC对象，如GCD队列dispatch_queue_t。Block copy时并不会自动增加他的引用计数 *</li>
-</ul>
-<h3 id="u89E3_u51B3_u529E_u6CD5_u4F7F_u7528_u5F31_u5F15_u7528__weak"><a href="#u89E3_u51B3_u529E_u6CD5_u4F7F_u7528_u5F31_u5F15_u7528__weak" class="headerlink" title="解决办法使用弱引用 _weak"></a>解决办法使用弱引用 _weak</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ClassA* objA = [[[ClassA alloc] init] autorelease];</div><div class="line"></div><div class="line">MyClass* weakSelf = <span class="keyword">self</span>;</div><div class="line">objA.myBlock = ^&#123;</div><div class="line">  [weakSelf doSomething];</div><div class="line">&#125;;</div><div class="line"><span class="keyword">self</span>.objA = objA;</div></pre></td></tr></table></figure>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/" target="_blank" rel="external">谈Objective-C Block的实现</a><br><a href="http://tanqisen.github.io/blog/2013/04/19/gcd-block-cycle-retain/" target="_blank" rel="external">正确使用Block避免Cycle Retain和Crash</a></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/10/Block_learning/">http://yeziahehe.com/2015/10/10/Block_learning/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h3><p>首先对大家的Block进行下测试，这边有<a h]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="Block" scheme="http://yeziahehe.com/tags/Block/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     

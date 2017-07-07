@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,objc中国," />
+  <meta name="keywords" content="iOS,Swift," />
 
 
 
@@ -55,19 +55,22 @@
 
 
 
-<meta name="description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
-<meta name="keywords" content="iOS,objc中国">
+<meta name="description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+<meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="objc中国学习--并发编程">
-<meta property="og:url" content="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/index.html">
+<meta property="og:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
+<meta property="og:url" content="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
+<meta property="og:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ele.jpg">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Apple_Pay.jpg">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-09-02T03:01:47.000Z">
+<meta property="og:updated_time" content="2017-07-07T16:45:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="objc中国学习--并发编程">
-<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
-<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
+<meta name="twitter:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
+<meta name="twitter:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg">
 
 
 
@@ -79,7 +82,7 @@
   };
 </script>
 
-  <title> objc中国学习--并发编程 | Ivan's Blog </title>
+  <title> 使用 UIFeedbackGenerator 来实现触觉反馈 | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +214,7 @@
             
             
               
-                objc中国学习--并发编程
+                使用 UIFeedbackGenerator 来实现触觉反馈
               
             
           </h1>
@@ -220,8 +223,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-09-19T23:21:37+08:00" content="2015-09-19">
-              2015-09-19
+            <time itemprop="dateCreated" datetime="2017-07-07T15:47:29+08:00" content="2017-07-07">
+              2017-07-07
             </time>
           </span>
 
@@ -244,7 +247,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,233
+              1,294
           </span>
 
           
@@ -268,34 +271,47 @@
       
 
       
-        <span itemprop="articleBody"><p>从今天开始学习<a href="http://objccn.io" target="_blank" rel="external">objc中国</a>的所有博客。</p>
-<h3 id="u5E76_u53D1_u7F16_u7A0B"><a href="#u5E76_u53D1_u7F16_u7A0B" class="headerlink" title="并发编程"></a>并发编程</h3><ul>
-<li><p>卷首语</p>
-</li>
-<li><p>并发编程：API 及挑战</p>
-</li>
-<li><p>常见的后台实践</p>
-</li>
-<li><p>底层并发 API</p>
-</li>
-<li><p>线程安全类的设计</p>
-</li>
-<li><p>测试并发程序</p>
-</li>
-</ul>
-<h3 id="u7EBF_u7A0B"><a href="#u7EBF_u7A0B" class="headerlink" title="线程"></a>线程</h3><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。</p>
-<p>直接使用线程可能会引发的一个问题是，如果你的代码和所基于的框架代码都创建自己的线程时，那么活动的线程数量有可能以指数级增长。这在大型工程中是一个常见问题。</p>
-<p>接下来，我们将介绍两个基于队列的并发编程 API ：GCD 和 operation queue 。它们通过集中管理一个被大家协同使用的线程池，来解决上面遇到的问题。</p>
-<h3 id="Grand_Central_Dispatch"><a href="#Grand_Central_Dispatch" class="headerlink" title="Grand Central Dispatch"></a>Grand Central Dispatch</h3><p>通过 GCD，开发者不用再直接跟线程打交道了，只需要向队列中添加代码块即可，GCD 在后端管理着一个线程池。GCD 不仅决定着你的代码块将在哪个线程被执行，它还根据可用的系统资源对这些线程进行管理。这样可以将开发者从线程管理的工作中解放出来，通过集中的管理线程，来缓解大量线程被创建的问题。</p>
-<p>GCD 带来的另一个重要改变是，作为开发者可以将工作考虑为一个队列，而不是一堆线程，这种并行的抽象模型更容易掌握和使用。</p>
-<p>GCD 公开有 5 个不同的队列：运行在主线程中的 main queue，3 个不同优先级的后台队列，以及一个优先级更低的后台队列（用于 I/O）。<br>另外，开发者可以创建自定义队列：串行或者并行队列。自定义队列非常强大，在自定义队列中被调度的所有 block 最终都将被放入到系统的全局队列中和线程池中。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">      <span class="comment">//单例模式，GCD应用的最多的模式</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<h3 id="Operation_Queues"><a href="#Operation_Queues" class="headerlink" title="Operation Queues"></a>Operation Queues</h3><p>操作队列（operation queue）是由 GCD 提供的一个队列模型的 Cocoa 抽象。GCD 提供了更加底层的控制，而操作队列则在 GCD 之上实现了一些方便的功能，这些功能对于 app 的开发者来说通常是最好最安全的选择。</p>
-<p>NSOperationQueue 有两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。在两种类型中，这些队列所处理的任务都使用 NSOperation 的子类来表述。</p>
-<h3 id="Run_Loops"><a href="#Run_Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
-<p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="external">#2 并发编程</a></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent">http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent</a> Programming/</blockquote></span>
+        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。</strong></p>
+<p>最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg" alt=""></th>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ele.jpg" alt=""></th>
+<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Apple_Pay.jpg" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">系统触感强度设置</td>
+<td style="text-align:center">饿了么刷新触觉反馈</td>
+<td style="text-align:center">Apple Pay 支付成功和失败触觉反馈</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u89E6_u89C9_u53CD_u9988"><a href="#u89E6_u89C9_u53CD_u9988" class="headerlink" title="触觉反馈"></a>触觉反馈</h1><p>iOS 10 引入了一种新的产生触觉反馈的方式，通过使用系统的预定义震动模式，让用户在进行操作时得到不同的震动反馈。这个功能有新增的 <code>UIFeedbackGenerator</code> 提供，根据官方的<a href="https://developer.apple.com/documentation/uikit/uifeedbackgenerator" target="_blank" rel="external">文档</a>：</p>
+<blockquote>
+<p>The abstract superclass for all feedback generators.</p>
+</blockquote>
+<p>该类为一个抽象类，提供三个子类 <code>UIImpactFeedbackGenerator</code>、<code>UISelectionFeedbackGenerator</code> 和 <code>UINotificationFeedbackGenerator</code>。</p>
+<h2 id="UIImpactFeedbackGenerator"><a href="#UIImpactFeedbackGenerator" class="headerlink" title="UIImpactFeedbackGenerator"></a>UIImpactFeedbackGenerator</h2><blockquote>
+<p>Use impact feedback generators to indicate that an impact has occurred.</p>
+</blockquote>
+<p>预示着按压发生了。比如系统触感强度设置就是为了在你按 Home 键的时候给你一反馈，实际上 iPhone 7 的 Home 键并可以按动。</p>
+<p><code>UIImpactFeedbackStyle</code> 一共是三种：<code>.light</code>、<code>.medium</code>、<code>heavy</code>，分别对应了系统触感强度里面的 1、2、3。</p>
+<h2 id="UISelectionFeedbackGenerator"><a href="#UISelectionFeedbackGenerator" class="headerlink" title="UISelectionFeedbackGenerator"></a>UISelectionFeedbackGenerator</h2><blockquote>
+<p>Use selection feedback generators to indicate a change in selection.</p>
+</blockquote>
+<p>预示着选择的变化。比如饿了么的刷新触觉反馈，这里普及一下，这种刷新反馈是因为饿了么使用的系统的 <code>UIRefreshControl</code> 方法去做的下拉刷新，而系统为这种方法下拉的 <code>offsetY</code> 做了触觉反馈的适配。</p>
+<h2 id="UINotificationFeedbackGenerator"><a href="#UINotificationFeedbackGenerator" class="headerlink" title="UINotificationFeedbackGenerator"></a>UINotificationFeedbackGenerator</h2><blockquote>
+<p>Use notification feedback generators to indicate successes, failures, and warnings.</p>
+</blockquote>
+<p>预示着成功、失败和警告。比如 Apple_Pay 支付成功和失败的反馈，这里比较了下三种情况的反馈，应该是在力度上面有所差别。和 Impact 的差别在于，这里的触觉反馈类似左右摇动两下。</p>
+<p><code>UINotificationFeedbackType</code> 同样也是三种：<code>.success</code>、<code>.warning</code>、<code>error</code>。</p>
+<h1 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h1><p>最后讲一下用法，掘金的翻译计划 <a href="https://juejin.im/entry/5810433ac4c9710058a74100" target="_blank" rel="external">[译] 如何使用 UIFeedbackGenerator 让应用支持 iOS 10 的触觉反馈</a> 中，给出了一个 Demo。注意 Demo 中有个问题，<strong>addsubview 应该在添加约束之前，否则会引起崩溃。</strong></p>
+<p>不过根据官方的文档,触发触觉效果之前，在你的生成器 (generator) 内调用 prepare() 方法，这样可以有效的减少延迟。可以参考官方文档中的代码，也可以参考如下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> feedbackGenerator : <span class="type">UIImpactFeedbackGenerator</span>? = <span class="type">UIImpactFeedbackGenerator</span>(style: .heavy)</div><div class="line"></div><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">    feedbackGenerator = <span class="literal">nil</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    feedbackGenerator?.prepare()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">getNewGank</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</div><div class="line">    feedbackGenerator?.impactOccurred()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></blockquote></span>
       
     </div>
 
@@ -333,7 +349,7 @@
           
             <a href="/tags/iOS/" rel="tag">#iOS</a>
           
-            <a href="/tags/objc中国/" rel="tag">#objc中国</a>
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
           
         </div>
       
@@ -342,17 +358,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/09/Objc_learning--lighter_View_Controllers/" rel="next" title="objc中国学习--更轻量的 View Controllers">
-                <i class="fa fa-chevron-left"></i> objc中国学习--更轻量的 View Controllers
+              <a href="/2017/06/30/UITableViewCell_Self_Sizing/" rel="next" title="UITableViewCell 高度自适应牵扯出的若干问题">
+                <i class="fa fa-chevron-left"></i> UITableViewCell 高度自适应牵扯出的若干问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/09/23/Coding_iOS_client_learning--project_framework(update)/" rel="prev" title="Coding iOS客户端学习--项目框架(持续更新)">
-                Coding iOS客户端学习--项目框架(持续更新) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -379,8 +391,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/09/19/Objc_learning--Concurrent Programming/"
-           data-title="objc中国学习--并发编程" data-url="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/">
+      <div class="ds-thread" data-thread-key="2017/07/07/Haptic_feedback_with_uifeedbackgenerator/"
+           data-title="使用 UIFeedbackGenerator 来实现触觉反馈" data-url="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">
       </div>
     
   </div>
@@ -503,7 +515,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E76_u53D1_u7F16_u7A0B"><span class="nav-number">1.</span> <span class="nav-text">并发编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7EBF_u7A0B"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grand_Central_Dispatch"><span class="nav-number">3.</span> <span class="nav-text">Grand Central Dispatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation_Queues"><span class="nav-number">4.</span> <span class="nav-text">Operation Queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_Loops"><span class="nav-number">5.</span> <span class="nav-text">Run Loops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E6_u89C9_u53CD_u9988"><span class="nav-number">2.</span> <span class="nav-text">触觉反馈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImpactFeedbackGenerator"><span class="nav-number">2.1.</span> <span class="nav-text">UIImpactFeedbackGenerator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UISelectionFeedbackGenerator"><span class="nav-number">2.2.</span> <span class="nav-text">UISelectionFeedbackGenerator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINotificationFeedbackGenerator"><span class="nav-number">2.3.</span> <span class="nav-text">UINotificationFeedbackGenerator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7528_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -1,0 +1,797 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ArxqF9fNvIlxybI0naTgEy2PwvvvHyAs35iOfxJqL8o" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,Swift," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
+<meta name="keywords" content="iOS,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
+<meta property="og:url" content="http://yeziahehe.com/2017/07/07/Background_Fetch_and_UNUserNotificationCenter/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/back_refresh.jpeg?imageView2/2/h/750">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/debug.png">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2017-07-19T15:10:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
+<meta name="twitter:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 利用 Background Fetch + UNUserNotificationCenter 实现伪推送 | Ivan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/yeziahehe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ivan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用 Background Fetch + UNUserNotificationCenter 实现伪推送
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-07-07T15:47:29+08:00" content="2017-07-07">
+              2017-07-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <span class="post-count">
+            &nbsp; | &nbsp; 字数
+              2,822
+          </span>
+
+          
+            <span id="busuanzi_container_page_pv">
+              &nbsp; | &nbsp;
+              <i class="fa fa-eye"></i>&nbsp;
+              <span id="busuanzi_value_page_pv">1</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。</strong></p>
+<p>最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自己仿写第三方客户端的小伙伴，不妨试试这个方式来为你的 App 添加上推送（wei）功能。</p>
+<h1 id="Background_Fetch"><a href="#Background_Fetch" class="headerlink" title="Background Fetch"></a>Background Fetch</h1><p>Background Fetch 是 Apple 官方在 iOS 7 推出的来后台刷新，提高用户体验的新方法。首先先参照苹果官方文档 <a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html" target="_blank" rel="external">Background Execution</a>，后台获取干的事情就是在用户打开应用之前就使app有机会执行代码来获取数据，刷新UI，极大的提高了用户体验。</p>
+<p>如何实现该功能呢？</p>
+<h2 id="u5F00_u542F_u540E_u53F0_u83B7_u53D6"><a href="#u5F00_u542F_u540E_u53F0_u83B7_u53D6" class="headerlink" title="开启后台获取"></a>开启后台获取</h2><p>Targets - [Project] - Capabilities - Background Modes - Background fetch，即告诉系统应用开启后台获取的权限。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg" alt="Background fetch"></p>
+<h2 id="u8BBE_u7F6E_u65F6_u95F4_u95F4_u9694"><a href="#u8BBE_u7F6E_u65F6_u95F4_u95F4_u9694" class="headerlink" title="设置时间间隔"></a>设置时间间隔</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="type">UIApplication</span>.shared.setMinimumBackgroundFetchInterval(<span class="type">UIApplicationBackgroundFetchIntervalMinimum</span>)</div></pre></td></tr></table></figure>
+<p>默认的值是 <code>UIApplicationBackgroundFetchIntervalNever</code>，这种情况下是不会使用后台获取。<code>setMinimumBackgroundFetchInterval</code> 的值除了提供的集合之外，任意的 NSTimeInterval 都可以设置。如果设置值，那么你能在应用中看到 <strong>后台应用刷新</strong> 是打开状态。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/back_refresh.jpeg?imageView2/2/h/750" alt="后台刷新"></p>
+<p>有人会问你把时间设置到最小，那么是不是应用时时刻刻都在刷新数据。答案显然不是！以 iOS 系统的脾气，当然不会让你这么为所欲为。那么，刷新的时机是什么时候？完全取决与系统。可能是你打开微信刷朋友圈的时候，帮你刷新一下；也可能单独为你唤醒设备来刷新一下。其实后来发现系统会记录我们的行为习惯，将获取刷新的时间调整到符合你行为习惯的时间。不过我们暂且不管获取的时机，应该根据应用的实际情况来进行时间间隔设置，毕竟用这个来做伪推送，那么推送刷新的及时性不是那么强，所以尽可能的长或许是个不错的选择。甚至于我在 App 中是跟用户讲清楚了机制，并且用户可以选择关闭或者开启，以及设置间隔时长。</p>
+<h2 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping <span class="params">(UIBackgroundFetchResult)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</div><div class="line">  <span class="keyword">if</span> <span class="type">GankUserDefaults</span>.isBackgroundEnable.value == <span class="literal">false</span> &#123;</div><div class="line">      completionHandler(.noData)</div><div class="line">      <span class="keyword">return</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="type">GankBackgroundFetchService</span>.shared.performFetchWithCompletionHandler &#123; (result) <span class="keyword">in</span></div><div class="line">      <span class="type">SafeDispatch</span>.async &#123;</div><div class="line">          completionHandler(result)</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>AppDelegate 中的 <code>-application:performFetchWithCompletionHandler:</code> 方法来实现处理，你想通这边处理的数据、UI 和你在其他地方一样，唯一限制的就是时间不能超过 1 分钟，比如大图片的上传下载这种操作不要放在这边处理。CompletionHandler 会接受到 <code>UIBackgroundFetchResult</code> 闭包值，可选结果有 <code>.noData</code>、<code>.newData</code>、<code>.failed</code> 三种情况。</p>
+<h2 id="u8C03_u8BD5"><a href="#u8C03_u8BD5" class="headerlink" title="调试"></a>调试</h2><p>关于调试，分为两种情况。一种是通过 Background Fetch 直接打开应用，另一种是应用在后台的时候模拟一次 Background Fetch 的情况。这边我只提供第二种测试方案，第一种相对麻烦，我后台通过真机测试了下。第二种情况跑通能且只能说明 Background Fetch 没有问题了。但是直接打开应用对数据的处理，确实需要第一种情况测试下，这边提供喵神的文章 <a href="https://onevcat.com/2013/08/ios7-background-multitask/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的多任务</a> 作为参考。</p>
+<p>模拟后台运行，只需要选择 Xcode 的 Debug - Simulate Background Fetch，即可模拟一次。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/debug.png" alt="Debug"></p>
+<h1 id="UNUserNotificationCenter"><a href="#UNUserNotificationCenter" class="headerlink" title="UNUserNotificationCenter"></a>UNUserNotificationCenter</h1><p>接下来我们来聊聊推送的事情，那天我看了下 iOS 的推送，从 iOS 7 开始苹果为了整合推送的 API 和易用性，做了大量的调整，几乎一个版本一个花样，可以想象到激光推送这样的三方推送平台内心是崩溃的。</p>
+<p>关于推送问题，这里不做过多的赘述，因为只是使用了最简单的本地推送，如果你对推送新特性有兴趣，同样推荐喵神的文章 <a href="https://onevcat.com/2016/08/notification/" target="_blank" rel="external">活久见的重构 - iOS 10 UserNotifications 框架解析</a> 作为参考，写的非常细致。</p>
+<p>我这边直接讲解推送和后台刷新结合的问题，刚刚说到在 <code>-application:performFetchWithCompletionHandler:</code> 方法来实现处理。我给了一个 <code>UserDefaults</code> 讲是否是今天的日期存储下来，从来来决定是否推送。注意大家要根据实际情况来进行处理，我这边内容一天只会更新一次。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">checkAuthorization</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="type">UNUserNotificationCenter</span>.current().getNotificationSettings(completionHandler: &#123; settings <span class="keyword">in</span></div><div class="line">        <span class="type">SafeDispatch</span>.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></div><div class="line">            <span class="keyword">switch</span> settings.authorizationStatus &#123;</div><div class="line">            <span class="keyword">case</span> .notDetermined:</div><div class="line">                <span class="keyword">self</span>?.authorize()</div><div class="line">            <span class="keyword">case</span> .authorized:</div><div class="line">                gankLog.debug(<span class="string">"UserNotifications authorized"</span>)</div><div class="line">            <span class="keyword">case</span> .denied:</div><div class="line">                <span class="type">UIApplication</span>.shared.<span class="keyword">open</span>(<span class="type">URL</span>(string: <span class="type">UIApplicationOpenSettingsURLString</span>)!, options: [:], completionHandler: <span class="literal">nil</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 <code>getNotificationSettings</code> 来进行当前 Notication 状态的获取，从来进行操作。一共有三种状态 <code>.notDetermined</code>、<code>.authorized</code>、<code>.denied</code>，分别对应着仍未询问、已授权和已拒绝。可以看到我分别做了处理，未询问去进行授权提醒，而已经拒绝，可以通过方法跳转到应用的设置页面，即上面后台刷新那张图中进行状态的修改。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">authorize</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="type">UNUserNotificationCenter</span>.current().requestAuthorization(options: [.alert, .sound]) &#123; (granted, error) <span class="keyword">in</span></div><div class="line">        <span class="type">SafeDispatch</span>.async &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></div><div class="line">            <span class="keyword">self</span>?.initAuthorization()</div><div class="line">            <span class="keyword">if</span> granted &#123;</div><div class="line">                gankLog.debug(<span class="string">"UserNotifications authorized"</span>)</div><div class="line">                <span class="type">GankBackgroundFetchService</span>.shared.turnOn()</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                gankLog.debug(<span class="string">"UserNotifications denied"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 <code>requestAuthorization</code> 进行推送权限获取，注意这边获取如果用户拒绝了，那么不管你之后怎么调用这个方法，询问权限获取的弹窗都不会再出现。所以一定要注意询问的时期，最好不要再一打开 App 就进行询问，很容易被用户进行拒绝。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> content = <span class="type">UNMutableNotificationContent</span>()</div><div class="line">content.title = <span class="type">String</span>.titleContentTitle</div><div class="line">content.body = <span class="type">String</span>.messageTodayGank</div><div class="line">content.sound = <span class="type">UNNotificationSound</span>.<span class="keyword">default</span>()</div><div class="line"><span class="keyword">let</span> trigger = <span class="type">UNTimeIntervalNotificationTrigger</span>(timeInterval: <span class="number">1</span>, repeats: <span class="literal">false</span>)</div><div class="line"><span class="keyword">let</span> requestIdentifier = <span class="string">"gank update"</span></div><div class="line"><span class="keyword">let</span> request = <span class="type">UNNotificationRequest</span>(identifier: requestIdentifier, content: content, trigger: trigger)</div><div class="line"><span class="type">UNUserNotificationCenter</span>.current().add(request, withCompletionHandler: <span class="literal">nil</span>)</div></pre></td></tr></table></figure>
+<p>最后发送推送，这边给的是最基础的推送内容。</p>
+<h1 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h1><p>到此，通过 Background Fetch + UNUserNotificationCenter 实现伪推送就都完成了。这两个部分我都封装了 Service：<a href="https://github.com/yeziahehe/Gank/blob/master/Gank/Services/GankBackgroundFetchService.swift" target="_blank" rel="external">GankBackgroundFetchService</a> 和 <a href="https://github.com/yeziahehe/Gank/blob/master/Gank/Services/GankNotificationService.swift" target="_blank" rel="external">GankNotificationService</a>，希望对你有帮助。</p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Background_Fetch_and_UNUserNotificationCenter/">http://yeziahehe.com/2017/07/07/Background_Fetch_and_UNUserNotificationCenter/</a></blockquote></span>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/" rel="next" title="使用 UIFeedbackGenerator 来实现触觉反馈">
+                <i class="fa fa-chevron-left"></i> 使用 UIFeedbackGenerator 来实现触觉反馈
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/07/Background_Fetch_and_UNUserNotificationCenter/"
+           data-title="利用 Background Fetch + UNUserNotificationCenter 实现伪推送" data-url="http://yeziahehe.com/2017/07/07/Background_Fetch_and_UNUserNotificationCenter/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Favatar.JPG" alt="叶帆" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">叶帆</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">认真你就赢了</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-linkedin"></i> Linkedin
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Background_Fetch"><span class="nav-number">2.</span> <span class="nav-text">Background Fetch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5F00_u542F_u540E_u53F0_u83B7_u53D6"><span class="nav-number">2.1.</span> <span class="nav-text">开启后台获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BBE_u7F6E_u65F6_u95F4_u95F4_u9694"><span class="nav-number">2.2.</span> <span class="nav-text">设置时间间隔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u73B0"><span class="nav-number">2.3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8C03_u8BD5"><span class="nav-number">2.4.</span> <span class="nav-text">调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UNUserNotificationCenter"><span class="nav-number">3.</span> <span class="nav-text">UNUserNotificationCenter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6700_u540E"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶帆</span>
+  <span id="busuanzi_container_site_pv"> | 自2015.12.13起总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yeziahehe"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>

@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,skillmap," />
+  <meta name="keywords" content="iOS,swift," />
 
 
 
@@ -55,18 +55,18 @@
 
 
 
-<meta name="description" content="写在前面最近极客学院发起了IT技能图谱，针对iOS 开发工程师的职业图谱，我决定做个技能树的完成度评估。 说明 难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5) 达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5) 删除线代表该项基本完成，未完成的部分准备补上进度百分比。  职业图谱 通用">
-<meta name="keywords" content="iOS,skillmap">
+<meta name="description" content="写在前面Swift 中 struct、enum 都有了很大的变化，这边从基本概念开始分析，如值类型和引用类型的原理、内存管理机制等等来分析三者在 Swift 语言中的异同。 值类型和引用类型首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSOb">
+<meta name="keywords" content="iOS,swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发工程师职业图谱">
-<meta property="og:url" content="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/index.html">
+<meta property="og:title" content="详解 Swift 中 class 和 struct">
+<meta property="og:url" content="http://yeziahehe.com/2017/09/11/class_struct_enum/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="写在前面最近极客学院发起了IT技能图谱，针对iOS 开发工程师的职业图谱，我决定做个技能树的完成度评估。 说明 难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5) 达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5) 删除线代表该项基本完成，未完成的部分准备补上进度百分比。  职业图谱 通用">
+<meta property="og:description" content="写在前面Swift 中 struct、enum 都有了很大的变化，这边从基本概念开始分析，如值类型和引用类型的原理、内存管理机制等等来分析三者在 Swift 语言中的异同。 值类型和引用类型首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSOb">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-09-02T03:04:54.000Z">
+<meta property="og:updated_time" content="2017-09-13T03:49:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发工程师职业图谱">
-<meta name="twitter:description" content="写在前面最近极客学院发起了IT技能图谱，针对iOS 开发工程师的职业图谱，我决定做个技能树的完成度评估。 说明 难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5) 达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5) 删除线代表该项基本完成，未完成的部分准备补上进度百分比。  职业图谱 通用">
+<meta name="twitter:title" content="详解 Swift 中 class 和 struct">
+<meta name="twitter:description" content="写在前面Swift 中 struct、enum 都有了很大的变化，这边从基本概念开始分析，如值类型和引用类型的原理、内存管理机制等等来分析三者在 Swift 语言中的异同。 值类型和引用类型首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSOb">
 <meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
 
@@ -79,7 +79,7 @@
   };
 </script>
 
-  <title> iOS开发工程师职业图谱 | Ivan's Blog </title>
+  <title> 详解 Swift 中 class 和 struct | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +211,7 @@
             
             
               
-                iOS开发工程师职业图谱
+                详解 Swift 中 class 和 struct
               
             
           </h1>
@@ -220,8 +220,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-04T11:11:07+08:00" content="2016-01-04">
-              2016-01-04
+            <time itemprop="dateCreated" datetime="2017-09-11T18:14:52+08:00" content="2017-09-11">
+              2017-09-11
             </time>
           </span>
 
@@ -230,8 +230,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -244,7 +244,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,636
+              2,078
           </span>
 
           
@@ -268,235 +268,29 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https://github.com/jikexueyuanwiki/skillmap" target="_blank" rel="external">IT技能图谱</a>，针对<a href="https://github.com/jikexueyuanwiki/skillmap/blob/master/iOS.md" target="_blank" rel="external">iOS 开发工程师</a>的职业图谱，我决定做个技能树的完成度评估。</p>
-<h1 id="u8BF4_u660E"><a href="#u8BF4_u660E" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5)</li>
-<li>达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5)</li>
-<li><del>删除线</del>代表该项基本完成，未完成的部分准备补上进度百分比。</li>
+        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>Swift 中 struct、enum 都有了很大的变化，这边从基本概念开始分析，如值类型和引用类型的原理、内存管理机制等等来分析三者在 Swift 语言中的异同。</p>
+<h1 id="u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B"><a href="#u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h1><p>首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSObject 的对象，通常是类对象，我们做内存管理的时候就是对这种对象进行管理。</p>
+<p><strong>为什么值类型不需要进行内存管理，而引用类型需要进行内存管理呢？</strong> 因为两种方式的内存分配机制不一样，值类型存储在栈当中，在内存中连续的内存空间，遵循后进先出（LIFO）的原则；而引用类型存储在堆当中，存储空间是随机的，对象之间留有空白空间，会产生空间碎片，需要手动进行管理。</p>
+<h2 id="u6709_u4EC0_u4E48_u533A_u522B_uFF1F"><a href="#u6709_u4EC0_u4E48_u533A_u522B_uFF1F" class="headerlink" title="有什么区别？"></a>有什么区别？</h2><p>值类型基本特征就是复制数据，不管是在赋值、初始化还是参数传递的过程中，并且为这个数据创建独立的实例。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">S</span>()</div><div class="line"><span class="keyword">var</span> b = a						<span class="comment">// a被复制给了b</span></div><div class="line">a.value = <span class="number">1</span>					<span class="comment">// a改变了, b没有</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "0, 1"</span></div></pre></td></tr></table></figure>
+<p>引用类型在赋值、初始化还是参数传递的过程中其实创建了实例，但是实例的指针指向和原来实例同样的内存地址，所以说修改其中一个示例数据的时候，另一个实例数据也同样会被修改。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">C</span>()</div><div class="line"><span class="keyword">var</span> b = a				    <span class="comment">// a被复制给了b</span></div><div class="line">x.value = <span class="number">1</span>				  <span class="comment">// a和b都被修改了</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "1, 1"</span></div></pre></td></tr></table></figure>
+<h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F" class="headerlink" title="为什么选择值类型更安全？"></a>为什么选择值类型更安全？</h2><p>选择值类型而不是引用类型的一个主要原因是能让你的代码变得更加简单。你在任何情况下用一个值类型，都能够假设你的其他代码不会使它改变，这通常在多线程环境中很有用，如果一个线程中使用的数据被另一个线程给意外的修改了，这通常会产生非常严重的Bug，且相当难以调试。在 Objective-C 中 NSArray、NSDictionary 都是属于 NS 类，而 Swift 中 Array、Dictionary 都是属于 struct 类型，显然在后者在多线程编程中更加安全。</p>
+<p>在 iOS 中通常创建一个类，继承自 NSObject 的时候，这就已经是引用类型，我们发现在 Objective-C 中建立 Model 的时候选择的总是继承自 NSObject 的类，而在 Swift 中通常使用 struct 来进行 Model 来建立，重要的一点原因是因为 Swift 语言中，struct、enum 都支持了定义方法，极大的扩展了可用性，再加上值类型的安全性，成了 Model 最好的选择。</p>
+<h1 id="struct__u548C_class"><a href="#struct__u548C_class" class="headerlink" title="struct 和 class"></a>struct 和 class</h1><p>我们接下来会详细分析 struct 和 class 的异同。</p>
+<h2 id="u5173_u4E8E_u5F15_u7528_u7C7B_u578B_u548C_u7EE7_u627F_u5173_u7CFB"><a href="#u5173_u4E8E_u5F15_u7528_u7C7B_u578B_u548C_u7EE7_u627F_u5173_u7CFB" class="headerlink" title="关于引用类型和继承关系"></a>关于引用类型和继承关系</h2><ul>
+<li>struct 是值引用，class 是类型引用；</li>
+<li>struct 没有继承，class 有继承功能；</li>
 </ul>
-<h1 id="u804C_u4E1A_u56FE_u8C31"><a href="#u804C_u4E1A_u56FE_u8C31" class="headerlink" title="职业图谱"></a>职业图谱</h1><ul>
-<li>通用基础(R3,P2)<ul>
-<li>理论基础(R4,P3)<ul>
-<li>数据结构(R4,P3)</li>
-<li>算法(R4,P3)</li>
-</ul>
-</li>
-<li>编程语言(R3,P2)<ul>
-<li>Objective-C(R3,P3)</li>
-<li>Swift(R3,P2)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Objective-C基础(R3,P3)<ul>
-<li>Objective-C基本语法(R2,P4)<ul>
-<li><del>变量(R2,P4)</del></li>
-<li><del>常量(R2,P4)</del></li>
-<li><del>数据类型(R2,P4)</del></li>
-<li><del>运算符和表达式(R2,P4)</del></li>
-<li><del>判断(R2,P4)</del></li>
-<li><del>循环(R2,P4)</del></li>
-<li><a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese" target="_blank" rel="external">Objective-C编码规范</a>(R2,P4)</li>
-</ul>
-</li>
-<li>Objective-C语法进阶(R3,P3)<ul>
-<li><del>类和对象(R3,P3)</del></li>
-<li><del>属性和变量(R3,P3)</del></li>
-<li><del>继承(R3,P3)</del></li>
-<li><del>多态(R3,P3)</del></li>
-<li>动态绑定(R3,P3)</li>
-<li>block块(R3,P3)</li>
-<li>异常处理(R3,P3)</li>
-<li><del>Category类别(R3,P3)</del></li>
-<li>Extension扩展(R3,P3)</li>
-<li><del>Protocol协议 (R3,P3)</del></li>
-</ul>
-</li>
-<li>Objective-C高级语法(R4,P2)<ul>
-<li>KVC(R4,P2)</li>
-<li>KVO(R4,P2)</li>
-<li><del>Notification(R4,P2)</del></li>
-<li><del>引用计数与ARC(R4,P2)</del></li>
-<li>内存管理(R4,P4)</li>
-<li>多线程(R4,P3)</li>
-</ul>
-</li>
-<li>Objective-C Foundation框架(R3,P3)<ul>
-<li><del>NSNumber(R3,P3)</del></li>
-<li><del>NSString(R3,P4)</del></li>
-<li><del>NSArray(R3,P4)</del></li>
-<li><del>NSDictionary(R3,P4)</del></li>
-<li><del>NSSet(R3,P2)</del></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Swift基础(R2,P2)<ul>
-<li>Swift基本语法(R2,P2)<ul>
-<li>变量(R2,P2)</li>
-<li>常量(R2,P2)</li>
-<li>数据类型(R2,P2)</li>
-<li>判断(R2,P2)</li>
-<li>循环(R2,P2)</li>
-<li>Swift编码规范(R2,P2)</li>
-</ul>
-</li>
-<li>Swift语法进阶(R3,P2)<ul>
-<li>Swift字符串(R3,P2)</li>
-<li>数组(R3,P2)</li>
-<li>字典(R3,P2)</li>
-<li>元组(R3,P2)</li>
-<li>函数(R3,P2)</li>
-<li>可选型optionals(R3,P2)</li>
-<li>枚举(R3,P2)</li>
-<li>闭包 (R3,P2)</li>
-</ul>
-</li>
-<li>Swift高级语法(R4,P1)<ul>
-<li>Swift和Objective-C混合编程(R3,P1)</li>
-<li>Swift源码(R5,P1)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS开发基础(R2,P3)<ul>
-<li>iOS基础(R2,P3)<ul>
-<li>iOS生命周期(R3,P3)</li>
-<li>事件与消息(R3,P3)</li>
-<li><del>模拟器(R2,P2)</del></li>
-<li><del>真机调试(R2,P2)</del></li>
-</ul>
-</li>
-<li>UI控件(R2,P4)<ul>
-<li><del>Button(R2,P4)</del></li>
-<li><del>Label(R2,P4)</del></li>
-<li><del>ImageView(R2,P4)</del></li>
-<li><del>ScrollView(R2,P4)</del></li>
-<li><del>TableView(R4,P4)</del></li>
-<li><del>CollectionView(R4,P3)</del></li>
-<li><del>自定义控件(R4,P2)</del></li>
-</ul>
-</li>
-<li>界面布局(R3,P3)<ul>
-<li>代码布局(R3,P3)</li>
-<li><del>nib/xib文件(R2,P3)</del></li>
-<li>storyboard(R2,P3)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS开发进阶(R3,P3)<ul>
-<li>动画效果(R3,P2)<ul>
-<li>UIView动画(R3,P2)</li>
-<li>Core Animation(R3,P2)</li>
-<li>第三方动画库pop(R3,P1)</li>
-</ul>
-</li>
-<li>多线程(R4,P4)<ul>
-<li>NSThread(R4,P3)</li>
-<li>NSOperationQueue(R4,P4)</li>
-<li>GCD(R3,P4)   </li>
-</ul>
-</li>
-<li>数据存储(R3,P4)<ul>
-<li><del>NSUserDefault(R3,P4)</del></li>
-<li>SQLite(R3,P2)</li>
-<li>CoreData(R3,P4)</li>
-</ul>
-</li>
-<li>数据处理(R3,P3)<ul>
-<li><del>Model(R4,P3)</del></li>
-<li>XML解析(R3,P4)</li>
-<li><del>JSON解析(R3,P4)</del></li>
-</ul>
-</li>
-<li>物理特性(R3,P1)<ul>
-<li><del>各类传感器(R3,P1)</del></li>
-<li><del>摄像头(R3,P1)</del></li>
-<li>指纹识别(R3,P1)</li>
-<li>Force Touch(R3,P1)</li>
-</ul>
-</li>
-<li>网络与通信(R3,P3)<ul>
-<li><del>Http(R3,P4)</del></li>
-<li>Socket(R3,P2)</li>
-<li>SOAP(R3,P2)</li>
-<li><del>抓包(R4,P1)</del></li>
-</ul>
-</li>
-<li>屏幕适配(R3,P3)<ul>
-<li>代码适配(R3,P4)</li>
-<li><del>Autoresizing(R2,P4)</del></li>
-<li><del>AutoLayout(R3,P3)</del></li>
-<li>Size Classes(R4,P2)    </li>
-</ul>
-</li>
-<li>其他(R3,P2)<ul>
-<li>多点触控(R3,P1)</li>
-<li><del>手势识别(R3,P1)</del></li>
-<li>传感器(R3,P1)</li>
-<li><del>定位(R3,P3)</del></li>
-<li>电源管理(R3,P1)</li>
-<li><del>消息推送(R3,P3)</del>  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS高级开发(R4,P2)<ul>
-<li>iOS架构(R4，P2)<ul>
-<li><del>MVC(R3,P2)</del></li>
-<li><del>MVVM(R4,P1)</del></li>
-<li>设计模式(R5,P2)</li>
-</ul>
-</li>
-<li>第三方框架(R3,P2)<ul>
-<li><del>AFNetworking(R3,P3)</del></li>
-<li><del>SDWebImage(R3,P2)</del></li>
-<li><del>MBProgressHUD(R3,P2)</del></li>
-<li>Masonry(R3,P1)     </li>
-</ul>
-</li>
-<li>第三方SDK(R3,P2)<ul>
-<li><del>分享(R3,P3)</del></li>
-<li>第三方登录(R4,P2)</li>
-<li><del>短信验证码(R3,P3)</del>  </li>
-<li>其他各类API(R3,P2)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>开发效率(R3,P3)<ul>
-<li>IDE(R2,P4)<ul>
-<li>Xcode(R2,P4)</li>
-</ul>
-</li>
-<li>插件(R2,P1)<ul>
-<li><del>Alcatraz(R2,P1)</del>   </li>
-</ul>
-</li>
-<li>包管理(R2,P3)<ul>
-<li><del>Cocoapods</del>   </li>
-</ul>
-</li>
-<li>版本控制(R2,P3)<ul>
-<li><del>Git(R2,P3)</del></li>
-<li><del>SVN(R2,P3)</del></li>
-</ul>
-</li>
-<li>应用内测与分发(R2,P1)<ul>
-<li>Pre.im(R2,P1)</li>
-<li><del>蒲公英(R2,P1)</del></li>
-</ul>
-</li>
-<li>后台服务(R2,P1)<ul>
-<li><a href="http://www.bmob.cn/" target="_blank" rel="external">Bmob</a>(R2,P1)</li>
-<li><a href="http://www.parse.com/" target="_blank" rel="external">Parse</a> (R2,P1)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/">http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</a></blockquote></span>
+<p>关于第一点的区别，上面已经详细讲过原理，不再赘述。第二点区别，struct 没有继承，这是因为 Swift 在本质上来说是面向协议（Protocol Oriented）的语言。</p>
+<h2 id="u5173_u4E8E_immutable__u53D8_u91CF"><a href="#u5173_u4E8E_immutable__u53D8_u91CF" class="headerlink" title="关于 immutable 变量"></a>关于 immutable 变量</h2><p>我们都知道在 Swift 语言中，通过 let 和 var 就能够来控制不可变和可变，struct 也是遵循该规则。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s = <span class="type">S</span>()</div><div class="line">s.value = <span class="number">1</span>         <span class="comment">// 该方法会抛出错误，Cannot assign to property: 's' is a 'let' constant</span></div></pre></td></tr></table></figure>
+<p>而在 class 中，let 规则是无法延续的。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="built_in">c</span> = <span class="type">C</span>()</div><div class="line"><span class="built_in">c</span>.value = <span class="number">1</span>         <span class="comment">// 可以直接赋值，且不跑处错误</span></div></pre></td></tr></table></figure>
+<h2 id="u5173_u4E8E_mutating_function"><a href="#u5173_u4E8E_mutating_function" class="headerlink" title="关于 mutating function"></a>关于 mutating function</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line"></div><div class="line">  <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">change</span><span class="params">(<span class="number">_</span> value: Int)</span></span>&#123;</div><div class="line">    <span class="keyword">self</span>.value = value</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line"></div><div class="line">  <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">change</span><span class="params">(<span class="number">_</span> value: Int)</span></span>&#123;</div><div class="line">    <span class="keyword">self</span>.value = value</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们发现两者的区别在于 struct 的方法中添加了 <code>mutating</code> 关键字，这是因为在 struct 中 property 是不允许在方法中修改的，如果需要在方法中修改就需要加上关键字。一般这种情况出现较少，最近在写栈数据结构的时候碰巧遇到了，比如实现栈的 pop、push 方法，就需要对栈的 property 做修改。</p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/09/11/class_struct_enum/">http://yeziahehe.com/2017/09/11/class_struct_enum/</a></blockquote></span>
       
     </div>
 
@@ -534,7 +328,7 @@
           
             <a href="/tags/iOS/" rel="tag">#iOS</a>
           
-            <a href="/tags/skillmap/" rel="tag">#skillmap</a>
+            <a href="/tags/swift/" rel="tag">#swift</a>
           
         </div>
       
@@ -543,17 +337,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/30/talk_iOS_Library_and_Framework/" rel="next" title="浅谈iOS中Library和Framework">
-                <i class="fa fa-chevron-left"></i> 浅谈iOS中Library和Framework
+              <a href="/2017/09/07/Structure_stack/" rel="next" title="数据结构学习（一）--栈">
+                <i class="fa fa-chevron-left"></i> 数据结构学习（一）--栈
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/04/Bye 2015，Hi 2016/" rel="prev" title="Bye 2015，Hi 2016">
-                Bye 2015，Hi 2016 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,8 +370,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/04/iOS_dev_professional_map/"
-           data-title="iOS开发工程师职业图谱" data-url="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/">
+      <div class="ds-thread" data-thread-key="2017/09/11/class_struct_enum/"
+           data-title="详解 Swift 中 class 和 struct" data-url="http://yeziahehe.com/2017/09/11/class_struct_enum/">
       </div>
     
   </div>
@@ -704,7 +494,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BF4_u660E"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u804C_u4E1A_u56FE_u8C31"><span class="nav-number">3.</span> <span class="nav-text">职业图谱</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B"><span class="nav-number">2.</span> <span class="nav-text">值类型和引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6709_u4EC0_u4E48_u533A_u522B_uFF1F"><span class="nav-number">2.1.</span> <span class="nav-text">有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F"><span class="nav-number">2.2.</span> <span class="nav-text">为什么选择值类型更安全？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#struct__u548C_class"><span class="nav-number">3.</span> <span class="nav-text">struct 和 class</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5173_u4E8E_u5F15_u7528_u7C7B_u578B_u548C_u7EE7_u627F_u5173_u7CFB"><span class="nav-number">3.1.</span> <span class="nav-text">关于引用类型和继承关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5173_u4E8E_immutable__u53D8_u91CF"><span class="nav-number">3.2.</span> <span class="nav-text">关于 immutable 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5173_u4E8E_mutating_function"><span class="nav-number">3.3.</span> <span class="nav-text">关于 mutating function</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

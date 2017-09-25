@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ArxqF9fNvIlxybI0naTgEy2PwvvvHyAs35iOfxJqL8o" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法,最大子数组,枚举,分治策略,动态规划,LeetCode," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="实际场景在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A">
+<meta name="keywords" content="算法,最大子数组,枚举,分治策略,动态规划,LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习 - 最大子数组问题">
+<meta property="og:url" content="http://yeziahehe.com/2017/09/21/MaximumSubArray/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="实际场景在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/submission1.png">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/subarray_pic.png">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2017-09-25T06:01:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法学习 - 最大子数组问题">
+<meta name="twitter:description" content="实际场景在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 算法学习 - 最大子数组问题 | Ivan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/yeziahehe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ivan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                算法学习 - 最大子数组问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2017-09-21T17:34:54+08:00" content="2017-09-21">
+              2017-09-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <span class="post-count">
+            &nbsp; | &nbsp; 字数
+              3,181
+          </span>
+
+          
+            <span id="busuanzi_container_page_pv">
+              &nbsp; | &nbsp;
+              <i class="fa fa-eye"></i>&nbsp;
+              <span id="busuanzi_value_page_pv">1</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="u5B9E_u9645_u573A_u666F"><a href="#u5B9E_u9645_u573A_u666F" class="headerlink" title="实际场景"></a>实际场景</h1><p>在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A 如果在第 3 天最低价的时候买进，确实能达到收益最大化。但是股票 B 给出了一个反例，最大收益既不是在最低价格时买进，也不是在最高价格时卖出。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png" alt="股票情况"></p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>我们想找到收益最大化的方法，其实可以换一个角度来看数据。我们是想寻找一段日期，在日期范围内股票价格的净变化值最大，所以可以考察每日价格变化的差价，第 i 天的价格差价为第 i 天和第 i-1 天的价格差，如下表所示，那么把这个看成数组，问题就转化成寻找数组的 <strong>和最大的非空连续子数组</strong>。我们称这样的连续子数组为 <strong>最大子数组</strong>（maximum subarray）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">天数</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">差值</td>
+<td style="text-align:center">-30</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">-50</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>虽然做了变换，但是对于 n 天的日期，通过暴力求解的方式，所需要的时间复杂度仍然为 O(n²)。</p>
+<h1 id="u89E3_u9898_u65B9_u6CD5"><a href="#u89E3_u9898_u65B9_u6CD5" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="u66B4_u529B_u6C42_u89E3"><a href="#u66B4_u529B_u6C42_u89E3" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>刚刚讲过，通过暴力求解的方式，并不能降低时间复杂度。算法如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubArray</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> maxSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">var</span> sum = <span class="number">0</span></div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">                sum += nums[j]</div><div class="line">                maxSum = <span class="built_in">max</span>(sum, maxSum)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> maxSum</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>思路上面很简单，其实用枚举法把所有子数组的和全部算出来进行比较，然后选出其中最大的。在 <a href="https://leetcode.com/problems/maximum-subarray/description/" target="_blank" rel="external">LeetCode 53. Maximum Subarray</a> 上提交，会出现 <code>Submission Result: Time Limit Exceeded</code>，显然时间复杂度太高。</p>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/submission1.png" alt="Time Limit Exceeded"></p>
+<h2 id="u5206_u6CBB_u7B56_u7565_u6C42_u89E3"><a href="#u5206_u6CBB_u7B56_u7565_u6C42_u89E3" class="headerlink" title="分治策略求解"></a>分治策略求解</h2><p>分治策略，最常见的实际应用就是归并排序。说到分治策略，就是递归地求解一个问题。在每层递归中分三个步骤解决问题：</p>
+<ul>
+<li><strong>分解（Devide）</strong>，将问题划分为相同的子问题；</li>
+<li><strong>解决（Conquer）</strong>，求解子问题，如果达到条件直接求解，未达到条件则继续递归；</li>
+<li><strong>合并（Combine）</strong>，将子问题的解合成原问题的解。</li>
+</ul>
+<p>递归的计算方式有通用公式：T(n) = aT(n/b) + f(n)。</p>
+<p>最大子数组每次都是最数组进行二等分，所以公式为：T(n) = 2T(n/2) + f(n)，那么时间复杂度就是 O(nlgn)。</p>
+<p>我们要通过分治策略来寻找数组 A[low..high] 的最大子数组，意味着我们要将子数组划分为两个规模相等的子数组。首先找到子数组的中央位置 mid，然后考虑求解两个子数组 A[low..mid] 和 A[mid+1..high]。我们很容易发现最大子数组 A[i..j] 所处的位置必然是以下情况之一：</p>
+<ul>
+<li>完全位于子数组 A[low..mid] 中，那么 low ≤ i ≤ j ≤ mid。</li>
+<li>完全位于子数组 A[mid+1..high] 中，那么 mid &lt; i ≤ j ≤ high。</li>
+<li>子数组跨越了中点，那么 low ≤ i ≤ mid &lt; j ≤ high。</li>
+</ul>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/subarray_pic.png" alt="图示"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxCrossingSubSum</span><span class="params">(<span class="number">_</span> subArray: [Int], <span class="number">_</span> <span class="keyword">left</span>: Int, <span class="number">_</span> mid: Int, <span class="number">_</span> <span class="keyword">right</span>: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></div><div class="line">        <span class="keyword">var</span> maxLeftSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxRightSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="keyword">left</span>...mid).reversed() &#123;</div><div class="line">            sum += subArray[i]</div><div class="line">            maxLeftSum = <span class="built_in">max</span>(sum, maxLeftSum)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        sum = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> mid+<span class="number">1</span>...<span class="keyword">right</span> &#123;</div><div class="line">            sum += subArray[i]</div><div class="line">            maxRightSum = <span class="built_in">max</span>(sum, maxRightSum)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxLeftSum + maxRightSum</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubSum</span><span class="params">(<span class="number">_</span> subArray: [Int], <span class="number">_</span> <span class="keyword">left</span>: Int, <span class="number">_</span> <span class="keyword">right</span>: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">left</span> == <span class="keyword">right</span> &#123;</div><div class="line">            <span class="keyword">return</span> subArray[<span class="keyword">left</span>]</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> mid = (<span class="keyword">left</span> + <span class="keyword">right</span>) / <span class="number">2</span></div><div class="line">        <span class="keyword">var</span> maxLeftSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxRightSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxMidSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        maxLeftSum = maxSubSum(subArray, <span class="keyword">left</span>, mid)</div><div class="line">        maxRightSum = maxSubSum(subArray, mid + <span class="number">1</span>, <span class="keyword">right</span>)</div><div class="line">        maxMidSum = maxCrossingSubSum(subArray, <span class="keyword">left</span>, mid, <span class="keyword">right</span>)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(maxLeftSum, maxRightSum, maxMidSum)</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubArray</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxSubSum(nums, <span class="number">0</span>, nums.<span class="built_in">count</span> - <span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u52A8_u6001_u89C4_u5212_u6C42_u89E3"><a href="#u52A8_u6001_u89C4_u5212_u6C42_u89E3" class="headerlink" title="动态规划求解"></a>动态规划求解</h2><p>动态规划（dynamic programming）与分治策略相似，这里的 programming 指的是一种表格法，都是通过组合子问题的解来求解原问题。分治法将问题划分为互不相交的子问题，递归的求解子问题，再将他们的解组合起来，求出原问题的解。与之相反，动态规划应用于 <strong>子问题重叠</strong> 的情况，即不同的子问题具有公共的子子问题。在这种情况下，分治策略会做许多不必要的工作，它会反复的求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，从而无需每次求解一个子子问题时都重新计算，避免了这种不必要的工作。</p>
+<p>动态规划方法通常用来求解 <strong>最优化问题</strong>，这类问题可以有很多可行解，每个解都有一个值，我们希望寻找具有最优值（最小值或最大值）的解。我们称这样的解为问题的一个最优解，而不是最优解，因为可能有多个解都达到最优值。</p>
+<p>通常按照 4 个步骤来设计动态规划算法：</p>
+<ul>
+<li>寻找一个最优解的结构特征。</li>
+<li>递归的定义最优解的值。</li>
+<li>计算最优解的值，通常采用自底向上的方法。</li>
+<li>利用计算出的信息构造一个最优解。</li>
+</ul>
+<p>最大子数组里面，我们首先要想清楚一个问题就是对于 maxSubArray(A, i) 来说，如果它是目前最大的数组，那么子数组 maxSubArray(A, i - 1) 一定是非负数，因为 maxSubArray(A, i - 1) &gt; maxSubArray(A, i - 1) + A[i]，所以不难得出一个结论：<code>maxSubArray(A, i) = maxSubArray(A, i - 1) &gt; 0 ? maxSubArray(A, i - 1) + A[i] : A[i];</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubArray</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> sum = nums[<span class="number">0</span>]</div><div class="line">        <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>]</div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums[<span class="number">1</span>..&lt;nums.<span class="built_in">count</span>] &#123;</div><div class="line">            sum = <span class="built_in">max</span>(num, sum + num)</div><div class="line">            maxSum = <span class="built_in">max</span>(maxSum, sum)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxSum</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PS：动态规划这一部分稍后会详细的博客讲解。</p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/09/21/MaximumSubArray/">http://yeziahehe.com/2017/09/21/MaximumSubArray/</a></blockquote></span>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/最大子数组/" rel="tag">#最大子数组</a>
+          
+            <a href="/tags/枚举/" rel="tag">#枚举</a>
+          
+            <a href="/tags/分治策略/" rel="tag">#分治策略</a>
+          
+            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/class_struct_enum/" rel="next" title="详解 Swift 中 class 和 struct">
+                <i class="fa fa-chevron-left"></i> 详解 Swift 中 class 和 struct
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/09/21/MaximumSubArray/"
+           data-title="算法学习 - 最大子数组问题" data-url="http://yeziahehe.com/2017/09/21/MaximumSubArray/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Favatar.JPG" alt="叶帆" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">叶帆</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">认真你就赢了</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-linkedin"></i> Linkedin
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B9E_u9645_u573A_u666F"><span class="nav-number">1.</span> <span class="nav-text">实际场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u65B9_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">解题方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u66B4_u529B_u6C42_u89E3"><span class="nav-number">3.1.</span> <span class="nav-text">暴力求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5206_u6CBB_u7B56_u7565_u6C42_u89E3"><span class="nav-number">3.2.</span> <span class="nav-text">分治策略求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u52A8_u6001_u89C4_u5212_u6C42_u89E3"><span class="nav-number">3.3.</span> <span class="nav-text">动态规划求解</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶帆</span>
+  <span id="busuanzi_container_site_pv"> | 自2015.12.13起总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yeziahehe"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>

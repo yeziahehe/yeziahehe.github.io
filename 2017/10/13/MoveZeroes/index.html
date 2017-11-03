@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,Swift," />
+  <meta name="keywords" content="算法,LeetCode,Array,Two Pointers," />
 
 
 
@@ -55,22 +55,20 @@
 
 
 
-<meta name="description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
-<meta name="keywords" content="iOS,Swift">
+<meta name="description" content="题目介绍 LeetCode 283. Move Zeroes，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。 解题思路一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。 12345678910111213141516class Solution &amp;#123;">
+<meta name="keywords" content="算法,LeetCode,Array,Two Pointers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
-<meta property="og:url" content="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/index.html">
+<meta property="og:title" content="Move Zeroes">
+<meta property="og:url" content="http://yeziahehe.com/2017/10/13/MoveZeroes/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ele.jpg">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Apple_Pay.jpg">
+<meta property="og:description" content="题目介绍 LeetCode 283. Move Zeroes，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。 解题思路一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。 12345678910111213141516class Solution &amp;#123;">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MoveZeroes.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-07-07T16:45:17.000Z">
+<meta property="og:updated_time" content="2017-11-03T07:57:28.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
-<meta name="twitter:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg">
+<meta name="twitter:title" content="Move Zeroes">
+<meta name="twitter:description" content="题目介绍 LeetCode 283. Move Zeroes，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。 解题思路一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。 12345678910111213141516class Solution &amp;#123;">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MoveZeroes.png">
 
 
 
@@ -82,7 +80,7 @@
   };
 </script>
 
-  <title> 使用 UIFeedbackGenerator 来实现触觉反馈 | Ivan's Blog </title>
+  <title> Move Zeroes | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +232,7 @@
             
             
               
-                使用 UIFeedbackGenerator 来实现触觉反馈
+                Move Zeroes
               
             
           </h1>
@@ -243,8 +241,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2017-07-07T15:47:29+08:00" content="2017-07-07">
-              2017-07-07
+            <time itemprop="dateCreated" datetime="2017-10-13T19:52:05+08:00" content="2017-10-13">
+              2017-10-13
             </time>
           </span>
 
@@ -253,8 +251,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/LeetCode-OJ/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode OJ</span>
                   </a>
                 </span>
 
@@ -267,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,294
+              641
           </span>
 
           
@@ -291,47 +289,11 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。</strong></p>
-<p>最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/system.jpg" alt=""></th>
-<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ele.jpg" alt=""></th>
-<th style="text-align:center"><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Apple_Pay.jpg" alt=""></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">系统触感强度设置</td>
-<td style="text-align:center">饿了么刷新触觉反馈</td>
-<td style="text-align:center">Apple Pay 支付成功和失败触觉反馈</td>
-</tr>
-</tbody>
-</table>
-<h1 id="u89E6_u89C9_u53CD_u9988"><a href="#u89E6_u89C9_u53CD_u9988" class="headerlink" title="触觉反馈"></a>触觉反馈</h1><p>iOS 10 引入了一种新的产生触觉反馈的方式，通过使用系统的预定义震动模式，让用户在进行操作时得到不同的震动反馈。这个功能有新增的 <code>UIFeedbackGenerator</code> 提供，根据官方的<a href="https://developer.apple.com/documentation/uikit/uifeedbackgenerator" target="_blank" rel="external">文档</a>：</p>
-<blockquote>
-<p>The abstract superclass for all feedback generators.</p>
-</blockquote>
-<p>该类为一个抽象类，提供三个子类 <code>UIImpactFeedbackGenerator</code>、<code>UISelectionFeedbackGenerator</code> 和 <code>UINotificationFeedbackGenerator</code>。</p>
-<h2 id="UIImpactFeedbackGenerator"><a href="#UIImpactFeedbackGenerator" class="headerlink" title="UIImpactFeedbackGenerator"></a>UIImpactFeedbackGenerator</h2><blockquote>
-<p>Use impact feedback generators to indicate that an impact has occurred.</p>
-</blockquote>
-<p>预示着按压发生了。比如系统触感强度设置就是为了在你按 Home 键的时候给你一反馈，实际上 iPhone 7 的 Home 键并可以按动。</p>
-<p><code>UIImpactFeedbackStyle</code> 一共是三种：<code>.light</code>、<code>.medium</code>、<code>heavy</code>，分别对应了系统触感强度里面的 1、2、3。</p>
-<h2 id="UISelectionFeedbackGenerator"><a href="#UISelectionFeedbackGenerator" class="headerlink" title="UISelectionFeedbackGenerator"></a>UISelectionFeedbackGenerator</h2><blockquote>
-<p>Use selection feedback generators to indicate a change in selection.</p>
-</blockquote>
-<p>预示着选择的变化。比如饿了么的刷新触觉反馈，这里普及一下，这种刷新反馈是因为饿了么使用的系统的 <code>UIRefreshControl</code> 方法去做的下拉刷新，而系统为这种方法下拉的 <code>offsetY</code> 做了触觉反馈的适配。</p>
-<h2 id="UINotificationFeedbackGenerator"><a href="#UINotificationFeedbackGenerator" class="headerlink" title="UINotificationFeedbackGenerator"></a>UINotificationFeedbackGenerator</h2><blockquote>
-<p>Use notification feedback generators to indicate successes, failures, and warnings.</p>
-</blockquote>
-<p>预示着成功、失败和警告。比如 Apple_Pay 支付成功和失败的反馈，这里比较了下三种情况的反馈，应该是在力度上面有所差别。和 Impact 的差别在于，这里的触觉反馈类似左右摇动两下。</p>
-<p><code>UINotificationFeedbackType</code> 同样也是三种：<code>.success</code>、<code>.warning</code>、<code>error</code>。</p>
-<h1 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h1><p>最后讲一下用法，掘金的翻译计划 <a href="https://juejin.im/entry/5810433ac4c9710058a74100" target="_blank" rel="external">[译] 如何使用 UIFeedbackGenerator 让应用支持 iOS 10 的触觉反馈</a> 中，给出了一个 Demo。注意 Demo 中有个问题，<strong>addsubview 应该在添加约束之前，否则会引起崩溃。</strong></p>
-<p>不过根据官方的文档,触发触觉效果之前，在你的生成器 (generator) 内调用 prepare() 方法，这样可以有效的减少延迟。可以参考官方文档中的代码，也可以参考如下代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> feedbackGenerator : <span class="type">UIImpactFeedbackGenerator</span>? = <span class="type">UIImpactFeedbackGenerator</span>(style: .heavy)</div><div class="line"></div><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">    feedbackGenerator = <span class="literal">nil</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    feedbackGenerator?.prepare()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">getNewGank</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</div><div class="line">    feedbackGenerator?.impactOccurred()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></blockquote></span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MoveZeroes.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/move-zeroes/description/" target="_blank" rel="external">LeetCode 283. Move Zeroes</a>，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">moveZeroes</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int])</span></span> &#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line">            <span class="keyword">if</span> num != <span class="number">0</span> &#123;</div><div class="line">                nums[i] = num</div><div class="line">                i += <span class="number">1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> i &lt; nums.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">for</span> zeroIndex <span class="keyword">in</span> i..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">                nums[zeroIndex] = <span class="number">0</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/13/MoveZeroes/">http://yeziahehe.com/2017/10/13/MoveZeroes/</a></blockquote></span>
       
     </div>
 
@@ -367,9 +329,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
-            <a href="/tags/Swift/" rel="tag">#Swift</a>
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/Array/" rel="tag">#Array</a>
+          
+            <a href="/tags/Two-Pointers/" rel="tag">#Two Pointers</a>
           
         </div>
       
@@ -378,16 +344,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/30/UITableViewCell_Self_Sizing/" rel="next" title="UITableViewCell 高度自适应牵扯出的若干问题">
-                <i class="fa fa-chevron-left"></i> UITableViewCell 高度自适应牵扯出的若干问题
+              <a href="/2017/10/10/TwoSum/" rel="next" title="Two Sum">
+                <i class="fa fa-chevron-left"></i> Two Sum
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/" rel="prev" title="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
-                利用 Background Fetch + UNUserNotificationCenter 实现伪推送 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/02/ConvertSortedArrayToBinarySearchTree/" rel="prev" title="Convert Sorted Array to Binary Search Tree">
+                Convert Sorted Array to Binary Search Tree <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -415,8 +381,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/07/Haptic_feedback_with_uifeedbackgenerator/"
-           data-title="使用 UIFeedbackGenerator 来实现触觉反馈" data-url="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">
+      <div class="ds-thread" data-thread-key="2017/10/13/MoveZeroes/"
+           data-title="Move Zeroes" data-url="http://yeziahehe.com/2017/10/13/MoveZeroes/">
       </div>
     
   </div>
@@ -539,7 +505,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E6_u89C9_u53CD_u9988"><span class="nav-number">2.</span> <span class="nav-text">触觉反馈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImpactFeedbackGenerator"><span class="nav-number">2.1.</span> <span class="nav-text">UIImpactFeedbackGenerator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UISelectionFeedbackGenerator"><span class="nav-number">2.2.</span> <span class="nav-text">UISelectionFeedbackGenerator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINotificationFeedbackGenerator"><span class="nav-number">2.3.</span> <span class="nav-text">UINotificationFeedbackGenerator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7528_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -264,7 +264,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              2,073
+              2,089
           </span>
 
           
@@ -292,9 +292,9 @@
 <h1 id="u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B"><a href="#u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h1><p>首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSObject 的对象，通常是类对象，我们做内存管理的时候就是对这种对象进行管理。</p>
 <p><strong>为什么值类型不需要进行内存管理，而引用类型需要进行内存管理呢？</strong> 因为两种方式的内存分配机制不一样，值类型存储在栈当中，在内存中连续的内存空间，遵循后进先出（LIFO）的原则；而引用类型存储在堆当中，存储空间是随机的，对象之间留有空白空间，会产生空间碎片，需要手动进行管理。</p>
 <h2 id="u6709_u4EC0_u4E48_u533A_u522B_uFF1F"><a href="#u6709_u4EC0_u4E48_u533A_u522B_uFF1F" class="headerlink" title="有什么区别？"></a>有什么区别？</h2><p>值类型基本特征就是复制数据，不管是在赋值、初始化还是参数传递的过程中，并且为这个数据创建独立的实例。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">S</span>()</div><div class="line"><span class="keyword">var</span> b = a						<span class="comment">// a被复制给了b</span></div><div class="line">a.value = <span class="number">1</span>					<span class="comment">// a改变了, b没有</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "0, 1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">S</span>()</div><div class="line"><span class="keyword">var</span> b = a						<span class="comment">// a被复制给了b</span></div><div class="line">a.value = <span class="number">1</span>					<span class="comment">// a改变了, b没有</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"<span class="subst">\(a.value)</span>, <span class="subst">\(b.value)</span>"</span>)	<span class="comment">// "0, 1"</span></div></pre></td></tr></table></figure>
 <p>引用类型在赋值、初始化还是参数传递的过程中其实创建了实例，但是实例的指针指向和原来实例同样的内存地址，所以说修改其中一个示例数据的时候，另一个实例数据也同样会被修改。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">C</span>()</div><div class="line"><span class="keyword">var</span> b = a				    <span class="comment">// a被复制给了b</span></div><div class="line">x.value = <span class="number">1</span>				  <span class="comment">// a和b都被修改了</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "1, 1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">C</span>()</div><div class="line"><span class="keyword">var</span> b = a				    <span class="comment">// a被复制给了b</span></div><div class="line">x.value = <span class="number">1</span>				  <span class="comment">// a和b都被修改了</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"<span class="subst">\(a.value)</span>, <span class="subst">\(b.value)</span>"</span>)	<span class="comment">// "1, 1"</span></div></pre></td></tr></table></figure>
 <h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F" class="headerlink" title="为什么选择值类型更安全？"></a>为什么选择值类型更安全？</h2><p>选择值类型而不是引用类型的一个主要原因是能让你的代码变得更加简单。你在任何情况下用一个值类型，都能够假设你的其他代码不会使它改变，这通常在多线程环境中很有用，如果一个线程中使用的数据被另一个线程给意外的修改了，这通常会产生非常严重的Bug，且相当难以调试。在 Objective-C 中 NSArray、NSDictionary 都是属于 NS 类，而 Swift 中 Array、Dictionary 都是属于 struct 类型，显然在后者在多线程编程中更加安全。</p>
 <p>在 iOS 中通常创建一个类，继承自 NSObject 的时候，这就已经是引用类型，我们发现在 Objective-C 中建立 Model 的时候选择的总是继承自 NSObject 的类，而在 Swift 中通常使用 struct 来进行 Model 来建立，重要的一点原因是因为 Swift 语言中，struct、enum 都支持了定义方法，极大的扩展了可用性，再加上值类型的安全性，成了 Model 最好的选择。</p>
 <h1 id="struct__u548C_class"><a href="#struct__u548C_class" class="headerlink" title="struct 和 class"></a>struct 和 class</h1><p>我们接下来会详细分析 struct 和 class 的异同。</p>
@@ -439,7 +439,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -453,7 +453,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

@@ -45,6 +45,33 @@
   </entry>
   
   <entry>
+    <title><![CDATA[Move Zeroes]]></title>
+    <link href="http://yeziahehe.com/2017/10/13/MoveZeroes/"/>
+    <id>http://yeziahehe.com/2017/10/13/MoveZeroes/</id>
+    <published>2017-10-13T11:52:05.000Z</published>
+    <updated>2017-11-03T07:57:28.583Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MoveZeroes.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/move-zeroes/description/" target="_blank" rel="external">LeetCode 283. Move Zeroes</a>，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">moveZeroes</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int])</span></span> &#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line">            <span class="keyword">if</span> num != <span class="number">0</span> &#123;</div><div class="line">                nums[i] = num</div><div class="line">                i += <span class="number">1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> i &lt; nums.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">for</span> zeroIndex <span class="keyword">in</span> i..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">                nums[zeroIndex] = <span class="number">0</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/13/MoveZeroes/">http://yeziahehe.com/2017/10/13/MoveZeroes/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Two Sum]]></title>
     <link href="http://yeziahehe.com/2017/10/10/TwoSum/"/>
     <id>http://yeziahehe.com/2017/10/10/TwoSum/</id>
@@ -171,9 +198,9 @@
 <h1 id="u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B"><a href="#u503C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h1><p>首先提到的是 iOS 中的内存管理机制的问题，在 iOS 中内存对象主要有两类，值类型和引用类型。值类型就是 int、float、struct、enum、tuple 等基本数据类型，引用类型就是继承自 NSObject 的对象，通常是类对象，我们做内存管理的时候就是对这种对象进行管理。</p>
 <p><strong>为什么值类型不需要进行内存管理，而引用类型需要进行内存管理呢？</strong> 因为两种方式的内存分配机制不一样，值类型存储在栈当中，在内存中连续的内存空间，遵循后进先出（LIFO）的原则；而引用类型存储在堆当中，存储空间是随机的，对象之间留有空白空间，会产生空间碎片，需要手动进行管理。</p>
 <h2 id="u6709_u4EC0_u4E48_u533A_u522B_uFF1F"><a href="#u6709_u4EC0_u4E48_u533A_u522B_uFF1F" class="headerlink" title="有什么区别？"></a>有什么区别？</h2><p>值类型基本特征就是复制数据，不管是在赋值、初始化还是参数传递的过程中，并且为这个数据创建独立的实例。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">S</span>()</div><div class="line"><span class="keyword">var</span> b = a						<span class="comment">// a被复制给了b</span></div><div class="line">a.value = <span class="number">1</span>					<span class="comment">// a改变了, b没有</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "0, 1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">S</span>()</div><div class="line"><span class="keyword">var</span> b = a						<span class="comment">// a被复制给了b</span></div><div class="line">a.value = <span class="number">1</span>					<span class="comment">// a改变了, b没有</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"<span class="subst">\(a.value)</span>, <span class="subst">\(b.value)</span>"</span>)	<span class="comment">// "0, 1"</span></div></pre></td></tr></table></figure>
 <p>引用类型在赋值、初始化还是参数传递的过程中其实创建了实例，但是实例的指针指向和原来实例同样的内存地址，所以说修改其中一个示例数据的时候，另一个实例数据也同样会被修改。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">C</span>()</div><div class="line"><span class="keyword">var</span> b = a				    <span class="comment">// a被复制给了b</span></div><div class="line">x.value = <span class="number">1</span>				  <span class="comment">// a和b都被修改了</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"\(a.value), \(b.value)"</span>)	<span class="comment">// "1, 1"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">  <span class="keyword">var</span> value = <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="type">C</span>()</div><div class="line"><span class="keyword">var</span> b = a				    <span class="comment">// a被复制给了b</span></div><div class="line">x.value = <span class="number">1</span>				  <span class="comment">// a和b都被修改了</span></div><div class="line"><span class="built_in">println</span>(<span class="string">"<span class="subst">\(a.value)</span>, <span class="subst">\(b.value)</span>"</span>)	<span class="comment">// "1, 1"</span></div></pre></td></tr></table></figure>
 <h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9_u503C_u7C7B_u578B_u66F4_u5B89_u5168_uFF1F" class="headerlink" title="为什么选择值类型更安全？"></a>为什么选择值类型更安全？</h2><p>选择值类型而不是引用类型的一个主要原因是能让你的代码变得更加简单。你在任何情况下用一个值类型，都能够假设你的其他代码不会使它改变，这通常在多线程环境中很有用，如果一个线程中使用的数据被另一个线程给意外的修改了，这通常会产生非常严重的Bug，且相当难以调试。在 Objective-C 中 NSArray、NSDictionary 都是属于 NS 类，而 Swift 中 Array、Dictionary 都是属于 struct 类型，显然在后者在多线程编程中更加安全。</p>
 <p>在 iOS 中通常创建一个类，继承自 NSObject 的时候，这就已经是引用类型，我们发现在 Objective-C 中建立 Model 的时候选择的总是继承自 NSObject 的类，而在 Swift 中通常使用 struct 来进行 Model 来建立，重要的一点原因是因为 Swift 语言中，struct、enum 都支持了定义方法，极大的扩展了可用性，再加上值类型的安全性，成了 Model 最好的选择。</p>
 <h1 id="struct__u548C_class"><a href="#struct__u548C_class" class="headerlink" title="struct 和 class"></a>struct 和 class</h1><p>我们接下来会详细分析 struct 和 class 的异同。</p>
@@ -616,8 +643,8 @@
 <h1 id="NSFileManager"><a href="#NSFileManager" class="headerlink" title="NSFileManager"></a>NSFileManager</h1><p>NSFileManager是文件管理的对象，在使用的时候，我们通常使用了系统提供的方法：<code>NSFileManager.defaultManager()</code>,系统的方法获取了一个单例对象，线程安全的。如果在不同线程中使用，而且需要代理函数来监听事件，这时候要使用init来创建每个线程独立的fileManager。</p>
 <p>通过NSFileManager获取目录和文件创建、读写、删除、重命名等操作，具体的操作可以参考<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSFileManager_Class/" target="_blank" rel="external">Apple官方文档</a> 。接下来介绍几个常用的方法。</p>
 <h2 id="u83B7_u53D6_u8DEF_u5F84"><a href="#u83B7_u53D6_u8DEF_u5F84" class="headerlink" title="获取路径"></a>获取路径</h2><p>在项目中我们通常要缓存数据需要进行存放，这个时候<code>Library/Caches</code>文件目录就起到了非常重要的作用。通常使用这个方法来进统一获取这个目录，进行缓存的管理。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">yfCachesURL</span>() -&gt; <span class="title">NSURL</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().<span class="type">URLForDirectory</span>(.<span class="type">CachesDirectory</span>, inDomain: .<span class="type">UserDomainMask</span>, appropriateForURL: <span class="literal">nil</span>, create: <span class="literal">false</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="u7F13_u5B58"><a href="#u7F13_u5B58" class="headerlink" title="缓存"></a>缓存</h2><p>我们通常需要在项目中显示缓存的大小，只获取缓存的图片方法并不完整，使用以下遍历<code>Library/Caches</code>文件得出的缓存大小比较准确。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cachesSize</span>() -&gt; <span class="title">Float</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> files = <span class="type">NSFileManager</span>.defaultManager().subpathsAtPath(cacheURLStrng())</div><div class="line">    <span class="keyword">var</span> size: <span class="type">Float</span> = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> files!&#123;</div><div class="line">        <span class="keyword">let</span> path = cacheURLStrng().stringByAppendingFormat(<span class="string">"/\(fileName)"</span>)</div><div class="line">        <span class="keyword">let</span> floder = <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().attributesOfItemAtPath(path)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (abc, bcd) <span class="keyword">in</span> floder &#123;</div><div class="line">            <span class="keyword">if</span> abc == <span class="type">NSFileSize</span> &#123;</div><div class="line">                size += bcd.floatValue</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> size/(<span class="number">1024</span>*<span class="number">1024</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另外常用操作进行缓存的清除，代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cleanCachesDirectoryAtURL</span>(<span class="title">cachesDirectoryURL</span>: <span class="title">NSURL</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> fileURLs = (<span class="keyword">try</span>? fileManager.contentsOfDirectoryAtURL(cachesDirectoryURL, includingPropertiesForKeys: <span class="literal">nil</span>, options: <span class="type">NSDirectoryEnumerationOptions</span>())) &#123;</div><div class="line">        <span class="keyword">for</span> fileURL <span class="keyword">in</span> fileURLs &#123;</div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                <span class="keyword">try</span> fileManager.removeItemAtURL(fileURL)</div><div class="line">            &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</div><div class="line">                yfLog.error(<span class="string">"Clean Caches - removeItemAtURL: \(fileURL) error!"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="u7F13_u5B58"><a href="#u7F13_u5B58" class="headerlink" title="缓存"></a>缓存</h2><p>我们通常需要在项目中显示缓存的大小，只获取缓存的图片方法并不完整，使用以下遍历<code>Library/Caches</code>文件得出的缓存大小比较准确。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cachesSize</span>() -&gt; <span class="title">Float</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> files = <span class="type">NSFileManager</span>.defaultManager().subpathsAtPath(cacheURLStrng())</div><div class="line">    <span class="keyword">var</span> size: <span class="type">Float</span> = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> files!&#123;</div><div class="line">        <span class="keyword">let</span> path = cacheURLStrng().stringByAppendingFormat(<span class="string">"/<span class="subst">\(fileName)</span>"</span>)</div><div class="line">        <span class="keyword">let</span> floder = <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().attributesOfItemAtPath(path)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (abc, bcd) <span class="keyword">in</span> floder &#123;</div><div class="line">            <span class="keyword">if</span> abc == <span class="type">NSFileSize</span> &#123;</div><div class="line">                size += bcd.floatValue</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> size/(<span class="number">1024</span>*<span class="number">1024</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另外常用操作进行缓存的清除，代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cleanCachesDirectoryAtURL</span>(<span class="title">cachesDirectoryURL</span>: <span class="title">NSURL</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> fileURLs = (<span class="keyword">try</span>? fileManager.contentsOfDirectoryAtURL(cachesDirectoryURL, includingPropertiesForKeys: <span class="literal">nil</span>, options: <span class="type">NSDirectoryEnumerationOptions</span>())) &#123;</div><div class="line">        <span class="keyword">for</span> fileURL <span class="keyword">in</span> fileURLs &#123;</div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                <span class="keyword">try</span> fileManager.removeItemAtURL(fileURL)</div><div class="line">            &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</div><div class="line">                yfLog.error(<span class="string">"Clean Caches - removeItemAtURL: <span class="subst">\(fileURL)</span> error!"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/05/Swift_NSFileManager/">http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行]]>
@@ -786,9 +813,9 @@
     
       <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
     
-      <category term="封装" scheme="http://yeziahehe.com/tags/%E5%B0%81%E8%A3%85/"/>
-    
       <category term="Swizzling" scheme="http://yeziahehe.com/tags/Swizzling/"/>
+    
+      <category term="封装" scheme="http://yeziahehe.com/tags/%E5%B0%81%E8%A3%85/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
@@ -992,253 +1019,6 @@
       <category term="2015" scheme="http://yeziahehe.com/tags/2015/"/>
     
       <category term="随想" scheme="http://yeziahehe.com/categories/%E9%9A%8F%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS开发工程师职业图谱]]></title>
-    <link href="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/"/>
-    <id>http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</id>
-    <published>2016-01-04T03:11:07.000Z</published>
-    <updated>2016-09-02T03:04:54.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https://github.com/jikexueyuanwiki/skillmap" target="_blank" rel="external">IT技能图谱</a>，针对<a href="https://github.com/jikexueyuanwiki/skillmap/blob/master/iOS.md" target="_blank" rel="external">iOS 开发工程师</a>的职业图谱，我决定做个技能树的完成度评估。</p>
-<h1 id="u8BF4_u660E"><a href="#u8BF4_u660E" class="headerlink" title="说明"></a>说明</h1><ul>
-<li>难度等级：R1-R5, 对应关系：零基础(R1)、简单(R2)、一般(R3)、困难(R4)、非常困难(R5)</li>
-<li>达到程度：P1-P5, 对应关系：了解(P1)、熟悉(P2)、掌握(P3)、精通(P4)、专家(P5)</li>
-<li><del>删除线</del>代表该项基本完成，未完成的部分准备补上进度百分比。</li>
-</ul>
-<h1 id="u804C_u4E1A_u56FE_u8C31"><a href="#u804C_u4E1A_u56FE_u8C31" class="headerlink" title="职业图谱"></a>职业图谱</h1><ul>
-<li>通用基础(R3,P2)<ul>
-<li>理论基础(R4,P3)<ul>
-<li>数据结构(R4,P3)</li>
-<li>算法(R4,P3)</li>
-</ul>
-</li>
-<li>编程语言(R3,P2)<ul>
-<li>Objective-C(R3,P3)</li>
-<li>Swift(R3,P2)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Objective-C基础(R3,P3)<ul>
-<li>Objective-C基本语法(R2,P4)<ul>
-<li><del>变量(R2,P4)</del></li>
-<li><del>常量(R2,P4)</del></li>
-<li><del>数据类型(R2,P4)</del></li>
-<li><del>运算符和表达式(R2,P4)</del></li>
-<li><del>判断(R2,P4)</del></li>
-<li><del>循环(R2,P4)</del></li>
-<li><a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese" target="_blank" rel="external">Objective-C编码规范</a>(R2,P4)</li>
-</ul>
-</li>
-<li>Objective-C语法进阶(R3,P3)<ul>
-<li><del>类和对象(R3,P3)</del></li>
-<li><del>属性和变量(R3,P3)</del></li>
-<li><del>继承(R3,P3)</del></li>
-<li><del>多态(R3,P3)</del></li>
-<li>动态绑定(R3,P3)</li>
-<li>block块(R3,P3)</li>
-<li>异常处理(R3,P3)</li>
-<li><del>Category类别(R3,P3)</del></li>
-<li>Extension扩展(R3,P3)</li>
-<li><del>Protocol协议 (R3,P3)</del></li>
-</ul>
-</li>
-<li>Objective-C高级语法(R4,P2)<ul>
-<li>KVC(R4,P2)</li>
-<li>KVO(R4,P2)</li>
-<li><del>Notification(R4,P2)</del></li>
-<li><del>引用计数与ARC(R4,P2)</del></li>
-<li>内存管理(R4,P4)</li>
-<li>多线程(R4,P3)</li>
-</ul>
-</li>
-<li>Objective-C Foundation框架(R3,P3)<ul>
-<li><del>NSNumber(R3,P3)</del></li>
-<li><del>NSString(R3,P4)</del></li>
-<li><del>NSArray(R3,P4)</del></li>
-<li><del>NSDictionary(R3,P4)</del></li>
-<li><del>NSSet(R3,P2)</del></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Swift基础(R2,P2)<ul>
-<li>Swift基本语法(R2,P2)<ul>
-<li>变量(R2,P2)</li>
-<li>常量(R2,P2)</li>
-<li>数据类型(R2,P2)</li>
-<li>判断(R2,P2)</li>
-<li>循环(R2,P2)</li>
-<li>Swift编码规范(R2,P2)</li>
-</ul>
-</li>
-<li>Swift语法进阶(R3,P2)<ul>
-<li>Swift字符串(R3,P2)</li>
-<li>数组(R3,P2)</li>
-<li>字典(R3,P2)</li>
-<li>元组(R3,P2)</li>
-<li>函数(R3,P2)</li>
-<li>可选型optionals(R3,P2)</li>
-<li>枚举(R3,P2)</li>
-<li>闭包 (R3,P2)</li>
-</ul>
-</li>
-<li>Swift高级语法(R4,P1)<ul>
-<li>Swift和Objective-C混合编程(R3,P1)</li>
-<li>Swift源码(R5,P1)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS开发基础(R2,P3)<ul>
-<li>iOS基础(R2,P3)<ul>
-<li>iOS生命周期(R3,P3)</li>
-<li>事件与消息(R3,P3)</li>
-<li><del>模拟器(R2,P2)</del></li>
-<li><del>真机调试(R2,P2)</del></li>
-</ul>
-</li>
-<li>UI控件(R2,P4)<ul>
-<li><del>Button(R2,P4)</del></li>
-<li><del>Label(R2,P4)</del></li>
-<li><del>ImageView(R2,P4)</del></li>
-<li><del>ScrollView(R2,P4)</del></li>
-<li><del>TableView(R4,P4)</del></li>
-<li><del>CollectionView(R4,P3)</del></li>
-<li><del>自定义控件(R4,P2)</del></li>
-</ul>
-</li>
-<li>界面布局(R3,P3)<ul>
-<li>代码布局(R3,P3)</li>
-<li><del>nib/xib文件(R2,P3)</del></li>
-<li>storyboard(R2,P3)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS开发进阶(R3,P3)<ul>
-<li>动画效果(R3,P2)<ul>
-<li>UIView动画(R3,P2)</li>
-<li>Core Animation(R3,P2)</li>
-<li>第三方动画库pop(R3,P1)</li>
-</ul>
-</li>
-<li>多线程(R4,P4)<ul>
-<li>NSThread(R4,P3)</li>
-<li>NSOperationQueue(R4,P4)</li>
-<li>GCD(R3,P4)   </li>
-</ul>
-</li>
-<li>数据存储(R3,P4)<ul>
-<li><del>NSUserDefault(R3,P4)</del></li>
-<li>SQLite(R3,P2)</li>
-<li>CoreData(R3,P4)</li>
-</ul>
-</li>
-<li>数据处理(R3,P3)<ul>
-<li><del>Model(R4,P3)</del></li>
-<li>XML解析(R3,P4)</li>
-<li><del>JSON解析(R3,P4)</del></li>
-</ul>
-</li>
-<li>物理特性(R3,P1)<ul>
-<li><del>各类传感器(R3,P1)</del></li>
-<li><del>摄像头(R3,P1)</del></li>
-<li>指纹识别(R3,P1)</li>
-<li>Force Touch(R3,P1)</li>
-</ul>
-</li>
-<li>网络与通信(R3,P3)<ul>
-<li><del>Http(R3,P4)</del></li>
-<li>Socket(R3,P2)</li>
-<li>SOAP(R3,P2)</li>
-<li><del>抓包(R4,P1)</del></li>
-</ul>
-</li>
-<li>屏幕适配(R3,P3)<ul>
-<li>代码适配(R3,P4)</li>
-<li><del>Autoresizing(R2,P4)</del></li>
-<li><del>AutoLayout(R3,P3)</del></li>
-<li>Size Classes(R4,P2)    </li>
-</ul>
-</li>
-<li>其他(R3,P2)<ul>
-<li>多点触控(R3,P1)</li>
-<li><del>手势识别(R3,P1)</del></li>
-<li>传感器(R3,P1)</li>
-<li><del>定位(R3,P3)</del></li>
-<li>电源管理(R3,P1)</li>
-<li><del>消息推送(R3,P3)</del>  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>iOS高级开发(R4,P2)<ul>
-<li>iOS架构(R4，P2)<ul>
-<li><del>MVC(R3,P2)</del></li>
-<li><del>MVVM(R4,P1)</del></li>
-<li>设计模式(R5,P2)</li>
-</ul>
-</li>
-<li>第三方框架(R3,P2)<ul>
-<li><del>AFNetworking(R3,P3)</del></li>
-<li><del>SDWebImage(R3,P2)</del></li>
-<li><del>MBProgressHUD(R3,P2)</del></li>
-<li>Masonry(R3,P1)     </li>
-</ul>
-</li>
-<li>第三方SDK(R3,P2)<ul>
-<li><del>分享(R3,P3)</del></li>
-<li>第三方登录(R4,P2)</li>
-<li><del>短信验证码(R3,P3)</del>  </li>
-<li>其他各类API(R3,P2)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>开发效率(R3,P3)<ul>
-<li>IDE(R2,P4)<ul>
-<li>Xcode(R2,P4)</li>
-</ul>
-</li>
-<li>插件(R2,P1)<ul>
-<li><del>Alcatraz(R2,P1)</del>   </li>
-</ul>
-</li>
-<li>包管理(R2,P3)<ul>
-<li><del>Cocoapods</del>   </li>
-</ul>
-</li>
-<li>版本控制(R2,P3)<ul>
-<li><del>Git(R2,P3)</del></li>
-<li><del>SVN(R2,P3)</del></li>
-</ul>
-</li>
-<li>应用内测与分发(R2,P1)<ul>
-<li>Pre.im(R2,P1)</li>
-<li><del>蒲公英(R2,P1)</del></li>
-</ul>
-</li>
-<li>后台服务(R2,P1)<ul>
-<li><a href="http://www.bmob.cn/" target="_blank" rel="external">Bmob</a>(R2,P1)</li>
-<li><a href="http://www.parse.com/" target="_blank" rel="external">Parse</a> (R2,P1)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/">http://yeziahehe.com/2016/01/04/iOS_dev_professional_map/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近极客学院发起了<a href="https:]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="skillmap" scheme="http://yeziahehe.com/tags/skillmap/"/>
-    
-      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

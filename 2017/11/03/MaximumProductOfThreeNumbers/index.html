@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,Objective-C,封装,继承,Category," />
+  <meta name="keywords" content="算法,LeetCode,Array,Math," />
 
 
 
@@ -55,20 +55,21 @@
 
 
 
-<meta name="description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta name="keywords" content="iOS,Objective-C,封装,继承,Category">
+<meta name="description" content="题目介绍 LeetCode 628. Maximum Product of Three Numbers，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。 解题思路思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。 第一种（没通过）先使用系统的排序函数排序，时间复杂度上没通过。 123456class Solution &amp;#123;    func">
+<meta name="keywords" content="算法,LeetCode,Array,Math">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
-<meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/index.html">
+<meta property="og:title" content="Maximum Product of Three Numbers">
+<meta property="og:url" content="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png">
+<meta property="og:description" content="题目介绍 LeetCode 628. Maximum Product of Three Numbers，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。 解题思路思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。 第一种（没通过）先使用系统的排序函数排序，时间复杂度上没通过。 123456class Solution &amp;#123;    func">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumbers_error.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-10-26T09:12:49.091Z">
+<meta property="og:updated_time" content="2017-11-03T09:12:10.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
-<meta name="twitter:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png">
+<meta name="twitter:title" content="Maximum Product of Three Numbers">
+<meta name="twitter:description" content="题目介绍 LeetCode 628. Maximum Product of Three Numbers，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。 解题思路思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。 第一种（没通过）先使用系统的排序函数排序，时间复杂度上没通过。 123456class Solution &amp;#123;    func">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png">
 
 
 
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title> Objective-C封装技巧（一）：Category和继承的博弈 | Ivan's Blog </title>
+  <title> Maximum Product of Three Numbers | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -232,7 +233,7 @@
             
             
               
-                Objective-C封装技巧（一）：Category和继承的博弈
+                Maximum Product of Three Numbers
               
             
           </h1>
@@ -241,8 +242,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-05T15:24:19+08:00" content="2016-01-05">
-              2016-01-05
+            <time itemprop="dateCreated" datetime="2017-11-03T16:56:28+08:00" content="2017-11-03">
+              2017-11-03
             </time>
           </span>
 
@@ -251,8 +252,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
+                  <a href="/categories/LeetCode-OJ/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode OJ</span>
                   </a>
                 </span>
 
@@ -265,7 +266,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              2,267
+              1,249
           </span>
 
           
@@ -289,44 +290,25 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。</p>
-<p>平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。另外在继承的基础上我们发现了比继承更加灵活的Swizzling和在Category的使用过程出现的Associated Objects。关于上述的所有方法，我将会写一个系列来阐述。</p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/maximum-product-of-three-numbers/description/" target="_blank" rel="external">LeetCode 628. Maximum Product of Three Numbers</a>，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。</p>
+<h2 id="u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09"><a href="#u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09" class="headerlink" title="第一种（没通过）"></a>第一种（没通过）</h2><p>先使用系统的排序函数排序，时间复杂度上没通过。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumProduct</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">let</span> sortNums = nums.sorted()</div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(sortNums[<span class="number">0</span>] * sortNums[<span class="number">1</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">1</span>], sortNums[nums.<span class="built_in">count</span> - <span class="number">3</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">2</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">1</span>])</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
 <ul>
-<li><a href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1">Objective-C封装技巧（一）：Category和继承的博弈</a>%EF%BC%9ACategory_and_inherit/)</li>
-<li><a href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(2">Objective-C封装技巧（二）：与“魔鬼的交易” – Associated Objects</a>%EF%BC%9A%20–%20Associated%20Objects/)</li>
-<li><a href="http://yeziahehe.com/2016/01/06/Objective-C_package_skill(3">Objective-C封装技巧（三）：比继承更加灵活的overwrite方法 – Method Swizzling</a>%EF%BC%9Aoverwrite_method–%20Method%20Swizzling/)</li>
+<li>Time complexity : O(nlog(n)). Sorting the numsnums array takes nlog(n) time.</li>
+<li>Space complexity : O(log(n)). Sorting takes O(logn) space.</li>
 </ul>
-<h1 id="u63D0_u51FA_u95EE_u9898"><a href="#u63D0_u51FA_u95EE_u9898" class="headerlink" title="提出问题"></a>提出问题</h1><p>希望大家在看系列文章之前，首先思考下面提出的几个问题：</p>
-<ol>
-<li>对于方法封装，我们平时经常使用的就是继承子类化Base基类和使用Category，那么在使用这两个方法是具体场景是什么？它们之前的区别和使用优先原则是什么？</li>
-<li>Category不允许自定义实例属性的缺点，可以用什么来弥补？（提示：Associated Objects）Associated Objects的具体使用场景又是什么呢？</li>
-<li>对于需要重复写的通用方法，又存在生命周期中的方法，除了工厂方法继承多个工厂类，还有没有更好的封装机制？（提示：Method Swizzling）关于Method Swizzling的使用场景和机制是什么？<br>本篇博客对第一个问题进行回答分析，如果阐述过程中有错误或者疑问，大家可以在文章下面留言。</li>
-</ol>
-<h1 id="u7EE7_u627F_u2013_u5B50_u7C7B_u5316"><a href="#u7EE7_u627F_u2013_u5B50_u7C7B_u5316" class="headerlink" title="继承–子类化"></a>继承–子类化</h1><p>我们首先从继承–对面对象的三大基本特征讲起，继承的概念得益于能够方便的对父类的方法进行实现和overwrite。在使用场景上，我想很多开发者应该在项目之初会经常写了很多Base的基类，封装一些基本的常用方法，在子类中可以直接实用，防止大量的重复代码。下图，使用的是<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>大神的项目框架，特此表示感谢，我也从他的框架中学到了很多。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png" alt="baseclass"></p>
-<p>应该说所有人的最初封装都是从继承开始，这个是最容易想到的方法。那么这个继承使用的场景其实是在我们需要对方法进行重写的时候（如生命周期等等，当然其实有更好的方法替代），或者对于父类Delegate通用方法来进行封装的时候来使用。但是继承的缺点在于耦合度比较高，比如我们写了BaseViewController来进行继承，那么通用模块移植到别的项目中的时候就会出现依赖于BaseViewController基类的问题。出现了非常高的耦合度，所以我们经常在面试题中，面试官也会问你这样的问题：你项目中使用继承吗？优缺点？是否有改进的方法？</p>
-<h1 id="Category"><a href="#Category" class="headerlink" title="Category"></a>Category</h1><p>说到Category，大家肯定不陌生，可以看到Apple官方也大量的使用了Category。Category使用的设计模式其实就是装饰模式，是对于改设计模式的具体实现。Category区别于继承的最大不同点在于，它是在不改变原有类的前提下，动态的去扩展该类的类方法和实例方法。</p>
-<h2 id="u4F7F_u7528_u573A_u666F"><a href="#u4F7F_u7528_u573A_u666F" class="headerlink" title="使用场景"></a>使用场景</h2><p>对于Category的使用场景，我们根据<a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/Category.html#//apple_ref/doc/uid/TP40008195-CH5-SW1" target="_blank" rel="external">Apple</a>官方的描述，可以大致分为以下三类：</p>
-<ol>
-<li>官方给出的使用最广泛的场景，对一个已经存在的类（不管实现已知还是未知）进行增加方法的扩展，而不去子类化。扩展出来的类均可以被子类和原始类来使用。</li>
-<li>把代码量的类中的方法划分成多个Category文件。</li>
-<li>声明私有方法。</li>
-</ol>
-<p>在日常使用的过程中，我们通常使用的是一种方法，因为其封装的便利性，使得其应用非常的广泛。我们使用Category的基本原则：</p>
-<blockquote>
-<p>“The answer is don’t do that. Only add methods,don’t try to replace or otherwise.It’s hard to understand for people reading your code”</p>
-</blockquote>
-<p>如果说你在使用的时候发现你试图在Category中去overwrite父类的方法，虽然是可以这么做的，但是不推荐。因为重写之后，在使用方法的时候会优先选择Category中的方法实现，导致原来的方法不能使用。如果出现了这种情况，那么一定是你使用场景出现大的错误，要尝试继承或者其他的封装方法。</p>
-<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
-<li><p>不需要实现所有的方法<br>在我们平时的使用中，在Category中声明的方法并不需要都实现，关键在于你会不会调用方法。</p>
-</li>
-<li><p>命名<br>开发者在项目的过程中，常常会出现积累了自己Category的情况。当使用三方库的时候，有可能出现Category重名的问题，所以建议大家在创建Category的时候，加上自己特有的prefix。可以在最初使用的时候统一命名为+xxTools，等到Category方法越来越多的时候在进行根据功能划分的Category拆分，当然同时也要加上prefix，避免重名。</p>
-</li>
-<li><p>属性<br>大家都会说Category中不能自定义属性。这种说法其实是不正确的，在Category中可以声明property，也同样会实现setter和getter方法，但是对于属性的实现是不行的。想要进行弥补，就只能使用Associated Objects来实现。我们将在该系列的下一篇<a href="http://yeziahehe.com/2016/01/06/Objective-C%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E4%B8%8E%E2%80%9C%E9%AD%94%E9%AC%BC%E7%9A%84%E4%BA%A4%E6%98%93%E2%80%9D%20--%20Associated%20Objects/">博客</a>中来详细展开。</p>
-</li>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumbers_error.png" alt=""></p>
+<h2 id="u7B2C_u4E8C_u79CD"><a href="#u7B2C_u4E8C_u79CD" class="headerlink" title="第二种"></a>第二种</h2><p>遍历数组，记录上述所需要的 5 个值，然后进行比较。时间复杂度为数组长度 O(n)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumProduct</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> min1 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> min2 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> max1 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max2 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max3 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &lt;= min1 &#123;</div><div class="line">                min2 = min1</div><div class="line">                min1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &lt;= min2 &#123;</div><div class="line">                min2 = num</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &gt;= max1 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = max1</div><div class="line">                max1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max2 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max3 &#123;</div><div class="line">                max3 = num</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(min1 * min2 * max1, max1 * max2 * max3)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<ul>
+<li>Time complexity : O(n). Only one iteration over the numsnums array of length nn is required.</li>
+<li>Space complexity : O(1). Constant extra space is used.</li>
 </ul>
-<h2 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h2><p>大家对于Category的封装，可以参考<a href="https://github.com/ibireme" target="_blank" rel="external">Yaoyuan</a>大神的<a href="https://github.com/ibireme/YYCategories" target="_blank" rel="external">YYCategory</a>，直接拿来就能用。对他为开源做出的贡献表示感谢。</p>
-<h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>通过上述的展开，我们可以大概总结一下。对于需要重写的父类的方法，或者需要对实例属性进行操作的时候，我们需要选择继承，继承通常应在UIKit的对象中。对于现有类方法的扩展，或者对于Foundation中对象的封装，通常首先考虑使用Category。<br>最后，本篇文章回答了第一次问题，其他的两个问题，将在下面两篇博客中来展开。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/">http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/</a></blockquote></span>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/">http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/</a></blockquote></span>
       
     </div>
 
@@ -362,15 +344,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
-            <a href="/tags/Objective-C/" rel="tag">#Objective-C</a>
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
-            <a href="/tags/封装/" rel="tag">#封装</a>
+            <a href="/tags/Array/" rel="tag">#Array</a>
           
-            <a href="/tags/继承/" rel="tag">#继承</a>
-          
-            <a href="/tags/Category/" rel="tag">#Category</a>
+            <a href="/tags/Math/" rel="tag">#Math</a>
           
         </div>
       
@@ -379,17 +359,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/04/Bye 2015，Hi 2016/" rel="next" title="Bye 2015，Hi 2016">
-                <i class="fa fa-chevron-left"></i> Bye 2015，Hi 2016
+              <a href="/2017/11/02/ConvertSortedArrayToBinarySearchTree/" rel="next" title="Convert Sorted Array to Binary Search Tree">
+                <i class="fa fa-chevron-left"></i> Convert Sorted Array to Binary Search Tree
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/06/Objective-C_package_skill(2)： -- Associated Objects/" rel="prev" title="Objective-C封装技巧（二）：与“魔鬼的交易” -- Associated Objects">
-                Objective-C封装技巧（二）：与“魔鬼的交易” -- Associated Objects <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -416,8 +392,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/"
-           data-title="Objective-C封装技巧（一）：Category和继承的博弈" data-url="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/">
+      <div class="ds-thread" data-thread-key="2017/11/03/MaximumProductOfThreeNumbers/"
+           data-title="Maximum Product of Three Numbers" data-url="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/">
       </div>
     
   </div>
@@ -540,7 +516,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u63D0_u51FA_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">提出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7EE7_u627F_u2013_u5B50_u7C7B_u5316"><span class="nav-number">3.</span> <span class="nav-text">继承–子类化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Category"><span class="nav-number">4.</span> <span class="nav-text">Category</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528_u573A_u666F"><span class="nav-number">4.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">4.2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">4.3.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u603B_u7ED3"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09"><span class="nav-number">2.1.</span> <span class="nav-text">第一种（没通过）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B2C_u4E8C_u79CD"><span class="nav-number">2.2.</span> <span class="nav-text">第二种</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

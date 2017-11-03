@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-03T06:30:17.799Z</updated>
+  <updated>2017-11-03T09:12:10.636Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Maximum Product of Three Numbers]]></title>
+    <link href="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/"/>
+    <id>http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/</id>
+    <published>2017-11-03T08:56:28.000Z</published>
+    <updated>2017-11-03T09:12:10.636Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/maximum-product-of-three-numbers/description/" target="_blank" rel="external">LeetCode 628. Maximum Product of Three Numbers</a>，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。</p>
+<h2 id="u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09"><a href="#u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09" class="headerlink" title="第一种（没通过）"></a>第一种（没通过）</h2><p>先使用系统的排序函数排序，时间复杂度上没通过。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumProduct</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">let</span> sortNums = nums.sorted()</div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(sortNums[<span class="number">0</span>] * sortNums[<span class="number">1</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">1</span>], sortNums[nums.<span class="built_in">count</span> - <span class="number">3</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">2</span>] * sortNums[nums.<span class="built_in">count</span> - <span class="number">1</span>])</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<ul>
+<li>Time complexity : O(nlog(n)). Sorting the numsnums array takes nlog(n) time.</li>
+<li>Space complexity : O(log(n)). Sorting takes O(logn) space.</li>
+</ul>
+<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumbers_error.png" alt=""></p>
+<h2 id="u7B2C_u4E8C_u79CD"><a href="#u7B2C_u4E8C_u79CD" class="headerlink" title="第二种"></a>第二种</h2><p>遍历数组，记录上述所需要的 5 个值，然后进行比较。时间复杂度为数组长度 O(n)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumProduct</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> min1 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> min2 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> max1 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max2 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max3 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &lt;= min1 &#123;</div><div class="line">                min2 = min1</div><div class="line">                min1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &lt;= min2 &#123;</div><div class="line">                min2 = num</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &gt;= max1 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = max1</div><div class="line">                max1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max2 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max3 &#123;</div><div class="line">                max3 = num</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(min1 * min2 * max1, max1 * max2 * max3)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Complexity Analysis</p>
+<ul>
+<li>Time complexity : O(n). Only one iteration over the numsnums array of length nn is required.</li>
+<li>Space complexity : O(1). Constant extra space is used.</li>
+</ul>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/">http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Convert Sorted Array to Binary Search Tree]]></title>
@@ -986,39 +1027,6 @@
       <category term="Category" scheme="http://yeziahehe.com/tags/Category/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Bye 2015，Hi 2016]]></title>
-    <link href="http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/"/>
-    <id>http://yeziahehe.com/2016/01/04/Bye 2015，Hi 2016/</id>
-    <published>2016-01-04T07:25:09.000Z</published>
-    <updated>2016-08-07T20:30:11.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢慢的开始长大，开始离开父母的庇护，一个人去体验这个世界。</p>
-<h1 id="u5173_u4E8E_u5B66_u4E1A"><a href="#u5173_u4E8E_u5B66_u4E1A" class="headerlink" title="关于学业"></a>关于学业</h1><p>2015年下半年，我大四了，临近毕业，正好对四年大学的生活做一个总结。<br>我记得我刚刚进大学的时候一心就是要参与学校的组织里面去，希望能够慢慢的做个有影响力的人。我今年最大的感悟，发现彦祖和百万都再利用自己的影响力，去给整个移动开发生态圈营造良好的学习和分享氛围。我很感谢他们，也很感谢这个信息爆炸的时代。继续说我，当初刚刚进大学的想法，因为我摔了脚，无奈做了手术，在家休养了很久。等我再回学校的时候，发现我和学生组织已经脱节了，他们玩的很开心，彼此都熟悉了。我也庆幸，我卧床休养的那几个月，我把我的windows系统删了，装了个OS X系统，捣鼓了iOS的开发。这么说来，我从2012年的年底就开始接触移动开发了。<br>大二大三的时候，我慢慢离开了学生组织，辞去了班长，加入了实验室，正式开始做iOS的开发。说实话，我承认自己的学校确实大氛围并没有那么好，江苏某发展很好的城市的唯一一所211，我自己一个人捣鼓，那一年多的时间，技术进步的很慢。但是没有比较就不知道人外有人、天外有天。大二的暑假我没回家，在实验室捣鼓了一暑假，给学校做了个app。大三暑假我也没有回家，去了一家很小的公司实习，学到了不少。<br>大四了，我也要毕业，我感觉大学这四年，我的学业我没有花心思，我的技术投入了很多精力，但是却也没有成为大牛。总结下来，其实还是觉得自己四年书读的太少，对于问题的思考也没有那么积极。</p>
-<h1 id="u5173_u4E8E_u521B_u4E1A"><a href="#u5173_u4E8E_u521B_u4E1A" class="headerlink" title="关于创业"></a>关于创业</h1><p>创业，这个字眼本来根本不会出现在我人生的字典轨迹里面。我大四的时候准备出国，在考完GRE之后，还是跟我的两个室友一拍即合，成立了公司。<br>我觉得对于我们来说，根本不能用创业这个词来描述我们所做的工作，应该用 <strong>生存</strong> 这个词来描述。<br>年轻气盛，什么都不怕，我们从今年的4月份开始准备公司注册，到成立公司，到现在运营，回头看看真的像做梦一样。<br>我的两个室友，一个做Android开发，一个做服务端开发，我们就是铁三角组合。最初，其实想法很简单，搞一个项目，拿到融资，当上CEO，赢取白富美，走上人生巅峰。后来发现，现实不是这样，资本寒冬来了之后，融资变得异常困难。我们开始接外包，为了生存下去，7月份到11月份，我自己从公司拿了4k做生活费。 <strong>等你正真开始走进社会的时候，你才知道，社会比你想象的要残酷的多。</strong> 我们经历很多奇奇怪怪的客户，要求苛刻的客户，而项目的款项也并没有如期的收回来，公司的处境越来越难。11月被迫，解散了其他的同事，只剩下我们三个人。<br>今年，我觉得我从社会里面学到了太多太多，我也从一个学生思维转变到了社会思维，我没有后悔没出国，也没有后悔这几个月艰苦的日子，我觉得这是我这辈子的财富。<br>我也希望，所有创业的大学生小伙伴，都能够成功，但是大家如果没有好的idea，没有足够运营经验的人帮助，大家轻易不要去尝试。 <strong>路还长，等我们装备精良，再出发。</strong></p>
-<h1 id="u5173_u4E8E_u804C_u4E1A_u751F_u6DAF"><a href="#u5173_u4E8E_u804C_u4E1A_u751F_u6DAF" class="headerlink" title="关于职业生涯"></a>关于职业生涯</h1><p>我对于职业生涯，其实想的很简单， <strong>我想去看更大的世界。</strong> 我创过业，自己折腾了很久的技术，我也看到影响力大的人在传播技术、分享技术。我想加入他们，与他们一起去看更大的世界。<br>对于即将要毕业的我，只剩下明年的春招，我觉得我该去试试，离开我自己折腾这么久的地方，去远方看看。</p>
-<h1 id="u5173_u4E8E_u751F_u6D3B_u548C_u672A_u6765"><a href="#u5173_u4E8E_u751F_u6D3B_u548C_u672A_u6765" class="headerlink" title="关于生活和未来"></a>关于生活和未来</h1><p>我看完了很多人的总结，我发现我根本不热爱生活，我的生活总是那么的单调，没有生活情趣。生活中的很多细节，会让一个人慢慢的热爱上生活，热爱上工作，也变得积极。<br>今年在自己的城市买了房子，但是应该会出现几年，看看更大的世界，最后再回到这里。希望未来，越来越好。<br>关于未来，我希望：</p>
-<ul>
-<li><strong>读书，不再全部是技术类的书，读点其他方面的书，争取写出读书笔记，今年目标10本。</strong></li>
-<li><strong>健身，我办了健身卡，却一直放在包里，今年努力健身，练出好的身材，每周健身2次。</strong></li>
-<li><strong>摄影，我开始慢慢的喜欢上欣赏美的东西，今年希望自己能赚到钱买到入门级的单反，学好摄影。</strong></li>
-<li><strong>练字，下半年毕业后，准备重拾丢了多年的楷书。</strong></li>
-<li><strong>设备，2012mid的MBP要换了，还是努力挣钱，或者称手的家伙。</strong></li>
-<li><strong>工作，我心里有了目标，希望今年加油。</strong></li>
-<li><strong>技术，做有影响力的事情，热爱开源，多认识大牛。</strong></li>
-</ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/04/Bye">http://yeziahehe.com/2016/01/04/Bye</a> 2015，Hi 2016/</blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2015年做了好多从来没有想过的事情，感觉自己慢]]>
-    </summary>
-    
-      <category term="总结" scheme="http://yeziahehe.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="2015" scheme="http://yeziahehe.com/tags/2015/"/>
-    
-      <category term="随想" scheme="http://yeziahehe.com/categories/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   

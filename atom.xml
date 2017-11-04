@@ -86,19 +86,49 @@
   </entry>
   
   <entry>
+    <title><![CDATA[Word Break II]]></title>
+    <link href="http://yeziahehe.com/2017/10/15/WordBreakII/"/>
+    <id>http://yeziahehe.com/2017/10/15/WordBreakII/</id>
+    <published>2017-10-15T11:52:05.000Z</published>
+    <updated>2017-11-04T12:19:27.920Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreakII.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/word-break-ii/description/" target="_blank" rel="external">LeetCode 140. Word Break II</a>，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。</p>
+<p>时间复杂度 O(n²)，空间复杂度 O(n²)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String])</span></span> -&gt; [<span class="type">String</span>] &#123;</div><div class="line">        <span class="keyword">var</span> cache = [<span class="type">String</span>: [<span class="type">String</span>]]()</div><div class="line">        <span class="keyword">return</span> <span class="type">DFS</span>(s, wordDict, &amp;cache)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">DFS</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String], <span class="number">_</span> cache: <span class="keyword">inout</span> [String: [String]])</span></span> -&gt; [<span class="type">String</span>] &#123;</div><div class="line">        <span class="keyword">if</span> s.<span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> [<span class="string">""</span>]</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> value = cache[s] &#123;</div><div class="line">            <span class="keyword">return</span> value</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> result = [<span class="type">String</span>]()</div><div class="line"></div><div class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> wordDict &#123;</div><div class="line">            <span class="keyword">if</span> s.hasPrefix(word) &#123;</div><div class="line">                <span class="keyword">let</span> subWordBreaks = <span class="type">DFS</span>(<span class="type">String</span>(s.suffix(from: word.endIndex)), wordDict, &amp;cache)</div><div class="line">                <span class="keyword">for</span> subWordBreak <span class="keyword">in</span> subWordBreaks &#123;</div><div class="line">                    <span class="keyword">if</span> subWordBreak.isEmpty &#123;</div><div class="line">                        result.append(word)</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        result.append(word + <span class="string">" "</span> + subWordBreak)</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        cache[s] = result;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/15/WordBreakII/">http://yeziahehe.com/2017/10/15/WordBreakII/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yeziahehe.com/tags/Dynamic-Programming/"/>
+    
+      <category term="Backtracking" scheme="http://yeziahehe.com/tags/Backtracking/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Word Break]]></title>
     <link href="http://yeziahehe.com/2017/10/14/WordBreak/"/>
     <id>http://yeziahehe.com/2017/10/14/WordBreak/</id>
     <published>2017-10-14T11:52:05.000Z</published>
-    <updated>2017-11-04T11:30:22.622Z</updated>
+    <updated>2017-11-04T12:17:42.916Z</updated>
     <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreak.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/word-break/description/" target="_blank" rel="external">LeetCode 139. Word Break</a>，原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），判断字符串是否可以被分割成字典中的一个或者多个单词。</p>
+<p>这题有进阶的题目，题解 <a href="http://yeziahehe.com/2017/10/15/WordBreakII/">Word Break II</a>。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>这是一题典型的动态规划，如果一个单词存在一种分解方法，分解后每一单词都应该在字典中，那必定满足一个条件：对于该单词的最后一个分割点，分割点到单词末尾的字符串是一个单词，而这个分割点到单词开头所组成的字符串也是可分解的。所以只要验证满足这个条件，我们则可以确定字符串是可分解的。</p>
 <ol>
 <li>用外层循环来控制待验证的字符串的长度，而用内层的循环来寻找这么一个分割点，可以把字符串分成一个单词和一个同样可分解的子字符串。</li>
 <li>同时，我们用数组记录下字符串长度递增时可分解的情况，以供之后使用，避免重复计算。用 Bool wordArray[i] 表示到字符串 s 的第 i 个字符时，是否可以用 wordDict 中的单词来表示。</li>
 <li>假设有 wordArray[0…i-1] 的结果，那么 wordArray[i] 的值应该是：wordArray[i] = wordArray[j] &amp;&amp; s.substring(j, i) in wordDict，其中 j 属于[0…i-1]。</li>
 </ol>
+<p>时间复杂度 O(n²)，空间复杂度 O(n)。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> s.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> wordDict.<span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> wordArray = <span class="type">Array</span>.<span class="keyword">init</span>(repeating: <span class="literal">false</span>, <span class="built_in">count</span>: s.<span class="built_in">count</span> + <span class="number">1</span>)</div><div class="line">        wordArray[<span class="number">0</span>] = <span class="literal">true</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...s.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">stride</span>(from: i-<span class="number">1</span>, through: <span class="number">0</span>, by: -<span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> wordArray[j] &amp;&amp; wordDict.<span class="built_in">contains</span>(<span class="type">String</span>(s[s.index(s.startIndex, offsetBy: j)..&lt;s.index(s.startIndex, offsetBy: i)])) &#123;</div><div class="line">                    wordArray[i] = <span class="literal">true</span></div><div class="line">                    <span class="keyword">break</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> wordArray[s.<span class="built_in">count</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/14/WordBreak/">http://yeziahehe.com/2017/10/14/WordBreak/</a></blockquote>]]></content>
     <summary type="html">
@@ -134,9 +164,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -161,9 +191,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
-    
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
     
       <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     
@@ -224,9 +254,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
-    
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -814,72 +844,6 @@
       <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[2016年书单和购物清单]]></title>
-    <link href="http://yeziahehe.com/2016/01/09/2016_year_book_list/"/>
-    <id>http://yeziahehe.com/2016/01/09/2016_year_book_list/</id>
-    <published>2016-01-09T12:07:02.000Z</published>
-    <updated>2017-08-13T15:57:50.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2016年的目标是读80本书，以前开复老师在微博上面讲过，一年读到100本书才算合格。今年的计划是80本书，在范围上，首先从手上买的一堆技术书籍开始，在逐步扩充到其他类别的图书。<br>另外今年手头上的设备慢慢要开始换了，这四年上大学都是老爸老妈给买的，准备开始逐步自己进行更换。</p>
-<h1 id="u4E66_u7C4D"><a href="#u4E66_u7C4D" class="headerlink" title="书籍"></a>书籍</h1><p>目前罗列29本。</p>
-<h2 id="u6280_u672F"><a href="#u6280_u672F" class="headerlink" title="技术"></a>技术</h2><ul>
-<li>《啊哈！算法》</li>
-<li>《程序员修炼之道–从小工到专家》</li>
-<li>《剑指Offer 名企面试官精讲典型编程题》</li>
-<li>《编程之美–微软技术面试心得》</li>
-<li>《从0到1 开启商业与未来的秘密》</li>
-<li>《C++数据结构与程序设计》</li>
-<li>《算法导论》</li>
-<li>《代码整洁之道》</li>
-<li>《程序员的自我修养：链接、装载与库》</li>
-<li>《算法》</li>
-<li>《Objective-C高级编程iOS与OS X多线程和内存管理》</li>
-<li>《编程珠玑》</li>
-<li>《人月神话》</li>
-<li>《重构 改善既有代码的设计》</li>
-<li>《编程之法：面试和算法心得》</li>
-</ul>
-<h2 id="u4F20_u8BB0"><a href="#u4F20_u8BB0" class="headerlink" title="传记"></a>传记</h2><ul>
-<li>《Steve Jobs》</li>
-</ul>
-<h2 id="u6742_u8C08"><a href="#u6742_u8C08" class="headerlink" title="杂谈"></a>杂谈</h2><ul>
-<li>《1Q84》</li>
-<li>《国富论》</li>
-<li>《哈默手稿》</li>
-<li>《我所理解的生活》</li>
-<li>《最好的告别：关于衰老与死亡，你必须知道的常识》</li>
-<li>《人类简史 从动物到上帝》</li>
-<li>《万物：创世》</li>
-<li>《东大爸爸写给我的日本史》</li>
-<li>《西方音乐史十讲》</li>
-<li>《日本史（1600-2000）》</li>
-<li>《硅谷之谜》</li>
-<li>《浪潮之巅》</li>
-<li>《摄影笔记》</li>
-<li>《本色》</li>
-<li>《色眼识人》</li>
-<li>《色眼再识人》</li>
-</ul>
-<h1 id="u9884_u8D2D_u6E05_u5355"><a href="#u9884_u8D2D_u6E05_u5355" class="headerlink" title="预购清单"></a>预购清单</h1><p>从上到下依次为更换顺序</p>
-<h2 id="u8BBE_u5907"><a href="#u8BBE_u5907" class="headerlink" title="设备"></a>设备</h2><ul>
-<li>单反（型号正在对比中）</li>
-<li><del>MacBook Pro 15 (目前使用Macbook Pro 13 mid 2012)</del> MacBook Pro 15 mid 2017</li>
-<li>HHKB Pro (目前使用的斗鱼黑轴，别问为什么，买回来撸的)</li>
-<li><del>iPhone (目前使用的iPhone 5s)</del> iPhone 7 Plus</li>
-</ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/09/2016_year_book_list/">http://yeziahehe.com/2016/01/09/2016_year_book_list/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>2016年的目标是读80本书，以前开复老师在微博]]>
-    </summary>
-    
-      <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="生活" scheme="http://yeziahehe.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="读书" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   

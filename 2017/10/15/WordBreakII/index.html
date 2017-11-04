@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,LeetCode,Tree,Depth-first Search," />
+  <meta name="keywords" content="算法,LeetCode,Dynamic Programming,Backtracking," />
 
 
 
@@ -55,20 +55,20 @@
 
 
 
-<meta name="description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta name="keywords" content="算法,LeetCode,Tree,Depth-first Search">
+<meta name="description" content="题目介绍 LeetCode 140. Word Break II，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。 解题思路记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。 时间复杂度 O(n²)，空间复杂度 O(n²)。 12345678910111213141516171">
+<meta name="keywords" content="算法,LeetCode,Dynamic Programming,Backtracking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Convert Sorted Array to Binary Search Tree">
-<meta property="og:url" content="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/index.html">
+<meta property="og:title" content="Word Break II">
+<meta property="og:url" content="http://yeziahehe.com/2017/10/15/WordBreakII/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png">
+<meta property="og:description" content="题目介绍 LeetCode 140. Word Break II，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。 解题思路记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。 时间复杂度 O(n²)，空间复杂度 O(n²)。 12345678910111213141516171">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreakII.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-03T06:30:17.799Z">
+<meta property="og:updated_time" content="2017-11-04T12:19:27.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Convert Sorted Array to Binary Search Tree">
-<meta name="twitter:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png">
+<meta name="twitter:title" content="Word Break II">
+<meta name="twitter:description" content="题目介绍 LeetCode 140. Word Break II，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。 解题思路记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。 时间复杂度 O(n²)，空间复杂度 O(n²)。 12345678910111213141516171">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreakII.png">
 
 
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title> Convert Sorted Array to Binary Search Tree | Ivan's Blog </title>
+  <title> Word Break II | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -232,7 +232,7 @@
             
             
               
-                Convert Sorted Array to Binary Search Tree
+                Word Break II
               
             
           </h1>
@@ -241,8 +241,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2017-11-02T19:52:05+08:00" content="2017-11-02">
-              2017-11-02
+            <time itemprop="dateCreated" datetime="2017-10-15T19:52:05+08:00" content="2017-10-15">
+              2017-10-15
             </time>
           </span>
 
@@ -265,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,563
+              972
           </span>
 
           
@@ -289,14 +289,12 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png" alt=""></p>
-<p><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/" target="_blank" rel="external">LeetCode 108. Convert Sorted Array to Binary Search Tree</a>，题目的意思将一个升序的数组转化为平衡二叉查找树。</p>
-<h2 id="balanced_BST"><a href="#balanced_BST" class="headerlink" title="balanced BST"></a>balanced BST</h2><p>二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义的数据结构由 <strong>结点</strong> 组成，结点包含的链接可以为空或者指向其他结点。在二叉树中，每个节点只能有一个父节点（只有一个例外，也就是根节点，它没有父节点），而且每个节点都只有左右两个链接，分别指向自己的左子节点和右子节点。二叉查找树的数据结构如下所示：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.val = val</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们知道，对于一般的二叉搜索树，其期望高度（即为一棵平衡树时）为lgn，其各操作的时间复杂度 O(lgn) 同时也由此而决定，这样就和二分查找时间复杂度一致。但是，在某些极端的情况下（如在插入的序列是有序的时），二叉搜索树将退化成近似链或链，此时，其操作的时间复杂度将退化成线性的，即O(n)。我们在平时构造二叉搜索树的时候，会通过随机化建立二叉搜索树，来避免这种情况，但是这种距离平衡二叉搜索树的时间复杂度还是有一定的差距。平衡二叉搜索树（Balanced Binary Tree）具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。不幸的是，在动态插入中保证树的完美平衡的代价太高了，相应的就有红黑二叉数等算法改进，这里不做过多介绍。</p>
-<h1 id="u89E3_u9898_u65B9_u6CD5"><a href="#u89E3_u9898_u65B9_u6CD5" class="headerlink" title="解题方法"></a>解题方法</h1><p>因为是有序的数组，所以可以直接通过二分的方法来不断的进行递归插入。联想到二分方法的原因是，因为二分法的时间复杂度为 O(lgn)，而平衡二叉查找树的时间复杂度也为 O(lgn)。所以算法如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sortedArrayToBST</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">TreeNode</span>? &#123;</div><div class="line">        <span class="keyword">if</span> nums.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sortSubArrayToBST(nums, <span class="number">0</span>, nums.<span class="built_in">count</span> - <span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">sortSubArrayToBST</span><span class="params">(<span class="number">_</span> nums: [Int], <span class="number">_</span> strat: Int, <span class="number">_</span> end: Int)</span></span> -&gt; <span class="type">TreeNode</span>? &#123;</div><div class="line">        <span class="keyword">guard</span> strat &lt;= end <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> mid = (strat + end) / <span class="number">2</span></div><div class="line">        <span class="keyword">let</span> node = <span class="type">TreeNode</span>(nums[mid])</div><div class="line">        node.<span class="keyword">left</span> = sortSubArrayToBST(nums, strat, mid - <span class="number">1</span>)</div><div class="line">        node.<span class="keyword">right</span> = sortSubArrayToBST(nums, mid + <span class="number">1</span>, end)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> node</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/">http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/</a></blockquote></span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreakII.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/word-break-ii/description/" target="_blank" rel="external">LeetCode 140. Word Break II</a>，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。</p>
+<p>时间复杂度 O(n²)，空间复杂度 O(n²)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String])</span></span> -&gt; [<span class="type">String</span>] &#123;</div><div class="line">        <span class="keyword">var</span> cache = [<span class="type">String</span>: [<span class="type">String</span>]]()</div><div class="line">        <span class="keyword">return</span> <span class="type">DFS</span>(s, wordDict, &amp;cache)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">DFS</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String], <span class="number">_</span> cache: <span class="keyword">inout</span> [String: [String]])</span></span> -&gt; [<span class="type">String</span>] &#123;</div><div class="line">        <span class="keyword">if</span> s.<span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> [<span class="string">""</span>]</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> value = cache[s] &#123;</div><div class="line">            <span class="keyword">return</span> value</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> result = [<span class="type">String</span>]()</div><div class="line"></div><div class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> wordDict &#123;</div><div class="line">            <span class="keyword">if</span> s.hasPrefix(word) &#123;</div><div class="line">                <span class="keyword">let</span> subWordBreaks = <span class="type">DFS</span>(<span class="type">String</span>(s.suffix(from: word.endIndex)), wordDict, &amp;cache)</div><div class="line">                <span class="keyword">for</span> subWordBreak <span class="keyword">in</span> subWordBreaks &#123;</div><div class="line">                    <span class="keyword">if</span> subWordBreak.isEmpty &#123;</div><div class="line">                        result.append(word)</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        result.append(word + <span class="string">" "</span> + subWordBreak)</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        cache[s] = result;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/15/WordBreakII/">http://yeziahehe.com/2017/10/15/WordBreakII/</a></blockquote></span>
       
     </div>
 
@@ -336,9 +334,9 @@
           
             <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
-            <a href="/tags/Tree/" rel="tag">#Tree</a>
+            <a href="/tags/Dynamic-Programming/" rel="tag">#Dynamic Programming</a>
           
-            <a href="/tags/Depth-first-Search/" rel="tag">#Depth-first Search</a>
+            <a href="/tags/Backtracking/" rel="tag">#Backtracking</a>
           
         </div>
       
@@ -347,16 +345,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/15/WordBreakII/" rel="next" title="Word Break II">
-                <i class="fa fa-chevron-left"></i> Word Break II
+              <a href="/2017/10/14/WordBreak/" rel="next" title="Word Break">
+                <i class="fa fa-chevron-left"></i> Word Break
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/03/MaximumProductOfThreeNumbers/" rel="prev" title="Maximum Product of Three Numbers">
-                Maximum Product of Three Numbers <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/02/ConvertSortedArrayToBinarySearchTree/" rel="prev" title="Convert Sorted Array to Binary Search Tree">
+                Convert Sorted Array to Binary Search Tree <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -384,8 +382,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/11/02/ConvertSortedArrayToBinarySearchTree/"
-           data-title="Convert Sorted Array to Binary Search Tree" data-url="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/">
+      <div class="ds-thread" data-thread-key="2017/10/15/WordBreakII/"
+           data-title="Word Break II" data-url="http://yeziahehe.com/2017/10/15/WordBreakII/">
       </div>
     
   </div>
@@ -508,7 +506,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#balanced_BST"><span class="nav-number">1.1.</span> <span class="nav-text">balanced BST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u65B9_u6CD5"><span class="nav-number">2.</span> <span class="nav-text">解题方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

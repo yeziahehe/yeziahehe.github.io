@@ -118,7 +118,7 @@
     <link href="http://yeziahehe.com/2017/10/14/WordBreak/"/>
     <id>http://yeziahehe.com/2017/10/14/WordBreak/</id>
     <published>2017-10-14T11:52:05.000Z</published>
-    <updated>2017-11-04T12:17:42.916Z</updated>
+    <updated>2017-11-04T12:21:47.212Z</updated>
     <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/WordBreak.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/word-break/description/" target="_blank" rel="external">LeetCode 139. Word Break</a>，原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），判断字符串是否可以被分割成字典中的一个或者多个单词。</p>
 <p>这题有进阶的题目，题解 <a href="http://yeziahehe.com/2017/10/15/WordBreakII/">Word Break II</a>。</p>
@@ -191,9 +191,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
       <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     

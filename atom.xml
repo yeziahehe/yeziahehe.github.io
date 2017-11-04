@@ -172,10 +172,10 @@
   
   <entry>
     <title><![CDATA[Two Sum]]></title>
-    <link href="http://yeziahehe.com/2017/10/10/TwoSum/"/>
-    <id>http://yeziahehe.com/2017/10/10/TwoSum/</id>
-    <published>2017-10-09T16:09:12.000Z</published>
-    <updated>2017-11-03T06:32:47.951Z</updated>
+    <link href="http://yeziahehe.com/2017/10/09/TwoSum/"/>
+    <id>http://yeziahehe.com/2017/10/09/TwoSum/</id>
+    <published>2017-10-08T16:09:12.000Z</published>
+    <updated>2017-11-04T10:59:03.920Z</updated>
     <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/TwoSum.jpg" alt=""></p>
 <p><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="external">LeetCode 1. Two Sum</a>，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。</p>
 <h1 id="u89E3_u9898_u65B9_u6CD5"><a href="#u89E3_u9898_u65B9_u6CD5" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="u66B4_u529B_u6C42_u89E3"><a href="#u66B4_u529B_u6C42_u89E3" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。</p>
@@ -185,7 +185,7 @@
 <p>PS: 本来没打算写这篇博客，主要是我朋友在写这一条的写了 Python 算法，如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> copy</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">two_sum</span><span class="params">(nums, target)</span>:</span></div><div class="line">    <span class="keyword">for</span> index, item <span class="keyword">in</span> enumerate(nums):</div><div class="line">            a = target - item</div><div class="line">            list = copy.copy(nums)</div><div class="line">            <span class="keyword">del</span> list[index]</div><div class="line">            <span class="keyword">if</span> a <span class="keyword">in</span> list:</div><div class="line">                <span class="keyword">if</span> nums.index(a) == index:</div><div class="line">                    <span class="keyword">return</span> [index,list.index(a)+<span class="number">1</span>]</div><div class="line">                <span class="keyword">return</span> [index, nums.index(a)]</div></pre></td></tr></table></figure>
 <p>简单的来看，是读取一个数首先删除本身，然后去判断 target - item 是不是存在数组中。我开始很疑惑，在没有使用散列表的情况下，只用数组解出来一定是牺牲了时空复杂度。果然问题在 <code>if a in list:</code>，python 的语法糖在做这句话的时候，其实是做了 For loop，所以时间复杂度为 O(n²)。迷惑了我朋友很久才想通的问题，大家在刷题的时候一定要注意：<strong>高级语言的语法糖和数据结构在带来遍历的同时，在处理方式上面可能会存在你不知道的时空耗费。</strong></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/10/TwoSum/">http://yeziahehe.com/2017/10/10/TwoSum/</a></blockquote>]]></content>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/09/TwoSum/">http://yeziahehe.com/2017/10/09/TwoSum/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
     </summary>
@@ -912,9 +912,9 @@
     
       <category term="Objective-C" scheme="http://yeziahehe.com/tags/Objective-C/"/>
     
-      <category term="Swizzling" scheme="http://yeziahehe.com/tags/Swizzling/"/>
-    
       <category term="封装" scheme="http://yeziahehe.com/tags/%E5%B0%81%E8%A3%85/"/>
+    
+      <category term="Swizzling" scheme="http://yeziahehe.com/tags/Swizzling/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     

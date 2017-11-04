@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,LeetCode,Linked List,Math," />
+  <meta name="keywords" content="算法,LeetCode,Hash Table,Array," />
 
 
 
@@ -55,20 +55,20 @@
 
 
 
-<meta name="description" content="题目介绍 LeetCode 2. Add Two Numbers，题目的意思用两个非空的链表来表示两个非负整数，且链表顺序为数字倒序，求出两个数之和，返回和对应的链表。 解题思路按位进行逐位相加，需要主要的是进位记录，以及两个数位数不匹配的情况下的计算。首先定义链表 Node 数据结构如下： 12345678public class ListNode &amp;#123;    public var va">
-<meta name="keywords" content="算法,LeetCode,Linked List,Math">
+<meta name="description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
+<meta name="keywords" content="算法,LeetCode,Hash Table,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Add Two Numbers">
-<meta property="og:url" content="http://yeziahehe.com/2017/10/10/AddTwoNumbers/index.html">
+<meta property="og:title" content="Two Sum">
+<meta property="og:url" content="http://yeziahehe.com/2017/10/09/TwoSum/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 2. Add Two Numbers，题目的意思用两个非空的链表来表示两个非负整数，且链表顺序为数字倒序，求出两个数之和，返回和对应的链表。 解题思路按位进行逐位相加，需要主要的是进位记录，以及两个数位数不匹配的情况下的计算。首先定义链表 Node 数据结构如下： 12345678public class ListNode &amp;#123;    public var va">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/AddTwoNumbers.png">
+<meta property="og:description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/TwoSum.jpg">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-03T11:38:53.385Z">
+<meta property="og:updated_time" content="2017-11-04T10:59:03.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Add Two Numbers">
-<meta name="twitter:description" content="题目介绍 LeetCode 2. Add Two Numbers，题目的意思用两个非空的链表来表示两个非负整数，且链表顺序为数字倒序，求出两个数之和，返回和对应的链表。 解题思路按位进行逐位相加，需要主要的是进位记录，以及两个数位数不匹配的情况下的计算。首先定义链表 Node 数据结构如下： 12345678public class ListNode &amp;#123;    public var va">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/AddTwoNumbers.png">
+<meta name="twitter:title" content="Two Sum">
+<meta name="twitter:description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/TwoSum.jpg">
 
 
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title> Add Two Numbers | Ivan's Blog </title>
+  <title> Two Sum | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -232,7 +232,7 @@
             
             
               
-                Add Two Numbers
+                Two Sum
               
             
           </h1>
@@ -241,8 +241,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2017-10-10T19:52:05+08:00" content="2017-10-10">
-              2017-10-10
+            <time itemprop="dateCreated" datetime="2017-10-09T00:09:12+08:00" content="2017-10-09">
+              2017-10-09
             </time>
           </span>
 
@@ -265,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,013
+              1,387
           </span>
 
           
@@ -289,13 +289,16 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/AddTwoNumbers.png" alt=""></p>
-<p><a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="external">LeetCode 2. Add Two Numbers</a>，题目的意思用两个非空的链表来表示两个非负整数，且链表顺序为数字倒序，求出两个数之和，返回和对应的链表。</p>
-<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>按位进行逐位相加，需要主要的是进位记录，以及两个数位数不匹配的情况下的计算。首先定义链表 Node 数据结构如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.val = val</div><div class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>定义一个 headNode 作为初始值，循环相加，注意边界情况，代码如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">addTwoNumbers</span><span class="params">(<span class="number">_</span> l1: ListNode?, <span class="number">_</span> l2: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line">        <span class="keyword">let</span> headNode = <span class="type">ListNode</span>(<span class="number">0</span>)</div><div class="line">        <span class="keyword">var</span> p = l1, q = l2, curr = headNode</div><div class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> (p != <span class="literal">nil</span> || q != <span class="literal">nil</span> || carry != <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">let</span> x = (p != <span class="literal">nil</span>) ? p!.val : <span class="number">0</span></div><div class="line">            <span class="keyword">let</span> y = (q != <span class="literal">nil</span>) ? q!.val : <span class="number">0</span></div><div class="line">            <span class="keyword">let</span> sum = x + y + carry</div><div class="line">            carry = sum / <span class="number">10</span></div><div class="line">            curr.next = <span class="type">ListNode</span>(sum % <span class="number">10</span>)</div><div class="line">            curr = curr.next!</div><div class="line">            <span class="keyword">if</span> (p != <span class="literal">nil</span>) &#123;</div><div class="line">                p = p!.next</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (q != <span class="literal">nil</span>) &#123;</div><div class="line">                q = q!.next</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> headNode.next!</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/10/AddTwoNumbers/">http://yeziahehe.com/2017/10/10/AddTwoNumbers/</a></blockquote></span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/TwoSum.jpg" alt=""></p>
+<p><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="external">LeetCode 1. Two Sum</a>，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。</p>
+<h1 id="u89E3_u9898_u65B9_u6CD5"><a href="#u89E3_u9898_u65B9_u6CD5" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="u66B4_u529B_u6C42_u89E3"><a href="#u66B4_u529B_u6C42_u89E3" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[j] == target - nums[i]) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; i, j &#125;;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u6563_u5217_u8868"><a href="#u6563_u5217_u8868" class="headerlink" title="散列表"></a>散列表</h2><p>散列表，Table Hash。这边只是很简单的应用，后续会介绍更加复杂的应用。简单的思想就是将数组中的数不断的读入，key - 是数组中的值，value - 是遍历数组的 index。写入的时候先判断 Target - nums[i] 的 key 是否存在 value。如果存在说明这个数已经被写入了，那么就找到了这两个数；如果不存在则写入数组。算法如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">twoSum</span><span class="params">(<span class="number">_</span> nums: [Int], <span class="number">_</span> target: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</div><div class="line">        <span class="keyword">var</span> dictionary = [<span class="type">Int</span>: <span class="type">Int</span>]()</div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">if</span> <span class="keyword">let</span> item = dictionary[target - nums[i]] &#123;</div><div class="line">                <span class="keyword">return</span> [item, i]</div><div class="line">            &#125;</div><div class="line">            dictionary[nums[i]] = i</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> []</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PS: 本来没打算写这篇博客，主要是我朋友在写这一条的写了 Python 算法，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> copy</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">two_sum</span><span class="params">(nums, target)</span>:</span></div><div class="line">    <span class="keyword">for</span> index, item <span class="keyword">in</span> enumerate(nums):</div><div class="line">            a = target - item</div><div class="line">            list = copy.copy(nums)</div><div class="line">            <span class="keyword">del</span> list[index]</div><div class="line">            <span class="keyword">if</span> a <span class="keyword">in</span> list:</div><div class="line">                <span class="keyword">if</span> nums.index(a) == index:</div><div class="line">                    <span class="keyword">return</span> [index,list.index(a)+<span class="number">1</span>]</div><div class="line">                <span class="keyword">return</span> [index, nums.index(a)]</div></pre></td></tr></table></figure>
+<p>简单的来看，是读取一个数首先删除本身，然后去判断 target - item 是不是存在数组中。我开始很疑惑，在没有使用散列表的情况下，只用数组解出来一定是牺牲了时空复杂度。果然问题在 <code>if a in list:</code>，python 的语法糖在做这句话的时候，其实是做了 For loop，所以时间复杂度为 O(n²)。迷惑了我朋友很久才想通的问题，大家在刷题的时候一定要注意：<strong>高级语言的语法糖和数据结构在带来遍历的同时，在处理方式上面可能会存在你不知道的时空耗费。</strong></p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/09/TwoSum/">http://yeziahehe.com/2017/10/09/TwoSum/</a></blockquote></span>
       
     </div>
 
@@ -335,9 +338,9 @@
           
             <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
-            <a href="/tags/Linked-List/" rel="tag">#Linked List</a>
+            <a href="/tags/Hash-Table/" rel="tag">#Hash Table</a>
           
-            <a href="/tags/Math/" rel="tag">#Math</a>
+            <a href="/tags/Array/" rel="tag">#Array</a>
           
         </div>
       
@@ -346,16 +349,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/09/TwoSum/" rel="next" title="Two Sum">
-                <i class="fa fa-chevron-left"></i> Two Sum
+              <a href="/2017/09/21/MaximumSubArray/" rel="next" title="算法学习 - 最大子数组问题 [Maximum Subarray]">
+                <i class="fa fa-chevron-left"></i> 算法学习 - 最大子数组问题 [Maximum Subarray]
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/11/LongestSubstringWithoutRepeatingCharacters/" rel="prev" title="Longest Substring Without Repeating Characters">
-                Longest Substring Without Repeating Characters <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/10/AddTwoNumbers/" rel="prev" title="Add Two Numbers">
+                Add Two Numbers <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -383,8 +386,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/10/10/AddTwoNumbers/"
-           data-title="Add Two Numbers" data-url="http://yeziahehe.com/2017/10/10/AddTwoNumbers/">
+      <div class="ds-thread" data-thread-key="2017/10/09/TwoSum/"
+           data-title="Two Sum" data-url="http://yeziahehe.com/2017/10/09/TwoSum/">
       </div>
     
   </div>
@@ -507,7 +510,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u65B9_u6CD5"><span class="nav-number">2.</span> <span class="nav-text">解题方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u66B4_u529B_u6C42_u89E3"><span class="nav-number">2.1.</span> <span class="nav-text">暴力求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6563_u5217_u8868"><span class="nav-number">2.2.</span> <span class="nav-text">散列表</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -86,6 +86,37 @@
   </entry>
   
   <entry>
+    <title><![CDATA[Maximum Gap]]></title>
+    <link href="http://yeziahehe.com/2017/10/16/MaximumGap/"/>
+    <id>http://yeziahehe.com/2017/10/16/MaximumGap/</id>
+    <published>2017-10-16T11:52:05.000Z</published>
+    <updated>2017-11-04T13:00:04.470Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumGap.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/maximum-gap/description/" target="_blank" rel="external">LeetCode 164. Maximum Gap</a>，题目的意思给定一个未排序的数组，找到在排序情况下相邻两个数最大差值。要在线性时间和空间内解决，&lt; 2 个元素返回 0。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先想到的是利用系统的 sort() 进行排序，但是明显超时。最大的差值肯定大于 <code>(maxValue - minValue) / (nums.count - 1)</code>，很容易想到桶排序（当然我没想到，看了 Discuss 之后才想到）。那么令桶空间为 <code>(maxValue - minValue) / (nums.count - 1)</code>。排序完成后，只需要依次将相邻桶空间，后空间最小值减去前空间的最大值，然后寻找其中的最大值。</p>
+<p>PS：</p>
+<ol>
+<li>桶空间 <code>max(1, (maxValue - minValue) / (nums.count - 1))</code>，处理最大值和最小相等、差值比个数小太多的情况。</li>
+<li>桶个数 <code>(maxValue - minValue) / bucketCount + 1</code>，极限值[1, 10000000]。</li>
+<li><code>preBucketMax</code> 记录前空间的最大值，因为有可能后一个桶空间为空。</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Bucket</span> </span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">var</span> empty: <span class="type">Bool</span> = <span class="literal">true</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">var</span> maxValue: <span class="type">Int</span> = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">var</span> minValue: <span class="type">Int</span> = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumGap</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> nums.isEmpty || nums.<span class="built_in">count</span> &lt; <span class="number">2</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> maxValue = nums.<span class="built_in">max</span>()!, minValue = nums.<span class="built_in">min</span>()!</div><div class="line"></div><div class="line">        <span class="keyword">let</span> bucketCount = <span class="built_in">max</span>(<span class="number">1</span>, (maxValue - minValue) / (nums.<span class="built_in">count</span> - <span class="number">1</span>))<span class="comment">//处理最大值和最小相等、差值比个数小太多的情况</span></div><div class="line">        <span class="keyword">let</span> bucketNum = (maxValue - minValue) / bucketCount + <span class="number">1</span><span class="comment">//极限值[1, 10000000]</span></div><div class="line">        <span class="keyword">var</span> buckets = <span class="type">Array</span>(repeatElement(<span class="type">Bucket</span>(), <span class="built_in">count</span>: bucketNum))</div><div class="line"></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line">            <span class="keyword">let</span> index = (num - minValue) / bucketCount</div><div class="line">            buckets[index].empty = <span class="literal">false</span></div><div class="line">            buckets[index].maxValue = <span class="built_in">max</span>(num, buckets[index].maxValue)</div><div class="line">            buckets[index].minValue = <span class="built_in">min</span>(num, buckets[index].minValue)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> preBucketMax = minValue, maxGap: <span class="type">Int</span> = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> bucket <span class="keyword">in</span> buckets &#123;</div><div class="line">            <span class="keyword">if</span> bucket.empty &#123;</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            maxGap = <span class="built_in">max</span>(bucket.minValue - preBucketMax, maxGap)</div><div class="line">            preBucketMax = bucket.maxValue</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxGap</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/16/MaximumGap/">http://yeziahehe.com/2017/10/16/MaximumGap/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Sort" scheme="http://yeziahehe.com/tags/Sort/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Word Break II]]></title>
     <link href="http://yeziahehe.com/2017/10/15/WordBreakII/"/>
     <id>http://yeziahehe.com/2017/10/15/WordBreakII/</id>
@@ -164,9 +195,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -254,9 +285,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -807,36 +838,6 @@
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/05/Swift_NSFileManager/">http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
-    
-      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[一步一步学习Swift]]></title>
-    <link href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/"/>
-    <id>http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</id>
-    <published>2016-03-08T07:26:31.000Z</published>
-    <updated>2016-08-07T20:30:51.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
-<p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
-<h1 id="u5DE5_u5177"><a href="#u5DE5_u5177" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="external">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Fgithub.png" alt="github"></p>
-<h1 id="u8D44_u6E90"><a href="#u8D44_u6E90" class="headerlink" title="资源"></a>资源</h1><p>首先，Swfit 是开源的，这个对于开发者来说应该是最开心的事情，可以了解到这门语言的实现。学习一门语言最重要的就是关注官方放出来的资料，全面、规范、最新是最大的优势，这里隆重的给出官方的资源网站 <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="external">Swift Resources</a>。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog%2Fswift_reference.png" alt="swift_reference"></p>
-<p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="external">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
-<p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="external">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
-<p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
-<h2 id="Github_Awesome-Swift"><a href="#Github_Awesome-Swift" class="headerlink" title="Github Awesome-Swift"></a>Github Awesome-Swift</h2><p>Swift 的资源整理，有三个不错的外国整理的 Awesome-Swift，<a href="https://github.com/matteocrippa/awesome-swift" target="_blank" rel="external">1</a>，<a href="https://github.com/Wolg/awesome-swift" target="_blank" rel="external">2</a>，<a href="https://github.com/vsouza/awesome-ios" target="_blank" rel="external">3</a>。另外，国人整理的<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">Swift语言指南</a>对于入门 Swift 的人来说是一大福音，希望大家都能好好的利用起来资源。</p>
-<p>【未完待续】</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/">http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上]]>
     </summary>
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>

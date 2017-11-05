@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="读书," />
+  <meta name="keywords" content="算法,LeetCode,Heap," />
 
 
 
@@ -55,19 +55,20 @@
 
 
 
-<meta name="description" content="九月读书小记上次给大家提到了 微信读书，真的是被深深的迷上了这个软件，这个月阅读电子书的数量和时间非常的多。 9月整理了下书，这个月读的书按照先后顺序如下：  《解忧杂货店》：最近非常火的一本书，作者是东吾圭野，日本非常著名的推理小说家，所创作的书逻辑滴水不漏，架构匪夷所思。我看了解忧杂货店，非常大的感受就是，如果自己不积极认真的生活，不管得到怎么样的回答都没有用。别人的回答只是坚定自己内心深处的">
-<meta name="keywords" content="读书">
+<meta name="description" content="题目介绍 LeetCode 373. Find K Pairs with Smallest Sums，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。 解题思路我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，">
+<meta name="keywords" content="算法,LeetCode,Heap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2016-09 读书小记">
-<meta property="og:url" content="http://yeziahehe.com/2016/09/12/September_Reading/index.html">
+<meta property="og:title" content="Find K Pairs with Smallest Sums">
+<meta property="og:url" content="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="九月读书小记上次给大家提到了 微信读书，真的是被深深的迷上了这个软件，这个月阅读电子书的数量和时间非常的多。 9月整理了下书，这个月读的书按照先后顺序如下：  《解忧杂货店》：最近非常火的一本书，作者是东吾圭野，日本非常著名的推理小说家，所创作的书逻辑滴水不漏，架构匪夷所思。我看了解忧杂货店，非常大的感受就是，如果自己不积极认真的生活，不管得到怎么样的回答都没有用。别人的回答只是坚定自己内心深处的">
+<meta property="og:description" content="题目介绍 LeetCode 373. Find K Pairs with Smallest Sums，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。 解题思路我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-09-30T06:02:37.000Z">
+<meta property="og:updated_time" content="2017-11-05T13:19:16.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2016-09 读书小记">
-<meta name="twitter:description" content="九月读书小记上次给大家提到了 微信读书，真的是被深深的迷上了这个软件，这个月阅读电子书的数量和时间非常的多。 9月整理了下书，这个月读的书按照先后顺序如下：  《解忧杂货店》：最近非常火的一本书，作者是东吾圭野，日本非常著名的推理小说家，所创作的书逻辑滴水不漏，架构匪夷所思。我看了解忧杂货店，非常大的感受就是，如果自己不积极认真的生活，不管得到怎么样的回答都没有用。别人的回答只是坚定自己内心深处的">
-<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
+<meta name="twitter:title" content="Find K Pairs with Smallest Sums">
+<meta name="twitter:description" content="题目介绍 LeetCode 373. Find K Pairs with Smallest Sums，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。 解题思路我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png">
 
 
 
@@ -79,7 +80,7 @@
   };
 </script>
 
-  <title> 2016-09 读书小记 | Ivan's Blog </title>
+  <title> Find K Pairs with Smallest Sums | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +232,7 @@
             
             
               
-                2016-09 读书小记
+                Find K Pairs with Smallest Sums
               
             
           </h1>
@@ -240,8 +241,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-09-12T10:41:46+08:00" content="2016-09-12">
-              2016-09-12
+            <time itemprop="dateCreated" datetime="2017-11-05T21:03:51+08:00" content="2017-11-05">
+              2017-11-05
             </time>
           </span>
 
@@ -250,8 +251,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
+                  <a href="/categories/LeetCode-OJ/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode OJ</span>
                   </a>
                 </span>
 
@@ -264,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,377
+              976
           </span>
 
           
@@ -288,18 +289,11 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="九月读书小记"></a>九月读书小记</h1><p>上次给大家提到了 <strong>微信读书</strong>，真的是被深深的迷上了这个软件，这个月阅读电子书的数量和时间非常的多。</p>
-<p>9月整理了下书，这个月读的书按照先后顺序如下：</p>
-<ul>
-<li><strong>《解忧杂货店》</strong>：最近非常火的一本书，作者是<a href="http://baike.baidu.com/link?url=CZIw00CRktQgrKveTCryvFh_iNZnxhzuq6hR4b-OUSajpOzk47XfY-KAoRzTyW33AMh9sY6ln4Y55TT_o7MCbK" target="_blank" rel="external">东吾圭野</a>，日本非常著名的推理小说家，所创作的书逻辑滴水不漏，架构匪夷所思。我看了解忧杂货店，非常大的感受就是，<strong>如果自己不积极认真的生活，不管得到怎么样的回答都没有用。别人的回答只是坚定自己内心深处的想法，让自己更有勇气去实现自己内心的声音。</strong></li>
-<li><strong>《MacTalk·人生元编程》</strong>：池老师，现在在锤子，把他博客里面的文章整理成的书，内容比较杂，对自己人生观和职业观影响会多点，可以花几个小时翻一翻。</li>
-<li><strong>《过得刚好》</strong>：郭德纲的自传，算是现在时代下的枭雄。作为相声人，这一辈子也算是比较传奇的，早期为了生计，后期为了相声的传承。经历过大起大落，也同样经历过大是大非，心态、心境确实不是一般人能达到的。他的经历不可复制，没有相似性，正如世间仅此一个郭德纲，他的经历却又符合历史的发展，相声成就了老郭，同样老郭也成就了相声。</li>
-<li><strong>《随遇而安》</strong>：孟非的自传，正如他所说平淡的一生。孟非真的是人生的各种选择和运气，让他到了现在的成就。如果当年就那样在印刷厂，估计现在还是阶级的最底层。不可否认，他是有内涵，在我心里面，他算作最有内涵的人第二名。他能平淡的把批判的话讲出来，不那么生硬，很自然，很在理。看孟非，我始终觉得是个挺简单的人。</li>
-<li><strong>《天才在左，疯子在右》</strong>：这本书吧，我看到陈乔恩在《我们来了》里面推荐过。讲真的，从早开始看的时候的惊悚，到后来我慢慢的开始思考，再到最后对世界观和别人眼中世界的尊重。我能理解，自然中总会有很多你不能用科学去解释的事情，一是因为科技说明远没有那么发达，更重要的是也许这真的就是自然奇妙的地方。我看的感受，就是不管别人眼中的世界观和价值观是怎么样，你可以不理解，但是不能不尊重。我看完这本书，就有种想去研究精神学和物理学的冲动，不得不说，其实人啊，真的很渺小。从宏观的角度去看，我们现在困扰、纠结的事情真的在时间面前犹如蝼蚁一般，所以积极的去面对这个世界，去拥抱美好，去敬畏未知，去积极的生活下去，也许是作者最想告诉我们的。</li>
-<li><strong>《人人都是产品经理》</strong>：产品经理入门比较经典的书籍，很快的时间看完了，主要还是要悟出自己的思路出来。</li>
-</ul>
-<h1 id="u8BF4_u4E24_u53E5"><a href="#u8BF4_u4E24_u53E5" class="headerlink" title="说两句"></a>说两句</h1><p>我特别有感触的一句话，<strong>【成功：一分天赋、三分努力、六分运气】</strong>。也是从我看到老郭和老孟的自传想说的，选择比努力更重要。一个人在世间，从他离开校园的那一刻开始，平台优势、起点优势都不复存在了。你会发现，从进入社会的那刻，似乎大家都开始感觉生活很坚信，你总会经过迷茫的时间，区别在于什么时候你能从那其中跳出来，宏观的去看自己的发展。选择就是那六分运气的基础。没有最好的选择，没有最坏的选择，只有最适合自己的基础，给自己定个小目标吧，纯粹的目标，不涉及到选择。比如我要在几年拿个什么证书，慢慢的去投资自己，知道自己最后要走到哪里。路是什么样，其实不重要，选择你喜欢，坚定的走下去吧。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/09/12/September_Reading/">http://yeziahehe.com/2016/09/12/September_Reading/</a></blockquote></span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/" target="_blank" rel="external">LeetCode 373. Find K Pairs with Smallest Sums</a>，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，用了一个方法，记录 nums1 中每个元素已经配对到 nums2 中的第几个，每次遍历 nums1 中的元素，求出 <code>nums1[i]+nums2[index[i]]</code>，取出最小值放入输出数组中即可。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">kSmallestPairs</span><span class="params">(<span class="number">_</span> nums1: [Int], <span class="number">_</span> nums2: [Int], <span class="number">_</span> k: Int)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</div><div class="line">        <span class="keyword">if</span> k &lt;= <span class="number">0</span> || nums1.isEmpty || nums2.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> []</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> cnt = <span class="built_in">min</span>(k, nums1.<span class="built_in">count</span> * nums2.<span class="built_in">count</span>)</div><div class="line">        <span class="keyword">var</span> index = <span class="type">Array</span>(repeatElement(<span class="number">0</span>, <span class="built_in">count</span>: nums1.<span class="built_in">count</span>))</div><div class="line">        <span class="keyword">var</span> pairs: [[<span class="type">Int</span>]] = []</div><div class="line">        <span class="keyword">var</span> n = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> n &lt; cnt &#123;</div><div class="line">            <span class="keyword">var</span> <span class="built_in">min</span> = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">            <span class="keyword">var</span> m = <span class="number">0</span></div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums1.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> index[i] &lt; nums2.<span class="built_in">count</span> &amp;&amp; nums1[i]+nums2[index[i]] &lt; <span class="built_in">min</span> &#123;</div><div class="line">                    <span class="built_in">min</span> = nums1[i]+nums2[index[i]]</div><div class="line">                    m = i</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            pairs.append([nums1[m], nums2[index[m]]])</div><div class="line">            index[m] += <span class="number">1</span></div><div class="line">            n += <span class="number">1</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> pairs</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/">http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/</a></blockquote></span>
       
     </div>
 
@@ -335,7 +329,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/读书/" rel="tag">#读书</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/Heap/" rel="tag">#Heap</a>
           
         </div>
       
@@ -344,17 +342,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/31/August_Reading/" rel="next" title="2016-08 读书小记">
-                <i class="fa fa-chevron-left"></i> 2016-08 读书小记
+              <a href="/2017/11/03/MaximumProductOfThreeNumbers/" rel="next" title="Maximum Product of Three Numbers">
+                <i class="fa fa-chevron-left"></i> Maximum Product of Three Numbers
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/30/October_Reading/" rel="prev" title="2016-10 读书小记">
-                2016-10 读书小记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,8 +375,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/12/September_Reading/"
-           data-title="2016-09 读书小记" data-url="http://yeziahehe.com/2016/09/12/September_Reading/">
+      <div class="ds-thread" data-thread-key="2017/11/05/FindKPairsWithSmallestSums/"
+           data-title="Find K Pairs with Smallest Sums" data-url="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/">
       </div>
     
   </div>
@@ -505,7 +499,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">九月读书小记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BF4_u4E24_u53E5"><span class="nav-number">2.</span> <span class="nav-text">说两句</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

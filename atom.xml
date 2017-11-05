@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-03T09:12:10.636Z</updated>
+  <updated>2017-11-05T13:19:16.517Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Find K Pairs with Smallest Sums]]></title>
+    <link href="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/"/>
+    <id>http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/</id>
+    <published>2017-11-05T13:03:51.000Z</published>
+    <updated>2017-11-05T13:19:16.517Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/" target="_blank" rel="external">LeetCode 373. Find K Pairs with Smallest Sums</a>，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，用了一个方法，记录 nums1 中每个元素已经配对到 nums2 中的第几个，每次遍历 nums1 中的元素，求出 <code>nums1[i]+nums2[index[i]]</code>，取出最小值放入输出数组中即可。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">kSmallestPairs</span><span class="params">(<span class="number">_</span> nums1: [Int], <span class="number">_</span> nums2: [Int], <span class="number">_</span> k: Int)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</div><div class="line">        <span class="keyword">if</span> k &lt;= <span class="number">0</span> || nums1.isEmpty || nums2.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> []</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> cnt = <span class="built_in">min</span>(k, nums1.<span class="built_in">count</span> * nums2.<span class="built_in">count</span>)</div><div class="line">        <span class="keyword">var</span> index = <span class="type">Array</span>(repeatElement(<span class="number">0</span>, <span class="built_in">count</span>: nums1.<span class="built_in">count</span>))</div><div class="line">        <span class="keyword">var</span> pairs: [[<span class="type">Int</span>]] = []</div><div class="line">        <span class="keyword">var</span> n = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> n &lt; cnt &#123;</div><div class="line">            <span class="keyword">var</span> <span class="built_in">min</span> = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">            <span class="keyword">var</span> m = <span class="number">0</span></div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums1.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> index[i] &lt; nums2.<span class="built_in">count</span> &amp;&amp; nums1[i]+nums2[index[i]] &lt; <span class="built_in">min</span> &#123;</div><div class="line">                    <span class="built_in">min</span> = nums1[i]+nums2[index[i]]</div><div class="line">                    m = i</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            pairs.append([nums1[m], nums2[index[m]]])</div><div class="line">            index[m] += <span class="number">1</span></div><div class="line">            n += <span class="number">1</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> pairs</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/">http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Heap" scheme="http://yeziahehe.com/tags/Heap/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Maximum Product of Three Numbers]]></title>
@@ -779,70 +804,6 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="Travis CI" scheme="http://yeziahehe.com/tags/Travis-CI/"/>
-    
-      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Swift中的文件管理-NSFileManager]]></title>
-    <link href="http://yeziahehe.com/2016/08/05/Swift_NSFileManager/"/>
-    <id>http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</id>
-    <published>2016-08-05T12:03:10.000Z</published>
-    <updated>2016-08-07T20:30:46.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行文件操作的。在代码层面，应用程序都是运行在自己的沙盒中，我们只能在当前应用目录下进行文件操作。</p>
-<h1 id="u6C99_u76D2_u673A_u5236"><a href="#u6C99_u76D2_u673A_u5236" class="headerlink" title="沙盒机制"></a>沙盒机制</h1><p>iOS应用程序只能对自己创建的文件系统读取文件，这个独立、封闭、安全的空间，叫做沙盒。它一般存放着程序包文件（可执行文件）、图片、音频、视频、plist文件、sqlite数据库以及其他文件。</p>
-<p>模拟器沙盒的位置<code>/User/userName/Library/Application Support/iPhone Simulator</code>。</p>
-<h1 id="u76EE_u5F55_u7ED3_u6784"><a href="#u76EE_u5F55_u7ED3_u6784" class="headerlink" title="目录结构"></a>目录结构</h1><p>默认情况下，每个应用的目录结构如下图所示：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/document.png" alt="document"></p>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>是否同步到iTunes</th>
-<th>说明</th>
-<th>使用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Documents</td>
-<td>是</td>
-<td>最常用目录，适合存储重要数据</td>
-<td>不可再生的用户数据</td>
-</tr>
-<tr>
-<td>Library/Caches</td>
-<td>否</td>
-<td>常用目录，适合存储缓存文件和数据</td>
-<td>可再生的缓存图片、数据，==清除缓存就是清除这里的数据==</td>
-</tr>
-<tr>
-<td>Library/Preferences</td>
-<td>是</td>
-<td>通常保存应用的偏好设置信息</td>
-<td>NSUserDefaults</td>
-</tr>
-<tr>
-<td>tmp</td>
-<td>否</td>
-<td>存放临时数据，应用退出或者手机重启后会删除文件</td>
-<td>临时数据</td>
-</tr>
-</tbody>
-</table>
-<h1 id="NSFileManager"><a href="#NSFileManager" class="headerlink" title="NSFileManager"></a>NSFileManager</h1><p>NSFileManager是文件管理的对象，在使用的时候，我们通常使用了系统提供的方法：<code>NSFileManager.defaultManager()</code>,系统的方法获取了一个单例对象，线程安全的。如果在不同线程中使用，而且需要代理函数来监听事件，这时候要使用init来创建每个线程独立的fileManager。</p>
-<p>通过NSFileManager获取目录和文件创建、读写、删除、重命名等操作，具体的操作可以参考<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSFileManager_Class/" target="_blank" rel="external">Apple官方文档</a> 。接下来介绍几个常用的方法。</p>
-<h2 id="u83B7_u53D6_u8DEF_u5F84"><a href="#u83B7_u53D6_u8DEF_u5F84" class="headerlink" title="获取路径"></a>获取路径</h2><p>在项目中我们通常要缓存数据需要进行存放，这个时候<code>Library/Caches</code>文件目录就起到了非常重要的作用。通常使用这个方法来进统一获取这个目录，进行缓存的管理。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">yfCachesURL</span>() -&gt; <span class="title">NSURL</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().<span class="type">URLForDirectory</span>(.<span class="type">CachesDirectory</span>, inDomain: .<span class="type">UserDomainMask</span>, appropriateForURL: <span class="literal">nil</span>, create: <span class="literal">false</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="u7F13_u5B58"><a href="#u7F13_u5B58" class="headerlink" title="缓存"></a>缓存</h2><p>我们通常需要在项目中显示缓存的大小，只获取缓存的图片方法并不完整，使用以下遍历<code>Library/Caches</code>文件得出的缓存大小比较准确。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cachesSize</span>() -&gt; <span class="title">Float</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> files = <span class="type">NSFileManager</span>.defaultManager().subpathsAtPath(cacheURLStrng())</div><div class="line">    <span class="keyword">var</span> size: <span class="type">Float</span> = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> files!&#123;</div><div class="line">        <span class="keyword">let</span> path = cacheURLStrng().stringByAppendingFormat(<span class="string">"/<span class="subst">\(fileName)</span>"</span>)</div><div class="line">        <span class="keyword">let</span> floder = <span class="keyword">try</span>! <span class="type">NSFileManager</span>.defaultManager().attributesOfItemAtPath(path)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (abc, bcd) <span class="keyword">in</span> floder &#123;</div><div class="line">            <span class="keyword">if</span> abc == <span class="type">NSFileSize</span> &#123;</div><div class="line">                size += bcd.floatValue</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> size/(<span class="number">1024</span>*<span class="number">1024</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另外常用操作进行缓存的清除，代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">cleanCachesDirectoryAtURL</span>(<span class="title">cachesDirectoryURL</span>: <span class="title">NSURL</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> fileManager = <span class="type">NSFileManager</span>.defaultManager()</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> fileURLs = (<span class="keyword">try</span>? fileManager.contentsOfDirectoryAtURL(cachesDirectoryURL, includingPropertiesForKeys: <span class="literal">nil</span>, options: <span class="type">NSDirectoryEnumerationOptions</span>())) &#123;</div><div class="line">        <span class="keyword">for</span> fileURL <span class="keyword">in</span> fileURLs &#123;</div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                <span class="keyword">try</span> fileManager.removeItemAtURL(fileURL)</div><div class="line">            &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</div><div class="line">                yfLog.error(<span class="string">"Clean Caches - removeItemAtURL: <span class="subst">\(fileURL)</span> error!"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/05/Swift_NSFileManager/">http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>由于 iOS 系统不开放的原因，用户是不可以进行]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
     

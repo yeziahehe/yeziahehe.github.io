@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-06T13:15:35.506Z</updated>
+  <updated>2017-11-07T13:15:08.610Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Plus One]]></title>
+    <link href="http://yeziahehe.com/2017/11/06/PlusOne/"/>
+    <id>http://yeziahehe.com/2017/11/06/PlusOne/</id>
+    <published>2017-11-06T13:09:54.000Z</published>
+    <updated>2017-11-07T13:15:08.610Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/PlusOne.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/plus-one/description/" target="_blank" rel="external">LeetCode 66. Plus One</a>，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>先把数组反向然后遍历，如果是 <code>index == 0</code> 就加一，记录下进位值 <code>carry = sum / 10</code> 和加一后的当前数字 <code>reDigits[index] = sum % 10</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plusOne</span><span class="params">(<span class="number">_</span> digits: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</div><div class="line">        <span class="keyword">var</span> reDigits: [<span class="type">Int</span>] = digits.reversed()</div><div class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (index, digit) <span class="keyword">in</span> reDigits.enumerated() &#123;</div><div class="line">            <span class="keyword">let</span> sum = index == <span class="number">0</span> ? digit + <span class="number">1</span> + carry : digit + carry</div><div class="line">            carry = sum / <span class="number">10</span></div><div class="line">            reDigits[index] = sum % <span class="number">10</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> carry &gt; <span class="number">0</span> &#123;</div><div class="line">            reDigits.append(carry)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> reDigits.reversed()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/06/PlusOne/">http://yeziahehe.com/2017/11/06/PlusOne/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Reverse Linked List]]></title>
@@ -99,9 +126,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
-    
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -247,9 +274,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -305,9 +332,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
-    
       <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -337,9 +364,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
-    
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -718,32 +745,6 @@
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/09/12/September_Reading/">http://yeziahehe.com/2016/09/12/September_Reading/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="九月读书小记"></a>九月读书小记</h1]]>
-    </summary>
-    
-      <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="读书" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[2016-08 读书小记]]></title>
-    <link href="http://yeziahehe.com/2016/08/31/August_Reading/"/>
-    <id>http://yeziahehe.com/2016/08/31/August_Reading/</id>
-    <published>2016-08-31T12:04:21.000Z</published>
-    <updated>2016-09-02T02:55:07.000Z</updated>
-    <content type="html"><![CDATA[<p>这个月开始，公司的小伙伴都开始大规模的买书，倒是让我想起来上半年买的很多书，还一直都没有读，以后应该每个月都会整理 <strong>读书小记</strong>，多读书。由于8月中旬才开始读书，所以这个月读书非常较少。</p>
-<p>8月整理了下书，这个月读的书按照先后顺序如下：</p>
-<ul>
-<li><strong>《How Google Works》</strong>：一本讲创业的书，书中对于企业的管理有着值得学习推敲的地方，不日我会写篇读书笔记，将所感记录下来。</li>
-<li><strong>《人类简史》</strong>：以色列一位年轻的历史学家写的人来发展史，角度非常宏观，刚刚翻看了一小部分，等看完再做评论。</li>
-<li><strong>《富爸爸 穷爸爸》</strong>：如果让我来评选下，我会说在这个年龄段和状态下遇到这本书，是我的幸运。我从书中收获非常多，这本书改变了我的金钱观，我觉得也会改变我的人生轨迹，让我反思了很多。我会等到看第三遍的时候认真的写一篇书评。</li>
-</ul>
-<p><strong>Tips</strong><br>最近发现了 <strong>微信读书</strong>，在iPad上面体验非常好，建议大家可以不要全部买纸质书，想买书之前先去微信翻一下，觉得可以精读，再来本纸质书、泡杯咖啡，享受人生吧！</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/31/August_Reading/">http://yeziahehe.com/2016/08/31/August_Reading/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<p>这个月开始，公司的小伙伴都开始大规模的买书，倒是让我想起来上半年买的很多书，还一直都没有读，以后应该每个月都会整理 <strong>读书小记</strong>，多读书。由于8月中旬才开始读书，所以这个月读书非常较少。</p>
-<p>8月整理了下书，这个月读的书按照先后顺序如]]>
     </summary>
     
       <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>

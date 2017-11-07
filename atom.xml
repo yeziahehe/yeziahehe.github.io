@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-07T13:15:08.610Z</updated>
+  <updated>2017-11-07T13:17:44.490Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -16,15 +16,15 @@
   
   <entry>
     <title><![CDATA[Plus One]]></title>
-    <link href="http://yeziahehe.com/2017/11/06/PlusOne/"/>
-    <id>http://yeziahehe.com/2017/11/06/PlusOne/</id>
-    <published>2017-11-06T13:09:54.000Z</published>
-    <updated>2017-11-07T13:15:08.610Z</updated>
+    <link href="http://yeziahehe.com/2017/11/07/PlusOne/"/>
+    <id>http://yeziahehe.com/2017/11/07/PlusOne/</id>
+    <published>2017-11-07T13:09:54.000Z</published>
+    <updated>2017-11-07T13:17:44.490Z</updated>
     <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/PlusOne.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/plus-one/description/" target="_blank" rel="external">LeetCode 66. Plus One</a>，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>先把数组反向然后遍历，如果是 <code>index == 0</code> 就加一，记录下进位值 <code>carry = sum / 10</code> 和加一后的当前数字 <code>reDigits[index] = sum % 10</code>。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plusOne</span><span class="params">(<span class="number">_</span> digits: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</div><div class="line">        <span class="keyword">var</span> reDigits: [<span class="type">Int</span>] = digits.reversed()</div><div class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (index, digit) <span class="keyword">in</span> reDigits.enumerated() &#123;</div><div class="line">            <span class="keyword">let</span> sum = index == <span class="number">0</span> ? digit + <span class="number">1</span> + carry : digit + carry</div><div class="line">            carry = sum / <span class="number">10</span></div><div class="line">            reDigits[index] = sum % <span class="number">10</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> carry &gt; <span class="number">0</span> &#123;</div><div class="line">            reDigits.append(carry)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> reDigits.reversed()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/06/PlusOne/">http://yeziahehe.com/2017/11/06/PlusOne/</a></blockquote>]]></content>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/07/PlusOne/">http://yeziahehe.com/2017/11/07/PlusOne/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
     </summary>
@@ -33,9 +33,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -126,9 +126,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -274,9 +274,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -332,9 +332,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
-    
       <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -364,9 +364,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     

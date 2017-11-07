@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,LeetCode,Linked List," />
+  <meta name="keywords" content="算法,LeetCode,Math,Array," />
 
 
 
@@ -55,20 +55,20 @@
 
 
 
-<meta name="description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
-<meta name="keywords" content="算法,LeetCode,Linked List">
+<meta name="description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 123456789101112131415161718class Soluti">
+<meta name="keywords" content="算法,LeetCode,Math,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reverse Linked List">
-<meta property="og:url" content="http://yeziahehe.com/2017/11/06/ReverseLinkedList/index.html">
+<meta property="og:title" content="Plus One">
+<meta property="og:url" content="http://yeziahehe.com/2017/11/07/PlusOne/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png">
+<meta property="og:description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 123456789101112131415161718class Soluti">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/PlusOne.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-06T13:15:35.506Z">
+<meta property="og:updated_time" content="2017-11-07T13:17:44.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reverse Linked List">
-<meta name="twitter:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png">
+<meta name="twitter:title" content="Plus One">
+<meta name="twitter:description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 123456789101112131415161718class Soluti">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/PlusOne.png">
 
 
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title> Reverse Linked List | Ivan's Blog </title>
+  <title> Plus One | Ivan's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -232,7 +232,7 @@
             
             
               
-                Reverse Linked List
+                Plus One
               
             
           </h1>
@@ -241,8 +241,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2017-11-06T19:57:00+08:00" content="2017-11-06">
-              2017-11-06
+            <time itemprop="dateCreated" datetime="2017-11-07T21:09:54+08:00" content="2017-11-07">
+              2017-11-07
             </time>
           </span>
 
@@ -265,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              1,044
+              662
           </span>
 
           
@@ -289,13 +289,11 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png" alt=""></p>
-<p><a href="https://leetcode.com/problems/reverse-linked-list/description/#" target="_blank" rel="external">LeetCode 206. Reverse Linked List</a>，反转链表，迭代法和递归法同时实现。</p>
-<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="u8FED_u4EE3_u6CD5"><a href="#u8FED_u4EE3_u6CD5" class="headerlink" title="迭代法"></a>迭代法</h2><p>迭代的精髓在于按顺序对指针指向的扭转。以1-&gt;2-&gt;3-&gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&gt;2-&gt;1保存为pre以供下次迭代，但是因为它后面的值还要做运算，所以把它原先的指向先保存起来（为next），为了下次继续迭代。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(<span class="number">_</span> head: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line">        <span class="keyword">if</span> head == <span class="literal">nil</span> || head?.next == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> head</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> headNode = head</div><div class="line">        <span class="keyword">var</span> pre: <span class="type">ListNode</span>? = <span class="literal">nil</span></div><div class="line">        <span class="keyword">while</span> (headNode != <span class="literal">nil</span>) &#123;</div><div class="line">            <span class="keyword">let</span> tmp = headNode?.next</div><div class="line">            headNode?.next = pre</div><div class="line">            pre = headNode</div><div class="line">            headNode = tmp</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pre</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h2 id="u9012_u5F52_u6CD5"><a href="#u9012_u5F52_u6CD5" class="headerlink" title="递归法"></a>递归法</h2><p>递归的精髓在于将next当做参数传入reverseList函数时，在下一次递归中对参数的操作，会反应在上次的参数值上。<br>还是以1-&gt;2-&gt;3-&gt;4举例子，4次递归后（回溯前），其实是将引用链全部打破：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(<span class="number">_</span> head: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line">        <span class="keyword">if</span> head == <span class="literal">nil</span> || head?.next == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> head</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">let</span> next = head?.next</div><div class="line">        head?.next = <span class="literal">nil</span></div><div class="line">        <span class="keyword">let</span> newHead = reverseList(next)</div><div class="line">        next?.next = head</div><div class="line">        <span class="keyword">return</span> newHead</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/06/ReverseLinkedList/">http://yeziahehe.com/2017/11/06/ReverseLinkedList/</a></blockquote></span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/PlusOne.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/plus-one/description/" target="_blank" rel="external">LeetCode 66. Plus One</a>，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>先把数组反向然后遍历，如果是 <code>index == 0</code> 就加一，记录下进位值 <code>carry = sum / 10</code> 和加一后的当前数字 <code>reDigits[index] = sum % 10</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plusOne</span><span class="params">(<span class="number">_</span> digits: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</div><div class="line">        <span class="keyword">var</span> reDigits: [<span class="type">Int</span>] = digits.reversed()</div><div class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (index, digit) <span class="keyword">in</span> reDigits.enumerated() &#123;</div><div class="line">            <span class="keyword">let</span> sum = index == <span class="number">0</span> ? digit + <span class="number">1</span> + carry : digit + carry</div><div class="line">            carry = sum / <span class="number">10</span></div><div class="line">            reDigits[index] = sum % <span class="number">10</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> carry &gt; <span class="number">0</span> &#123;</div><div class="line">            reDigits.append(carry)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> reDigits.reversed()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/07/PlusOne/">http://yeziahehe.com/2017/11/07/PlusOne/</a></blockquote></span>
       
     </div>
 
@@ -335,7 +333,9 @@
           
             <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
-            <a href="/tags/Linked-List/" rel="tag">#Linked List</a>
+            <a href="/tags/Math/" rel="tag">#Math</a>
+          
+            <a href="/tags/Array/" rel="tag">#Array</a>
           
         </div>
       
@@ -344,17 +344,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/FindKPairsWithSmallestSums/" rel="next" title="Find K Pairs with Smallest Sums">
-                <i class="fa fa-chevron-left"></i> Find K Pairs with Smallest Sums
+              <a href="/2017/11/06/ReverseLinkedList/" rel="next" title="Reverse Linked List">
+                <i class="fa fa-chevron-left"></i> Reverse Linked List
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/PlusOne/" rel="prev" title="Plus One">
-                Plus One <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,8 +377,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/11/06/ReverseLinkedList/"
-           data-title="Reverse Linked List" data-url="http://yeziahehe.com/2017/11/06/ReverseLinkedList/">
+      <div class="ds-thread" data-thread-key="2017/11/07/PlusOne/"
+           data-title="Plus One" data-url="http://yeziahehe.com/2017/11/07/PlusOne/">
       </div>
     
   </div>
@@ -505,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FED_u4EE3_u6CD5"><span class="nav-number">2.1.</span> <span class="nav-text">迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9012_u5F52_u6CD5"><span class="nav-number">2.2.</span> <span class="nav-text">递归法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

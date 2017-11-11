@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-07T13:17:44.490Z</updated>
+  <updated>2017-11-11T14:58:28.233Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Merge Two Sorted Lists]]></title>
+    <link href="http://yeziahehe.com/2017/11/11/MergeTwoSortedLists/"/>
+    <id>http://yeziahehe.com/2017/11/11/MergeTwoSortedLists/</id>
+    <published>2017-11-11T14:45:42.000Z</published>
+    <updated>2017-11-11T14:58:28.233Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MergeTwoSortedLists.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/merge-two-sorted-lists/description/" target="_blank" rel="external">LeetCode 21. Merge Two Sorted Lists</a>，题目的意思就是合并链表。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>其实很简单的思路就是不停的比较两个链表中的元素大小，然后依次插入即可。刚刚开始写了很冗长的判断，后来看了 <code>Discuss</code> 递归的方式，原理一致，代码更加简洁。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.val = val</div><div class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mergeTwoLists</span><span class="params">(<span class="number">_</span> l1: ListNode?, <span class="number">_</span> l2: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l1 == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> l2</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l2 == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> l1</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l1!.val &lt; l2!.val &#123;</div><div class="line">            l1?.next = mergeTwoLists(l1?.next, l2)</div><div class="line">            <span class="keyword">return</span> l1</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            l2?.next = mergeTwoLists(l1, l2?.next)</div><div class="line">            <span class="keyword">return</span> l2</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/11/MergeTwoSortedLists/">http://yeziahehe.com/2017/11/11/MergeTwoSortedLists/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Plus One]]></title>
@@ -717,34 +742,6 @@
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/10/30/October_Reading/">http://yeziahehe.com/2016/10/30/October_Reading/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="十月读书小记"></a>十月读书小记</h1]]>
-    </summary>
-    
-      <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="读书" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[2016-09 读书小记]]></title>
-    <link href="http://yeziahehe.com/2016/09/12/September_Reading/"/>
-    <id>http://yeziahehe.com/2016/09/12/September_Reading/</id>
-    <published>2016-09-12T02:41:46.000Z</published>
-    <updated>2016-09-30T06:02:37.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="九月读书小记"></a>九月读书小记</h1><p>上次给大家提到了 <strong>微信读书</strong>，真的是被深深的迷上了这个软件，这个月阅读电子书的数量和时间非常的多。</p>
-<p>9月整理了下书，这个月读的书按照先后顺序如下：</p>
-<ul>
-<li><strong>《解忧杂货店》</strong>：最近非常火的一本书，作者是<a href="http://baike.baidu.com/link?url=CZIw00CRktQgrKveTCryvFh_iNZnxhzuq6hR4b-OUSajpOzk47XfY-KAoRzTyW33AMh9sY6ln4Y55TT_o7MCbK" target="_blank" rel="external">东吾圭野</a>，日本非常著名的推理小说家，所创作的书逻辑滴水不漏，架构匪夷所思。我看了解忧杂货店，非常大的感受就是，<strong>如果自己不积极认真的生活，不管得到怎么样的回答都没有用。别人的回答只是坚定自己内心深处的想法，让自己更有勇气去实现自己内心的声音。</strong></li>
-<li><strong>《MacTalk·人生元编程》</strong>：池老师，现在在锤子，把他博客里面的文章整理成的书，内容比较杂，对自己人生观和职业观影响会多点，可以花几个小时翻一翻。</li>
-<li><strong>《过得刚好》</strong>：郭德纲的自传，算是现在时代下的枭雄。作为相声人，这一辈子也算是比较传奇的，早期为了生计，后期为了相声的传承。经历过大起大落，也同样经历过大是大非，心态、心境确实不是一般人能达到的。他的经历不可复制，没有相似性，正如世间仅此一个郭德纲，他的经历却又符合历史的发展，相声成就了老郭，同样老郭也成就了相声。</li>
-<li><strong>《随遇而安》</strong>：孟非的自传，正如他所说平淡的一生。孟非真的是人生的各种选择和运气，让他到了现在的成就。如果当年就那样在印刷厂，估计现在还是阶级的最底层。不可否认，他是有内涵，在我心里面，他算作最有内涵的人第二名。他能平淡的把批判的话讲出来，不那么生硬，很自然，很在理。看孟非，我始终觉得是个挺简单的人。</li>
-<li><strong>《天才在左，疯子在右》</strong>：这本书吧，我看到陈乔恩在《我们来了》里面推荐过。讲真的，从早开始看的时候的惊悚，到后来我慢慢的开始思考，再到最后对世界观和别人眼中世界的尊重。我能理解，自然中总会有很多你不能用科学去解释的事情，一是因为科技说明远没有那么发达，更重要的是也许这真的就是自然奇妙的地方。我看的感受，就是不管别人眼中的世界观和价值观是怎么样，你可以不理解，但是不能不尊重。我看完这本书，就有种想去研究精神学和物理学的冲动，不得不说，其实人啊，真的很渺小。从宏观的角度去看，我们现在困扰、纠结的事情真的在时间面前犹如蝼蚁一般，所以积极的去面对这个世界，去拥抱美好，去敬畏未知，去积极的生活下去，也许是作者最想告诉我们的。</li>
-<li><strong>《人人都是产品经理》</strong>：产品经理入门比较经典的书籍，很快的时间看完了，主要还是要悟出自己的思路出来。</li>
-</ul>
-<h1 id="u8BF4_u4E24_u53E5"><a href="#u8BF4_u4E24_u53E5" class="headerlink" title="说两句"></a>说两句</h1><p>我特别有感触的一句话，<strong>【成功：一分天赋、三分努力、六分运气】</strong>。也是从我看到老郭和老孟的自传想说的，选择比努力更重要。一个人在世间，从他离开校园的那一刻开始，平台优势、起点优势都不复存在了。你会发现，从进入社会的那刻，似乎大家都开始感觉生活很坚信，你总会经过迷茫的时间，区别在于什么时候你能从那其中跳出来，宏观的去看自己的发展。选择就是那六分运气的基础。没有最好的选择，没有最坏的选择，只有最适合自己的基础，给自己定个小目标吧，纯粹的目标，不涉及到选择。比如我要在几年拿个什么证书，慢慢的去投资自己，知道自己最后要走到哪里。路是什么样，其实不重要，选择你喜欢，坚定的走下去吧。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/09/12/September_Reading/">http://yeziahehe.com/2016/09/12/September_Reading/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u4E5D_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="九月读书小记"></a>九月读书小记</h1]]>
     </summary>
     
       <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>

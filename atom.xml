@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-11T14:58:28.233Z</updated>
+  <updated>2017-11-12T15:59:46.575Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Integer to Roman]]></title>
+    <link href="http://yeziahehe.com/2017/11/12/IntegerToRoman/"/>
+    <id>http://yeziahehe.com/2017/11/12/IntegerToRoman/</id>
+    <published>2017-11-12T15:20:05.000Z</published>
+    <updated>2017-11-12T15:59:46.575Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>!()[<a href="http://7xkvt5.com1.z0.glb.clouddn.com/blog/IntegerToRoman.png" target="_blank" rel="external">http://7xkvt5.com1.z0.glb.clouddn.com/blog/IntegerToRoman.png</a>]</p>
+<p><a href="https://leetcode.com/problems/integer-to-roman/description/" target="_blank" rel="external">LeetCode 12. Integer to Roman</a>，题目的意思将整数转换为对应的罗马数字，范围 1~3999。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先肯定先了解下罗马数字的构成规则：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">I</th>
+<th style="text-align:center">V</th>
+<th style="text-align:center">X</th>
+<th style="text-align:center">L</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+<th style="text-align:center">M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数字</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">1000</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3；</li>
+<li>小的数字在大的数字的右边，所表示的数等于这些数字相加得到的数， 如：Ⅷ = 8；Ⅻ = 12；</li>
+<li>小的数字，（限于Ⅰ、X 和C）在大的数字的左边，所表示的数等于大数减小数得到的数，如：Ⅳ= 4；Ⅸ= 9；</li>
+<li>正常使用时，连写的数字重复不得超过三次。</li>
+</ol>
+<h2 id="u679A_u4E3E_u6CD5"><a href="#u679A_u4E3E_u6CD5" class="headerlink" title="枚举法"></a>枚举法</h2><p>很容易想到因为限定了数字范围，不妨按位转换，罗列出个十百千位对应的数字。</p>
+<ul>
+<li><code>M: Nil, M, MM, MMM</code></li>
+<li><code>C: Nil, C, CC, CCC, CD, D, DC, DCC, DCCC, CM</code></li>
+<li><code>X: Nil, X, XX, XXX, XL, L, LX, LXX, LXXX, XC</code></li>
+<li><code>I: Nil, I, II, III, IV, V, VI, VII, VIII, IX</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">intToRoman</span><span class="params">(<span class="number">_</span> num: Int)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">let</span> <span class="type">M</span> = [<span class="string">""</span>, <span class="string">"M"</span>, <span class="string">"MM"</span>, <span class="string">"MMM"</span>]</div><div class="line">        <span class="keyword">let</span> <span class="type">C</span> = [<span class="string">""</span>, <span class="string">"C"</span>, <span class="string">"CC"</span>, <span class="string">"CCC"</span>, <span class="string">"CD"</span>, <span class="string">"D"</span>, <span class="string">"DC"</span>, <span class="string">"DCC"</span>, <span class="string">"DCCC"</span>, <span class="string">"CM"</span>]</div><div class="line">        <span class="keyword">let</span> <span class="type">X</span> = [<span class="string">""</span>, <span class="string">"X"</span>, <span class="string">"XX"</span>, <span class="string">"XXX"</span>, <span class="string">"XL"</span>, <span class="string">"L"</span>, <span class="string">"LX"</span>, <span class="string">"LXX"</span>, <span class="string">"LXXX"</span>, <span class="string">"XC"</span>]</div><div class="line">        <span class="keyword">let</span> <span class="type">I</span> = [<span class="string">""</span>, <span class="string">"I"</span>, <span class="string">"II"</span>, <span class="string">"III"</span>, <span class="string">"IV"</span>, <span class="string">"V"</span>, <span class="string">"VI"</span>, <span class="string">"VII"</span>, <span class="string">"VIII"</span>, <span class="string">"IX"</span>]</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="type">M</span>[num/<span class="number">1000</span>] + <span class="type">C</span>[num/<span class="number">100</span>%<span class="number">10</span>] + <span class="type">X</span>[num/<span class="number">10</span>%<span class="number">10</span>] + <span class="type">I</span>[num%<span class="number">10</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u8D2A_u5FC3_u7B97_u6CD5"><a href="#u8D2A_u5FC3_u7B97_u6CD5" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>在看过 <code>Discuss</code> 之后发现贪心算法，每次都去减去当前范围最大值。</p>
+<ul>
+<li><code>let int = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]</code></li>
+<li><code>let roman = [&quot;M&quot;, &quot;CM&quot;, &quot;D&quot;, &quot;CD&quot;, &quot;C&quot;, &quot;XC&quot;, &quot;L&quot;, &quot;XL&quot;, &quot;X&quot;, &quot;IX&quot;, &quot;V&quot;, &quot;IV&quot;, &quot;I&quot;]</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">intToRoman</span><span class="params">(<span class="number">_</span> num: Int)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">var</span> val = num</div><div class="line">        <span class="keyword">var</span> res = <span class="string">""</span></div><div class="line">        <span class="keyword">let</span> int = [<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>]</div><div class="line">        <span class="keyword">let</span> roman = [<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>]</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>...<span class="number">12</span> &#123;</div><div class="line">            <span class="keyword">while</span> (val &gt;= int[index]) &#123;</div><div class="line">                val -= int[index]</div><div class="line">                res += roman[index]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/12/IntegerToRoman/">http://yeziahehe.com/2017/11/12/IntegerToRoman/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>!()[<a href="http://7xkv]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Merge Two Sorted Lists]]></title>
@@ -326,11 +398,11 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
     
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -722,31 +794,6 @@
       <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[2016-10 读书小记]]></title>
-    <link href="http://yeziahehe.com/2016/10/30/October_Reading/"/>
-    <id>http://yeziahehe.com/2016/10/30/October_Reading/</id>
-    <published>2016-10-30T14:44:55.000Z</published>
-    <updated>2017-06-30T02:43:55.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="十月读书小记"></a>十月读书小记</h1><ul>
-<li><strong>《皮囊》</strong>：一个很长的故事，陆陆续续的看了很久，已经不是记忆很深刻了。叙事的风格非常的慢，但是却慢慢的用细腻的感情在浸入你的心灵，很好的一本书。最打动人心的东西，永远是亲情。</li>
-<li><strong>《白鹿原》</strong>：忽然间很想看的，很早看过电影。书的内容远远比电影来的要丰富的多，年代感非常强，人物性格很鲜明，不同的人，不同的选择，以及在时代背景下人人都要妥协。看完更多的是对人性有了认识和思考。</li>
-<li><strong>《嫌疑人X的献身》</strong>：东野圭吾最经典的小说，一直到最后我才知道这个局的谜底，很震撼，很意外。强烈建议大家读一读。</li>
-<li><strong>《从你的全世界路过》</strong>：张嘉佳，因为电影火了，就顺便看了看。就如同张嘉佳自己说的那样，这本书里的很多故事被影视圈的朋友们排成电影。书中的故事都是亲情、友情、爱情。我被其中几篇文章感动到了，曾经一度泪流满面。很不错的读物，有时间看看，你可能会对除了事业以外的很多东西有更多不一样的看法。</li>
-<li><strong>《惊奇物语》</strong>：消磨时间的书。</li>
-</ul>
-<h1 id="u8BF4_u4E24_u53E5"><a href="#u8BF4_u4E24_u53E5" class="headerlink" title="说两句"></a>说两句</h1><p>这个月的书，明显鸡汤少了很多，回过头来看看，才发现，其实啊，人的这一生，年轻的时候，把一切都看的太重要，工作、婚姻、生活、压力，这些事情让我们在青年、中年的时候会喘不过气来，会没有时间去思考很多事情。人们总是说村里最有智慧的是年长的人，其实因为他们放下来很多东西，看到了更多应该去看到的东西。人是社会里面的连接体，会与周遭的一切有着各种各样的联系，有些值得去维系，有些值得去放弃。人这一生麻烦的事情会有很多，遇到事情千万别逃避，因为最后总要解决，不管过程怎么样，勇于去面对，才是面对人生，面对明天最正确的姿态。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/10/30/October_Reading/">http://yeziahehe.com/2016/10/30/October_Reading/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0"><a href="#u5341_u6708_u8BFB_u4E66_u5C0F_u8BB0" class="headerlink" title="十月读书小记"></a>十月读书小记</h1]]>
-    </summary>
-    
-      <category term="读书" scheme="http://yeziahehe.com/tags/%E8%AF%BB%E4%B9%A6/"/>
-    
-      <category term="读书" scheme="http://yeziahehe.com/categories/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   

@@ -55,17 +55,20 @@
 
 
 
-<meta name="description" content="题目介绍本文链接：http://yeziahehe.com/2017/11/14/RomanToInteger/">
+<meta name="description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
 <meta name="keywords" content="算法,LeetCode,Math,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Roman to Integer">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/14/RomanToInteger/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍本文链接：http://yeziahehe.com/2017/11/14/RomanToInteger/">
-<meta property="og:updated_time" content="2017-11-14T15:34:50.688Z">
+<meta property="og:description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
+<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/RomanToInteger.png">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2017-11-14T15:42:01.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Roman to Integer">
-<meta name="twitter:description" content="题目介绍本文链接：http://yeziahehe.com/2017/11/14/RomanToInteger/">
+<meta name="twitter:description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
+<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/RomanToInteger.png">
 
 
 
@@ -262,7 +265,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              40
+              1,274
           </span>
 
           
@@ -286,8 +289,44 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>本文链接：<a href="http://yeziahehe.com/2017/11/14/RomanToInteger/">http://yeziahehe.com/2017/11/14/RomanToInteger/</a></p>
-</span>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/RomanToInteger.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/roman-to-integer/description/" target="_blank" rel="external">LeetCode 13. Roman to Integer</a>，题目的意思将罗马数字转换为对应的整数，范围 1~3999。</p>
+<h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先肯定先了解下罗马数字的构成规则：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">I</th>
+<th style="text-align:center">V</th>
+<th style="text-align:center">X</th>
+<th style="text-align:center">L</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">D</th>
+<th style="text-align:center">M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数字</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">1000</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3；</li>
+<li>小的数字在大的数字的右边，所表示的数等于这些数字相加得到的数， 如：Ⅷ = 8；Ⅻ = 12；</li>
+<li>小的数字，（限于Ⅰ、X 和C）在大的数字的左边，所表示的数等于大数减小数得到的数，如：Ⅳ= 4；Ⅸ= 9；</li>
+<li>正常使用时，连写的数字重复不得超过三次。</li>
+</ol>
+<p>思路很简单，从低位向高位按位转换成整数进行加减。因为不存在违规的罗马数字，所以高位比低位低的则为减，否则则为加。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">romanToInt</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> pre = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> character <span class="keyword">in</span> s.reversed() &#123;</div><div class="line">            <span class="keyword">let</span> int = toInt(character)</div><div class="line">            <span class="keyword">if</span> int &lt; pre &#123;</div><div class="line">                sum -= int</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sum += int</div><div class="line">            &#125;</div><div class="line">            pre = int</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sum</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">toInt</span><span class="params">(<span class="number">_</span> character: Character)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">switch</span> character &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">"M"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">1000</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"D"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">500</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"C"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">100</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"L"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">50</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"X"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">10</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"V"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">5</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"I"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span></div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/14/RomanToInteger/">http://yeziahehe.com/2017/11/14/RomanToInteger/</a></blockquote></span>
       
     </div>
 
@@ -495,7 +534,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u9898_u76EE_u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">题目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u9898_u601D_u8DEF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

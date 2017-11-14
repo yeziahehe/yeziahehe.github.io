@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2017-11-12T15:59:46.575Z</updated>
+  <updated>2017-11-14T15:34:50.688Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,12 +15,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Roman to Integer]]></title>
+    <link href="http://yeziahehe.com/2017/11/14/RomanToInteger/"/>
+    <id>http://yeziahehe.com/2017/11/14/RomanToInteger/</id>
+    <published>2017-11-14T15:34:48.000Z</published>
+    <updated>2017-11-14T15:34:50.688Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>本文链接：<a href="http://yeziahehe.com/2017/11/14/RomanToInteger/">http://yeziahehe.com/2017/11/14/RomanToInteger/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>本文链接：<a href="http://yez]]>
+    </summary>
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Integer to Roman]]></title>
     <link href="http://yeziahehe.com/2017/11/12/IntegerToRoman/"/>
     <id>http://yeziahehe.com/2017/11/12/IntegerToRoman/</id>
     <published>2017-11-12T15:20:05.000Z</published>
-    <updated>2017-11-12T15:59:46.575Z</updated>
-    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>!()[<a href="http://7xkvt5.com1.z0.glb.clouddn.com/blog/IntegerToRoman.png" target="_blank" rel="external">http://7xkvt5.com1.z0.glb.clouddn.com/blog/IntegerToRoman.png</a>]</p>
+    <updated>2017-11-14T15:35:39.496Z</updated>
+    <content type="html"><![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/IntegerToRoman.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/integer-to-roman/description/" target="_blank" rel="external">LeetCode 12. Integer to Roman</a>，题目的意思将整数转换为对应的罗马数字，范围 1~3999。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先肯定先了解下罗马数字的构成规则：</p>
 <table>
@@ -71,7 +95,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">intToRoman</span><span class="params">(<span class="number">_</span> num: Int)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">var</span> val = num</div><div class="line">        <span class="keyword">var</span> res = <span class="string">""</span></div><div class="line">        <span class="keyword">let</span> int = [<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>]</div><div class="line">        <span class="keyword">let</span> roman = [<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>]</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>...<span class="number">12</span> &#123;</div><div class="line">            <span class="keyword">while</span> (val &gt;= int[index]) &#123;</div><div class="line">                val -= int[index]</div><div class="line">                res += roman[index]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/12/IntegerToRoman/">http://yeziahehe.com/2017/11/12/IntegerToRoman/</a></blockquote>]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p>!()[<a href="http://7xkv]]>
+    <![CDATA[<h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.]]>
     </summary>
     
       <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
@@ -371,9 +395,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -461,9 +485,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -720,73 +744,6 @@
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></blockquote>]]></content>
     <summary type="html">
     <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>Tips：触觉反馈的特性从 iO]]>
-    </summary>
-    
-      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
-    
-      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[UITableViewCell 高度自适应牵扯出的若干问题]]></title>
-    <link href="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/"/>
-    <id>http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/</id>
-    <published>2017-06-30T02:43:19.000Z</published>
-    <updated>2017-07-01T04:47:28.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。</p>
-<h1 id="Self-Sizing_Cell"><a href="#Self-Sizing_Cell" class="headerlink" title="Self-Sizing Cell"></a>Self-Sizing Cell</h1><p>Self-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图所示的就是配合 Self-Sizing 推出的系统修改字体。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750" alt="文字大小"></p>
-<p>在 iOS8 以前，决定 tableviewcell 的高度的都是 <code>tableView:heightForRowAt:</code>，在该方法中手动计算 cell 的高度。iOS 8 之后，Apple 推出了新技术 Self-Sizing，通过 Working with Self-Sizing Tableview cells，将 cell 和 Self-Sizing 进行配合使用后这个协议函数就不用管了，高度系统会自动进行计算。具体的实现方式如下：</p>
-<h2 id="Step_One"><a href="#Step_One" class="headerlink" title="Step One"></a>Step One</h2><p>通过 StoryBoard 新建 Custom TableView Cell，并且把要自适应文本高度的 UILabel 添加上约束。约束的原则如果上下左右没有其他元素，直接和 SuperView 做相对约束，如果有其他元素，则其他元素需要布局确定，UILabel 做相对约束。注意很重要的一点，<strong>最后 UILabel 的约束最后对宽和高都没有做约束，只有上下左右四边的约束看</strong>，这样的 Cell 才可以进行高度自适应。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png" alt="设置 StoryBoard"></p>
-<h2 id="Step_Two"><a href="#Step_Two" class="headerlink" title="Step Two"></a>Step Two</h2><p>在代码中添加两个方法，接下来加载出数据的时候就可以自动计算高度。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></div><div class="line">    tableView.estimatedRowHeight = <span class="number">100</span><span class="comment">//估算高度尽可能的接近 cell 的高度</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><a href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898" class="headerlink" title="由此引发的问题"></a>由此引发的问题</h1><h2 id="1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A"><a href="#1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A" class="headerlink" title="1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:"></a>1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:</h2><p>在关于优化 UITableView 的文章中，提到了一个优化方案。</p>
-<blockquote>
-<p>我们经常在注意cellForRowAtIndexPath：中为每一个cell绑定数据，实际上在调用cellForRowAtIndexPath：的时候cell还没有被显示出来，为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行，可以在tableView：willDisplayCell：forRowAtIndexPath：方法中绑定数据。</p>
-</blockquote>
-<p>我刚刚开始对这个观点是认可，并且也确实这么做了，于是代码如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</div><div class="line">    <span class="keyword">let</span> cell: <span class="type">CustomCell</span> = tableView.dequeueReusableCell()</div><div class="line">    <span class="keyword">return</span> cell</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)</span></span> &#123;</div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> cell = cell <span class="keyword">as</span>? <span class="type">CustomCell</span> <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    cell.titleLabel.text = <span class="type">Json</span>.desc</div><div class="line">    <span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在执行上述代码之后，我发现了一个问题，UITableViewCell 的高度加载并不正确，是估算的高度，并不是计算的高度，如下图。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750" alt="未计算出正确高度"></p>
-<p>滑动之后新加载的 TableViewCell 高度为计算出来且正确。（继承 UITableViewViewController 即 Delegate and DataSource 方法为 override 可以滑动加载正确高度；而继承自 UIViewController 即 Delegate and DataSource 方法是 extension 滑动也不可以加载正确高度。<strong>注意，后面的继承未写 Demo 论证，若有不对请指出</strong>）</p>
-<p>从上面的问题里面，我开始寻找两个方法的作用和遇到类似问题的解答方式，我在 Stack Overflow 上面找到了类似的问题 <strong><a href="https://stackoverflow.com/questions/42649231/uitableview-cellforrowat-vs-willdisplay/42649420#42649420" target="_blank" rel="external">UITableView cellForRowAt vs willDisplay</a></strong>。上面阐述的解释是高度的计算是在 <code>cellForRowAtIndexPath:</code> 之后，在 <code>willDisplayCell:forRowAtIndexPath:</code> 之前，所以需要再次调用 <code>reloadData</code> 方法。</p>
-<blockquote>
-<p>My understanding that at height is calculating after cellForRowAt but before willDisplay, so when I’m mapping in willDisplay height is already set for my cell and I need to reload it again (which is not good).</p>
-</blockquote>
-<p>这个结论我是认同，所以解决这个问题的办法就有两个方案。</p>
-<ul>
-<li>将数据绑定从 <code>willDisplayCell:forRowAtIndexPath:</code> 中移到 <code>cellForRowAtIndexPath:</code> 中；</li>
-<li>再次调用 <code>reloadData</code> 放大，代码如下：</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.reloadData()</div><div class="line"><span class="comment">// 3 new lines of codes to force size adjustment</span></div><div class="line"><span class="keyword">self</span>.tableView.setNeedsLayout()</div><div class="line"><span class="keyword">self</span>.tableView.layoutIfNeeded()</div><div class="line"><span class="keyword">self</span>.tableView.reloadData()</div></pre></td></tr></table></figure>
-<p>上述两个方案，第二个方案是强制高度自适应，具体可以参考这边文章 <a href="http://jianjye.com/swift-resize-uitextview-tableviewcell-correctly-json-fetch/#comment-512" target="_blank" rel="external">Swift: How to Resize UITextView + TableViewCell Correctly After JSON Fetch</a>，但是这个方法显得很臃肿，也并不能算是优雅的解决方案。于是我看到第一个方案时产生了疑问：</p>
-<p><strong>【为了提高效率我们应该把数据绑定的操作放在 cell 显示出来后再执行】</strong> 这个观点是正确的吗？</p>
-<h2 id="u6570_u636E_u7ED1_u5B9A_u5E94_u8BE5_u653E_u5728_u54EA_u513F_uFF1F"><a href="#u6570_u636E_u7ED1_u5B9A_u5E94_u8BE5_u653E_u5728_u54EA_u513F_uFF1F" class="headerlink" title="数据绑定应该放在哪儿？"></a>数据绑定应该放在哪儿？</h2><p>我们首先看下苹果官方文档关于 <code>willDisplayCell:forRowAtIndexPath:</code> 的解释，该方法应该是修改状态类型基本属性，比如选择状态、背景颜色等等：</p>
-<blockquote>
-<p>This method gives the delegate a chance to override state-based properties set earlier by the table view, such as selection and background color.</p>
-</blockquote>
-<p>官方文档关于 <code>cellForRowAtIndexPath:</code> 的解释，该方法应该是讲数据源插入到 UITableView 正确的位置：</p>
-<blockquote>
-<p>Asks the data source for a cell to insert in a particular location of the table view.</p>
-</blockquote>
-<p>在此同时，我看到了一篇详细的文章 <a href="https://tech.zalando.com/blog/proper-use-of-cellforrowatindexpath-and-willdisplaycell/" target="_blank" rel="external">Proper Use of CellForRowAtIndexPath and WillDisplayCell</a>，文章中指出：</p>
-<blockquote>
-<p>Orlov’s article is an important guide for advanced programming. However, he is lacking proof for the tableView delegate method willDisplayCell:forRowAtIndexPath:. This has been something that has bothered me for a while, as so many people quoted the paragraph about willDisplayCell from the article.</p>
-</blockquote>
-<p>很重要的一句话，<strong>并没有任何理由能够支持他说的绑定数据在 willDisplayCell 能够提高 UITableView 的性能</strong>。并且他做了实验，发现 <code>layoutSubviews</code> 是在 <code>willDisplayCell:forRowAtIndexPath:</code> 和 <code>cellForRowAtIndexPath:</code> 两个方法之后，也就是说不管你在哪个方法中去绑定数据，cell 被 layouted 总在他们之后，那么在这之前就不会 Rendering，也就不存在绑定数据在 <code>cellForRowAtIndexPath:</code> 方法中会影响性能。</p>
-<p>那么，这个优化方案并没有任何理论根据，于是忘了吧，<del>我们经常在注意cellForRowAtIndexPath：中为每一个cell绑定数据，实际上在调用cellForRowAtIndexPath：的时候cell还没有被显示出来，为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行，可以在tableView：willDisplayCell：forRowAtIndexPath：方法中绑定数据。</del></p>
-<p><strong>注意，关于 Orlov’s article 虽然提升这一点没有被佐证，但是其他的优化方案非常值得学习，</strong> 我这边附上链接，有兴趣可以学习！注意使用梯子~~ <a href="https://medium.com/ios-os-x-development/perfect-smooth-scrolling-in-uitableviews-fd609d5275a5" target="_blank" rel="external">文章：perfect smooth scrolling in uitableviews</a></p>
-<h2 id="u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F"><a href="#u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F" class="headerlink" title="自动计算加载了几次？"></a>自动计算加载了几次？</h2><p>本来到这边应该结束文章，但是在探讨上述问题的时候，发现了很奇怪的一件事情。如果你在 UITableView Delegate 或者 DataSource 方法中打印一下，会发现每个方法中的打印出现了2遍。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/print_twice.png" alt="打印两边"></p>
-<p>于是，我参考了两篇文章：<a href="https://stackoverflow.com/questions/41318864/scrollviewdidscroll-is-called-twice-after-set-table-offset" target="_blank" rel="external">scrollViewDidScroll is called “twice” after set table offset</a>、<a href="https://discussions.apple.com/thread/7111979?start=0&amp;tstart=0" target="_blank" rel="external">heightForRowAtIndexPath called twice in iOS 8 but one time in iOS 7</a></p>
-<p><code>tableView.estimatedRowHeight = 100</code> 这句话是引起 UITableView 加载两次的原因，注释掉这句话后，发现打印一次。我并没有找到合理的理由去解释这个原因，网上部分猜测是 Apple 官方的 Bug，如果大家对这个问题有更好的解释，不妨联系我，我会第一时间更新。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/">http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>阔别了一年写代码的感觉，工作以来一直从事产品经理]]>
     </summary>
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>

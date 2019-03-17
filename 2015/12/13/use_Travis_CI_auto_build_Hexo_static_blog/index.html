@@ -62,14 +62,14 @@
 <meta property="og:url" content="http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="前言随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。 我2014年的时候自己买了域名，用jekyll + GitHub Pages搭建">
-<meta property="og:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
-<meta property="og:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis_yml_comment.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis_yml_comment.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-17T02:47:50.187Z">
+<meta property="og:updated_time" content="2019-03-17T02:56:00.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Travis CI自动构建Hexo静态博客">
 <meta name="twitter:description" content="前言随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。 我2014年的时候自己买了域名，用jekyll + GitHub Pages搭建">
-<meta name="twitter:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
 
 
 
@@ -266,7 +266,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              4,634
+              4,632
           </span>
 
           
@@ -317,7 +317,7 @@
 <p>自动构建工具则是持续集成的一种出色实践。代码提交后，由软件自动完成代码的测试、构建，并将过程中状态与构建物产出才是持续集成的意义。</p>
 <p><a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>就是一个在线的、分布式的持续集成服务，用来构建及测试在GitHub托管的代码。利用Travis CI 会在每一次push后生成一个虚拟机来执行事先安排好的自动构建任务，从来进行发布。</p>
 <h3 id="u4E3A_u4EC0_u4E48_u4F7F_u7528"><a href="#u4E3A_u4EC0_u4E48_u4F7F_u7528" class="headerlink" title="为什么使用"></a>为什么使用</h3><p>Travis CI本身已经是很好的自动构建的工具，而这里使用的原因，本质上是因为Hexo本身并不能进行多人合作。Hexo的<code>hexo generate</code>和<code>hexo deploy</code>会自动渲染并提交到GitHub上，所以当你从别的电脑上clone的时候，clone下来的是渲染好的html的文章。就算我在两个电脑上同时搭建了环境，但是每次渲染的时候只会渲染本地的markdown文章，依然不能进行同步。有些人选择了使用百度云进行同步，每次写之前下载下来并覆盖，就能进行同步。不否认，这个方法对于一个人写博客，在工作和家的电脑还算是比较方便的，因为始终是一个人进行操作。而我们的博客是多人共同写的，所以说会存在各种冲突问题，于是想到了用Travis CI。</p>
-<h3 id="u539F_u7406"><a href="#u539F_u7406" class="headerlink" title="原理"></a>原理</h3><p><img src="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png" alt="travis-hexo-flowing"></p>
+<h3 id="u539F_u7406"><a href="#u539F_u7406" class="headerlink" title="原理"></a>原理</h3><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png" alt="travis-hexo-flowing"></p>
 <blockquote>
 <p>图片引用自v2cc的<a href="http://v2cc.github.io/2015/09/02/unbelievable-workflow-autodeploy-hexo-by-travis/" target="_blank" rel="external">博客</a>，并且其对于流程的讲解也对我产生了很大的帮助，非常感谢。</p>
 </blockquote>
@@ -348,7 +348,7 @@
 <h4 id="View_the_pages"><a href="#View_the_pages" class="headerlink" title="View the pages"></a>View the pages</h4><p>打开首页，就能看到已经发布的最新博客。</p>
 <h1 id="u95EE_u9898"><a href="#u95EE_u9898" class="headerlink" title="问题"></a>问题</h1><p>上述的所有步骤完成后，应该就已经成功了。我这边列举下我遇到的一些问题，希望能帮到大家。大家有任何问题也可以直接评论，我会第一时间回复。</p>
 <ul>
-<li><p><code>.travis.yml</code>中的注释问题<br><img src="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis_yml_comment.png" alt="travis_yml_comment"><br>一开始的时候我在<code>.travis.yml</code>中的注释用的是<code>//</code>，结果一直导致<code>missing config</code>。后来才知道YAML中注释应该用<code>#</code>。</p>
+<li><p><code>.travis.yml</code>中的注释问题<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis_yml_comment.png" alt="travis_yml_comment"><br>一开始的时候我在<code>.travis.yml</code>中的注释用的是<code>//</code>，结果一直导致<code>missing config</code>。后来才知道YAML中注释应该用<code>#</code>。</p>
 </li>
 <li><p>首页无内容<br>一开始的时候我的首页一片空白，index.html中也是空的，原因就是因为主题Next是从GitHub上clone下来的，里面会存在<code>.git</code>文件，所以push到blog分支的时候千万要注意删除掉next文件夹中的<code>.git</code>文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> blog/themes/next <span class="comment">#到next主题文件夹下</span></div><div class="line">ls -a <span class="comment">#显示所有文件</span></div><div class="line">rm .git <span class="comment">#删除.git文件</span></div><div class="line">ls -a <span class="comment">#确认删除</span></div></pre></td></tr></table></figure>

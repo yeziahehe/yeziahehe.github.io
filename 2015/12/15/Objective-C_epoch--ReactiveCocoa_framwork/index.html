@@ -62,15 +62,15 @@
 <meta property="og:url" content="http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="前言很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCo">
-<meta property="og:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png">
-<meta property="og:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cocoapods.png">
-<meta property="og:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/mvvm.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cocoapods.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/mvvm.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-17T02:47:50.055Z">
+<meta property="og:updated_time" content="2019-03-17T02:56:00.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C新纪元--ReactiveCocoa框架">
 <meta name="twitter:description" content="前言很久之前我就准备写有关于ReactiveCocoa的文章，前面林林总总写过几篇，但是都是简单的讲述，并没有深刻的去总结这个技术。根本的原因在于这个技术确实很难入门，但是ReactiveCocoa的出现确实可以给iOS带来很多新的思考和实现，ReactiveCocoa更加被Mattt Thompson大神称为开启一个新Objective-C纪元。另外提醒大家，我看到的优秀的讲ReactiveCo">
-<meta name="twitter:image" content="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png">
 
 
 
@@ -267,7 +267,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              5,359
+              5,356
           </span>
 
           
@@ -295,7 +295,7 @@
 <h1 id="u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B"><a href="#u51FD_u6570_u54CD_u5E94_u5F0F_u7F16_u7A0B" class="headerlink" title="函数响应式编程"></a>函数响应式编程</h1><p>ReactiveCocoa的基本思想就是<code>函数响应式编程（Function Reactive Programming，以下简称FRP）</code>。FRP是一种响应变化的编程范式。我们通常会拿一个经典的例子来解释概念。</p>
 <h2 id="u7406_u5FF5"><a href="#u7406_u5FF5" class="headerlink" title="理念"></a>理念</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">2</span></div><div class="line">b = <span class="number">2</span></div><div class="line">c = a + b<span class="comment">// c = 4</span></div><div class="line"></div><div class="line">b = <span class="number">4</span></div><div class="line"><span class="comment">// 现在c的值是多少？</span></div></pre></td></tr></table></figure>
 <p>上面的问题，正常人一眼就能看出答案，因为我们<code>响应</code>了<code>b = 2</code>这个值的变化，所以说<code>c</code>的值会随着<code>b</code>的值的改变而改变。FRP就是使用这样的基本原理，所以称之为<code>响应式编程</code>。</p>
-<h2 id="u5982_u4F55_u5B9E_u73B0"><a href="#u5982_u4F55_u5B9E_u73B0" class="headerlink" title="如何实现"></a>如何实现</h2><p>FRP提供了<code>信号（Signal）</code>机制来实现这样的效果，通过信号来记录值的变化。通过信号的组合，从而不再去监听值的变化，甚至是事件的变化。在上述例子中加入了signal的图解：<br><img src="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png" alt="FRP_signal"></p>
+<h2 id="u5982_u4F55_u5B9E_u73B0"><a href="#u5982_u4F55_u5B9E_u73B0" class="headerlink" title="如何实现"></a>如何实现</h2><p>FRP提供了<code>信号（Signal）</code>机制来实现这样的效果，通过信号来记录值的变化。通过信号的组合，从而不再去监听值的变化，甚至是事件的变化。在上述例子中加入了signal的图解：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FRP_signal.png" alt="FRP_signal"></p>
 <h2 id="ReactiveCocoa_u4F5C_u8005_u5BF9_u4E8EFRP_u7684_u89E3_u91CA"><a href="#ReactiveCocoa_u4F5C_u8005_u5BF9_u4E8EFRP_u7684_u89E3_u91CA" class="headerlink" title="ReactiveCocoa作者对于FRP的解释"></a>ReactiveCocoa作者对于FRP的解释</h2><p><a href="http://blog.maybeapps.com/post/42894317939/input-and-output" target="_blank" rel="external">Josh Abernathy这样解释它：</a></p>
 <blockquote>
 <p>程序接收输入产生输出。输出就是对输入做了一些事的结果。输入，转换，输出，完成。<br>输入是应用动作的全部来源。点击、键盘事件、定时器事件、GPS时间、网络请求响应都算是输入。这些事件被传递到应用中，应用将他们以某种方式混合，产生了结果：就是输出。<br>输出通常会改变应用的UI。开关状态变化、列表有了新的元素都是UI变化。也有可能让磁盘上某个文件产生变化，或者产生一个API请求，这都是应用的输出。<br>但不像传统的输入输出设计，应用的输入输出可以产生很多次。应用打开后，不只是一个简单的 输入→工作→输出 就构成了一个生命周期。应用经常有大量的输入并基于这些输入产生输出。</p>
@@ -318,7 +318,7 @@
 </ul>
 <p>PS：关于巧哥说的给Controller瘦身的问题，我认为这个是MVVM框架所带来的影响，ReactiveCocoa只是很好的配合了MVVM。因此我并没有把这一点归纳在内。</p>
 <h1 id="u5F00_u59CB"><a href="#u5F00_u59CB" class="headerlink" title="开始"></a>开始</h1><p>进入正轨，开始介绍ReactiveCocoa的机制和常用方法。</p>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>推荐大家用<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods</a>进行安装，这么好的工具肯定要掌握的。<br><img src="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cocoapods.png" alt="CocoaPods"><br>目前4.0的alpha版本正在开发，建议大家先使用发布的版本。如果你用swift来写可以用3.0，我是用的Objective，所以用的2.5版本，Podfile:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line">pod &apos;ReactiveCocoa&apos;, &apos;~&gt; 2.5&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>推荐大家用<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods</a>进行安装，这么好的工具肯定要掌握的。<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cocoapods.png" alt="CocoaPods"><br>目前4.0的alpha版本正在开发，建议大家先使用发布的版本。如果你用swift来写可以用3.0，我是用的Objective，所以用的2.5版本，Podfile:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line">pod &apos;ReactiveCocoa&apos;, &apos;~&gt; 2.5&apos;</div></pre></td></tr></table></figure></p>
 <h2 id="RACStreams"><a href="#RACStreams" class="headerlink" title="RACStreams"></a>RACStreams</h2><p><code>RACStreams</code>官方定义<code>An abstract class representing any stream of values</code>，我翻译下RACStreams是展现任何数据流的一个抽象类。RACStreams通俗点讲就是上面那段话中<code>水管里面线性流动的、具有顺序的玻璃球</code>。RACStreams因为是一个抽象类，我们使用中很少直接接触到，我们一般是使用继承自RACStreams的<code>RACSignal</code>和<code>RACSequence</code>。对于RACSignal和RACSequence与RACStreams联系，我觉得可以直接用<a href="http://nshipster.cn/reactivecocoa/" target="_blank" rel="external">NShipster</a>中一句话：</p>
 <blockquote>
 <p>signal是push驱动的stream，sequence是pull驱动的stream。</p>
@@ -349,7 +349,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[RACObserve(<span class="keyword">self</span>.textField, text) subscribeNext:^(<span class="built_in">NSString</span> *newName) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, newName);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p><img src="http://https://blog-1258094708.cos.ap-shanghai.myqcloud.com/mvvm.png" alt="MVVM"></p>
+<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/mvvm.png" alt="MVVM"></p>
 <h2 id="u4E3A_u4EC0_u4E48_u8981_u63D0_u5230MVVM"><a href="#u4E3A_u4EC0_u4E48_u8981_u63D0_u5230MVVM" class="headerlink" title="为什么要提到MVVM"></a>为什么要提到MVVM</h2><p>MVVM其实是MVC的变形框架，主要来解决目前iOS应用中日益增长的重量级Controller的问题。在你使用ReactiveCocoa的时候会发现将事件定义统一接口后确实方便了代码的编写，但是都在Controller中来进行使得Conttroller异常的臃肿。这个也就是为什么很多人写到ReactiveCocoa的时候一定会提到MVVM的原因，建议大家配合使用，将ReactiveCocoa处理事件的代码写在ViewModel中，这样也方便做测试，昨天听了LeanCloud智维大神的自动化和测试之后，也准备来探究一下，应该到时候会出一篇博客。</p>
 <h2 id="u5173_u4E8EMVVM"><a href="#u5173_u4E8EMVVM" class="headerlink" title="关于MVVM"></a>关于MVVM</h2><p>关于MVVM，这里不做详细的讲解，不是本章的重点。但是可以给出几篇参考，有兴趣的同学可以去了解一下。</p>
 <ul>

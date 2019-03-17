@@ -2,8 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
+    <lastmod>2019-03-17T02:47:50.187Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
+    <lastmod>2019-03-17T02:47:50.055Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/2018/01/02/Bye%202017%EF%BC%8CHi%202018/</loc>
-    <lastmod>2018-01-02T04:51:54.128Z</lastmod>
+    <lastmod>2018-01-02T04:54:01.565Z</lastmod>
   </url>
   
   <url>
@@ -162,11 +172,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
-    <lastmod>2016-09-02T03:08:16.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2015/12/30/talk_iOS_Library_and_Framework/</loc>
     <lastmod>2016-09-02T03:05:14.000Z</lastmod>
   </url>
@@ -239,11 +244,6 @@
   <url>
     <loc>http://yeziahehe.com/2016/08/05/Swift_NSFileManager/</loc>
     <lastmod>2016-08-07T20:30:46.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
-    <lastmod>2016-08-07T20:30:36.000Z</lastmod>
   </url>
   
   <url>

@@ -62,13 +62,13 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/11/11/MergeTwoSortedLists/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 21. Merge Two Sorted Lists，题目的意思就是合并链表。 解题思路其实很简单的思路就是不停的比较两个链表中的元素大小，然后依次插入即可。刚刚开始写了很冗长的判断，后来看了 Discuss 递归的方式，原理一致，代码更加简洁。 1234567891011121314151617181920212223242526272829public class">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MergeTwoSortedLists.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MergeTwoSortedLists.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-11T14:58:28.233Z">
+<meta property="og:updated_time" content="2019-03-31T08:44:37.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Merge Two Sorted Lists">
 <meta name="twitter:description" content="题目介绍 LeetCode 21. Merge Two Sorted Lists，题目的意思就是合并链表。 解题思路其实很简单的思路就是不停的比较两个链表中的元素大小，然后依次插入即可。刚刚开始写了很冗长的判断，后来看了 Discuss 递归的方式，原理一致，代码更加简洁。 1234567891011121314151617181920212223242526272829public class">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MergeTwoSortedLists.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MergeTwoSortedLists.png">
 
 
 
@@ -289,7 +289,7 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MergeTwoSortedLists.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MergeTwoSortedLists.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/merge-two-sorted-lists/description/" target="_blank" rel="external">LeetCode 21. Merge Two Sorted Lists</a>，题目的意思就是合并链表。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>其实很简单的思路就是不停的比较两个链表中的元素大小，然后依次插入即可。刚刚开始写了很冗长的判断，后来看了 <code>Discuss</code> 递归的方式，原理一致，代码更加简洁。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.val = val</div><div class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mergeTwoLists</span><span class="params">(<span class="number">_</span> l1: ListNode?, <span class="number">_</span> l2: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l1 == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> l2</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l2 == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> l1</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> l1!.val &lt; l2!.val &#123;</div><div class="line">            l1?.next = mergeTwoLists(l1?.next, l2)</div><div class="line">            <span class="keyword">return</span> l1</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            l2?.next = mergeTwoLists(l1, l2?.next)</div><div class="line">            <span class="keyword">return</span> l2</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -308,13 +308,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

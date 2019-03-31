@@ -62,15 +62,15 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/back_refresh.jpeg?imageView2/2/h/750">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/debug.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/back_refresh.jpeg?imageView2/2/h/750">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/debug.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-07-19T15:12:48.000Z">
+<meta property="og:updated_time" content="2019-03-31T08:23:37.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
 <meta name="twitter:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
 
 
 
@@ -296,16 +296,16 @@
 <h1 id="Background_Fetch"><a href="#Background_Fetch" class="headerlink" title="Background Fetch"></a>Background Fetch</h1><p>Background Fetch 是 Apple 官方在 iOS 7 推出的来后台刷新，提高用户体验的新方法。首先先参照苹果官方文档 <a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html" target="_blank" rel="external">Background Execution</a>，后台获取干的事情就是在用户打开应用之前就使app有机会执行代码来获取数据，刷新UI，极大的提高了用户体验。</p>
 <p>如何实现该功能呢？</p>
 <h2 id="u5F00_u542F_u540E_u53F0_u83B7_u53D6"><a href="#u5F00_u542F_u540E_u53F0_u83B7_u53D6" class="headerlink" title="开启后台获取"></a>开启后台获取</h2><p>Targets - [Project] - Capabilities - Background Modes - Background fetch，即告诉系统应用开启后台获取的权限。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/xcode_background_fetch.jpg" alt="Background fetch"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg" alt="Background fetch"></p>
 <h2 id="u8BBE_u7F6E_u65F6_u95F4_u95F4_u9694"><a href="#u8BBE_u7F6E_u65F6_u95F4_u95F4_u9694" class="headerlink" title="设置时间间隔"></a>设置时间间隔</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="type">UIApplication</span>.shared.setMinimumBackgroundFetchInterval(<span class="type">UIApplicationBackgroundFetchIntervalMinimum</span>)</div></pre></td></tr></table></figure>
 <p>默认的值是 <code>UIApplicationBackgroundFetchIntervalNever</code>，这种情况下是不会使用后台获取。<code>setMinimumBackgroundFetchInterval</code> 的值除了提供的集合之外，任意的 NSTimeInterval 都可以设置。如果设置值，那么你能在应用中看到 <strong>后台应用刷新</strong> 是打开状态。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/back_refresh.jpeg?imageView2/2/h/750" alt="后台刷新"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/back_refresh.jpeg?imageView2/2/h/750" alt="后台刷新"></p>
 <p>有人会问你把时间设置到最小，那么是不是应用时时刻刻都在刷新数据。答案显然不是！以 iOS 系统的脾气，当然不会让你这么为所欲为。那么，刷新的时机是什么时候？完全取决与系统。可能是你打开微信刷朋友圈的时候，帮你刷新一下；也可能单独为你唤醒设备来刷新一下。其实后来发现系统会记录我们的行为习惯，将获取刷新的时间调整到符合你行为习惯的时间。不过我们暂且不管获取的时机，应该根据应用的实际情况来进行时间间隔设置，毕竟用这个来做伪推送，那么推送刷新的及时性不是那么强，所以尽可能的长或许是个不错的选择。甚至于我在 App 中是跟用户讲清楚了机制，并且用户可以选择关闭或者开启，以及设置间隔时长。</p>
 <h2 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping <span class="params">(UIBackgroundFetchResult)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</div><div class="line">  <span class="keyword">if</span> <span class="type">GankUserDefaults</span>.isBackgroundEnable.value == <span class="literal">false</span> &#123;</div><div class="line">      completionHandler(.noData)</div><div class="line">      <span class="keyword">return</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="type">GankBackgroundFetchService</span>.shared.performFetchWithCompletionHandler &#123; (result) <span class="keyword">in</span></div><div class="line">      <span class="type">SafeDispatch</span>.async &#123;</div><div class="line">          completionHandler(result)</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>AppDelegate 中的 <code>-application:performFetchWithCompletionHandler:</code> 方法来实现处理，你想通这边处理的数据、UI 和你在其他地方一样，唯一限制的就是时间不能超过 1 分钟，比如大图片的上传下载这种操作不要放在这边处理。CompletionHandler 会接受到 <code>UIBackgroundFetchResult</code> 闭包值，可选结果有 <code>.noData</code>、<code>.newData</code>、<code>.failed</code> 三种情况。</p>
 <h2 id="u8C03_u8BD5"><a href="#u8C03_u8BD5" class="headerlink" title="调试"></a>调试</h2><p>关于调试，分为两种情况。一种是通过 Background Fetch 直接打开应用，另一种是应用在后台的时候模拟一次 Background Fetch 的情况。这边我只提供第二种测试方案，第一种相对麻烦，我后台通过真机测试了下。第二种情况跑通能且只能说明 Background Fetch 没有问题了。但是直接打开应用对数据的处理，确实需要第一种情况测试下，这边提供喵神的文章 <a href="https://onevcat.com/2013/08/ios7-background-multitask/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的多任务</a> 作为参考。</p>
 <p>模拟后台运行，只需要选择 Xcode 的 Debug - Simulate Background Fetch，即可模拟一次。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/debug.png" alt="Debug"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/debug.png" alt="Debug"></p>
 <h1 id="UNUserNotificationCenter"><a href="#UNUserNotificationCenter" class="headerlink" title="UNUserNotificationCenter"></a>UNUserNotificationCenter</h1><p>接下来我们来聊聊推送的事情，那天我看了下 iOS 的推送，从 iOS 7 开始苹果为了整合推送的 API 和易用性，做了大量的调整，几乎一个版本一个花样，可以想象到激光推送这样的三方推送平台内心是崩溃的。</p>
 <p>关于推送问题，这里不做过多的赘述，因为只是使用了最简单的本地推送，如果你对推送新特性有兴趣，同样推荐喵神的文章 <a href="https://onevcat.com/2016/08/notification/" target="_blank" rel="external">活久见的重构 - iOS 10 UserNotifications 框架解析</a> 作为参考，写的非常细致。</p>
 <p>我这边直接讲解推送和后台刷新结合的问题，刚刚说到在 <code>-application:performFetchWithCompletionHandler:</code> 方法来实现处理。我给了一个 <code>UserDefaults</code> 讲是否是今天的日期存储下来，从来来决定是否推送。注意大家要根据实际情况来进行处理，我这边内容一天只会更新一次。</p>
@@ -331,13 +331,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

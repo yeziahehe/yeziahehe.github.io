@@ -62,13 +62,13 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/11/05/FindKPairsWithSmallestSums/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 373. Find K Pairs with Smallest Sums，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。 解题思路我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FindKPairsWithSmallestSums.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-05T13:19:16.517Z">
+<meta property="og:updated_time" content="2019-03-31T08:45:43.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Find K Pairs with Smallest Sums">
 <meta name="twitter:description" content="题目介绍 LeetCode 373. Find K Pairs with Smallest Sums，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。 解题思路我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FindKPairsWithSmallestSums.png">
 
 
 
@@ -289,7 +289,7 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/FindKPairsWithSmallestSums.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/FindKPairsWithSmallestSums.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/" target="_blank" rel="external">LeetCode 373. Find K Pairs with Smallest Sums</a>，题目的意思给定两个升序排序整数数组，从两个数组中各取一个数字组合成 (u,v)，输出前 k 个最小的组合。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>我原本想定义一套判断规则，但是发现要处理很多下标情况。后来看了 Discuss 之后，最好的方式是定义 Heap（堆数据结构），但是 Swift 中不包含这样的数据结构。退而求其次，用了一个方法，记录 nums1 中每个元素已经配对到 nums2 中的第几个，每次遍历 nums1 中的元素，求出 <code>nums1[i]+nums2[index[i]]</code>，取出最小值放入输出数组中即可。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">kSmallestPairs</span><span class="params">(<span class="number">_</span> nums1: [Int], <span class="number">_</span> nums2: [Int], <span class="number">_</span> k: Int)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</div><div class="line">        <span class="keyword">if</span> k &lt;= <span class="number">0</span> || nums1.isEmpty || nums2.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> []</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> cnt = <span class="built_in">min</span>(k, nums1.<span class="built_in">count</span> * nums2.<span class="built_in">count</span>)</div><div class="line">        <span class="keyword">var</span> index = <span class="type">Array</span>(repeatElement(<span class="number">0</span>, <span class="built_in">count</span>: nums1.<span class="built_in">count</span>))</div><div class="line">        <span class="keyword">var</span> pairs: [[<span class="type">Int</span>]] = []</div><div class="line">        <span class="keyword">var</span> n = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> n &lt; cnt &#123;</div><div class="line">            <span class="keyword">var</span> <span class="built_in">min</span> = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">            <span class="keyword">var</span> m = <span class="number">0</span></div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums1.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> index[i] &lt; nums2.<span class="built_in">count</span> &amp;&amp; nums1[i]+nums2[index[i]] &lt; <span class="built_in">min</span> &#123;</div><div class="line">                    <span class="built_in">min</span> = nums1[i]+nums2[index[i]]</div><div class="line">                    m = i</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            pairs.append([nums1[m], nums2[index[m]]])</div><div class="line">            index[m] += <span class="number">1</span></div><div class="line">            n += <span class="number">1</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> pairs</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -308,13 +308,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

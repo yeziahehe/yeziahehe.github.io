@@ -62,15 +62,15 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/09/21/MaximumSubArray/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="实际场景在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/submission1.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/subarray_pic.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/real_pic.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/submission1.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/subarray_pic.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-03T07:45:07.555Z">
+<meta property="og:updated_time" content="2019-03-31T09:00:59.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习 - 最大子数组问题 [Maximum Subarray]">
 <meta name="twitter:description" content="实际场景在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/real_pic.png">
 
 
 
@@ -279,7 +279,7 @@
 
           <span class="post-count">
             &nbsp; | &nbsp; 字数
-              3,172
+              3,170
           </span>
 
           
@@ -304,7 +304,7 @@
 
       
         <span itemprop="articleBody"><h1 id="u5B9E_u9645_u573A_u666F"><a href="#u5B9E_u9645_u573A_u666F" class="headerlink" title="实际场景"></a>实际场景</h1><p>在实际生活中，通常会出现一个场景，炒股的人盯着一只股票涨跌情况在分析这只股票一段时间内，何时买进买出才能达到收益的最大化。通常人们想到的是“低价买进，高价卖出”，这是最理想的情况，但是实际情况中，你可能无法做到。比如下图中股票 A，最高价格出现在第 0 天，而最低价格出现在第 3 天，显然无法做到低买高卖。于是你可能会想也许满足其中的任意一个条件，得到的结果就是最优结果。不否认，股票 A 如果在第 3 天最低价的时候买进，确实能达到收益最大化。但是股票 B 给出了一个反例，最大收益既不是在最低价格时买进，也不是在最高价格时卖出。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/real_pic.png" alt="股票情况"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/real_pic.png" alt="股票情况"></p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>我们想找到收益最大化的方法，其实可以换一个角度来看数据。我们是想寻找一段日期，在日期范围内股票价格的净变化值最大，所以可以考察每日价格变化的差价，第 i 天的价格差价为第 i 天和第 i-1 天的价格差，如下表所示，那么把这个看成数组，问题就转化成寻找数组的 <strong>和最大的非空连续子数组</strong>。我们称这样的连续子数组为 <strong>最大子数组</strong>（maximum subarray）。</p>
 <table>
 <thead>
@@ -330,7 +330,7 @@
 <h1 id="u89E3_u9898_u65B9_u6CD5"><a href="#u89E3_u9898_u65B9_u6CD5" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="u66B4_u529B_u6C42_u89E3"><a href="#u66B4_u529B_u6C42_u89E3" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>刚刚讲过，通过暴力求解的方式，并不能降低时间复杂度。算法如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubArray</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> maxSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">var</span> sum = <span class="number">0</span></div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i..&lt;nums.<span class="built_in">count</span> &#123;</div><div class="line">                sum += nums[j]</div><div class="line">                maxSum = <span class="built_in">max</span>(sum, maxSum)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> maxSum</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>思路上面很简单，其实用枚举法把所有子数组的和全部算出来进行比较，然后选出其中最大的。在 <a href="https://leetcode.com/problems/maximum-subarray/description/" target="_blank" rel="external">LeetCode 53. Maximum Subarray</a> 上提交，会出现 <code>Submission Result: Time Limit Exceeded</code>，显然时间复杂度太高。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/submission1.png" alt="Time Limit Exceeded"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/submission1.png" alt="Time Limit Exceeded"></p>
 <h2 id="u5206_u6CBB_u7B56_u7565_u6C42_u89E3"><a href="#u5206_u6CBB_u7B56_u7565_u6C42_u89E3" class="headerlink" title="分治策略求解"></a>分治策略求解</h2><p>分治策略，最常见的实际应用就是归并排序。说到分治策略，就是递归地求解一个问题。在每层递归中分三个步骤解决问题：</p>
 <ul>
 <li><strong>分解（Devide）</strong>，将问题划分为相同的子问题；</li>
@@ -345,7 +345,7 @@
 <li>完全位于子数组 A[mid+1..high] 中，那么 mid &lt; i ≤ j ≤ high。</li>
 <li>子数组跨越了中点，那么 low ≤ i ≤ mid &lt; j ≤ high。</li>
 </ul>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/leetcode/53/subarray_pic.png" alt="图示"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/subarray_pic.png" alt="图示"></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxCrossingSubSum</span><span class="params">(<span class="number">_</span> subArray: [Int], <span class="number">_</span> <span class="keyword">left</span>: Int, <span class="number">_</span> mid: Int, <span class="number">_</span> <span class="keyword">right</span>: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></div><div class="line">        <span class="keyword">var</span> maxLeftSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxRightSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="keyword">left</span>...mid).reversed() &#123;</div><div class="line">            sum += subArray[i]</div><div class="line">            maxLeftSum = <span class="built_in">max</span>(sum, maxLeftSum)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        sum = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> mid+<span class="number">1</span>...<span class="keyword">right</span> &#123;</div><div class="line">            sum += subArray[i]</div><div class="line">            maxRightSum = <span class="built_in">max</span>(sum, maxRightSum)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxLeftSum + maxRightSum</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubSum</span><span class="params">(<span class="number">_</span> subArray: [Int], <span class="number">_</span> <span class="keyword">left</span>: Int, <span class="number">_</span> <span class="keyword">right</span>: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">left</span> == <span class="keyword">right</span> &#123;</div><div class="line">            <span class="keyword">return</span> subArray[<span class="keyword">left</span>]</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> mid = (<span class="keyword">left</span> + <span class="keyword">right</span>) / <span class="number">2</span></div><div class="line">        <span class="keyword">var</span> maxLeftSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxRightSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> maxMidSum = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        maxLeftSum = maxSubSum(subArray, <span class="keyword">left</span>, mid)</div><div class="line">        maxRightSum = maxSubSum(subArray, mid + <span class="number">1</span>, <span class="keyword">right</span>)</div><div class="line">        maxMidSum = maxCrossingSubSum(subArray, <span class="keyword">left</span>, mid, <span class="keyword">right</span>)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(maxLeftSum, maxRightSum, maxMidSum)</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maxSubArray</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxSubSum(nums, <span class="number">0</span>, nums.<span class="built_in">count</span> - <span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="u52A8_u6001_u89C4_u5212_u6C42_u89E3"><a href="#u52A8_u6001_u89C4_u5212_u6C42_u89E3" class="headerlink" title="动态规划求解"></a>动态规划求解</h2><p>动态规划（dynamic programming）与分治策略相似，这里的 programming 指的是一种表格法，都是通过组合子问题的解来求解原问题。分治法将问题划分为互不相交的子问题，递归的求解子问题，再将他们的解组合起来，求出原问题的解。与之相反，动态规划应用于 <strong>子问题重叠</strong> 的情况，即不同的子问题具有公共的子子问题。在这种情况下，分治策略会做许多不必要的工作，它会反复的求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，从而无需每次求解一个子子问题时都重新计算，避免了这种不必要的工作。</p>
 <p>动态规划方法通常用来求解 <strong>最优化问题</strong>，这类问题可以有很多可行解，每个解都有一个值，我们希望寻找具有最优值（最小值或最大值）的解。我们称这样的解为问题的一个最优解，而不是最优解，因为可能有多个解都达到最优值。</p>
@@ -374,13 +374,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

@@ -62,16 +62,16 @@
 <meta property="og:url" content="http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。 持续集成的优点：  “快速失败”，在对产品没有风险的情况下进行测试，并快速响应； 最大限度地减少风险，降低修复错误代码的成本； 将重复性">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/new_repo">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/connect_repo.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/github_webhook.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Certificates.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/new_repo">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/connect_repo.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github_webhook.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Certificates.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-08-08T11:45:26.000Z">
+<meta property="og:updated_time" content="2019-03-31T08:52:09.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 持续集成--Travis CI + Fir.im自动编译发布">
 <meta name="twitter:description" content="写在前面持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。 持续集成的优点：  “快速失败”，在对产品没有风险的情况下进行测试，并快速响应； 最大限度地减少风险，降低修复错误代码的成本； 将重复性">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/new_repo">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/new_repo">
 
 
 
@@ -305,9 +305,9 @@
 <p>这边推荐一篇文章给大家，<a href="http://blog.flow.ci/cicd_difference/" target="_blank" rel="external">谈谈持续集成，持续交付，持续部署之间的区别</a>。</p>
 <h1 id="Travis_CI"><a href="#Travis_CI" class="headerlink" title="Travis CI"></a>Travis CI</h1><p>如果你的项目是托管在 Github 上，那么 <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> 是做持续集成非常好的选择。在 Ruby 的世界中，Travis CI 已久负盛名，从 2013 年 4 月起，Travis 也开始支持 iOS 和 Mac 平台。</p>
 <p>本文主要来一步步讲解在项目中集成 Travis CI，不仅包括项目的编译和单元测试的运行，还包括将应用部署到 Fir.im 的测试设备上。</p>
-<h1 id="u4E0EGithub_u96C6_u6210"><a href="#u4E0EGithub_u96C6_u6210" class="headerlink" title="与Github集成"></a>与Github集成</h1><p>首先需要到 <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> 官网上，使用自己的 Github 进行登录。登录后新建与 Github Repo 的关联，如下图所示：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/new_repo" alt="new repo"></p>
-<p>选择需要管理的 Repo，把前面的按钮置为绿色就关联 OK，这样 Travis CI 这边的配置就完成了：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/connect_repo.png" alt="connect repo"></p>
-<p>然后去 Github 关联的 Repo 中，找到 Settings - Webhooks&amp;Services 中添加 Webhook 即可，不需要填信息，直接 test 就能通过，如下图所示：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/github_webhook.png" alt="Github Webhook"></p>
+<h1 id="u4E0EGithub_u96C6_u6210"><a href="#u4E0EGithub_u96C6_u6210" class="headerlink" title="与Github集成"></a>与Github集成</h1><p>首先需要到 <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a> 官网上，使用自己的 Github 进行登录。登录后新建与 Github Repo 的关联，如下图所示：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/new_repo" alt="new repo"></p>
+<p>选择需要管理的 Repo，把前面的按钮置为绿色就关联 OK，这样 Travis CI 这边的配置就完成了：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/connect_repo.png" alt="connect repo"></p>
+<p>然后去 Github 关联的 Repo 中，找到 Settings - Webhooks&amp;Services 中添加 Webhook 即可，不需要填信息，直接 test 就能通过，如下图所示：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github_webhook.png" alt="Github Webhook"></p>
 <p>按照上述步骤，就成功的将 Travis CI 和 Github 关联起来了。</p>
 <h1 id="u914D_u7F6ETravis_CI"><a href="#u914D_u7F6ETravis_CI" class="headerlink" title="配置Travis CI"></a>配置Travis CI</h1><p>Travis CI 通过配置文件 <strong>.travis.yml</strong> 来工作，文件存放在项目的根目录下，接下里我们就来配置这个文件。</p>
 <h2 id="u57FA_u7840_u914D_u7F6E"><a href="#u57FA_u7840_u914D_u7F6E" class="headerlink" title="基础配置"></a>基础配置</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">language:</span> objective-c</div></pre></td></tr></table></figure>
@@ -318,7 +318,7 @@
 <p><a href="https://github.com/facebook/xctool" target="_blank" rel="external">Xctool</a> 是来自 Facebook 的命令行工具，它可以简化程序的编译和测试。它的彩色输出信息比 xcodebuild 更加简洁直观。同时还添加了对逻辑测试，应用测试的支持。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">language:</span> objective-c</div><div class="line"><span class="symbol">script:</span></div><div class="line">- xctool -workspace $APP_NAME.xcworkspace -scheme $APP_NAME -sdk iphoneos  -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY=<span class="string">"$DEVELOPER_NAME"</span></div></pre></td></tr></table></figure></p>
 <p>我这边给的配置命令，是直接最后能够发布到发包平台编译命令，通过 Travis 能自动将应用部署到我们的所有测试设备上。要使这个命令编译通过，我们需要进行如下的配置。</p>
 <h2 id="u7A0B_u5E8F_u7B7E_u540D"><a href="#u7A0B_u5E8F_u7B7E_u540D" class="headerlink" title="程序签名"></a>程序签名</h2><p>为了在 Travis 中能给程序签名，我们需要准备好所有必须的证书和配置文件。就像每个 iOS 开发人员知道的那样，这可能是最困难、最容易出错的一步。</p>
-<h3 id="iPhone__u53D1_u5E03_u8BC1_u4E66_+__u79C1_u94A5"><a href="#iPhone__u53D1_u5E03_u8BC1_u4E66_+__u79C1_u94A5" class="headerlink" title="iPhone 发布证书 + 私钥"></a>iPhone 发布证书 + 私钥</h3><p>我们可以在自己的开发环境将证书和私钥给导出来。如果还没有发布证书的话，先创建一个。登录<a href="https://developer.apple.com/account/overview.action" target="_blank" rel="external">苹果开发者账号</a>，按照步骤，创建一个新的生产环境证书 (Certificates &gt; Production &gt; Add &gt; App Store and Ad Hoc)。然后下载并安装证书。之后，可以在钥匙串中找到它。打开 Mac 中的 钥匙串 应用程序：<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Certificates.png" alt="Certificates"></p>
+<h3 id="iPhone__u53D1_u5E03_u8BC1_u4E66_+__u79C1_u94A5"><a href="#iPhone__u53D1_u5E03_u8BC1_u4E66_+__u79C1_u94A5" class="headerlink" title="iPhone 发布证书 + 私钥"></a>iPhone 发布证书 + 私钥</h3><p>我们可以在自己的开发环境将证书和私钥给导出来。如果还没有发布证书的话，先创建一个。登录<a href="https://developer.apple.com/account/overview.action" target="_blank" rel="external">苹果开发者账号</a>，按照步骤，创建一个新的生产环境证书 (Certificates &gt; Production &gt; Add &gt; App Store and Ad Hoc)。然后下载并安装证书。之后，可以在钥匙串中找到它。打开 Mac 中的 钥匙串 应用程序：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Certificates.png" alt="Certificates"></p>
 <p>右键单击证书，选择 Export… 将证书导出至 scripts/certs/dist.cer。然后导出私钥并保存至 scripts/certs/dist.p12。记得输入私钥的密码。<br><strong>备注：scripts 文件夹在项目根目录下。</strong></p>
 <p>由于 Travis 需要知道私钥密码，因此我们要把这个密码存储在某个地方。当然，我们不希望以明文的形式存储。我们可以用 Travis 的安全环境变量。打开终端，并定位到包含 .travis.yml 文件所在目录。首先用下面的命令安装 Travis gem：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install travis</div></pre></td></tr></table></figure></p>
 <p>之后，用下面的命令添加密钥密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">travis encrypt <span class="string">"KEY_PASSWORD=&#123;password&#125;"</span> --add</div></pre></td></tr></table></figure></p>
@@ -372,13 +372,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

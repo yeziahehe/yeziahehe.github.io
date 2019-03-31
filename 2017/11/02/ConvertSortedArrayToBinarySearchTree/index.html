@@ -62,13 +62,13 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-03T06:30:17.799Z">
+<meta property="og:updated_time" content="2019-03-31T08:46:49.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert Sorted Array to Binary Search Tree">
 <meta name="twitter:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png">
 
 
 
@@ -289,7 +289,7 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ConvertSortedArraytoBinarySearchTree.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/" target="_blank" rel="external">LeetCode 108. Convert Sorted Array to Binary Search Tree</a>，题目的意思将一个升序的数组转化为平衡二叉查找树。</p>
 <h2 id="balanced_BST"><a href="#balanced_BST" class="headerlink" title="balanced BST"></a>balanced BST</h2><p>二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义的数据结构由 <strong>结点</strong> 组成，结点包含的链接可以为空或者指向其他结点。在二叉树中，每个节点只能有一个父节点（只有一个例外，也就是根节点，它没有父节点），而且每个节点都只有左右两个链接，分别指向自己的左子节点和右子节点。二叉查找树的数据结构如下所示：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode</span>?</div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.val = val</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -311,13 +311,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

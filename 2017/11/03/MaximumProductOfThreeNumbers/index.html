@@ -62,14 +62,14 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/11/03/MaximumProductOfThreeNumbers/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 628. Maximum Product of Three Numbers，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。 解题思路思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。 第一种（没通过）先使用系统的排序函数排序，时间复杂度上没通过。 123456class Solution &amp;#123;    func">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumbers_error.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MaximumProductOfThreeNumber.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MaximumProductOfThreeNumbers_error.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-03T09:12:10.636Z">
+<meta property="og:updated_time" content="2019-03-31T08:44:19.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maximum Product of Three Numbers">
 <meta name="twitter:description" content="题目介绍 LeetCode 628. Maximum Product of Three Numbers，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。 解题思路思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。 第一种（没通过）先使用系统的排序函数排序，时间复杂度上没通过。 123456class Solution &amp;#123;    func">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MaximumProductOfThreeNumber.png">
 
 
 
@@ -290,7 +290,7 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumber.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MaximumProductOfThreeNumber.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/maximum-product-of-three-numbers/description/" target="_blank" rel="external">LeetCode 628. Maximum Product of Three Numbers</a>，题目的意思是在一个给定范围的整数数组里面寻找三个数积最大值。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路上面很清晰，三个最大数或者两个最小数和最大数，比较这两个值中较大的一个，则为最大值。</p>
 <h2 id="u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09"><a href="#u7B2C_u4E00_u79CD_uFF08_u6CA1_u901A_u8FC7_uFF09" class="headerlink" title="第一种（没通过）"></a>第一种（没通过）</h2><p>先使用系统的排序函数排序，时间复杂度上没通过。</p>
@@ -300,7 +300,7 @@
 <li>Time complexity : O(nlog(n)). Sorting the numsnums array takes nlog(n) time.</li>
 <li>Space complexity : O(log(n)). Sorting takes O(logn) space.</li>
 </ul>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/MaximumProductOfThreeNumbers_error.png" alt=""></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MaximumProductOfThreeNumbers_error.png" alt=""></p>
 <h2 id="u7B2C_u4E8C_u79CD"><a href="#u7B2C_u4E8C_u79CD" class="headerlink" title="第二种"></a>第二种</h2><p>遍历数组，记录上述所需要的 5 个值，然后进行比较。时间复杂度为数组长度 O(n)。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">maximumProduct</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> min1 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> min2 = <span class="type">Int</span>.<span class="built_in">max</span></div><div class="line">        <span class="keyword">var</span> max1 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max2 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line">        <span class="keyword">var</span> max3 = <span class="type">Int</span>.<span class="built_in">min</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &lt;= min1 &#123;</div><div class="line">                min2 = min1</div><div class="line">                min1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &lt;= min2 &#123;</div><div class="line">                min2 = num</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> num &gt;= max1 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = max1</div><div class="line">                max1 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max2 &#123;</div><div class="line">                max3 = max2</div><div class="line">                max2 = num</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt;= max3 &#123;</div><div class="line">                max3 = num</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(min1 * min2 * max1, max1 * max2 * max3)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Complexity Analysis</p>
@@ -323,13 +323,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

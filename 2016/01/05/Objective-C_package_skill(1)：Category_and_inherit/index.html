@@ -62,13 +62,13 @@
 <meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-10-26T09:12:49.091Z">
+<meta property="og:updated_time" content="2019-03-31T09:02:01.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
 <meta name="twitter:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 
 
 
@@ -302,7 +302,7 @@
 <li>Category不允许自定义实例属性的缺点，可以用什么来弥补？（提示：Associated Objects）Associated Objects的具体使用场景又是什么呢？</li>
 <li>对于需要重复写的通用方法，又存在生命周期中的方法，除了工厂方法继承多个工厂类，还有没有更好的封装机制？（提示：Method Swizzling）关于Method Swizzling的使用场景和机制是什么？<br>本篇博客对第一个问题进行回答分析，如果阐述过程中有错误或者疑问，大家可以在文章下面留言。</li>
 </ol>
-<h1 id="u7EE7_u627F_u2013_u5B50_u7C7B_u5316"><a href="#u7EE7_u627F_u2013_u5B50_u7C7B_u5316" class="headerlink" title="继承–子类化"></a>继承–子类化</h1><p>我们首先从继承–对面对象的三大基本特征讲起，继承的概念得益于能够方便的对父类的方法进行实现和overwrite。在使用场景上，我想很多开发者应该在项目之初会经常写了很多Base的基类，封装一些基本的常用方法，在子类中可以直接实用，防止大量的重复代码。下图，使用的是<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>大神的项目框架，特此表示感谢，我也从他的框架中学到了很多。<br><img src="http://7xkvt5.com1.z0.glb.clouddn.com/package%2Fbaseclass.png" alt="baseclass"></p>
+<h1 id="u7EE7_u627F_u2013_u5B50_u7C7B_u5316"><a href="#u7EE7_u627F_u2013_u5B50_u7C7B_u5316" class="headerlink" title="继承–子类化"></a>继承–子类化</h1><p>我们首先从继承–对面对象的三大基本特征讲起，继承的概念得益于能够方便的对父类的方法进行实现和overwrite。在使用场景上，我想很多开发者应该在项目之初会经常写了很多Base的基类，封装一些基本的常用方法，在子类中可以直接实用，防止大量的重复代码。下图，使用的是<a href="https://github.com/DeveloperLx" target="_blank" rel="external">DeveloperLx</a>大神的项目框架，特此表示感谢，我也从他的框架中学到了很多。<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png" alt="baseclass"></p>
 <p>应该说所有人的最初封装都是从继承开始，这个是最容易想到的方法。那么这个继承使用的场景其实是在我们需要对方法进行重写的时候（如生命周期等等，当然其实有更好的方法替代），或者对于父类Delegate通用方法来进行封装的时候来使用。但是继承的缺点在于耦合度比较高，比如我们写了BaseViewController来进行继承，那么通用模块移植到别的项目中的时候就会出现依赖于BaseViewController基类的问题。出现了非常高的耦合度，所以我们经常在面试题中，面试官也会问你这样的问题：你项目中使用继承吗？优缺点？是否有改进的方法？</p>
 <h1 id="Category"><a href="#Category" class="headerlink" title="Category"></a>Category</h1><p>说到Category，大家肯定不陌生，可以看到Apple官方也大量的使用了Category。Category使用的设计模式其实就是装饰模式，是对于改设计模式的具体实现。Category区别于继承的最大不同点在于，它是在不改变原有类的前提下，动态的去扩展该类的类方法和实例方法。</p>
 <h2 id="u4F7F_u7528_u573A_u666F"><a href="#u4F7F_u7528_u573A_u666F" class="headerlink" title="使用场景"></a>使用场景</h2><p>对于Category的使用场景，我们根据<a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/Category.html#//apple_ref/doc/uid/TP40008195-CH5-SW1" target="_blank" rel="external">Apple</a>官方的描述，可以大致分为以下三类：</p>
@@ -341,13 +341,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

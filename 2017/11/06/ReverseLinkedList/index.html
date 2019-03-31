@@ -62,13 +62,13 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/11/06/ReverseLinkedList/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ReverseLinkedList.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-06T13:15:35.506Z">
+<meta property="og:updated_time" content="2019-03-31T08:35:54.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reverse Linked List">
 <meta name="twitter:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ReverseLinkedList.png">
 
 
 
@@ -289,7 +289,7 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ReverseLinkedList.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ReverseLinkedList.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/reverse-linked-list/description/#" target="_blank" rel="external">LeetCode 206. Reverse Linked List</a>，反转链表，迭代法和递归法同时实现。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="u8FED_u4EE3_u6CD5"><a href="#u8FED_u4EE3_u6CD5" class="headerlink" title="迭代法"></a>迭代法</h2><p>迭代的精髓在于按顺序对指针指向的扭转。以1-&gt;2-&gt;3-&gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&gt;2-&gt;1保存为pre以供下次迭代，但是因为它后面的值还要做运算，所以把它原先的指向先保存起来（为next），为了下次继续迭代。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(<span class="number">_</span> head: ListNode?)</span></span> -&gt; <span class="type">ListNode</span>? &#123;</div><div class="line">        <span class="keyword">if</span> head == <span class="literal">nil</span> || head?.next == <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">return</span> head</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> headNode = head</div><div class="line">        <span class="keyword">var</span> pre: <span class="type">ListNode</span>? = <span class="literal">nil</span></div><div class="line">        <span class="keyword">while</span> (headNode != <span class="literal">nil</span>) &#123;</div><div class="line">            <span class="keyword">let</span> tmp = headNode?.next</div><div class="line">            headNode?.next = pre</div><div class="line">            pre = headNode</div><div class="line">            headNode = tmp</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pre</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
@@ -310,13 +310,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

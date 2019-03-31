@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,LeetCode,String,Two Pointers," />
+  <meta name="keywords" content="算法,LeetCode,Two Pointers,String," />
 
 
 
@@ -56,20 +56,20 @@
 
 
 <meta name="description" content="题目介绍 LeetCode 28. Implement strStr()，实现 strStr() 函数，返回子串在字符串中出现的起始位置，未包含则返回 -1。 解题思路一开始我用了 Swift 本身语言的特性，如果包含返回 range，取 range 的起始位置即可。 1234567891011class Solution1 &amp;#123;    func strStr(_ haystack: St">
-<meta name="keywords" content="算法,LeetCode,String,Two Pointers">
+<meta name="keywords" content="算法,LeetCode,Two Pointers,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Implement strStr()">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/18/ImplementstrStr/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 28. Implement strStr()，实现 strStr() 函数，返回子串在字符串中出现的起始位置，未包含则返回 -1。 解题思路一开始我用了 Swift 本身语言的特性，如果包含返回 range，取 range 的起始位置即可。 1234567891011class Solution1 &amp;#123;    func strStr(_ haystack: St">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ImplementstrStr_error.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ImplementstrStr.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr_error.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-11-19T12:49:42.483Z">
+<meta property="og:updated_time" content="2019-03-31T08:45:35.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Implement strStr()">
 <meta name="twitter:description" content="题目介绍 LeetCode 28. Implement strStr()，实现 strStr() 函数，返回子串在字符串中出现的起始位置，未包含则返回 -1。 解题思路一开始我用了 Swift 本身语言的特性，如果包含返回 range，取 range 的起始位置即可。 1234567891011class Solution1 &amp;#123;    func strStr(_ haystack: St">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ImplementstrStr_error.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr_error.png">
 
 
 
@@ -290,12 +290,12 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ImplementstrStr_error.png" alt=""></p>
+        <span itemprop="articleBody"><h1 id="u9898_u76EE_u4ECB_u7ECD"><a href="#u9898_u76EE_u4ECB_u7ECD" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr_error.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/implement-strstr/description/" target="_blank" rel="external">LeetCode 28. Implement strStr()</a>，实现 <code>strStr()</code> 函数，返回子串在字符串中出现的起始位置，未包含则返回 -1。</p>
 <h1 id="u89E3_u9898_u601D_u8DEF"><a href="#u89E3_u9898_u601D_u8DEF" class="headerlink" title="解题思路"></a>解题思路</h1><p>一开始我用了 Swift 本身语言的特性，如果包含返回 range，取 range 的起始位置即可。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution1</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">strStr</span><span class="params">(<span class="number">_</span> haystack: String, <span class="number">_</span> needle: String)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">guard</span> !needle.isEmpty <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> range = haystack.range(of: needle) <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> range.lowerBound.encodedOffset</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>注意：需要判断子字符串是否为空，是则返回 0；否则会报错如下：</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/ImplementstrStr.png" alt=""></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr.png" alt=""></p>
 <p>后来想想这个方法确实投机取巧用了语言的特性，所以还是用算法解决问题，two pointer 的算法思路。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">strStr</span><span class="params">(<span class="number">_</span> haystack: String, <span class="number">_</span> needle: String)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">if</span> needle.isEmpty &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> needle.<span class="built_in">count</span> &gt; haystack.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> haystackChar = <span class="type">Array</span>(haystack)</div><div class="line">        <span class="keyword">let</span> needleChar = <span class="type">Array</span>(needle)</div><div class="line">        <span class="keyword">var</span> i = <span class="number">0</span></div><div class="line">        <span class="keyword">var</span> j = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> i &lt; haystackChar.<span class="built_in">count</span> &#123;</div><div class="line">            j = <span class="number">0</span></div><div class="line"></div><div class="line">            <span class="keyword">if</span> haystackChar.<span class="built_in">count</span> - i &lt; needleChar.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">return</span> -<span class="number">1</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>..&lt;needleChar.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> haystackChar[i + index] == needleChar[index] &#123;</div><div class="line">                    j += <span class="number">1</span></div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> j == needleChar.<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">return</span> i</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                i += <span class="number">1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/18/ImplementstrStr/">http://yeziahehe.com/2017/11/18/ImplementstrStr/</a></blockquote></span>
@@ -313,13 +313,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -338,9 +338,9 @@
           
             <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
-            <a href="/tags/String/" rel="tag">#String</a>
-          
             <a href="/tags/Two-Pointers/" rel="tag">#Two Pointers</a>
+          
+            <a href="/tags/String/" rel="tag">#String</a>
           
         </div>
       

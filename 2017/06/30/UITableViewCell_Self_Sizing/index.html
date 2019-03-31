@@ -62,16 +62,16 @@
 <meta property="og:url" content="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。 Self-Sizing CellSelf-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750">
-<meta property="og:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/print_twice.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/font_size.jpeg?imageView2/2/h/750">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Storyboard_AutoLayout.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cell_height.png?imageView2/2/h/750">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/print_twice.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2017-07-01T04:47:28.000Z">
+<meta property="og:updated_time" content="2019-03-31T08:38:16.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableViewCell 高度自适应牵扯出的若干问题">
 <meta name="twitter:description" content="写在前面阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。 Self-Sizing CellSelf-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图">
-<meta name="twitter:image" content="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/font_size.jpeg?imageView2/2/h/750">
 
 
 
@@ -294,10 +294,10 @@
       
         <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>阔别了一年写代码的感觉，工作以来一直从事产品经理的相关工作，最近开始寻找当年写代码的感觉。碰巧上来被一个原以为很简单的问题困扰了很久，下面给大家详细讲讲使用 Self-Sizing Cell 做高度自适应遇到的若干坑。</p>
 <h1 id="Self-Sizing_Cell"><a href="#Self-Sizing_Cell" class="headerlink" title="Self-Sizing Cell"></a>Self-Sizing Cell</h1><p>Self-Sizing 是 Apple 在 iOS 8 之后推出的新技术，是用于在调整系统字体大小后，控件元素中的文字能跟自动使用布局，下图所示的就是配合 Self-Sizing 推出的系统修改字体。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/font_size.jpeg?imageView2/2/h/750" alt="文字大小"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/font_size.jpeg?imageView2/2/h/750" alt="文字大小"></p>
 <p>在 iOS8 以前，决定 tableviewcell 的高度的都是 <code>tableView:heightForRowAt:</code>，在该方法中手动计算 cell 的高度。iOS 8 之后，Apple 推出了新技术 Self-Sizing，通过 Working with Self-Sizing Tableview cells，将 cell 和 Self-Sizing 进行配合使用后这个协议函数就不用管了，高度系统会自动进行计算。具体的实现方式如下：</p>
 <h2 id="Step_One"><a href="#Step_One" class="headerlink" title="Step One"></a>Step One</h2><p>通过 StoryBoard 新建 Custom TableView Cell，并且把要自适应文本高度的 UILabel 添加上约束。约束的原则如果上下左右没有其他元素，直接和 SuperView 做相对约束，如果有其他元素，则其他元素需要布局确定，UILabel 做相对约束。注意很重要的一点，<strong>最后 UILabel 的约束最后对宽和高都没有做约束，只有上下左右四边的约束看</strong>，这样的 Cell 才可以进行高度自适应。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/Storyboard_AutoLayout.png" alt="设置 StoryBoard"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Storyboard_AutoLayout.png" alt="设置 StoryBoard"></p>
 <h2 id="Step_Two"><a href="#Step_Two" class="headerlink" title="Step Two"></a>Step Two</h2><p>在代码中添加两个方法，接下来加载出数据的时候就可以自动计算高度。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></div><div class="line">    tableView.estimatedRowHeight = <span class="number">100</span><span class="comment">//估算高度尽可能的接近 cell 的高度</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898"><a href="#u7531_u6B64_u5F15_u53D1_u7684_u95EE_u9898" class="headerlink" title="由此引发的问题"></a>由此引发的问题</h1><h2 id="1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A"><a href="#1-willDisplayCell_3AforRowAtIndexPath_3A_and_cellForRowAtIndexPath_3A" class="headerlink" title="1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:"></a>1.willDisplayCell:forRowAtIndexPath: and cellForRowAtIndexPath:</h2><p>在关于优化 UITableView 的文章中，提到了一个优化方案。</p>
@@ -307,7 +307,7 @@
 <p>我刚刚开始对这个观点是认可，并且也确实这么做了，于是代码如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</div><div class="line">    <span class="keyword">let</span> cell: <span class="type">CustomCell</span> = tableView.dequeueReusableCell()</div><div class="line">    <span class="keyword">return</span> cell</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)</span></span> &#123;</div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> cell = cell <span class="keyword">as</span>? <span class="type">CustomCell</span> <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    cell.titleLabel.text = <span class="type">Json</span>.desc</div><div class="line">    <span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在执行上述代码之后，我发现了一个问题，UITableViewCell 的高度加载并不正确，是估算的高度，并不是计算的高度，如下图。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/cell_height.png?imageView2/2/h/750" alt="未计算出正确高度"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cell_height.png?imageView2/2/h/750" alt="未计算出正确高度"></p>
 <p>滑动之后新加载的 TableViewCell 高度为计算出来且正确。（继承 UITableViewViewController 即 Delegate and DataSource 方法为 override 可以滑动加载正确高度；而继承自 UIViewController 即 Delegate and DataSource 方法是 extension 滑动也不可以加载正确高度。<strong>注意，后面的继承未写 Demo 论证，若有不对请指出</strong>）</p>
 <p>从上面的问题里面，我开始寻找两个方法的作用和遇到类似问题的解答方式，我在 Stack Overflow 上面找到了类似的问题 <strong><a href="https://stackoverflow.com/questions/42649231/uitableview-cellforrowat-vs-willdisplay/42649420#42649420" target="_blank" rel="external">UITableView cellForRowAt vs willDisplay</a></strong>。上面阐述的解释是高度的计算是在 <code>cellForRowAtIndexPath:</code> 之后，在 <code>willDisplayCell:forRowAtIndexPath:</code> 之前，所以需要再次调用 <code>reloadData</code> 方法。</p>
 <blockquote>
@@ -337,7 +337,7 @@
 <p>那么，这个优化方案并没有任何理论根据，于是忘了吧，<del>我们经常在注意cellForRowAtIndexPath：中为每一个cell绑定数据，实际上在调用cellForRowAtIndexPath：的时候cell还没有被显示出来，为了提高效率我们应该把数据绑定的操作放在cell显示出来后再执行，可以在tableView：willDisplayCell：forRowAtIndexPath：方法中绑定数据。</del></p>
 <p><strong>注意，关于 Orlov’s article 虽然提升这一点没有被佐证，但是其他的优化方案非常值得学习，</strong> 我这边附上链接，有兴趣可以学习！注意使用梯子~~ <a href="https://medium.com/ios-os-x-development/perfect-smooth-scrolling-in-uitableviews-fd609d5275a5" target="_blank" rel="external">文章：perfect smooth scrolling in uitableviews</a></p>
 <h2 id="u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F"><a href="#u81EA_u52A8_u8BA1_u7B97_u52A0_u8F7D_u4E86_u51E0_u6B21_uFF1F" class="headerlink" title="自动计算加载了几次？"></a>自动计算加载了几次？</h2><p>本来到这边应该结束文章，但是在探讨上述问题的时候，发现了很奇怪的一件事情。如果你在 UITableView Delegate 或者 DataSource 方法中打印一下，会发现每个方法中的打印出现了2遍。</p>
-<p><img src="http://7xkvt5.com1.z0.glb.clouddn.com/blog/print_twice.png" alt="打印两边"></p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/print_twice.png" alt="打印两边"></p>
 <p>于是，我参考了两篇文章：<a href="https://stackoverflow.com/questions/41318864/scrollviewdidscroll-is-called-twice-after-set-table-offset" target="_blank" rel="external">scrollViewDidScroll is called “twice” after set table offset</a>、<a href="https://discussions.apple.com/thread/7111979?start=0&amp;tstart=0" target="_blank" rel="external">heightForRowAtIndexPath called twice in iOS 8 but one time in iOS 7</a></p>
 <p><code>tableView.estimatedRowHeight = 100</code> 这句话是引起 UITableView 加载两次的原因，注释掉这句话后，发现打印一次。我并没有找到合理的理由去解释这个原因，网上部分猜测是 Apple 官方的 Bug，如果大家对这个问题有更好的解释，不妨联系我，我会第一时间更新。</p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/">http://yeziahehe.com/2017/06/30/UITableViewCell_Self_Sizing/</a></blockquote></span>
@@ -355,13 +355,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/wechat.png" alt="叶帆 WeChat Pay"/>
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://7xkvt5.com1.z0.glb.clouddn.com/pay/alipay.png" alt="叶帆 Alipay"/>
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
           <p>支付宝打赏</p>
         </div>
       

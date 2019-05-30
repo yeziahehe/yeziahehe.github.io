@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yeziahehe.com/"/>
-  <updated>2018-01-02T04:54:01.565Z</updated>
+  <updated>2019-05-30T08:29:17.074Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -13,6 +13,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[从 xx_ 前缀向 xx. 命名空间协议转变]]></title>
+    <link href="http://yeziahehe.com/2019/05/30/LazySequence/"/>
+    <id>http://yeziahehe.com/2019/05/30/LazySequence/</id>
+    <published>2019-05-30T03:09:30.000Z</published>
+    <updated>2019-05-30T08:29:17.074Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。</p>
+<p>首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 <strong>前缀_</strong> 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法，但是因为 Swift 语言的发展，以及语言的特性，面向协议编程 (Protocol Oriented Programming，以下简称 POP)，从而引出下面的写法。</p>
+<h1 id="rx"><a href="#rx" class="headerlink" title=".rx"></a>.rx</h1><p>因为是 RxSwift 的使用者，很早的时候记得当时的语法糖是 <strong>rx_</strong>, 这个是非常重度的 OC 语法推荐写法，在自己对系统方法进行扩展的时候需要加上前缀，方式方法名称重复。但是我们发现后续版本中这个语法糖做出了改变，大家可以参考 RxSwift 的这个帖子 <a href="https://github.com/ReactiveX/RxSwift/issues/826" target="_blank" rel="external">[RxCocoa] Move from <code>rx_</code> prefix to a <code>rx.</code> proxy (for Swift 3 update ?)</a>，这篇帖子的标题解释了一个很重要的概念，就是 rx_ 向 rx. 转变的时候是由带前缀的方法名称向协议去转变，通过拥有对象的协议去实现扩展方法。</p>
+<h1 id="u5177_u4F53_u5B9E_u73B0"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h1><p>鉴于上面 RxSwift Issue 时间比较久远，这边提供几个近期的完整实现：</p>
+<ul>
+<li><a href="https://github.com/onevcat/Kingfisher/blob/master/Sources/General/Kingfisher.swift" target="_blank" rel="external">喵神的 Kingfisher</a></li>
+<li><a href="https://github.com/apple/swift/blob/master/stdlib/public/core/LazySequence.swift" target="_blank" rel="external">Swift 中的 LazySequence</a></li>
+</ul>
+<h2 id="u5B9E_u73B0_Base"><a href="#u5B9E_u73B0_Base" class="headerlink" title="实现 Base"></a>实现 Base</h2><p>实现一个 Base 的 Struct/ Class，推荐 Struct。</p>
+<p>这个 Struct 将真实的对象包裹起来，作为一个泛型结构体，不做任何实际操作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">KingfisherWrapper</span>&lt;<span class="title">Base</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">let</span> base: <span class="type">Base</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> base: <span class="type">Base</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.base = base</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u5B9E_u73B0_Protocol__u548C_-kf__u65B9_u6CD5"><a href="#u5B9E_u73B0_Protocol__u548C_-kf__u65B9_u6CD5" class="headerlink" title="实现 Protocol 和 .kf 方法"></a>实现 Protocol 和 .kf 方法</h2><p>定一个 protocol，不实现任何变量方法声明，防止其他的 protocol 继承会修改到变量方法的实现。</p>
+<p>然后实现 protocol 的 extension，提供一个 default implementation，这边其实就是实现了一个 kf 的属性，这个属性是 KingfisherWrapper 的实例，<code>public var kf: KingfisherWrapper&lt;Self&gt;</code> Self 用在协议里面，代表的是遵守协议的对象（类／结构体／枚举）类型，即 Base 类型，根据 Base 类的不同，实现对应类里面的方法。</p>
+<p>这样，就相当于实现了 <code>kf</code> 的命名空间。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">protocol</span> <span class="title">KingfisherCompatible</span>: <span class="title">AnyObject</span> </span>&#123; &#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">KingfisherCompatible</span> </span>&#123;</div><div class="line">    <span class="comment">/// Gets a namespace holder for Kingfisher compatible types.</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> kf: <span class="type">KingfisherWrapper</span>&lt;<span class="type">Self</span>&gt; &#123;</div><div class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="type">KingfisherWrapper</span>(<span class="keyword">self</span>) &#125;</div><div class="line">        <span class="keyword">set</span> &#123; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u5C06_Protocol__u52A0_u8F7D_u5230_u6240_u9700_u7684_Base__u7C7B_u5E76_u901A_u8FC7Extension_+_where_Base__u5B9E_u73B0_Base__u7C7B_u7684_u7279_u5B9A_u4EE3_u7801"><a href="#u5C06_Protocol__u52A0_u8F7D_u5230_u6240_u9700_u7684_Base__u7C7B_u5E76_u901A_u8FC7Extension_+_where_Base__u5B9E_u73B0_Base__u7C7B_u7684_u7279_u5B9A_u4EE3_u7801" class="headerlink" title="将 Protocol 加载到所需的 Base 类并通过Extension + where Base 实现 Base 类的特定代码"></a>将 Protocol 加载到所需的 Base 类并通过Extension + where Base 实现 Base 类的特定代码</h2><p>将我们需要扩展的系统类遵循 protocol，这样对应的 KingfisherWrapper 对象就可以实现对应的系统类里面的方法。</p>
+<p>在实现方法里面有个特别要注意的点，所以 UIImageView 的属性，即可以用 <code>self.</code> 调用的属性都需要变成 <code>base.</code>，因为这边的调用 <code>.kf</code> 的时候每次返回的都是全新的 KingfisherWrapper 实例对象，并不是调用本身对象。</p>
+<p>因为</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIImage</span>: <span class="title">KingfisherCompatible</span> </span>&#123; &#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Kingfisher</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">UIImageView</span>  </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">setImage</span><span class="params">(image: UIImage)</span></span> &#123;</div><div class="line">        base.image = image</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="u4F7F_u7528_u573A_u666F"><a href="#u4F7F_u7528_u573A_u666F" class="headerlink" title="使用场景"></a>使用场景</h1><p>从上面的分析中来看，这样通过协议命名空间方法实现的 extension 看上去会跟优雅，也能过解决在项目中 manually 方式引入第三方库的时候，出现同名的扩展引起的冲突。但是在扩展的时候我同样发现一个问题，对于 <code>initializers methods</code> 是没办法使用命名空间去扩展的，我们只能对应的给一个 func 返回设置好的 Color 作为返回值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(hex: <span class="type">Int</span>, alpha: <span class="type">CGFloat</span> = <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">var</span> t_alpha = alpha</div><div class="line">        <span class="keyword">if</span> t_alpha &lt; <span class="number">0</span> &#123; t_alpha = <span class="number">0</span> &#125;</div><div class="line">        <span class="keyword">if</span> t_alpha &gt; <span class="number">1</span> &#123; t_alpha = <span class="number">1</span> &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> red = (hex &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">let</span> green = (hex &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">let</span> blue = hex &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(red: red, green: green, blue: blue, alpha: t_alpha)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2019/05/30/LazySequence/">http://yeziahehe.com/2019/05/30/LazySequence/</a></blockquote>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近在写新项目的时候，在一个下拉组件中看到了 .]]>
+    </summary>
+    
+      <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
+    
+      <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
+    
+      <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Bye 2017，Hi 2018]]></title>
@@ -90,9 +130,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
       <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -542,11 +582,11 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
       <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -736,38 +776,6 @@
       <category term="swift" scheme="http://yeziahehe.com/tags/swift/"/>
     
       <category term="技术" scheme="http://yeziahehe.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[数据结构学习（一）--栈]]></title>
-    <link href="http://yeziahehe.com/2017/09/07/Structure_stack/"/>
-    <id>http://yeziahehe.com/2017/09/07/Structure_stack/</id>
-    <published>2017-09-07T08:59:24.000Z</published>
-    <updated>2017-09-11T10:13:35.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u6808"><a href="#u6808" class="headerlink" title="栈"></a>栈</h1><p>栈（Stack）是所有数据结构中最简单但却是最重要的一种，栈出现的情况在对内含反转数据的应用非常适合。栈是属于 <strong>后进先出 - Last In, First Out（LIFO）</strong> ，最后压入栈中的项总是最先从栈中弹出的项，生活中举个例子说明下，装薯片的时候按顺序装入罐子中，但是吃薯片的时候就要从开口处把最后一个装入的薯片先吃掉。</p>
-<p><strong>栈是一种形式的表，属于表类型中的受限表</strong>，即插入和删除只发生在一端（表的末端）。在栈当中我们把这端成为栈顶（top）。当我们对栈顶进行插入操作时，即向栈中增加一项时，称之为入栈（push）；对栈进行删除操作时，即从栈中删除一项时，称之为出栈（pop）。</p>
-<h1 id="u6838_u5FC3_u65B9_u6CD5"><a href="#u6838_u5FC3_u65B9_u6CD5" class="headerlink" title="核心方法"></a>核心方法</h1><p>对于栈来说，主要的核心方法就是入栈和出栈两个方法，向栈顶入栈一个”i”的字符串：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stack.push(<span class="string">"i"</span>)</div></pre></td></tr></table></figure></p>
-<p>目前栈中间的元素为[“i”]，从栈里面出栈当前的元素：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stack.pop()</div></pre></td></tr></table></figure></p>
-<p>这样返回了元素”i”，并且当前栈为空。继续出栈会导致返回nil，通常在实际应用中这里会做错误处理，“栈下溢（stack underflow）”。</p>
-<h1 id="u6E90_u4EE3_u7801"><a href="#u6E90_u4EE3_u7801" class="headerlink" title="源代码"></a>源代码</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Stack.swift</span></div><div class="line"><span class="comment">//  </span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by 叶帆 on 2017/9/6.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">fileprivate</span> <span class="keyword">var</span> array = [<span class="type">T</span>]()</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     获取当前栈的长度</div><div class="line">     - returns: 返回栈的长度，如果Stack为空，则值为0</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> array.<span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     判断是否为空</div><div class="line">     - returns: 如果Stack为空，则值为true，否则值为false</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> array.isEmpty</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     获取栈顶元素的值</div><div class="line">     - returns: 栈顶元素的值，如果为空返回nil</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> top: <span class="type">T</span>? &#123;</div><div class="line">        <span class="keyword">return</span> array.last</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     向栈顶插入一个元素</div><div class="line">     - parameter element: 需要插入的值</div><div class="line">     - 时间复杂度: O(1)</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: T)</span></span> &#123;</div><div class="line">        array.append(element)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     删除栈顶元素</div><div class="line">     - returns: 返回删除栈顶元素的值，如果为空返回nil</div><div class="line">     - 时间复杂度: O(1)</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">T</span>? &#123;</div><div class="line">        <span class="keyword">return</span> array.popLast()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span>: <span class="title">Sequence</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">makeIterator</span><span class="params">()</span></span> -&gt; <span class="type">AnyIterator</span>&lt;<span class="type">Element</span>&gt; &#123;</div><div class="line">        <span class="keyword">var</span> curr = <span class="keyword">self</span></div><div class="line">        <span class="keyword">return</span> <span class="type">AnyIterator</span> &#123;</div><div class="line">            <span class="number">_</span> -&gt; <span class="type">Element</span>? <span class="keyword">in</span></div><div class="line">            <span class="keyword">return</span> curr.pop()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="u5E94_u7528_u573A_u666F"><a href="#u5E94_u7528_u573A_u666F" class="headerlink" title="应用场景"></a>应用场景</h1><p>栈的强项是处理反转的能力，所以实际的应用场景都是和此相关的。</p>
-<h2 id="u56DE_u6587_u5B57_u7B26_u4E32"><a href="#u56DE_u6587_u5B57_u7B26_u4E32" class="headerlink" title="回文字符串"></a>回文字符串</h2><p>所谓的回文字符串就是指那些正读和反读均相同的字符系列，如“席主席”，“aha”均是回文，通过栈这种数据结构可以很容易判断一个字符串是否为回文。</p>
-<p>大概的思路就是找到中间的值，把中间值以前的放入栈中，然后一个个出栈，并且在出栈的同时和中间值以后的值进行比对。如果top为空的时候就说明符合回文的规则。</p>
-<h2 id="u9006_u6CE2_u5170_u8BA1_u7B97_u5668"><a href="#u9006_u6CE2_u5170_u8BA1_u7B97_u5668" class="headerlink" title="逆波兰计算器"></a>逆波兰计算器</h2><p>所谓的逆波兰计算器指的就是在这样的计算器中，操作数（通常是数字）在操作被指定前输入，操作数放入栈中。当操作执行时，操作数从栈中弹出并且把操作结果入栈。</p>
-<h2 id="u62EC_u53F7_u7684_u5339_u914D"><a href="#u62EC_u53F7_u7684_u5339_u914D" class="headerlink" title="括号的匹配"></a>括号的匹配</h2><p>在程序中，通常会对<code>{}</code>、<code>[]</code>、<code>()</code>、<code>&lt;&gt;</code>来进行括号的匹配。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/09/07/Structure_stack/">http://yeziahehe.com/2017/09/07/Structure_stack/</a></blockquote>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u6808"><a href="#u6808" class="headerlink" title="栈"></a>栈</h1><p>栈（Stack）是所有数据结构中最简单但却是最重要的一种，栈出现的情况在对内含反转数据的应用非常适合。栈是属于 <strong>后进]]>
-    </summary>
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="http://yeziahehe.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="栈" scheme="http://yeziahehe.com/tags/%E6%A0%88/"/>
-    
-      <category term="算法" scheme="http://yeziahehe.com/categories/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

@@ -1,0 +1,810 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ArxqF9fNvIlxybI0naTgEy2PwvvvHyAs35iOfxJqL8o" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,Swift," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
+<meta name="keywords" content="iOS,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 xx_ 前缀向 xx. 命名空间协议转变">
+<meta property="og:url" content="http://yeziahehe.com/2019/05/30/LazySequence/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2019-05-30T08:29:17.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从 xx_ 前缀向 xx. 命名空间协议转变">
+<meta name="twitter:description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 从 xx_ 前缀向 xx. 命名空间协议转变 | Ivan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/yeziahehe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ivan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-oj">
+          <a href="/leetcode" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            LeetCode OJ
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从 xx_ 前缀向 xx. 命名空间协议转变
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2019-05-30T11:09:30+08:00" content="2019-05-30">
+              2019-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <span class="post-count">
+            &nbsp; | &nbsp; 字数
+              1,965
+          </span>
+
+          
+            <span id="busuanzi_container_page_pv">
+              &nbsp; | &nbsp;
+              <i class="fa fa-eye"></i>&nbsp;
+              <span id="busuanzi_value_page_pv">1</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。</p>
+<p>首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 <strong>前缀_</strong> 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法，但是因为 Swift 语言的发展，以及语言的特性，面向协议编程 (Protocol Oriented Programming，以下简称 POP)，从而引出下面的写法。</p>
+<h1 id="rx"><a href="#rx" class="headerlink" title=".rx"></a>.rx</h1><p>因为是 RxSwift 的使用者，很早的时候记得当时的语法糖是 <strong>rx_</strong>, 这个是非常重度的 OC 语法推荐写法，在自己对系统方法进行扩展的时候需要加上前缀，方式方法名称重复。但是我们发现后续版本中这个语法糖做出了改变，大家可以参考 RxSwift 的这个帖子 <a href="https://github.com/ReactiveX/RxSwift/issues/826" target="_blank" rel="external">[RxCocoa] Move from <code>rx_</code> prefix to a <code>rx.</code> proxy (for Swift 3 update ?)</a>，这篇帖子的标题解释了一个很重要的概念，就是 rx_ 向 rx. 转变的时候是由带前缀的方法名称向协议去转变，通过拥有对象的协议去实现扩展方法。</p>
+<h1 id="u5177_u4F53_u5B9E_u73B0"><a href="#u5177_u4F53_u5B9E_u73B0" class="headerlink" title="具体实现"></a>具体实现</h1><p>鉴于上面 RxSwift Issue 时间比较久远，这边提供几个近期的完整实现：</p>
+<ul>
+<li><a href="https://github.com/onevcat/Kingfisher/blob/master/Sources/General/Kingfisher.swift" target="_blank" rel="external">喵神的 Kingfisher</a></li>
+<li><a href="https://github.com/apple/swift/blob/master/stdlib/public/core/LazySequence.swift" target="_blank" rel="external">Swift 中的 LazySequence</a></li>
+</ul>
+<h2 id="u5B9E_u73B0_Base"><a href="#u5B9E_u73B0_Base" class="headerlink" title="实现 Base"></a>实现 Base</h2><p>实现一个 Base 的 Struct/ Class，推荐 Struct。</p>
+<p>这个 Struct 将真实的对象包裹起来，作为一个泛型结构体，不做任何实际操作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">KingfisherWrapper</span>&lt;<span class="title">Base</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">let</span> base: <span class="type">Base</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> base: <span class="type">Base</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.base = base</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u5B9E_u73B0_Protocol__u548C_-kf__u65B9_u6CD5"><a href="#u5B9E_u73B0_Protocol__u548C_-kf__u65B9_u6CD5" class="headerlink" title="实现 Protocol 和 .kf 方法"></a>实现 Protocol 和 .kf 方法</h2><p>定一个 protocol，不实现任何变量方法声明，防止其他的 protocol 继承会修改到变量方法的实现。</p>
+<p>然后实现 protocol 的 extension，提供一个 default implementation，这边其实就是实现了一个 kf 的属性，这个属性是 KingfisherWrapper 的实例，<code>public var kf: KingfisherWrapper&lt;Self&gt;</code> Self 用在协议里面，代表的是遵守协议的对象（类／结构体／枚举）类型，即 Base 类型，根据 Base 类的不同，实现对应类里面的方法。</p>
+<p>这样，就相当于实现了 <code>kf</code> 的命名空间。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">protocol</span> <span class="title">KingfisherCompatible</span>: <span class="title">AnyObject</span> </span>&#123; &#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">KingfisherCompatible</span> </span>&#123;</div><div class="line">    <span class="comment">/// Gets a namespace holder for Kingfisher compatible types.</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">var</span> kf: <span class="type">KingfisherWrapper</span>&lt;<span class="type">Self</span>&gt; &#123;</div><div class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="type">KingfisherWrapper</span>(<span class="keyword">self</span>) &#125;</div><div class="line">        <span class="keyword">set</span> &#123; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="u5C06_Protocol__u52A0_u8F7D_u5230_u6240_u9700_u7684_Base__u7C7B_u5E76_u901A_u8FC7Extension_+_where_Base__u5B9E_u73B0_Base__u7C7B_u7684_u7279_u5B9A_u4EE3_u7801"><a href="#u5C06_Protocol__u52A0_u8F7D_u5230_u6240_u9700_u7684_Base__u7C7B_u5E76_u901A_u8FC7Extension_+_where_Base__u5B9E_u73B0_Base__u7C7B_u7684_u7279_u5B9A_u4EE3_u7801" class="headerlink" title="将 Protocol 加载到所需的 Base 类并通过Extension + where Base 实现 Base 类的特定代码"></a>将 Protocol 加载到所需的 Base 类并通过Extension + where Base 实现 Base 类的特定代码</h2><p>将我们需要扩展的系统类遵循 protocol，这样对应的 KingfisherWrapper 对象就可以实现对应的系统类里面的方法。</p>
+<p>在实现方法里面有个特别要注意的点，所以 UIImageView 的属性，即可以用 <code>self.</code> 调用的属性都需要变成 <code>base.</code>，因为这边的调用 <code>.kf</code> 的时候每次返回的都是全新的 KingfisherWrapper 实例对象，并不是调用本身对象。</p>
+<p>因为</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIImage</span>: <span class="title">KingfisherCompatible</span> </span>&#123; &#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Kingfisher</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">UIImageView</span>  </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">setImage</span><span class="params">(image: UIImage)</span></span> &#123;</div><div class="line">        base.image = image</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="u4F7F_u7528_u573A_u666F"><a href="#u4F7F_u7528_u573A_u666F" class="headerlink" title="使用场景"></a>使用场景</h1><p>从上面的分析中来看，这样通过协议命名空间方法实现的 extension 看上去会跟优雅，也能过解决在项目中 manually 方式引入第三方库的时候，出现同名的扩展引起的冲突。但是在扩展的时候我同样发现一个问题，对于 <code>initializers methods</code> 是没办法使用命名空间去扩展的，我们只能对应的给一个 func 返回设置好的 Color 作为返回值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(hex: <span class="type">Int</span>, alpha: <span class="type">CGFloat</span> = <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">var</span> t_alpha = alpha</div><div class="line">        <span class="keyword">if</span> t_alpha &lt; <span class="number">0</span> &#123; t_alpha = <span class="number">0</span> &#125;</div><div class="line">        <span class="keyword">if</span> t_alpha &gt; <span class="number">1</span> &#123; t_alpha = <span class="number">1</span> &#125;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> red = (hex &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">let</span> green = (hex &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">let</span> blue = hex &amp; <span class="number">0xff</span></div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(red: red, green: green, blue: blue, alpha: t_alpha)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2019/05/30/LazySequence/">http://yeziahehe.com/2019/05/30/LazySequence/</a></blockquote></span>
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/02/Bye 2017，Hi 2018/" rel="next" title="Bye 2017，Hi 2018">
+                <i class="fa fa-chevron-left"></i> Bye 2017，Hi 2018
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2019/05/30/LazySequence/"
+           data-title="从 xx_ 前缀向 xx. 命名空间协议转变" data-url="http://yeziahehe.com/2019/05/30/LazySequence/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/avatar.JPG" alt="叶帆" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">叶帆</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">认真你就赢了</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-linkedin"></i> Linkedin
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yeziahehe" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rx"><span class="nav-number">2.</span> <span class="nav-text">.rx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5177_u4F53_u5B9E_u73B0"><span class="nav-number">3.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u73B0_Base"><span class="nav-number">3.1.</span> <span class="nav-text">实现 Base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u73B0_Protocol__u548C_-kf__u65B9_u6CD5"><span class="nav-number">3.2.</span> <span class="nav-text">实现 Protocol 和 .kf 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5C06_Protocol__u52A0_u8F7D_u5230_u6240_u9700_u7684_Base__u7C7B_u5E76_u901A_u8FC7Extension_+_where_Base__u5B9E_u73B0_Base__u7C7B_u7684_u7279_u5B9A_u4EE3_u7801"><span class="nav-number">3.3.</span> <span class="nav-text">将 Protocol 加载到所需的 Base 类并通过Extension + where Base 实现 Base 类的特定代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4F7F_u7528_u573A_u666F"><span class="nav-number">4.</span> <span class="nav-text">使用场景</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶帆</span>
+  <span id="busuanzi_container_site_pv"> | 自2015.12.13起总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yeziahehe"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>

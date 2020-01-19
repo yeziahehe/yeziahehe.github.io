@@ -24,7 +24,7 @@
 <meta property="og:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-01-19T06:00:05.799Z">
+<meta property="og:updated_time" content="2020-01-19T06:08:07.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从 UI 操作在主线程聊起">
 <meta name="twitter:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
@@ -61,9 +61,55 @@
 
 
   
+    <span id="toolbox-mobile" class="toolbox-mobile">Menu</span>
+  
 
-  <div class="post-header">
+  <div class="post-header CENTER">
    
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">Menu</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
 
 </div>
 
@@ -134,13 +180,9 @@
 <p>另外还有一点，根据事件响应机制（UIResponder）知道，所有的事件响应一定是在主线程。所以文档中规定 UI 操作一定要在主线程中串行执行，其实就是人为的加锁，既高效又同时保证了线程安全。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://juejin.im/post/5c406d97e51d4552475fe178" target="_blank" rel="noopener">iOS拾遗——为什么必须在主线程操作UI</a></li>
-<li><a href="https://objccn.io/issue-2-4/" target="_blank" rel="noopener">ObjC 中国 - 线程安全类的设计</a><br><blockquote class="blockquote-center"><br><strong>版权声明</strong></blockquote></li>
+<li><a href="https://objccn.io/issue-2-4/" target="_blank" rel="noopener">ObjC 中国 - 线程安全类的设计</a></li>
 </ul>
-<p><img src="/cc.png" alt></p>
-<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
-<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2020/01/19/从">http://yeziahehe.com/2020/01/19/从</a> UI 操作在主线程聊起/</p>
-
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/01/19/从">http://yeziahehe.com/2020/01/19/从</a> UI 操作在主线程聊起/</blockquote>
     
   </div>
 

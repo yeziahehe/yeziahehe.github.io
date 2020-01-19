@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>从 UI 操作在主线程聊起 | Ivan&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="iOS,Swift,">
+  
+
+  <meta name="description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
+<meta name="keywords" content="iOS,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 UI 操作在主线程聊起">
+<meta property="og:url" content="http://yeziahehe.com/2020/01/19/从 UI 操作在主线程聊起/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2020-01-19T05:58:20.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从 UI 操作在主线程聊起">
+<meta name="twitter:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+
+  <div class="post-header">
+   
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#从-UI-操作在主线程聊起"><span class="toc-text">从 UI 操作在主线程聊起</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从-UIKit-说起"><span class="toc-text">从 UIKit 说起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why？"><span class="toc-text">Why？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-从 UI 操作在主线程聊起" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">从 UI 操作在主线程聊起</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.01.19</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>叶帆</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="从-UI-操作在主线程聊起"><a href="#从-UI-操作在主线程聊起" class="headerlink" title="从 UI 操作在主线程聊起"></a>从 UI 操作在主线程聊起</h1><p>在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。</p>
+<ul>
+<li>为什么 UI 操作一定要在主线程？</li>
+<li>如果把 UI 操作放到后台线程会出现什么样的情况呢？</li>
+</ul>
+<h2 id="从-UIKit-说起"><a href="#从-UIKit-说起" class="headerlink" title="从 UIKit 说起"></a>从 UIKit 说起</h2><p>我们首先先了解一下 <a href="https://developer.apple.com/documentation/uikit" target="_blank" rel="noopener">UIKit | Apple Developer Documentation</a>  ，简单概括就是在 <strong>主线程</strong> 响应用户事件、展示视图。文档里面特别强调了一段话：</p>
+<blockquote>
+<p><strong>Important</strong><br>Use UIKit classes only from your app’s main thread or main dispatch queue, unless otherwise indicated. This restriction particularly applies to classes derived from UIResponder or that involve manipulating your app’s user interface in any way.  </p>
+</blockquote>
+<p>这段话强调了 UIKit 所有类（尤其是 UIResponder 的派生类），除非另有说明，否则只能在以下两个场景里面调用：</p>
+<ul>
+<li>main thread - 主线程</li>
+<li>main dispatch queue -  主调度队列</li>
+</ul>
+<h2 id="Why？"><a href="#Why？" class="headerlink" title="Why？"></a>Why？</h2><p>我们思考一下，在主线程来执行 UIKit 类，目的是为了保证线程安全。那么，从而就能知道 UIKit 一定 <strong>不是线程安全</strong> 的类，如果我们同时在多个线程来进行 UI 的异步操作，肯定造成读写问题，但是为了保证 UI 的流畅性，对 UIKit 做加锁则会导致大量的性能消耗，从而影响运行、渲染速度。</p>
+<p>另外还有一点，根据事件响应机制（UIResponder）知道，所有的事件响应一定是在主线程。所以文档中规定 UI 操作一定要在主线程中串行执行，其实就是人为的加锁，既高效又同时保证了线程安全。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://juejin.im/post/5c406d97e51d4552475fe178" target="_blank" rel="noopener">iOS拾遗——为什么必须在主线程操作UI</a></li>
+<li><a href="https://objccn.io/issue-2-4/" target="_blank" rel="noopener">ObjC 中国 - 线程安全类的设计</a><br><blockquote class="blockquote-center"><br><strong>版权声明</strong></blockquote></li>
+</ul>
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/01/19/从">http://yeziahehe.com/2020/01/19/从</a> UI 操作在主线程聊起/</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持yeziahehe</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/05/30/LazySequence/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

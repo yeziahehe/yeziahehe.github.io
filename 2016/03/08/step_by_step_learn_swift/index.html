@@ -1,806 +1,292 @@
-<!doctype html>
-<html class="theme-next   use-motion ">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!DOCTYPE html>
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+  <html class="light page-post">
 
 
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>一步一步学习Swift | Ivan&#39;s Blog</title>
 
-  <meta name="google-site-verification" content="ArxqF9fNvIlxybI0naTgEy2PwvvvHyAs35iOfxJqL8o" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  
+    <meta name="keywords" content="iOS,Swift,">
+  
 
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="iOS,Swift," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
-
-
-
-
-
-
-<meta name="description" content="写在前面记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。 碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培">
+  <meta name="description" content="写在前面记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。 碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培">
 <meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一步一步学习Swift">
 <meta property="og:url" content="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。 碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github.png">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/swift_reference.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:59:20.518Z">
+<meta property="og:updated_time" content="2019-03-31T08:59:20.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一步一步学习Swift">
 <meta name="twitter:description" content="写在前面记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。 碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github.png">
 
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'hide',
-    motion: true
-  };
-</script>
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
 
-  <title> 一步一步学习Swift | Ivan's Blog </title>
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
+</html>
+<body>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
+  <div class="post-header">
+   
 
-
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <a href="https://github.com/yeziahehe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Ivan's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-oj">
-          <a href="/leetcode" rel="section">
-            
-              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
-            
-            LeetCode OJ
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                一步一步学习Swift
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-03-08T15:26:31+08:00" content="2016-03-08">
-              2016-03-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <span class="post-count">
-            &nbsp; | &nbsp; 字数
-              1,000
-          </span>
-
-          
-            <span id="busuanzi_container_page_pv">
-              &nbsp; | &nbsp;
-              <i class="fa fa-eye"></i>&nbsp;
-              <span id="busuanzi_value_page_pv">1</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h1 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
-<p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
-<h1 id="u5DE5_u5177"><a href="#u5DE5_u5177" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="external">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
-<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github.png" alt="github"></p>
-<h1 id="u8D44_u6E90"><a href="#u8D44_u6E90" class="headerlink" title="资源"></a>资源</h1><p>首先，Swfit 是开源的，这个对于开发者来说应该是最开心的事情，可以了解到这门语言的实现。学习一门语言最重要的就是关注官方放出来的资料，全面、规范、最新是最大的优势，这里隆重的给出官方的资源网站 <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="external">Swift Resources</a>。</p>
-<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/swift_reference.png" alt="swift_reference"></p>
-<p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="external">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
-<p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="external">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
-<p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
-<h2 id="Github_Awesome-Swift"><a href="#Github_Awesome-Swift" class="headerlink" title="Github Awesome-Swift"></a>Github Awesome-Swift</h2><p>Swift 的资源整理，有三个不错的外国整理的 Awesome-Swift，<a href="https://github.com/matteocrippa/awesome-swift" target="_blank" rel="external">1</a>，<a href="https://github.com/Wolg/awesome-swift" target="_blank" rel="external">2</a>，<a href="https://github.com/vsouza/awesome-ios" target="_blank" rel="external">3</a>。另外，国人整理的<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="external">Swift语言指南</a>对于入门 Swift 的人来说是一大福音，希望大家都能好好的利用起来资源。</p>
-<p>【未完待续】</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/">http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</a></blockquote></span>
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div></div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具"><span class="toc-text">工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#资源"><span class="toc-text">资源</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Awesome-Swift"><span class="toc-text">Github Awesome-Swift</span></a></li></ol></li></ol>
   </div>
 
 
-      
-    </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-            <a href="/tags/Swift/" rel="tag">#Swift</a>
-          
-        </div>
-      
+<div class="content content-post CENTER">
+   <article id="post-step_by_step_learn_swift" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">一步一步学习Swift</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.03.08</span>
+      </span>
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/01/09/2016_year_book_list/" rel="next" title="2016年书单和购物清单">
-                <i class="fa fa-chevron-left"></i> 2016年书单和购物清单
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/05/Swift_NSFileManager/" rel="prev" title="Swift中的文件管理-NSFileManager">
-                Swift中的文件管理-NSFileManager <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>叶帆</span>
+        </span>
       
 
       
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-        </div>
-
-        
-
-
-        
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/03/08/step_by_step_learn_swift/"
-           data-title="一步一步学习Swift" data-url="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/">
-      </div>
-    
-  </div>
-
-
-      </div>
-
-      
-        
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/avatar.JPG" alt="叶帆" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">叶帆</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">认真你就赢了</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">7</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">47</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-linkedin"></i> Linkedin
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> Weibo
-                  
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5DE5_u5177"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8D44_u6E90"><span class="nav-number">3.</span> <span class="nav-text">资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Github_Awesome-Swift"><span class="nav-number">3.1.</span> <span class="nav-text">Github Awesome-Swift</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-      
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-<div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </span>
-  <span class="author" itemprop="copyrightHolder">叶帆</span>
-  <span id="busuanzi_container_site_pv"> | 自2015.12.13起总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
-
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
 
 
 
-      </div>
-    </footer>
+      
 
-    <div class="back-to-top"></div>
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>记得年初定计划的时候说了每年要学习一门语言，加上知道以后工作中肯定不可避免的要使用 Swift 来进行 iOS 的开发，于是开始了 Swift 的升级之路。</p>
+<p>碰巧今天和薄荷的 CTO Vincent 聊天的时候说到，Swift 是 iOS 开发的未来，灵光一闪，觉得自己可以写一个入门的博客，帮助更多想要学习 Swift 的同学学习更加有计划和方向，万一我以后也做了 CTO 才不想一遍遍的培训，只要看我这个博客就行了，一劳永逸！</p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>请不要忘记想要学习一个东西的时候，最好的地方是全球最大的 <strong>同性恋交友网站 <a href="https://github.com/search?o=desc&amp;q=swift&amp;s=stars&amp;type=Repositories&amp;utf8=%E2%9C%93" target="_blank" rel="noopener">Github</a></strong> 。输入要学习的 keyword，choose most star，基本上把前五页的 repo 看完你肯定入门了。</p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github.png" alt="github"></p>
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p>首先，Swfit 是开源的，这个对于开发者来说应该是最开心的事情，可以了解到这门语言的实现。学习一门语言最重要的就是关注官方放出来的资料，全面、规范、最新是最大的优势，这里隆重的给出官方的资源网站 <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="noopener">Swift Resources</a>。</p>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/swift_reference.png" alt="swift_reference"></p>
+<p>上图的 Guides and Reference 中可以看到，这里有本非常出名的官方给的 <strong>The Swift Programming Language</strong> 书籍，我个人的建议是如果你对计算机一些专业英文词汇不熟悉，建议可以阅读 <strong>梁杰发起&amp;一群iOS小伙伴</strong> 翻译的<a href="http://wiki.jikexueyuan.com/project/swift/" target="_blank" rel="noopener">中文版</a>，推荐大家下载 epub ，阅读体验非常好，对他们为营造更好的社区做出的贡献表示感谢。</p>
+<p>另外一本 <strong>Using Swift with Cocoa and Objective-C</strong> 书籍，同样是官方推荐的，这里给大家配上<a href="https://github.com/CocoaChina-editors/Welcome-to-Swift/blob/master/UsingSwiftwithCocoaandObjective-C%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C.md" target="_blank" rel="noopener">中文版</a>（其实我英文还好，但是这种专业性词汇太强的书籍，看中文更加有益于理解）。</p>
+<p><strong>先花时间把上面的两本书看完呗！然后再接着看下面的教程我相信你会信心满满的！</strong></p>
+<h2 id="Github-Awesome-Swift"><a href="#Github-Awesome-Swift" class="headerlink" title="Github Awesome-Swift"></a>Github Awesome-Swift</h2><p>Swift 的资源整理，有三个不错的外国整理的 Awesome-Swift，<a href="https://github.com/matteocrippa/awesome-swift" target="_blank" rel="noopener">1</a>，<a href="https://github.com/Wolg/awesome-swift" target="_blank" rel="noopener">2</a>，<a href="https://github.com/vsouza/awesome-ios" target="_blank" rel="noopener">3</a>。另外，国人整理的<a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="noopener">Swift语言指南</a>对于入门 Swift 的人来说是一大福音，希望大家都能好好的利用起来资源。</p>
+<p>【未完待续】</p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/">http://yeziahehe.com/2016/03/08/step_by_step_learn_swift/</a></blockquote>
+    
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持yeziahehe</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/01/09/2016_year_book_list/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2016/08/05/Swift_NSFileManager/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
 
   
-  
-
-  
+      <div class="fexo-comments comments-post">
     
 
-  
     
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
   
 
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"yeziahehe"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
 
-
-    
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
         }
-      }
-    };
-  });
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
 </script>
-
-
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
-
-  
-  
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
-
-
-  
-  
 
 </body>
 </html>

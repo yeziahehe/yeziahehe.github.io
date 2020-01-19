@@ -1,67 +1,28 @@
-<!doctype html>
-<html class="theme-next   use-motion ">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!DOCTYPE html>
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+  <html class="light page-post">
 
 
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>自定义库封装思路和Cocoapods发布 | Ivan&#39;s Blog</title>
 
-  <meta name="google-site-verification" content="ArxqF9fNvIlxybI0naTgEy2PwvvvHyAs35iOfxJqL8o" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  
+    <meta name="keywords" content="iOS，Cocoapods,">
+  
 
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="iOS，Cocoapods," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
-
-
-
-
-
-
-<meta name="description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
+  <meta name="description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
 <meta name="keywords" content="iOS，Cocoapods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义库封装思路和Cocoapods发布">
 <meta property="og:url" content="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewbuttom.gif">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcenter.gif">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcocoapods.jpg">
@@ -72,229 +33,96 @@
 <meta name="twitter:description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewbuttom.gif">
 
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'hide',
-    motion: true
-  };
-</script>
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
 
-  <title> 自定义库封装思路和Cocoapods发布 | Ivan's Blog </title>
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
+</html>
+<body>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
+  <div class="post-header">
+   
 
-
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <a href="https://github.com/yeziahehe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Ivan's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
-<nav class="site-nav">
-  
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YFStartView"><span class="toc-text">YFStartView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Cocoapods"><span class="toc-text">使用Cocoapods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+  </div>
 
-  
-    <ul id="menu" class="menu ">
+
+
+<div class="content content-post CENTER">
+   <article id="post-own_framework_and_Cocoapods_release" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">自定义库封装思路和Cocoapods发布</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2015.10.22</span>
+      </span>
+
       
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-oj">
-          <a href="/leetcode" rel="section">
-            
-              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
-            
-            LeetCode OJ
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
-            
-            关于
-          </a>
-        </li>
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>叶帆</span>
+        </span>
       
 
       
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
       
-    </ul>
-  
 
-  
-</nav>
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
-
-  <div id="posts" class="posts-expand">
+  <div class="article-content">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                自定义库封装思路和Cocoapods发布
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-22T23:32:23+08:00" content="2015-10-22">
-              2015-10-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <span class="post-count">
-            &nbsp; | &nbsp; 字数
-              3,450
-          </span>
-
-          
-            <span id="busuanzi_container_page_pv">
-              &nbsp; | &nbsp;
-              <i class="fa fa-eye"></i>&nbsp;
-              <span id="busuanzi_value_page_pv">1</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h2 id="u5199_u5728_u524D_u9762"><a href="#u5199_u5728_u524D_u9762" class="headerlink" title="写在前面"></a>写在前面</h2><p>近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。</p>
-<h2 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h2><p>首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。</p>
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。</p>
 <p>PS：不会设计的程序员不是好程序员！</p>
-<h2 id="YFStartView"><a href="#YFStartView" class="headerlink" title="YFStartView"></a>YFStartView</h2><p>目前<a href="https://github.com/yeziahehe/YFStartView" target="_blank" rel="external">YFStartView</a>已经开源，效果图如下。</p>
+<h2 id="YFStartView"><a href="#YFStartView" class="headerlink" title="YFStartView"></a>YFStartView</h2><p>目前<a href="https://github.com/yeziahehe/YFStartView" target="_blank" rel="noopener">YFStartView</a>已经开源，效果图如下。</p>
 <p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewbuttom.gif" alt="效果图1"></p>
 <p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcenter.gif" alt="效果图2"></p>
 <p>几点说明：</p>
@@ -304,525 +132,185 @@
 <li><p>尽可能的暴露出属性，让用户去选择使用的属性。</p>
 </li>
 </ul>
-<h2 id="u4F7F_u7528Cocoapods"><a href="#u4F7F_u7528Cocoapods" class="headerlink" title="使用Cocoapods"></a>使用Cocoapods</h2><p>初始化一个Podspec文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod spec create YFStartView</div></pre></td></tr></table></figure>
+<h2 id="使用Cocoapods"><a href="#使用Cocoapods" class="headerlink" title="使用Cocoapods"></a>使用Cocoapods</h2><p>初始化一个Podspec文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec create YFStartView</span><br></pre></td></tr></table></figure>
 <p>要像github仓库中添加.podspec文件，代码内容如下</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#  Be sure to run `pod spec lint YFStartView.podspec' to ensure this is a</span></div><div class="line"><span class="comment">#  valid spec and to remove all comments including this before submitting the spec.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html</span></div><div class="line"><span class="comment">#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/</span></div><div class="line"><span class="comment">#</span></div><div class="line"></div><div class="line">Pod::Spec.new <span class="keyword">do</span> <span class="params">|s|</span></div><div class="line"></div><div class="line">  <span class="comment"># ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  These will help people to find your library, and whilst it</span></div><div class="line">  <span class="comment">#  can feel like a chore to fill in it's definitely to your advantage. The</span></div><div class="line">  <span class="comment">#  summary should be tweet-length, and the description more in depth.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  s.name         = <span class="string">"YFStartView"</span></div><div class="line">  s.version      = <span class="string">"0.0.1"</span></div><div class="line">  s.summary      = <span class="string">"YFStartView is an custom view for start image."</span></div><div class="line"></div><div class="line">  s.homepage     = <span class="string">"https://github.com/yeziahehe/YFStartView"</span></div><div class="line">  <span class="comment"># s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  Licensing your code is important. See http://choosealicense.com for more info.</span></div><div class="line">  <span class="comment">#  CocoaPods will detect a license file if there is a named LICENSE*</span></div><div class="line">  <span class="comment">#  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  s.license      = <span class="string">"MIT"</span></div><div class="line">  <span class="comment"># s.license      = &#123; :type =&gt; "MIT", :file =&gt; "FILE_LICENSE" &#125;</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  Specify the authors of the library, with email addresses. Email addresses</span></div><div class="line">  <span class="comment">#  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also</span></div><div class="line">  <span class="comment">#  accepts just a name if you'd rather not provide an email address.</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  Specify a social_media_url where others can refer to, for example a twitter</span></div><div class="line">  <span class="comment">#  profile URL.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  s.author             = &#123; <span class="string">"Ivan"</span> =&gt; <span class="string">"yeziahehe@gmail.com"</span> &#125;</div><div class="line">  <span class="comment"># Or just: s.author    = "Ivan"</span></div><div class="line">  <span class="comment"># s.authors            = &#123; "Ivan" =&gt; "yeziahehe<span class="doctag">@gmail</span>.com" &#125;</span></div><div class="line">  <span class="comment"># s.social_media_url   = "http://twitter.com/Ivan"</span></div><div class="line"></div><div class="line">  <span class="comment"># ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  If this Pod runs only on iOS or OS X, then specify the platform and</span></div><div class="line">  <span class="comment">#  the deployment target. You can optionally include the target after the platform.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  <span class="comment"># s.platform     = :ios</span></div><div class="line">  s.platform     = <span class="symbol">:ios</span>, <span class="string">"8.0"</span></div><div class="line"></div><div class="line">  <span class="comment">#  When using multiple platforms</span></div><div class="line">  <span class="comment"># s.ios.deployment_target = "5.0"</span></div><div class="line">  <span class="comment"># s.osx.deployment_target = "10.7"</span></div><div class="line">  <span class="comment"># s.watchos.deployment_target = "2.0"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  Specify the location from where the source should be retrieved.</span></div><div class="line">  <span class="comment">#  Supports git, hg, bzr, svn and HTTP.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  s.source       = &#123; <span class="symbol">:git</span> =&gt; <span class="string">"https://github.com/yeziahehe/YFStartView.git"</span>, <span class="symbol">:tag</span> =&gt; <span class="string">"0.0.1"</span> &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  CocoaPods is smart about how it includes source code. For source files</span></div><div class="line">  <span class="comment">#  giving a folder will include any swift, h, m, mm, c &amp; cpp files.</span></div><div class="line">  <span class="comment">#  For header files it will include any header in the folder.</span></div><div class="line">  <span class="comment">#  Not including the public_header_files will make all headers public.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  s.source_files  = <span class="string">"YFStartView/*.&#123;h,m&#125;"</span></div><div class="line">  <span class="comment"># s.exclude_files = "Classes/Exclude"</span></div><div class="line"></div><div class="line">  <span class="comment"># s.public_header_files = "Classes/**/*.h"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  A list of resources included with the Pod. These are copied into the</span></div><div class="line">  <span class="comment">#  target bundle with a build phase script. Anything else will be cleaned.</span></div><div class="line">  <span class="comment">#  You can preserve files from being cleaned, please don't preserve</span></div><div class="line">  <span class="comment">#  non-essential files like tests, examples and documentation.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  <span class="comment"># s.resource  = "icon.png"</span></div><div class="line">  <span class="comment"># s.resources = "Resources/*.png"</span></div><div class="line"></div><div class="line">  <span class="comment"># s.preserve_paths = "YFStartViewDemo"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  Link your library with frameworks, or libraries. Libraries do not include</span></div><div class="line">  <span class="comment">#  the lib prefix of their name.</span></div><div class="line">  <span class="comment">#</span></div><div class="line"></div><div class="line">  <span class="comment"># s.framework  = "SomeFramework"</span></div><div class="line">  <span class="comment"># s.frameworks = "SomeFramework", "AnotherFramework"</span></div><div class="line"></div><div class="line">  <span class="comment"># s.library   = "iconv"</span></div><div class="line">  <span class="comment"># s.libraries = "iconv", "xml2"</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment"># ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></div><div class="line">  <span class="comment">#</span></div><div class="line">  <span class="comment">#  If your library depends on compiler flags you can set them in the xcconfig hash</span></div><div class="line">  <span class="comment">#  where they will only apply to your library. If you depend on other Podspecs</span></div><div class="line">  <span class="comment">#  you can include multiple dependencies to ensure it works.</span></div><div class="line"></div><div class="line">  s.requires_arc = <span class="literal">true</span></div><div class="line"></div><div class="line">  <span class="comment"># s.xcconfig = &#123; "HEADER_SEARCH_PATHS" =&gt; "$(SDKROOT)/usr/include/libxml2" &#125;</span></div><div class="line">  <span class="comment"># s.dependency "JSONKit", "~&gt; 1.4"</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="string">``</span></div><div class="line"></div><div class="line">接着要注意版本号的问题</div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">`bash</span></div><div class="line">  git tag -a 0.0.1 -m "Tag release 0.0.1"</div><div class="line">  git push —tags</div><div class="line">  git add YFStartView.podspec</div><div class="line">  git commit -m "add YFStartView.podspec file"</div><div class="line">  git push origin master</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  Be sure to run `pod spec lint YFStartView.podspec' to ensure this is a</span></span><br><span class="line"><span class="comment">#  valid spec and to remove all comments including this before submitting the spec.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html</span></span><br><span class="line"><span class="comment">#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">Pod::Spec.new <span class="keyword">do</span> <span class="params">|s|</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  These will help people to find your library, and whilst it</span></span><br><span class="line">  <span class="comment">#  can feel like a chore to fill in it's definitely to your advantage. The</span></span><br><span class="line">  <span class="comment">#  summary should be tweet-length, and the description more in depth.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  s.name         = <span class="string">"YFStartView"</span></span><br><span class="line">  s.version      = <span class="string">"0.0.1"</span></span><br><span class="line">  s.summary      = <span class="string">"YFStartView is an custom view for start image."</span></span><br><span class="line"></span><br><span class="line">  s.homepage     = <span class="string">"https://github.com/yeziahehe/YFStartView"</span></span><br><span class="line">  <span class="comment"># s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  Licensing your code is important. See http://choosealicense.com for more info.</span></span><br><span class="line">  <span class="comment">#  CocoaPods will detect a license file if there is a named LICENSE*</span></span><br><span class="line">  <span class="comment">#  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  s.license      = <span class="string">"MIT"</span></span><br><span class="line">  <span class="comment"># s.license      = &#123; :type =&gt; "MIT", :file =&gt; "FILE_LICENSE" &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  Specify the authors of the library, with email addresses. Email addresses</span></span><br><span class="line">  <span class="comment">#  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also</span></span><br><span class="line">  <span class="comment">#  accepts just a name if you'd rather not provide an email address.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  Specify a social_media_url where others can refer to, for example a twitter</span></span><br><span class="line">  <span class="comment">#  profile URL.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  s.author             = &#123; <span class="string">"Ivan"</span> =&gt; <span class="string">"yeziahehe@gmail.com"</span> &#125;</span><br><span class="line">  <span class="comment"># Or just: s.author    = "Ivan"</span></span><br><span class="line">  <span class="comment"># s.authors            = &#123; "Ivan" =&gt; "yeziahehe<span class="doctag">@gmail</span>.com" &#125;</span></span><br><span class="line">  <span class="comment"># s.social_media_url   = "http://twitter.com/Ivan"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  If this Pod runs only on iOS or OS X, then specify the platform and</span></span><br><span class="line">  <span class="comment">#  the deployment target. You can optionally include the target after the platform.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.platform     = :ios</span></span><br><span class="line">  s.platform     = <span class="symbol">:ios</span>, <span class="string">"8.0"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">#  When using multiple platforms</span></span><br><span class="line">  <span class="comment"># s.ios.deployment_target = "5.0"</span></span><br><span class="line">  <span class="comment"># s.osx.deployment_target = "10.7"</span></span><br><span class="line">  <span class="comment"># s.watchos.deployment_target = "2.0"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  Specify the location from where the source should be retrieved.</span></span><br><span class="line">  <span class="comment">#  Supports git, hg, bzr, svn and HTTP.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  s.source       = &#123; <span class="symbol">:git</span> =&gt; <span class="string">"https://github.com/yeziahehe/YFStartView.git"</span>, <span class="symbol">:tag</span> =&gt; <span class="string">"0.0.1"</span> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  CocoaPods is smart about how it includes source code. For source files</span></span><br><span class="line">  <span class="comment">#  giving a folder will include any swift, h, m, mm, c &amp; cpp files.</span></span><br><span class="line">  <span class="comment">#  For header files it will include any header in the folder.</span></span><br><span class="line">  <span class="comment">#  Not including the public_header_files will make all headers public.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  s.source_files  = <span class="string">"YFStartView/*.&#123;h,m&#125;"</span></span><br><span class="line">  <span class="comment"># s.exclude_files = "Classes/Exclude"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.public_header_files = "Classes/**/*.h"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  A list of resources included with the Pod. These are copied into the</span></span><br><span class="line">  <span class="comment">#  target bundle with a build phase script. Anything else will be cleaned.</span></span><br><span class="line">  <span class="comment">#  You can preserve files from being cleaned, please don't preserve</span></span><br><span class="line">  <span class="comment">#  non-essential files like tests, examples and documentation.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.resource  = "icon.png"</span></span><br><span class="line">  <span class="comment"># s.resources = "Resources/*.png"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.preserve_paths = "YFStartViewDemo"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  Link your library with frameworks, or libraries. Libraries do not include</span></span><br><span class="line">  <span class="comment">#  the lib prefix of their name.</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.framework  = "SomeFramework"</span></span><br><span class="line">  <span class="comment"># s.frameworks = "SomeFramework", "AnotherFramework"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.library   = "iconv"</span></span><br><span class="line">  <span class="comment"># s.libraries = "iconv", "xml2"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#  If your library depends on compiler flags you can set them in the xcconfig hash</span></span><br><span class="line">  <span class="comment">#  where they will only apply to your library. If you depend on other Podspecs</span></span><br><span class="line">  <span class="comment">#  you can include multiple dependencies to ensure it works.</span></span><br><span class="line"></span><br><span class="line">  s.requires_arc = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.xcconfig = &#123; "HEADER_SEARCH_PATHS" =&gt; "$(SDKROOT)/usr/include/libxml2" &#125;</span></span><br><span class="line">  <span class="comment"># s.dependency "JSONKit", "~&gt; 1.4"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="string">``</span></span><br><span class="line"></span><br><span class="line">接着要注意版本号的问题</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`bash</span></span><br><span class="line"><span class="string">  git tag -a 0.0.1 -m "Tag release 0.0.1"</span></span><br><span class="line"><span class="string">  git push —tags</span></span><br><span class="line"><span class="string">  git add YFStartView.podspec</span></span><br><span class="line"><span class="string">  git commit -m "add YFStartView.podspec file"</span></span><br><span class="line"><span class="string">  git push origin master</span></span><br></pre></td></tr></table></figure>
 <p>接下来很多教程里面写的fork，目前的话Cocoapods已经不支持pull request，改为trunk服务。</p>
 <p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcocoapods.jpg" alt="Cocoapods"></p>
 <p>更新了用trunk之后，CocoaPods 需要0.33版本以上的，用 pod –version 查看，如果版本低，需要更新。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk register yeziahehe@gmail.com <span class="string">'yeziahehe'</span>  --verbose</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register yeziahehe@gmail.com <span class="string">'yeziahehe'</span>  --verbose</span><br></pre></td></tr></table></figure>
 <p>接下来会收到一封邮件进行验证。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk me</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk me</span><br></pre></td></tr></table></figure>
 <p>会显示如下信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- Name:     yeziahehe</div><div class="line">- Email:    yeziahehe@gmail.com</div><div class="line">- Since:    October 21st, 02:55</div><div class="line">- Pods:     None</div><div class="line">- Sessions:</div><div class="line">- October 21st, 02:55 - February 26th, 2016 02:57. IP:202.195.129.246</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- Name:     yeziahehe</span><br><span class="line">- Email:    yeziahehe@gmail.com</span><br><span class="line">- Since:    October 21st, 02:55</span><br><span class="line">- Pods:     None</span><br><span class="line">- Sessions:</span><br><span class="line">- October 21st, 02:55 - February 26th, 2016 02:57. IP:202.195.129.246</span><br></pre></td></tr></table></figure>
 <p>接下来进行提交</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push YFStartView.podspec</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push YFStartView.podspec</span><br></pre></td></tr></table></figure>
 <p>大功告成，搜索一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod search YFStartView</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search YFStartView</span><br></pre></td></tr></table></figure>
 <p>已经发布成功！</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-&gt; YFStartView (0.0.1)</div><div class="line">   YFStartView is an custom view <span class="keyword">for</span> start image.</div><div class="line">   pod <span class="string">'YFStartView'</span>, <span class="string">'~&gt; 0.0.1'</span></div><div class="line">   - Homepage: https://github.com/yeziahehe/YFStartView</div><div class="line">   - Source:   https://github.com/yeziahehe/YFStartView.git</div><div class="line">   - Versions: 0.0.1 [master repo]</div></pre></td></tr></table></figure>
-<h2 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h2><p><a href="http://iiiyu.com/2013/03/01/learning-ios-notes-sixteen/" target="_blank" rel="external">配置自己的CocoaPods库</a></p>
-<p><a href="http://iiiyu.com/2013/12/19/learning-ios-notes-thirty-one/" target="_blank" rel="external">CocoaPods 手把手五分钟教你制作自己的podspec文件</a></p>
-<p><a href="http://www.cnblogs.com/wengzilin/p/4742530.html" target="_blank" rel="external">iOS：手把手教你发布代码到CocoaPods(Trunk方式)</a></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="external">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/">http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</a></blockquote></span>
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div></div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="叶帆 WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="叶帆 Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/iOS，Cocoapods/" rel="tag">#iOS，Cocoapods</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/10/10/Block_learning/" rel="next" title="Block学习">
-                <i class="fa fa-chevron-left"></i> Block学习
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/12/blog_trasfer/" rel="prev" title="博客迁移">
-                博客迁移 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-        </div>
-
-        
-
-
-        
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2015/10/22/own_framework_and_Cocoapods_release/"
-           data-title="自定义库封装思路和Cocoapods发布" data-url="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/">
-      </div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-&gt; YFStartView (0.0.1)</span><br><span class="line">   YFStartView is an custom view <span class="keyword">for</span> start image.</span><br><span class="line">   pod <span class="string">'YFStartView'</span>, <span class="string">'~&gt; 0.0.1'</span></span><br><span class="line">   - Homepage: https://github.com/yeziahehe/YFStartView</span><br><span class="line">   - Source:   https://github.com/yeziahehe/YFStartView.git</span><br><span class="line">   - Versions: 0.0.1 [master repo]</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://iiiyu.com/2013/03/01/learning-ios-notes-sixteen/" target="_blank" rel="noopener">配置自己的CocoaPods库</a></p>
+<p><a href="http://iiiyu.com/2013/12/19/learning-ios-notes-thirty-one/" target="_blank" rel="noopener">CocoaPods 手把手五分钟教你制作自己的podspec文件</a></p>
+<p><a href="http://www.cnblogs.com/wengzilin/p/4742530.html" target="_blank" rel="noopener">iOS：手把手教你发布代码到CocoaPods(Trunk方式)</a></p>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/">http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</a></blockquote>
     
   </div>
 
+</article>
 
-      </div>
 
-      
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持yeziahehe</div>
+        <ul>
         
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="">
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="">
           </li>
+        
         </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/avatar.JPG" alt="叶帆" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">叶帆</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">认真你就赢了</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">7</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">47</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-github"></i> GitHub
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.linkedin.com/in/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-linkedin"></i> Linkedin
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/yeziahehe" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> Weibo
-                  
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5199_u5728_u524D_u9762"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u539F_u56E0"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YFStartView"><span class="nav-number">3.</span> <span class="nav-text">YFStartView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Cocoapods"><span class="nav-number">4.</span> <span class="nav-text">使用Cocoapods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-      
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-<div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">叶帆</span>
-  <span id="busuanzi_container_site_pv"> | 自2015.12.13起总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
-
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-
       </div>
-    </footer>
-
-    <div class="back-to-top"></div>
+    </div>
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2015/10/10/Block_learning/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2015/12/12/blog_trasfer/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
 
   
-  
-
-  
+      <div class="fexo-comments comments-post">
     
 
-  
     
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
   
 
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"yeziahehe"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
 
-
-    
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
         }
-      }
-    };
-  });
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
 </script>
-
-
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
-
-  
-  
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
-
-
-  
-  
 
 </body>
 </html>

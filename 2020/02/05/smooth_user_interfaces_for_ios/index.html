@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Art/visual-shadow_2x.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-02-05T07:22:14.411Z">
+<meta property="og:updated_time" content="2020-02-07T07:19:19.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何让界面保持流畅">
 <meta name="twitter:description" content="首先建议大家先读一读这篇文章 iOS 保持界面流畅的技巧 | Garan no dou ，从原理层面讲的很清楚。 离屏渲染（offscreen rendering）关于离屏渲染的概念推荐这篇文章 离屏渲染优化详解：实例示范+性能测试 - 简书，我们主要说说具体的离屏渲染优化方案。 圆角 cornerRadius首先了解下 cornerRadius 概念，参考 cornerRadius - CALa">
@@ -159,7 +159,37 @@
 <p>Setting the radius to a value greater than 0.0 causes the layer to begin drawing rounded corners on its background. By default, the corner radius does not apply to the image in the layer’s contents property; it applies only to the background color and border of the layer. However, setting the masksToBounds property to true causes the content to be clipped to the rounded corners.  </p>
 </blockquote>
 <p>声明一点，单纯的设置 <code>layer.cornerRadius</code> 是不会造成任何性能问题的，只有配合 <code>layer.masksToBounds</code> 使用时才会造成离屏渲染（根据试验在 iOS 10 and later 的系统这样设置大部分 UIKit 控件也不会再触发离屏渲染）。在默认情况下，这个属性只会影响 layer 的 background color 和 border，对于 layer 中的 content 的内容是无法奏效。所以我们对以下 UIKit 控件做分析（下面的方法是针对 iOS 10 and later 不触发离屏渲染的方法）：</p>
-<p>| UIKit | iOS 9 &amp; Before| iOS 10 &amp; Later |<br>| — | — | — |<br>| UIView | 只设置 <code>cornerRadius</code> | 只设置 <code>cornerRadius</code> |<br>| UIImageView | 下方原理解释 | 只设置 <code>cornerRadius 和 masksToBounds</code> |<br>| UIButton (不设置背景图或 Image) | 只设置 <code>cornerRadius</code> | 只设置 <code>cornerRadius</code> |<br>| UILabel | 下方原理解释 | 设置 <code>cornerRadius 和 masksToBounds</code> |</p>
+<table>
+<thead>
+<tr>
+<th>UIKit</th>
+<th>iOS 9 &amp; Before</th>
+<th>iOS 10 &amp; Later</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UIView</td>
+<td>只设置 <code>cornerRadius</code></td>
+<td>只设置 <code>cornerRadius</code></td>
+</tr>
+<tr>
+<td>UIImageView</td>
+<td>下方原理解释</td>
+<td>只设置 <code>cornerRadius 和 masksToBounds</code></td>
+</tr>
+<tr>
+<td>UIButton (不设置背景图或 Image)</td>
+<td>只设置 <code>cornerRadius</code></td>
+<td>只设置 <code>cornerRadius</code></td>
+</tr>
+<tr>
+<td>UILabel</td>
+<td>下方原理解释</td>
+<td>设置 <code>cornerRadius 和 masksToBounds</code></td>
+</tr>
+</tbody>
+</table>
 <p>如果是 iOS 10 &amp; Later，可以放心的使用系统方法，除了带图片的 UIButton 其他的控件直接使用不会造成离屏渲染。<br>如果是 iOS 9 &amp; Before，分为以下几种情况：</p>
 <ul>
 <li>UI 提供已经切好的圆角图片；</li>
@@ -237,7 +267,6 @@
 <li><a href="https://juejin.im/post/5b72aaf46fb9a009764bbb6a#heading-1" target="_blank" rel="noopener">iOS性能优化系列篇之“列表流畅度优化” - 掘金</a></li>
 <li><a href="https://xiaozhuanlan.com/topic/0891367254" target="_blank" rel="noopener">iOS 界面流畅性优化 － 小专栏</a></li>
 </ul>
-<p>#iOS</p>
 <blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/05/smooth_user_interfaces_for_ios/">http://yeziahehe.com/2020/02/05/smooth_user_interfaces_for_ios/</a></blockquote>
     
   </div>

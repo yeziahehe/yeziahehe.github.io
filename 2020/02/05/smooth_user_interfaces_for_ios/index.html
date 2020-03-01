@@ -23,13 +23,14 @@
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="首先建议大家先读一读这篇文章 iOS 保持界面流畅的技巧 | Garan no dou ，从原理层面讲的很清楚。 离屏渲染（offscreen rendering）关于离屏渲染的概念推荐这篇文章 离屏渲染优化详解：实例示范+性能测试 - 简书，我们主要说说具体的离屏渲染优化方案。 圆角 cornerRadius首先了解下 cornerRadius 概念，参考 cornerRadius - CALa">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ResponseChain/WithRoundedCorners.png">
 <meta property="og:image" content="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Art/visual-shadow_2x.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-02-07T07:19:19.549Z">
+<meta property="og:updated_time" content="2020-03-01T04:56:43.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何让界面保持流畅">
 <meta name="twitter:description" content="首先建议大家先读一读这篇文章 iOS 保持界面流畅的技巧 | Garan no dou ，从原理层面讲的很清楚。 离屏渲染（offscreen rendering）关于离屏渲染的概念推荐这篇文章 离屏渲染优化详解：实例示范+性能测试 - 简书，我们主要说说具体的离屏渲染优化方案。 圆角 cornerRadius首先了解下 cornerRadius 概念，参考 cornerRadius - CALa">
-<meta name="twitter:image" content="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Art/visual-shadow_2x.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ResponseChain/WithRoundedCorners.png">
 
   
 
@@ -196,7 +197,7 @@
 <li>混合图层：在要添加圆角的视图上再叠加一个部分透明的视图，只对圆角部分进行遮挡，颜色与背景色相同，可以参考代码 <a href="https://gist.github.com/seedante/84aae946cf91ad099f7814bb6b40a583" target="_blank" rel="noopener">Draw a mask image with Core Graphics API in Swift · GitHub</a>。</li>
 </ul>
 <h3 id="UIImageView"><a href="#UIImageView" class="headerlink" title="UIImageView"></a>UIImageView</h3><p>低版本系统，上述提到的混合图层方法是一种思路，另外可以直接对图片进行剪裁，方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">extension UIImage &#123;</span><br><span class="line">    func withRoundedCorners(radius: CGFloat) -&gt; UIImage? &#123;</span><br><span class="line">        UIGraphicsBeginImageContextWithOptions(size, false, scale)</span><br><span class="line"></span><br><span class="line">        let rect = CGRect(origin: .zero, size: size)</span><br><span class="line">        UIBezierPath(roundedRect: rect, cornerRadius: radius).addClip()</span><br><span class="line">        draw(in: rect)</span><br><span class="line"></span><br><span class="line">        let image = UIGraphicsGetImageFromCurrentImageContext()</span><br><span class="line">        UIGraphicsEndImageContext()</span><br><span class="line">        return image</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ResponseChain/WithRoundedCorners.png" alt="WithRoundedCorners"></p>
 <p>因为是贝塞尔曲线的路径，你可以扩展成选择哪几个角有圆角效果，这边不做详细论述。</p>
 <h3 id="UIButton-设置背景图或-Image"><a href="#UIButton-设置背景图或-Image" class="headerlink" title="UIButton 设置背景图或 Image"></a>UIButton 设置背景图或 Image</h3><p>不论系统版本高低，分如下几种情况：</p>
 <ul>

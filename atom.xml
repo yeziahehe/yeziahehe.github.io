@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-03-01T04:56:43.442Z</updated>
+  <updated>2020-03-01T06:14:47.120Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Assign Cookies</title>
+    <link href="http://yeziahehe.com/2020/02/28/AssignCookies/"/>
+    <id>http://yeziahehe.com/2020/02/28/AssignCookies/</id>
+    <published>2020-02-28T05:39:18.000Z</published>
+    <updated>2020-03-01T06:14:47.120Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/WtnWJe.png" alt></p><p><a href="https://leetcode.com/problems/assign-cookies/" target="_blank" rel="noopener">LeetCode 455. Assign Cookies</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(nlogn), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>贪心算法的思想，分配的最优策略是每次分配只关注未分配饼干的最小胃口的小朋友。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findContentChildren</span><span class="params">(<span class="number">_</span> g: [Int], <span class="number">_</span> s: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> gSort = g.sorted()</span><br><span class="line">        <span class="keyword">let</span> sSort = s.sorted()</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; gSort.<span class="built_in">count</span> &amp;&amp; j &lt; sSort.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> gSort[i] &lt;= sSort[j] &#123;</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/28/AssignCookies/">http://yeziahehe.com/2020/02/28/AssignCookies/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Greedy" scheme="http://yeziahehe.com/tags/Greedy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Robot Return to Origin</title>
+    <link href="http://yeziahehe.com/2020/02/27/RobotReturntoOrigin/"/>
+    <id>http://yeziahehe.com/2020/02/27/RobotReturntoOrigin/</id>
+    <published>2020-02-27T05:39:18.000Z</published>
+    <updated>2020-03-01T06:01:47.538Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/hffxUA.png" alt></p><p><a href="https://leetcode.com/problems/robot-return-to-origin/" target="_blank" rel="noopener">LeetCode 657. Robot Return to Origin</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>因为设定每次移动幅度相同，所以用两个变量分别存储水平和垂直方向的值，只要 string 里面 U 和 D 的数量一致，L 和 R 的数量一致即可回到原点。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">judgeCircle</span><span class="params">(<span class="number">_</span> moves: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> v = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> h = <span class="number">0</span></span><br><span class="line">        moves.<span class="built_in">map</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> $<span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"U"</span> : v -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">"D"</span> : v += <span class="number">1</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">"L"</span> : h -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">"R"</span> : h += <span class="number">1</span></span><br><span class="line">                <span class="keyword">default</span>: <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> v == <span class="number">0</span> &amp;&amp; h == <span class="number">0</span> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/27/RobotReturntoOrigin/">http://yeziahehe.com/2020/02/27/RobotReturntoOrigin/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hamming Distance</title>
+    <link href="http://yeziahehe.com/2020/02/27/HammingDistance/"/>
+    <id>http://yeziahehe.com/2020/02/27/HammingDistance/</id>
+    <published>2020-02-27T05:39:18.000Z</published>
+    <updated>2020-03-01T06:01:32.886Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/9X1Ydr.png" alt></p><p><a href="https://leetcode.com/problems/hamming-distance/" target="_blank" rel="noopener">LeetCode 461. Bit Manipulation</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(1), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先想到的思路是肯定是循环按每一位去对比，因为范围是给定的 <code>0 ≤ x, y &lt; 2 31</code>。但是这种时间复杂度肯定是 O(n)，算法如下：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hammingDistance</span><span class="params">(<span class="number">_</span> x: Int, <span class="number">_</span> y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> xv = x</span><br><span class="line">        <span class="keyword">var</span> yv = y</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">31</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> bt = xv%<span class="number">2</span></span><br><span class="line">            <span class="keyword">let</span> by = yv%<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> bt == by &#123;</span><br><span class="line">                ans += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            xv = xv/<span class="number">2</span></span><br><span class="line">            yv = yv/<span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>所以考虑用二进制的一些机制来解题。</p><p>二进制的注意事项：</p><ul><li>取余直接得到当前位的值；</li><li>做除法相当于右移一位；</li><li>位运算里面有很多运算，比如这一题可以用异或，用了异或之后部分情况可能或缩短循环次数</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hammingDistance</span><span class="params">(<span class="number">_</span> x: Int, <span class="number">_</span> y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> t = x^y</span><br><span class="line">        <span class="keyword">while</span> (t&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            ans += t&amp;<span class="number">1</span></span><br><span class="line">            t = t&gt;&gt;<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/27/HammingDistance/">http://yeziahehe.com/2020/02/27/HammingDistance/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Bit Manipulation" scheme="http://yeziahehe.com/tags/Bit-Manipulation/"/>
+    
+  </entry>
   
   <entry>
     <title>如何让界面保持流畅</title>
@@ -171,9 +258,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
       <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     
   </entry>
   
@@ -505,101 +592,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Dynamic Programming" scheme="http://yeziahehe.com/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Move Zeroes</title>
-    <link href="http://yeziahehe.com/2017/10/13/MoveZeroes/"/>
-    <id>http://yeziahehe.com/2017/10/13/MoveZeroes/</id>
-    <published>2017-10-13T11:52:05.000Z</published>
-    <updated>2019-03-31T08:40:00.022Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/MoveZeroes.png" alt></p><p><a href="https://leetcode.com/problems/move-zeroes/description/" target="_blank" rel="noopener">LeetCode 283. Move Zeroes</a>，题目的意思在不复制数组的情况下，用最少的操作将 0 移到最后。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>一个移动的 i pointer（初始值为 0），遍历数组发现非 0 元素，则将对应 i 的元素赋值为当前遍历的值。遍历完成后，比较 i 和数组长度，将剩余元素复制为 0 即可。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">moveZeroes</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int])</span></span> &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums &#123;</span><br><span class="line">            <span class="keyword">if</span> num != <span class="number">0</span> &#123;</span><br><span class="line">                nums[i] = num</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> i &lt; nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> zeroIndex <span class="keyword">in</span> i..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">                nums[zeroIndex] = <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/13/MoveZeroes/">http://yeziahehe.com/2017/10/13/MoveZeroes/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Longest Substring Without Repeating Characters</title>
-    <link href="http://yeziahehe.com/2017/10/11/LongestSubstringWithoutRepeatingCharacters/"/>
-    <id>http://yeziahehe.com/2017/10/11/LongestSubstringWithoutRepeatingCharacters/</id>
-    <published>2017-10-11T11:52:05.000Z</published>
-    <updated>2019-03-31T08:43:48.821Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/LongestSubstringWithoutRepeatingCharacters.png" alt></p><p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="noopener">LeetCode 3. Longest Substring Without Repeating Characters</a>，题目的意思寻找 String 中元素不重复的最长子序列。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这一题我使用的 Two Pointers 的算法，使用了 start 和 end 两个指针，右指针不断的进行右移，没有发现重复元素的情况下，遍历区间内有没有相似元素，如果有直接左指针变为 i+1。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> array = <span class="type">Array</span>(s)</span><br><span class="line">        <span class="keyword">var</span> length = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">left</span> = <span class="number">0</span>, <span class="keyword">right</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">right</span> &lt; array.<span class="built_in">count</span> &#123;</span><br><span class="line">            i = <span class="keyword">left</span></span><br><span class="line">            <span class="keyword">while</span> i &lt; <span class="keyword">right</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> array[i] == array[<span class="keyword">right</span>] &#123;</span><br><span class="line">                    <span class="keyword">left</span> = i + <span class="number">1</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            length = <span class="built_in">max</span>(length, <span class="keyword">right</span> - <span class="keyword">left</span> + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">right</span> += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/11/LongestSubstringWithoutRepeatingCharacters/">http://yeziahehe.com/2017/10/11/LongestSubstringWithoutRepeatingCharacters/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
-    
-      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Add Two Numbers</title>
-    <link href="http://yeziahehe.com/2017/10/10/AddTwoNumbers/"/>
-    <id>http://yeziahehe.com/2017/10/10/AddTwoNumbers/</id>
-    <published>2017-10-10T11:52:05.000Z</published>
-    <updated>2019-03-31T08:47:55.113Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/AddTwoNumbers.png" alt></p><p><a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="noopener">LeetCode 2. Add Two Numbers</a>，题目的意思用两个非空的链表来表示两个非负整数，且链表顺序为数字倒序，求出两个数之和，返回和对应的链表。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>按位进行逐位相加，需要主要的是进位记录，以及两个数位数不匹配的情况下的计算。首先定义链表 Node 数据结构如下：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>定义一个 headNode 作为初始值，循环相加，注意边界情况，代码如下：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">addTwoNumbers</span><span class="params">(<span class="number">_</span> l1: ListNode?, <span class="number">_</span> l2: ListNode?)</span></span> -&gt; <span class="type">ListNode?</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> headNode = <span class="type">ListNode</span>(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">var</span> p = l1, q = l2, curr = headNode</span><br><span class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> (p != <span class="literal">nil</span> || q != <span class="literal">nil</span> || carry != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">let</span> x = (p != <span class="literal">nil</span>) ? p!.val : <span class="number">0</span></span><br><span class="line">            <span class="keyword">let</span> y = (q != <span class="literal">nil</span>) ? q!.val : <span class="number">0</span></span><br><span class="line">            <span class="keyword">let</span> sum = x + y + carry</span><br><span class="line">            carry = sum / <span class="number">10</span></span><br><span class="line">            curr.next = <span class="type">ListNode</span>(sum % <span class="number">10</span>)</span><br><span class="line">            curr = curr.next!</span><br><span class="line">            <span class="keyword">if</span> (p != <span class="literal">nil</span>) &#123;</span><br><span class="line">                p = p!.next</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (q != <span class="literal">nil</span>) &#123;</span><br><span class="line">                q = q!.next</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> headNode.next!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/10/AddTwoNumbers/">http://yeziahehe.com/2017/10/10/AddTwoNumbers/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
-    
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
   </entry>
   

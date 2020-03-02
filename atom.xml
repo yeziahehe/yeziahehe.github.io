@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-03-01T06:45:19.099Z</updated>
+  <updated>2020-03-02T14:16:13.341Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reshape the Matrix</title>
+    <link href="http://yeziahehe.com/2020/03/02/ReshapeTheMatrix/"/>
+    <id>http://yeziahehe.com/2020/03/02/ReshapeTheMatrix/</id>
+    <published>2020-03-02T14:10:17.000Z</published>
+    <updated>2020-03-02T14:16:13.341Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-02下午10.13.52.png" alt></p><p><a href="https://leetcode.com/problems/reshape-the-matrix/" target="_blank" rel="noopener">LeetCode 566. Reshape the Matrix</a>。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路很简单，二维数组间的转换 ans[i/c][i%c] = nums[i/col][i%col]</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">matrixReshape</span><span class="params">(<span class="number">_</span> nums: [[Int]], <span class="number">_</span> r: Int, <span class="number">_</span> <span class="built_in">c</span>: Int)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> * nums[<span class="number">0</span>].<span class="built_in">count</span> != r * <span class="built_in">c</span> &#123;</span><br><span class="line">            <span class="comment">// 不可以转换</span></span><br><span class="line">            <span class="keyword">return</span> nums</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 可以转换</span></span><br><span class="line">        <span class="keyword">var</span> ans = [[<span class="type">Int</span>]](repeating: [<span class="type">Int</span>](repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="built_in">c</span>), <span class="built_in">count</span>: r)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;r*<span class="built_in">c</span> &#123;</span><br><span class="line">            ans[i/<span class="built_in">c</span>][i%<span class="built_in">c</span>] = nums[i/nums[<span class="number">0</span>].<span class="built_in">count</span>][i%nums[<span class="number">0</span>].<span class="built_in">count</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/02/ReshapeTheMatrix/">http://yeziahehe.com/2020/03/02/ReshapeTheMatrix/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+  </entry>
   
   <entry>
     <title>Sum of Left Leaves</title>
@@ -561,37 +590,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Sort" scheme="http://yeziahehe.com/tags/Sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Word Break II</title>
-    <link href="http://yeziahehe.com/2017/10/15/WordBreakII/"/>
-    <id>http://yeziahehe.com/2017/10/15/WordBreakII/</id>
-    <published>2017-10-15T11:52:05.000Z</published>
-    <updated>2019-03-31T08:41:26.294Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/WordBreakII.png" alt></p><p><a href="https://leetcode.com/problems/word-break-ii/description/" target="_blank" rel="noopener">LeetCode 140. Word Break II</a>，题目的意思原题的意思给定一个非空的字符串和非空的单词字典（不包含重复元素），将所有可能的分割方式用数组输出。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>记忆化搜索，在搜索过程中，使用字典tokenDict将已经搜索过的子句的拆解方案记录下来，从而实现DFS的剪枝。</p><p>时间复杂度 O(n²)，空间复杂度 O(n²)。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String])</span></span> -&gt; [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> cache = [<span class="type">String</span>: [<span class="type">String</span>]]()</span><br><span class="line">        <span class="keyword">return</span> <span class="type">DFS</span>(s, wordDict, &amp;cache)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">DFS</span><span class="params">(<span class="number">_</span> s: String, <span class="number">_</span> wordDict: [String], <span class="number">_</span> cache: <span class="keyword">inout</span> [String: [String]])</span></span> -&gt; [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">if</span> s.<span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> [<span class="string">""</span>]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> value = cache[s] &#123;</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> result = [<span class="type">String</span>]()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> wordDict &#123;</span><br><span class="line">            <span class="keyword">if</span> s.hasPrefix(word) &#123;</span><br><span class="line">                <span class="keyword">let</span> subWordBreaks = <span class="type">DFS</span>(<span class="type">String</span>(s.suffix(from: word.endIndex)), wordDict, &amp;cache)</span><br><span class="line">                <span class="keyword">for</span> subWordBreak <span class="keyword">in</span> subWordBreaks &#123;</span><br><span class="line">                    <span class="keyword">if</span> subWordBreak.isEmpty &#123;</span><br><span class="line">                        result.append(word)</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result.append(word + <span class="string">" "</span> + subWordBreak)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cache[s] = result;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/15/WordBreakII/">http://yeziahehe.com/2017/10/15/WordBreakII/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yeziahehe.com/tags/Dynamic-Programming/"/>
-    
-      <category term="Backtracking" scheme="http://yeziahehe.com/tags/Backtracking/"/>
     
   </entry>
   

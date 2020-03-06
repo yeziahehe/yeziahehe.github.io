@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yeziahehe.com/2020/03/05/DiagonalTraverse/</loc>
+    <loc>http://yeziahehe.com/leetcode/index.html</loc>
     
-    <lastmod>2020-03-05T09:21:40.993Z</lastmod>
+    <lastmod>2020-03-06T09:06:08.613Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/leetcode/index.html</loc>
+    <loc>http://yeziahehe.com/2020/03/06/SpiralMatrix/</loc>
     
-    <lastmod>2020-03-05T09:16:11.928Z</lastmod>
+    <lastmod>2020-03-06T09:05:52.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2020/03/05/DiagonalTraverse/</loc>
+    
+    <lastmod>2020-03-05T09:21:40.993Z</lastmod>
     
   </url>
   

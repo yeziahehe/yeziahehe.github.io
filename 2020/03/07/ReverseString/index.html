@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Find Pivot Index | Ivan&#39;s Blog</title>
+  <title>Reverse String | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,String,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 344. Reverse String。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路reverse() 函数的内部实现。 123456789101112class Solution &amp;#123;    func reverseString(_ s: inout [Character]) &amp;#123;        // 为了实现 reverse()">
+<meta name="keywords" content="算法,LeetCode,String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Find Pivot Index">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/05/FindPivotIndex/index.html">
+<meta property="og:title" content="Reverse String">
+<meta property="og:url" content="http://yeziahehe.com/2020/03/07/ReverseString/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
+<meta property="og:description" content="题目介绍 LeetCode 344. Reverse String。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路reverse() 函数的内部实现。 123456789101112class Solution &amp;#123;    func reverseString(_ s: inout [Character]) &amp;#123;        // 为了实现 reverse()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05下午01.10.53.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YuRKHd.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-05T05:36:57.273Z">
+<meta property="og:updated_time" content="2020-03-07T15:46:41.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Find Pivot Index">
-<meta name="twitter:description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05下午01.10.53.png">
+<meta name="twitter:title" content="Reverse String">
+<meta name="twitter:description" content="题目介绍 LeetCode 344. Reverse String。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路reverse() 函数的内部实现。 123456789101112class Solution &amp;#123;    func reverseString(_ s: inout [Character]) &amp;#123;        // 为了实现 reverse()">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YuRKHd.png">
 
   
 
@@ -112,14 +112,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-FindPivotIndex" class="article article-type-post" itemprop="blogPost">
+   <article id="post-ReverseString" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Find Pivot Index</h1>
+    <h1 class="post-title">Reverse String</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.05</span>
+        <span>2020.03.07</span>
       </span>
 
       
@@ -152,12 +152,12 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05下午01.10.53.png" alt></p>
-<p><a href="https://leetcode.com/problems/find-pivot-index/" target="_blank" rel="noopener">LeetCode 724. Find Pivot Index</a>。</p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YuRKHd.png" alt></p>
+<p><a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="noopener">LeetCode 344. Reverse String</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有重复返回最左边，考虑数组元素前缀和。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pivotIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="comment">// 求和</span></span><br><span class="line">        <span class="keyword">let</span> sum = nums.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;</span><br><span class="line">        <span class="keyword">var</span> leftSum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> leftSum == sum - leftSum - nums[i] &#123;</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">            &#125;</span><br><span class="line">            leftSum += nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/FindPivotIndex/">http://yeziahehe.com/2020/03/05/FindPivotIndex/</a></blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>reverse() 函数的内部实现。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseString</span><span class="params">(<span class="number">_</span> s: <span class="keyword">inout</span> [Character])</span></span> &#123;</span><br><span class="line">        <span class="comment">// 为了实现 reverse() 函数</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = s.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; j &#123;</span><br><span class="line">            s.swapAt(i, j)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/07/ReverseString/">http://yeziahehe.com/2020/03/07/ReverseString/</a></blockquote>
     
   </div>
 
@@ -194,10 +194,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/03/MovingAverageFromDataStream/">
+    <a class="show pull-left" href="/2020/03/07/LongestCommonPrefix/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/05/DiagonalTraverse/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

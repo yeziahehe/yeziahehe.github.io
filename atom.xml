@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-03-07T15:46:41.176Z</updated>
+  <updated>2020-03-08T04:25:20.666Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Two Sum II - Input array is sorted</title>
+    <link href="http://yeziahehe.com/2020/03/08/TwoSumII/"/>
+    <id>http://yeziahehe.com/2020/03/08/TwoSumII/</id>
+    <published>2020-03-08T04:21:01.000Z</published>
+    <updated>2020-03-08T04:25:20.666Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IoQKgr.png" alt></p><p><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">LeetCode 167. Two Sum II - Input array is sorted</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>要把排好序这个特征充分利用，利用双指针，分别从头尾开始，两数相加，和如果为 target 直接返回；如果偏大，尾指针前移；如果偏小，头指针后移。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">twoSum</span><span class="params">(<span class="number">_</span> numbers: [Int], <span class="number">_</span> target: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = numbers.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; j &#123;</span><br><span class="line">            <span class="keyword">let</span> sum = numbers[i] + numbers[j]</span><br><span class="line">            <span class="keyword">if</span> sum == target &#123;</span><br><span class="line">                <span class="keyword">return</span> [i+<span class="number">1</span>, j+<span class="number">1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sum &lt; target &#123;</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/TwoSumII/">http://yeziahehe.com/2020/03/08/TwoSumII/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
+    
+      <category term="Binary Search" scheme="http://yeziahehe.com/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Array Partition I</title>
+    <link href="http://yeziahehe.com/2020/03/08/ArrayPartitionI/"/>
+    <id>http://yeziahehe.com/2020/03/08/ArrayPartitionI/</id>
+    <published>2020-03-07T16:24:11.000Z</published>
+    <updated>2020-03-07T16:25:27.347Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XBGfNJ.png" alt></p><p><a href="https://leetcode.com/problems/array-partition-i/" target="_blank" rel="noopener">LeetCode 561. Array Partition I</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(nlogn), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func arrayPairSum(_ nums: [Int]) -&gt; Int &#123;</span><br><span class="line">        let ans = nums.sorted()</span><br><span class="line">        return ans.enumerated().filter &#123; $0.offset % 2 == 0 &#125;.reduce(0) &#123; $0 + $1.element &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/ArrayPartitionI/">http://yeziahehe.com/2020/03/08/ArrayPartitionI/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+  </entry>
   
   <entry>
     <title>Reverse String</title>
@@ -162,35 +224,6 @@
   </entry>
   
   <entry>
-    <title>Largest Number At Least Twice of Others</title>
-    <link href="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/"/>
-    <id>http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/</id>
-    <published>2020-03-05T05:05:38.000Z</published>
-    <updated>2020-03-05T05:40:35.054Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QiMXgQ.png" alt></p><p><a href="https://leetcode.com/problems/largest-number-at-least-twice-of-others/" target="_blank" rel="noopener">LeetCode 747. Largest Number At Least Twice of Others</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>考虑只要第二大数字的两倍小于最大数字即可。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">dominantIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> s = nums.sorted()</span><br><span class="line">        <span class="keyword">if</span> s[nums.<span class="built_in">count</span> - <span class="number">1</span>] &gt;= s[nums.<span class="built_in">count</span> - <span class="number">2</span>] * <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> nums.firstIndex(of: s[nums.<span class="built_in">count</span> - <span class="number">1</span>])!</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/">http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Diagonal Traverse</title>
     <link href="http://yeziahehe.com/2020/03/05/DiagonalTraverse/"/>
     <id>http://yeziahehe.com/2020/03/05/DiagonalTraverse/</id>
@@ -227,6 +260,35 @@
     <updated>2020-03-05T05:36:57.273Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05下午01.10.53.png" alt></p><p><a href="https://leetcode.com/problems/find-pivot-index/" target="_blank" rel="noopener">LeetCode 724. Find Pivot Index</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有重复返回最左边，考虑数组元素前缀和。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pivotIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="comment">// 求和</span></span><br><span class="line">        <span class="keyword">let</span> sum = nums.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;</span><br><span class="line">        <span class="keyword">var</span> leftSum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> leftSum == sum - leftSum - nums[i] &#123;</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">            &#125;</span><br><span class="line">            leftSum += nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/FindPivotIndex/">http://yeziahehe.com/2020/03/05/FindPivotIndex/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Largest Number At Least Twice of Others</title>
+    <link href="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/"/>
+    <id>http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/</id>
+    <published>2020-03-05T05:05:38.000Z</published>
+    <updated>2020-03-05T05:40:35.054Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QiMXgQ.png" alt></p><p><a href="https://leetcode.com/problems/largest-number-at-least-twice-of-others/" target="_blank" rel="noopener">LeetCode 747. Largest Number At Least Twice of Others</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>考虑只要第二大数字的两倍小于最大数字即可。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">dominantIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> s = nums.sorted()</span><br><span class="line">        <span class="keyword">if</span> s[nums.<span class="built_in">count</span> - <span class="number">1</span>] &gt;= s[nums.<span class="built_in">count</span> - <span class="number">2</span>] * <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> nums.firstIndex(of: s[nums.<span class="built_in">count</span> - <span class="number">1</span>])!</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/">http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/</a></blockquote>]]></content>
     
     <summary type="html">
     
@@ -521,65 +583,6 @@
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
     
       <category term="Swift" scheme="http://yeziahehe.com/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bye 2017，Hi 2018</title>
-    <link href="http://yeziahehe.com/2018/01/02/Bye%202017%EF%BC%8CHi%202018/"/>
-    <id>http://yeziahehe.com/2018/01/02/Bye 2017，Hi 2018/</id>
-    <published>2018-01-02T03:02:43.000Z</published>
-    <updated>2018-01-02T04:54:01.566Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>又是一年新，三百六十度。仍然记得去年写总结的时候，2017 年算是思想变化很大的一年，有太多的感悟。</p><h1 id="Bye-2017"><a href="#Bye-2017" class="headerlink" title="Bye 2017"></a>Bye 2017</h1><h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>在年中离职之后，休息了一段时间，因为苏州互联网的环境，始终没有找到称心如意的工作，于是尝试了 soho。到目前为止，工作了差不多一个季度，工作的内容和企业相差无多，只是一个人在家，规律的作息和工作的安排才是最大的挑战。没有上下班时间的打卡，从头到尾的任务制，如何自律以及如何让自己的情绪保持的很好才是 soho 所面临的最大的问题。soho 的优势在于薪资方面确实比苏州本地的企业要高出很多，时间安排也相对自由；劣势在于不存在企业里面的晋升制度，且没有与人沟通的机会，并且提高自己的效率是个挑战。目前相对来说，我还是比较适应这种模式，初入职场，花时间研究技术以及得到较高的报酬，迅速的积累原始资本，然后合理的投资理财。</p><h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><p>说实话，这一年的技术应该是在退步的。在学校里面，对技术的热情是在工作后无法达到的。工作是要解决生活问题，不可能那么纯粹的去钻研技术，我想以前大学宿舍深夜唱红歌、学技术的时光应该一去不复返了。同样苏州的互联网环境也确实比不上一线城市，室友在寻觅一圈之后，还是选择了脱产读研，我能认同他的想法，这也许是改变现确定性最大的一个选择。考上 985 的研究生，选一个高端的方向，然后努力刷题，进大厂，一样的套路但是确实最能够预见到的。其他的选择，未知性太大，当然同样带来的机遇也会更大。</p><p>移动互联网的浪潮似乎是过了，至少 2017 年的工作岗位明显少，打杂岗位要的人越来越少，高端岗位同样一直在招聘。前几年的培训班搞了一波 iOS，导致这几年 1-3 年的人很难混下去。现在更多的人再聊 AI，可能炒的越火，泡沫越大，这个方向远远没到技术门槛可以下放到整个市场随意招聘的程度。倒是区块链，我觉得未来几年属于可以研究的方向，确实到了爆发的时机了。</p><h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>今年去了杭州，看了看杭州的互联网环境，也拜访了之前大学最好的室友。今年还和父母一起去了三亚，赶在圣诞节左右，难得的亲子时光。很多年也没有出去旅游了，说实话，和父母亲在一起的更多的是踏实，是内心的一种安稳，与跟其他人在一起的感觉是不一样的。其他零碎的地方我是记不起来了，明年可能会增加更多的出游机会。</p><p>今年年中也住到了自己买的房子里面，与我而言没有什么太大的差别，从来没有租过单间，体验不了别人说的安定。不过房贷的压力，还是让我今年一年减少了很多活动，好在 soho 的 offer 给到后，收入有了明显的提高，年末的三个月没有那么捉襟见肘了。</p><h2 id="理财"><a href="#理财" class="headerlink" title="理财"></a>理财</h2><p>年末手上积累了一些财富，房贷应该说拿走了我大部分的收入，好在这属于大杠杆，稳赚不赔的生意，也没有什么好后悔的，只是前几年的生活稍微辛苦一些。因为手上积累的一点积蓄，年末开始学习理财知识，也尝试性的购入了股票型、债券型、货币型的基金，属于刚刚入门，慢慢摸索的阶段吧。同时在了解下美股、港股以及评论区永远骂声一片的，明年准备在股市方面也投入一些时间和金钱。</p><h1 id="Hi-2018"><a href="#Hi-2018" class="headerlink" title="Hi 2018"></a>Hi 2018</h1><p>接下来的一年，对自己的要求会更多一些。离开校园有一段时间了，接下来的需要适应社会，而且未来几年也会成立家庭，拥有子女，肩上的担子应该会更重些。</p><h2 id="希望每日能做到的"><a href="#希望每日能做到的" class="headerlink" title="希望每日能做到的"></a>希望每日能做到的</h2><ul><li>早上起来能喝一杯温水</li><li>坚持早睡早起(22:30 ~ 7:30)</li><li>睡前读半小时书</li><li>学习英语</li><li>每周能完成 5 道算法题</li><li>坚持记账</li></ul><h2 id="生活技能"><a href="#生活技能" class="headerlink" title="生活技能"></a>生活技能</h2><ul><li>游泳</li><li>护照</li></ul><h2 id="旅游"><a href="#旅游" class="headerlink" title="旅游"></a>旅游</h2><ul><li>东三省</li><li>西安</li><li>加拿大</li></ul><h2 id="理财-1"><a href="#理财-1" class="headerlink" title="理财"></a>理财</h2><ul><li>定投基金，期望年化率 10%</li><li>长期持有中概股，港股腾讯，美股京东、欢聚时代，A 股目前看好中国平安、格力电器、比亚迪</li></ul><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><ul><li>未来简史</li><li>国富论</li><li>后续会补上更多…</li></ul><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2018/01/02/Bye">http://yeziahehe.com/2018/01/02/Bye</a> 2017，Hi 2018/</blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;又是一年新，三百六十度。仍然记得去年写总结的时候，2017 年算是思想变化很大的一年，有太多的感悟。&lt;/p&gt;
-&lt;h1 id=
-      
-    
-    </summary>
-    
-      <category term="随想" scheme="http://yeziahehe.com/categories/%E9%9A%8F%E6%83%B3/"/>
-    
-    
-      <category term="总结" scheme="http://yeziahehe.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="2017" scheme="http://yeziahehe.com/tags/2017/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Implement strStr()</title>
-    <link href="http://yeziahehe.com/2017/11/18/ImplementstrStr/"/>
-    <id>http://yeziahehe.com/2017/11/18/ImplementstrStr/</id>
-    <published>2017-11-18T11:53:03.000Z</published>
-    <updated>2020-03-07T14:44:28.442Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr_error.png" alt></p><p><a href="https://leetcode.com/problems/implement-strstr/description/" target="_blank" rel="noopener">LeetCode 28. Implement strStr()</a>，实现 <code>strStr()</code> 函数，返回子串在字符串中出现的起始位置，未包含则返回 -1。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>一开始我用了 Swift 本身语言的特性，如果包含返回 range，取 range 的起始位置即可。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">strStr</span><span class="params">(<span class="number">_</span> haystack: String, <span class="number">_</span> needle: String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> !needle.isEmpty <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> range = haystack.range(of: needle) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> range.lowerBound.encodedOffset</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：需要判断子字符串是否为空，是则返回 0；否则会报错如下：</p><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ImplementstrStr.png" alt></p><p>后来想想这个方法确实投机取巧用了语言的特性，所以还是用算法解决问题，two pointer 的算法思路。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">strStr</span><span class="params">(<span class="number">_</span> haystack: String, <span class="number">_</span> needle: String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> needle.isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> haystackChar = <span class="type">Array</span>(haystack)</span><br><span class="line">        <span class="keyword">let</span> needleChar = <span class="type">Array</span>(needle)</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> i &lt; haystackChar.<span class="built_in">count</span> - needleChar.<span class="built_in">count</span> + <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>..&lt;needleChar.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> haystackChar[i + index] == needleChar[index] &#123;</span><br><span class="line">                    <span class="keyword">if</span> index == needleChar.<span class="built_in">count</span> - <span class="number">1</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> i</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/18/ImplementstrStr/">http://yeziahehe.com/2017/11/18/ImplementstrStr/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
-      <category term="Two Pointers" scheme="http://yeziahehe.com/tags/Two-Pointers/"/>
     
   </entry>
   

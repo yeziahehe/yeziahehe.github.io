@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Pascal&#39;s Triangle II | Ivan&#39;s Blog</title>
+  <title>Reverse Words in a String | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,String,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 119. Pascal’s Triangle II。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路组合公式C(n,i) = n!/(i!*(n-i)!)则第(i+1)项是第i项的倍数=(n-i)/(i+1) 1234567891011class Solution &amp;#123;    func getRow(_ rowIndex: Int) -&amp;gt;">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 151. Reverse Words in a String。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路12345678910class Solution &amp;#123;    func reverseWords(_ s: String) -&amp;gt; String &amp;#123;        var ans = &quot;&quot;        let a =">
+<meta name="keywords" content="算法,LeetCode,String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pascal&#39;s Triangle II">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/08/Pascal'sTriangleII/index.html">
+<meta property="og:title" content="Reverse Words in a String">
+<meta property="og:url" content="http://yeziahehe.com/2020/03/08/ReverseWordsInAString/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 119. Pascal’s Triangle II。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路组合公式C(n,i) = n!/(i!*(n-i)!)则第(i+1)项是第i项的倍数=(n-i)/(i+1) 1234567891011class Solution &amp;#123;    func getRow(_ rowIndex: Int) -&amp;gt;">
+<meta property="og:description" content="题目介绍 LeetCode 151. Reverse Words in a String。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路12345678910class Solution &amp;#123;    func reverseWords(_ s: String) -&amp;gt; String &amp;#123;        var ans = &quot;&quot;        let a =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PWqik8.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-08下午10.56.35.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-08T14:25:27.874Z">
+<meta property="og:updated_time" content="2020-03-08T14:57:10.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pascal&#39;s Triangle II">
-<meta name="twitter:description" content="题目介绍 LeetCode 119. Pascal’s Triangle II。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路组合公式C(n,i) = n!/(i!*(n-i)!)则第(i+1)项是第i项的倍数=(n-i)/(i+1) 1234567891011class Solution &amp;#123;    func getRow(_ rowIndex: Int) -&amp;gt;">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PWqik8.png">
+<meta name="twitter:title" content="Reverse Words in a String">
+<meta name="twitter:description" content="题目介绍 LeetCode 151. Reverse Words in a String。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路12345678910class Solution &amp;#123;    func reverseWords(_ s: String) -&amp;gt; String &amp;#123;        var ans = &quot;&quot;        let a =">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-08下午10.56.35.png">
 
   
 
@@ -112,9 +112,9 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-Pascal&#39;sTriangleII" class="article article-type-post" itemprop="blogPost">
+   <article id="post-ReverseWordsInAString" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Pascal&#39;s Triangle II</h1>
+    <h1 class="post-title">Reverse Words in a String</h1>
 
     <div class="article-meta">
       <span>
@@ -152,12 +152,11 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PWqik8.png" alt></p>
-<p><a href="https://leetcode.com/problems/pascals-triangle-ii/" target="_blank" rel="noopener">LeetCode 119. Pascal’s Triangle II</a>。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>组合公式C(n,i) = n!/(i!*(n-i)!)<br>则第(i+1)项是第i项的倍数=(n-i)/(i+1)</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getRow</span><span class="params">(<span class="number">_</span> rowIndex: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> temp = <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> ans:[<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...rowIndex &#123;</span><br><span class="line">            ans.append(temp)</span><br><span class="line">            temp = temp * (rowIndex - i)/(i + <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/Pascal&#39;sTriangleII/">http://yeziahehe.com/2020/03/08/Pascal&#39;sTriangleII/</a></blockquote>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-08下午10.56.35.png" alt></p>
+<p><a href="https://leetcode.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">LeetCode 151. Reverse Words in a String</a>。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseWords</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="string">""</span></span><br><span class="line">        <span class="keyword">let</span> a = s.<span class="built_in">split</span>(separator: <span class="string">" "</span>).reversed().<span class="built_in">map</span> &#123; <span class="type">String</span>($<span class="number">0</span>) &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;a.<span class="built_in">count</span> &#123;</span><br><span class="line">            ans = i == <span class="number">0</span> ? a[i] : ans + <span class="string">" "</span> + a[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/ReverseWordsInAString/">http://yeziahehe.com/2020/03/08/ReverseWordsInAString/</a></blockquote>
     
   </div>
 
@@ -194,10 +193,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/08/RotateArray/">
+    <a class="show pull-left" href="/2020/03/08/Pascal'sTriangleII/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/08/ReverseWordsInAString/">
+    <a class="show pull-right" href="/2020/03/08/ReverseWordsInAStringIII/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

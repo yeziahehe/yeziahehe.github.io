@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-03-08T14:25:27.874Z</updated>
+  <updated>2020-03-08T15:30:22.105Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Remove Duplicates from Sorted Array</title>
+    <link href="http://yeziahehe.com/2020/03/08/RemoveDuplicatesFromSortedArray/"/>
+    <id>http://yeziahehe.com/2020/03/08/RemoveDuplicatesFromSortedArray/</id>
+    <published>2020-03-08T15:30:00.000Z</published>
+    <updated>2020-03-08T15:30:22.105Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/HAHC7p.png" alt></p><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">LeetCode 26. Remove Duplicates from Sorted Array</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">removeDuplicates</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[i] != nums[ans] &#123;</span><br><span class="line">                ans += <span class="number">1</span></span><br><span class="line">                nums[ans] = nums[i]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">min</span>(ans+<span class="number">1</span>, nums.<span class="built_in">count</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/RemoveDuplicatesFromSortedArray/">http://yeziahehe.com/2020/03/08/RemoveDuplicatesFromSortedArray/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reverse Words in a String III</title>
+    <link href="http://yeziahehe.com/2020/03/08/ReverseWordsInAStringIII/"/>
+    <id>http://yeziahehe.com/2020/03/08/ReverseWordsInAStringIII/</id>
+    <published>2020-03-08T15:11:52.000Z</published>
+    <updated>2020-03-08T15:13:06.735Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ZzznNK.png" alt></p><p><a href="https://leetcode.com/problems/reverse-words-in-a-string-iii/" target="_blank" rel="noopener">LeetCode 557. Reverse Words in a String III</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseWords</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a = s.<span class="built_in">split</span>(separator: <span class="string">" "</span>).<span class="built_in">map</span> &#123; <span class="type">String</span>($<span class="number">0</span>) &#125;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> val <span class="keyword">in</span> a &#123;</span><br><span class="line">            ans = ans + <span class="string">" "</span> + val.reversed()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.trimmingCharacters(<span class="keyword">in</span>: .whitespaces)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/ReverseWordsInAStringIII/">http://yeziahehe.com/2020/03/08/ReverseWordsInAStringIII/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reverse Words in a String</title>
+    <link href="http://yeziahehe.com/2020/03/08/ReverseWordsInAString/"/>
+    <id>http://yeziahehe.com/2020/03/08/ReverseWordsInAString/</id>
+    <published>2020-03-08T14:55:03.000Z</published>
+    <updated>2020-03-08T14:57:10.990Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-08下午10.56.35.png" alt></p><p><a href="https://leetcode.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">LeetCode 151. Reverse Words in a String</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">reverseWords</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="string">""</span></span><br><span class="line">        <span class="keyword">let</span> a = s.<span class="built_in">split</span>(separator: <span class="string">" "</span>).reversed().<span class="built_in">map</span> &#123; <span class="type">String</span>($<span class="number">0</span>) &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;a.<span class="built_in">count</span> &#123;</span><br><span class="line">            ans = i == <span class="number">0</span> ? a[i] : ans + <span class="string">" "</span> + a[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/ReverseWordsInAString/">http://yeziahehe.com/2020/03/08/ReverseWordsInAString/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+  </entry>
   
   <entry>
     <title>Pascal&#39;s Triangle II</title>
@@ -312,9 +401,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
       <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
     
   </entry>
   
@@ -355,35 +444,6 @@
     <updated>2020-03-07T13:40:47.526Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/wAGdF6.png" alt></p><p><a href="https://leetcode.com/problems/spiral-matrix/" target="_blank" rel="noopener">LeetCode 54. Spiral Matrix</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>找到移动的条件 <code>i+v == m.count || i+v == -1 || j+h == m[0].count || j+h == -1 || m[i+v][j+h] == 0</code><br>取出来的元素置为 0，(h, v) 组合代表移动方向</p><ul><li>→ (1, 0)</li><li>↓ (0, 1)</li><li>← (-1, 0)</li><li>↑ (0, -1)</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">spiralOrder</span><span class="params">(<span class="number">_</span> matrix: [[Int]])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> h = <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> v = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">var</span> m: [[<span class="type">Int</span>]] = matrix</span><br><span class="line">        <span class="keyword">if</span> m.<span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;(m.<span class="built_in">count</span> * m[<span class="number">0</span>].<span class="built_in">count</span>) &#123;</span><br><span class="line">            ans.append(m[i][j])</span><br><span class="line">            m[i][j] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> i+v == m.<span class="built_in">count</span> || i+v == -<span class="number">1</span> || j+h == m[<span class="number">0</span>].<span class="built_in">count</span> || j+h == -<span class="number">1</span> || m[i+v][j+h] == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="comment">// 要变方向</span></span><br><span class="line">                <span class="keyword">if</span> h == <span class="number">1</span> &amp;&amp; v == <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="comment">// → (1, 0)</span></span><br><span class="line">                    h = <span class="number">0</span></span><br><span class="line">                    v = <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> h == <span class="number">0</span> &amp;&amp; v == <span class="number">1</span> &#123;</span><br><span class="line">                    h = -<span class="number">1</span></span><br><span class="line">                    v = <span class="number">0</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> h == -<span class="number">1</span> &amp;&amp; v == <span class="number">0</span> &#123;</span><br><span class="line">                    h = <span class="number">0</span></span><br><span class="line">                    v = -<span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> h == <span class="number">0</span> &amp;&amp; v == -<span class="number">1</span> &#123;</span><br><span class="line">                    h = <span class="number">1</span></span><br><span class="line">                    v = <span class="number">0</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            i += v</span><br><span class="line">            j += h</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** (h, v) 组合代表移动方向</span></span><br><span class="line"><span class="comment"> → (1, 0)</span></span><br><span class="line"><span class="comment"> ↓ (0, 1)</span></span><br><span class="line"><span class="comment"> ← (-1, 0)</span></span><br><span class="line"><span class="comment"> ↑ (0, -1)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/06/SpiralMatrix/">http://yeziahehe.com/2020/03/06/SpiralMatrix/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Diagonal Traverse</title>
-    <link href="http://yeziahehe.com/2020/03/05/DiagonalTraverse/"/>
-    <id>http://yeziahehe.com/2020/03/05/DiagonalTraverse/</id>
-    <published>2020-03-05T05:05:38.000Z</published>
-    <updated>2020-03-05T09:21:40.993Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cAJaFK.png" alt></p><p><a href="https://leetcode.com/problems/diagonal-traverse/" target="_blank" rel="noopener">LeetCode 498. Diagonal Traverse</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(mn), 空间复杂度: O(mn)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>边界条件很多，用 <code>(i+j)%2</code> 判断是 ↗ 还是 ↙ ，不同情况中还要判断转向的条件。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findDiagonalOrder</span><span class="params">(<span class="number">_</span> matrix: [[Int]])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">while</span> (i &lt; matrix.<span class="built_in">count</span> &amp;&amp; j &lt; matrix[<span class="number">0</span>].<span class="built_in">count</span>) &#123;</span><br><span class="line">            ans.append(matrix[i][j])</span><br><span class="line">            <span class="keyword">if</span> (i + j) % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="comment">// ↗ </span></span><br><span class="line">                <span class="keyword">if</span> j == matrix[<span class="number">0</span>].<span class="built_in">count</span> - <span class="number">1</span> &#123;</span><br><span class="line">                    <span class="comment">// 右边到顶了，要换方向，坐标(i+1, j)</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> i == <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="comment">// 上面到顶了，要换方向，坐标(i, j+1)</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不换方向，坐标(i-1, j+1)</span></span><br><span class="line">                    i -= <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// ↙ </span></span><br><span class="line">                <span class="keyword">if</span> i == matrix.<span class="built_in">count</span> - <span class="number">1</span> &#123;</span><br><span class="line">                    <span class="comment">// 下边到底了，要换方向，坐标(i, j+1)</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> j == <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="comment">// 左边到底了，要换方向，坐标(i+1, j)</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不换方向</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                    j -= <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/DiagonalTraverse/">http://yeziahehe.com/2020/03/05/DiagonalTraverse/</a></blockquote>]]></content>
     
     <summary type="html">
     
@@ -464,6 +524,35 @@
   </entry>
   
   <entry>
+    <title>Diagonal Traverse</title>
+    <link href="http://yeziahehe.com/2020/03/05/DiagonalTraverse/"/>
+    <id>http://yeziahehe.com/2020/03/05/DiagonalTraverse/</id>
+    <published>2020-03-05T05:05:38.000Z</published>
+    <updated>2020-03-05T09:21:40.993Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/cAJaFK.png" alt></p><p><a href="https://leetcode.com/problems/diagonal-traverse/" target="_blank" rel="noopener">LeetCode 498. Diagonal Traverse</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(mn), 空间复杂度: O(mn)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>边界条件很多，用 <code>(i+j)%2</code> 判断是 ↗ 还是 ↙ ，不同情况中还要判断转向的条件。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findDiagonalOrder</span><span class="params">(<span class="number">_</span> matrix: [[Int]])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">while</span> (i &lt; matrix.<span class="built_in">count</span> &amp;&amp; j &lt; matrix[<span class="number">0</span>].<span class="built_in">count</span>) &#123;</span><br><span class="line">            ans.append(matrix[i][j])</span><br><span class="line">            <span class="keyword">if</span> (i + j) % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="comment">// ↗ </span></span><br><span class="line">                <span class="keyword">if</span> j == matrix[<span class="number">0</span>].<span class="built_in">count</span> - <span class="number">1</span> &#123;</span><br><span class="line">                    <span class="comment">// 右边到顶了，要换方向，坐标(i+1, j)</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> i == <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="comment">// 上面到顶了，要换方向，坐标(i, j+1)</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不换方向，坐标(i-1, j+1)</span></span><br><span class="line">                    i -= <span class="number">1</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// ↙ </span></span><br><span class="line">                <span class="keyword">if</span> i == matrix.<span class="built_in">count</span> - <span class="number">1</span> &#123;</span><br><span class="line">                    <span class="comment">// 下边到底了，要换方向，坐标(i, j+1)</span></span><br><span class="line">                    j += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> j == <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="comment">// 左边到底了，要换方向，坐标(i+1, j)</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 不换方向</span></span><br><span class="line">                    i += <span class="number">1</span></span><br><span class="line">                    j -= <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/05/DiagonalTraverse/">http://yeziahehe.com/2020/03/05/DiagonalTraverse/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Moving Average from Data Stream</title>
     <link href="http://yeziahehe.com/2020/03/03/MovingAverageFromDataStream/"/>
     <id>http://yeziahehe.com/2020/03/03/MovingAverageFromDataStream/</id>
@@ -518,93 +607,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sum of Left Leaves</title>
-    <link href="http://yeziahehe.com/2020/02/28/SumOfLeftLeaves/"/>
-    <id>http://yeziahehe.com/2020/02/28/SumOfLeftLeaves/</id>
-    <published>2020-02-28T05:39:19.000Z</published>
-    <updated>2020-03-01T06:45:19.099Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/r3mVDi.png" alt></p><p><a href="https://leetcode.com/problems/sum-of-left-leaves/" target="_blank" rel="noopener">LeetCode 404. Sum of Left Leaves</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(logn)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>考虑用递归的思路，存在左子树且左子树的左子树和右子树都为空的情况下就可以返回。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sumOfLeftLeaves</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = root.<span class="keyword">left</span>, <span class="keyword">left</span>.<span class="keyword">left</span> == <span class="literal">nil</span>, <span class="keyword">left</span>.<span class="keyword">right</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">            sum += <span class="keyword">left</span>.val</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sum + sumOfLeftLeaves(root.<span class="keyword">left</span>) + sumOfLeftLeaves(root.<span class="keyword">right</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/28/SumOfLeftLeaves/">http://yeziahehe.com/2020/02/28/SumOfLeftLeaves/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Assign Cookies</title>
-    <link href="http://yeziahehe.com/2020/02/28/AssignCookies/"/>
-    <id>http://yeziahehe.com/2020/02/28/AssignCookies/</id>
-    <published>2020-02-28T05:39:18.000Z</published>
-    <updated>2020-03-01T06:14:47.120Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/WtnWJe.png" alt></p><p><a href="https://leetcode.com/problems/assign-cookies/" target="_blank" rel="noopener">LeetCode 455. Assign Cookies</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(nlogn), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>贪心算法的思想，分配的最优策略是每次分配只关注未分配饼干的最小胃口的小朋友。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findContentChildren</span><span class="params">(<span class="number">_</span> g: [Int], <span class="number">_</span> s: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> gSort = g.sorted()</span><br><span class="line">        <span class="keyword">let</span> sSort = s.sorted()</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; gSort.<span class="built_in">count</span> &amp;&amp; j &lt; sSort.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> gSort[i] &lt;= sSort[j] &#123;</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/28/AssignCookies/">http://yeziahehe.com/2020/02/28/AssignCookies/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Greedy" scheme="http://yeziahehe.com/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hamming Distance</title>
-    <link href="http://yeziahehe.com/2020/02/27/HammingDistance/"/>
-    <id>http://yeziahehe.com/2020/02/27/HammingDistance/</id>
-    <published>2020-02-27T05:39:19.000Z</published>
-    <updated>2020-03-01T06:45:24.071Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/9X1Ydr.png" alt></p><p><a href="https://leetcode.com/problems/hamming-distance/" target="_blank" rel="noopener">LeetCode 461. Hamming Distance</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(1), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先想到的思路是肯定是循环按每一位去对比，因为范围是给定的 <code>0 ≤ x, y &lt; 2 31</code>。但是这种时间复杂度肯定是 O(n)，算法如下：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hammingDistance</span><span class="params">(<span class="number">_</span> x: Int, <span class="number">_</span> y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> xv = x</span><br><span class="line">        <span class="keyword">var</span> yv = y</span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="number">31</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> bt = xv%<span class="number">2</span></span><br><span class="line">            <span class="keyword">let</span> by = yv%<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> bt == by &#123;</span><br><span class="line">                ans += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            xv = xv/<span class="number">2</span></span><br><span class="line">            yv = yv/<span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>所以考虑用二进制的一些机制来解题。</p><p>二进制的注意事项：</p><ul><li>取余直接得到当前位的值；</li><li>做除法相当于右移一位；</li><li>位运算里面有很多运算，比如这一题可以用异或，用了异或之后部分情况可能或缩短循环次数</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hammingDistance</span><span class="params">(<span class="number">_</span> x: Int, <span class="number">_</span> y: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> t = x^y</span><br><span class="line">        <span class="keyword">while</span> (t&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            ans += t&amp;<span class="number">1</span></span><br><span class="line">            t = t&gt;&gt;<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/02/27/HammingDistance/">http://yeziahehe.com/2020/02/27/HammingDistance/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Bit Manipulation" scheme="http://yeziahehe.com/tags/Bit-Manipulation/"/>
     
   </entry>
   

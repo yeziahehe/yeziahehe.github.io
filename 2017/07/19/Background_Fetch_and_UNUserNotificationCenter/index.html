@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>利用 Background Fetch + UNUserNotificationCenter 实现伪推送 | Ivan&#39;s Blog</title>
@@ -12,25 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Swift,">
+    <meta name="keywords" content="iOS,Swift," />
   
 
   <meta name="description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
-<meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
 <meta property="og:url" content="http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/back_refresh.jpeg?imageView2/2/h/750">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/debug.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:23:37.383Z">
+<meta property="article:published_time" content="2017-07-19T15:12:46.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:23:37.383Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
-<meta name="twitter:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
 
   
@@ -43,7 +43,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -58,8 +60,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -134,7 +136,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -179,7 +181,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> content = <span class="type">UNMutableNotificationContent</span>()</span><br><span class="line">content.title = <span class="type">String</span>.titleContentTitle</span><br><span class="line">content.body = <span class="type">String</span>.messageTodayGank</span><br><span class="line">content.sound = <span class="type">UNNotificationSound</span>.<span class="keyword">default</span>()</span><br><span class="line"><span class="keyword">let</span> trigger = <span class="type">UNTimeIntervalNotificationTrigger</span>(timeInterval: <span class="number">1</span>, repeats: <span class="literal">false</span>)</span><br><span class="line"><span class="keyword">let</span> requestIdentifier = <span class="string">"gank update"</span></span><br><span class="line"><span class="keyword">let</span> request = <span class="type">UNNotificationRequest</span>(identifier: requestIdentifier, content: content, trigger: trigger)</span><br><span class="line"><span class="type">UNUserNotificationCenter</span>.current().add(request, withCompletionHandler: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
 <p>最后发送推送，这边给的是最基础的推送内容。</p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>到此，通过 Background Fetch + UNUserNotificationCenter 实现伪推送就都完成了。这两个部分我都封装了 Service：<a href="https://github.com/yeziahehe/Gank/blob/master/Gank/Services/GankBackgroundFetchService.swift" target="_blank" rel="noopener">GankBackgroundFetchService</a> 和 <a href="https://github.com/yeziahehe/Gank/blob/master/Gank/Services/GankNotificationService.swift" target="_blank" rel="noopener">GankNotificationService</a>，希望对你有帮助。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/">http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/">http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/</a></blockquote>
     
   </div>
 

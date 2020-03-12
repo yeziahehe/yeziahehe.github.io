@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>iOS 持续集成--Travis CI + Fir.im自动编译发布 | Ivan&#39;s Blog</title>
@@ -12,26 +12,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Travis CI,">
+    <meta name="keywords" content="iOS,Travis CI," />
   
 
   <meta name="description" content="写在前面持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。 持续集成的优点：  “快速失败”，在对产品没有风险的情况下进行测试，并快速响应； 最大限度地减少风险，降低修复错误代码的成本； 将重复性">
-<meta name="keywords" content="iOS,Travis CI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 持续集成--Travis CI + Fir.im自动编译发布">
 <meta property="og:url" content="http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。 持续集成的优点：  “快速失败”，在对产品没有风险的情况下进行测试，并快速响应； 最大限度地减少风险，降低修复错误代码的成本； 将重复性">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/new_repo">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/connect_repo.png">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/github_webhook.png">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Certificates.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:52:09.450Z">
+<meta property="article:published_time" content="2016-08-07T12:12:14.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:52:09.450Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Travis CI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 持续集成--Travis CI + Fir.im自动编译发布">
-<meta name="twitter:description" content="写在前面持续集成一直是现在非常热门的话题，通过持续集成可以自动编译项目，并且配合单元测试可以实现持续集成+自动化测试。我在结合CI的基础上，通过fir-cli的发布命令，完成了持续集成+自动部署。这样能够很好的减少测试、发包等一系列重复的工作，极大的提高了效率。 持续集成的优点：  “快速失败”，在对产品没有风险的情况下进行测试，并快速响应； 最大限度地减少风险，降低修复错误代码的成本； 将重复性">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/new_repo">
 
   
@@ -44,7 +44,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -59,8 +61,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -135,7 +137,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -183,9 +185,7 @@
 <h2 id="程序签名"><a href="#程序签名" class="headerlink" title="程序签名"></a>程序签名</h2><p>为了在 Travis 中能给程序签名，我们需要准备好所有必须的证书和配置文件。就像每个 iOS 开发人员知道的那样，这可能是最困难、最容易出错的一步。</p>
 <h3 id="iPhone-发布证书-私钥"><a href="#iPhone-发布证书-私钥" class="headerlink" title="iPhone 发布证书 + 私钥"></a>iPhone 发布证书 + 私钥</h3><p>我们可以在自己的开发环境将证书和私钥给导出来。如果还没有发布证书的话，先创建一个。登录<a href="https://developer.apple.com/account/overview.action" target="_blank" rel="noopener">苹果开发者账号</a>，按照步骤，创建一个新的生产环境证书 (Certificates &gt; Production &gt; Add &gt; App Store and Ad Hoc)。然后下载并安装证书。之后，可以在钥匙串中找到它。打开 Mac 中的 钥匙串 应用程序：<br><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Certificates.png" alt="Certificates"></p>
 <p>右键单击证书，选择 Export… 将证书导出至 scripts/certs/dist.cer。然后导出私钥并保存至 scripts/certs/dist.p12。记得输入私钥的密码。<br><strong>备注：scripts 文件夹在项目根目录下。</strong></p>
-<p>由于 Travis 需要知道私钥密码，因此我们要把这个密码存储在某个地方。当然，我们不希望以明文的形式存储。我们可以用 Travis 的安全环境变量。打开终端，并定位到包含 .travis.yml 文件所在目录。首先用下面的命令安装 Travis gem：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install travis</span><br></pre></td></tr></table></figure></p>
-<p>之后，用下面的命令添加密钥密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt <span class="string">"KEY_PASSWORD=&#123;password&#125;"</span> --add</span><br></pre></td></tr></table></figure></p>
-<p>上面的命令会安装一个叫做 KEY_PASSWORD 的加密环境变量到 .travis.yml 配置文件中。这样就可以在被 Travis CI 执行的脚本中使用这个变量。</p>
+<p>由于 Travis 需要知道私钥密码，因此我们要把这个密码存储在某个地方。当然，我们不希望以明文的形式存储。我们可以用 Travis 的安全环境变量。打开终端，并定位到包含 .travis.yml 文件所在目录。首先用下面的命令安装 Travis gem：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install travis</span><br></pre></td></tr></table></figure><br>之后，用下面的命令添加密钥密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt <span class="string">"KEY_PASSWORD=&#123;password&#125;"</span> --add</span><br></pre></td></tr></table></figure><br>上面的命令会安装一个叫做 KEY_PASSWORD 的加密环境变量到 .travis.yml 配置文件中。这样就可以在被 Travis CI 执行的脚本中使用这个变量。</p>
 <h3 id="iOS-配置文件-发布"><a href="#iOS-配置文件-发布" class="headerlink" title="iOS 配置文件 (发布)"></a>iOS 配置文件 (发布)</h3><p>如果还没有用于发布的配置文件，那么也创建一个新的。根据开发者账号类型，可以选择创建 <a href="https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/TestingYouriOSApp/TestingYouriOSApp.html" target="_blank" rel="noopener">Ad Hoc</a> 配置文件 (Provisioning Profiles &gt; Distribution &gt; Add &gt; Ad Hoc)。然后将其下载保存至 scripts/profile/ 目录。</p>
 <p>由于 Travis 需要访问这个配置文件，所以我们需要将这个文件的名字存储为一个全局环境变量。并将其添加至 .travis.yml 文件的全局环境变量 section 中。例如，如果配置文件的名字是 <strong>YFSwiftFramework_Ad_Hoc.mobileprovision</strong>，那么按照如下进行添加：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">env:</span></span><br><span class="line">  <span class="symbol">global:</span></span><br><span class="line">  - APP_NAME=<span class="string">"YFSwiftFramework"</span></span><br><span class="line">  - <span class="string">'DEVELOPER_NAME="iPhone Distribution: &#123;your_name&#125;"'</span></span><br><span class="line">  - PROFILE_NAME=<span class="string">"YFSwiftFramework_Ad_Hoc"</span></span><br></pre></td></tr></table></figure></p>
 <p>上面还声明了三个环境变量。</p>
@@ -220,7 +220,7 @@
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://objccn.io/issue-6-5/" target="_blank" rel="noopener">为 iOS 建立 Travis CI</a></li>
 </ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/">http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/">http://yeziahehe.com/2016/08/07/use_travis_ci_for_ios_project/</a></blockquote>
     
   </div>
 

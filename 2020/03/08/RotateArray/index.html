@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Rotate Array | Ivan&#39;s Blog</title>
@@ -12,23 +12,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,Array," />
   
 
-  <meta name="description" content="题目介绍 LeetCode 189. Rotate Array。 复杂度时间复杂度：O(n)，空间复杂度: O(1) 解题思路数组拼接直接将需要移到前面的数组取出来拼接。 123456class Solution &amp;#123;    func rotate(_ nums: inout [Int], _ k: Int) &amp;#123;        let i = k % nums.count">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 189. Rotate Array。 复杂度时间复杂度：O(n)，空间复杂度: O(1) 解题思路数组拼接直接将需要移到前面的数组取出来拼接。 123456class Solution &amp;#123;    func rotate(_ nums: inout [Int], _ k: Int) &amp;#123;        let i &#x3D; k % nums.count">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rotate Array">
 <meta property="og:url" content="http://yeziahehe.com/2020/03/08/RotateArray/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 189. Rotate Array。 复杂度时间复杂度：O(n)，空间复杂度: O(1) 解题思路数组拼接直接将需要移到前面的数组取出来拼接。 123456class Solution &amp;#123;    func rotate(_ nums: inout [Int], _ k: Int) &amp;#123;        let i = k % nums.count">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="题目介绍 LeetCode 189. Rotate Array。 复杂度时间复杂度：O(n)，空间复杂度: O(1) 解题思路数组拼接直接将需要移到前面的数组取出来拼接。 123456class Solution &amp;#123;    func rotate(_ nums: inout [Int], _ k: Int) &amp;#123;        let i &#x3D; k % nums.count">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/vIffDe.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-08T14:08:48.534Z">
+<meta property="article:published_time" content="2020-03-08T14:04:26.000Z">
+<meta property="article:modified_time" content="2020-03-08T14:08:48.534Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Array">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rotate Array">
-<meta name="twitter:description" content="题目介绍 LeetCode 189. Rotate Array。 复杂度时间复杂度：O(n)，空间复杂度: O(1) 解题思路数组拼接直接将需要移到前面的数组取出来拼接。 123456class Solution &amp;#123;    func rotate(_ nums: inout [Int], _ k: Int) &amp;#123;        let i = k % nums.count">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/vIffDe.png">
 
   
@@ -41,7 +42,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +59,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,7 +155,7 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/vIffDe.png" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/vIffDe.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/rotate-array/" target="_blank" rel="noopener">LeetCode 189. Rotate Array</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度：O(n)，空间复杂度: O(1)</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="数组拼接"><a href="#数组拼接" class="headerlink" title="数组拼接"></a>数组拼接</h2><p>直接将需要移到前面的数组取出来拼接。</p>
@@ -160,7 +163,7 @@
 <h2 id="数组翻转"><a href="#数组翻转" class="headerlink" title="数组翻转"></a>数组翻转</h2><p>例如：</p>
 <p>[1,2,3,4,5,6,7] 3<br>[7,6,5,4,3,2,1]<br>[5,6,7,4,3,2,1]<br>[5,6,7,1,2,3,4]</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">rotate</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int], <span class="number">_</span> k: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> i = k % nums.<span class="built_in">count</span></span><br><span class="line">        <span class="built_in">reverse</span>(&amp;nums, <span class="number">0</span>, nums.<span class="built_in">count</span> - <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">reverse</span>(&amp;nums, <span class="number">0</span>, i - <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">reverse</span>(&amp;nums, i, nums.<span class="built_in">count</span> - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int], <span class="number">_</span> <span class="keyword">left</span>: Int, <span class="number">_</span> <span class="keyword">right</span>: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">var</span> l = <span class="keyword">left</span></span><br><span class="line">        <span class="keyword">var</span> r = <span class="keyword">right</span></span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            nums.swapAt(l, r)</span><br><span class="line">            l += <span class="number">1</span></span><br><span class="line">            r -= <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/RotateArray/">http://yeziahehe.com/2020/03/08/RotateArray/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/RotateArray/">http://yeziahehe.com/2020/03/08/RotateArray/</a></blockquote>
     
   </div>
 

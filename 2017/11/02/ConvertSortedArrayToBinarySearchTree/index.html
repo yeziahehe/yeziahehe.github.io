@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Convert Sorted Array to Binary Search Tree | Ivan&#39;s Blog</title>
@@ -12,23 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Tree,Depth-first Search,">
+    <meta name="keywords" content="算法,LeetCode,Tree,Depth-first Search," />
   
 
   <meta name="description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta name="keywords" content="算法,LeetCode,Tree,Depth-first Search">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Convert Sorted Array to Binary Search Tree">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:46:49.257Z">
+<meta property="article:published_time" content="2017-11-02T11:52:05.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:46:49.257Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Depth-first Search">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Convert Sorted Array to Binary Search Tree">
-<meta name="twitter:description" content="题目介绍 LeetCode 108. Convert Sorted Array to Binary Search Tree，题目的意思将一个升序的数组转化为平衡二叉查找树。 balanced BST二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png">
 
   
@@ -41,7 +43,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +60,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,14 +156,14 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ConvertSortedArraytoBinarySearchTree.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/" target="_blank" rel="noopener">LeetCode 108. Convert Sorted Array to Binary Search Tree</a>，题目的意思将一个升序的数组转化为平衡二叉查找树。</p>
 <h2 id="balanced-BST"><a href="#balanced-BST" class="headerlink" title="balanced BST"></a>balanced BST</h2><p>二叉查找树（BST）是一种能够将链表插入的灵活性和有序数组查找的高效性结合起来的符号表实现。具体的说，就是使用每个节点含有两个链接（链表中每个节点只含有一个链接）的二叉查找树来高效地实现符号表。我们定义的数据结构由 <strong>结点</strong> 组成，结点包含的链接可以为空或者指向其他结点。在二叉树中，每个节点只能有一个父节点（只有一个例外，也就是根节点，它没有父节点），而且每个节点都只有左右两个链接，分别指向自己的左子节点和右子节点。二叉查找树的数据结构如下所示：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们知道，对于一般的二叉搜索树，其期望高度（即为一棵平衡树时）为lgn，其各操作的时间复杂度 O(lgn) 同时也由此而决定，这样就和二分查找时间复杂度一致。但是，在某些极端的情况下（如在插入的序列是有序的时），二叉搜索树将退化成近似链或链，此时，其操作的时间复杂度将退化成线性的，即O(n)。我们在平时构造二叉搜索树的时候，会通过随机化建立二叉搜索树，来避免这种情况，但是这种距离平衡二叉搜索树的时间复杂度还是有一定的差距。平衡二叉搜索树（Balanced Binary Tree）具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。不幸的是，在动态插入中保证树的完美平衡的代价太高了，相应的就有红黑二叉数等算法改进，这里不做过多介绍。</p>
 <h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>因为是有序的数组，所以可以直接通过二分的方法来不断的进行递归插入。联想到二分方法的原因是，因为二分法的时间复杂度为 O(lgn)，而平衡二叉查找树的时间复杂度也为 O(lgn)。所以算法如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sortedArrayToBST</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">TreeNode?</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sortSubArrayToBST(nums, <span class="number">0</span>, nums.<span class="built_in">count</span> - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">sortSubArrayToBST</span><span class="params">(<span class="number">_</span> nums: [Int], <span class="number">_</span> strat: Int, <span class="number">_</span> end: Int)</span></span> -&gt; <span class="type">TreeNode?</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> strat &lt;= end <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> mid = (strat + end) / <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> node = <span class="type">TreeNode</span>(nums[mid])</span><br><span class="line">        node.<span class="keyword">left</span> = sortSubArrayToBST(nums, strat, mid - <span class="number">1</span>)</span><br><span class="line">        node.<span class="keyword">right</span> = sortSubArrayToBST(nums, mid + <span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/">http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/">http://yeziahehe.com/2017/11/02/ConvertSortedArrayToBinarySearchTree/</a></blockquote>
     
   </div>
 

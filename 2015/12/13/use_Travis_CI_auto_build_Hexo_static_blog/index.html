@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>使用Travis CI自动构建Hexo静态博客 | Ivan&#39;s Blog</title>
@@ -12,24 +12,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="hexo,Travis CI,">
+    <meta name="keywords" content="hexo,Travis CI," />
   
 
   <meta name="description" content="前言随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。 我2014年的时候自己买了域名，用jekyll + GitHub Pages搭建">
-<meta name="keywords" content="hexo,Travis CI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Travis CI自动构建Hexo静态博客">
 <meta property="og:url" content="http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="前言随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。 我2014年的时候自己买了域名，用jekyll + GitHub Pages搭建">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis_yml_comment.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-17T02:56:00.984Z">
+<meta property="article:published_time" content="2015-12-13T15:35:55.000Z">
+<meta property="article:modified_time" content="2019-03-17T02:56:00.984Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Travis CI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Travis CI自动构建Hexo静态博客">
-<meta name="twitter:description" content="前言随着现在open source越来越火，更多的人开始注重技术知识的获取。不可否认，目前的信息传播速度非常之快，渠道也非常之多，对于知识获取的整理和理解是很多人都在做的一件事情。在这种情况下更多的人开始选择写博客，把自己认知记录下来，一是为了检验自己对于技术的理解，二是为了让更多的人去从你的博客中获取到有用的信息。 我2014年的时候自己买了域名，用jekyll + GitHub Pages搭建">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/travis-hexo-flowing.png">
 
   
@@ -42,7 +42,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -57,8 +59,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -221,7 +223,7 @@
 </ul>
 <p>解决办法就是<code>hexo g</code>命令做两遍，这个也是为什么我<code>.travis.yml</code>中的Hexo配置命令写了两遍的原因。被这个问题纠缠了很久，希望写出来能帮到大家，如果你没有问题就不需要在<code>.travis.yml</code>中写两遍命令。</p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>这个是我搭建这个博客写的第一篇文章，我也发现我这次解决问题回去弄个明白，回想之前写的博客，其实干货真的很少，知识也很肤浅，这次搭建博客-发现问题-解决问题给了我很好的体验，也让我学到了很多，我会尽可能的去写很多的干货去和大家分享！共勉！</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/">http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/">http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</a></blockquote>
     
   </div>
 

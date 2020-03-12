@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Two Sum | Ivan&#39;s Blog</title>
@@ -12,23 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,Hash Table,">
+    <meta name="keywords" content="算法,LeetCode,Array,Hash Table," />
   
 
   <meta name="description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
-<meta name="keywords" content="算法,LeetCode,Array,Hash Table">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Two Sum">
 <meta property="og:url" content="http://yeziahehe.com/2017/10/09/TwoSum/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/TwoSum.jpg">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:31:10.862Z">
+<meta property="article:published_time" content="2017-10-08T16:09:12.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:31:10.862Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Hash Table">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Two Sum">
-<meta name="twitter:description" content="题目介绍 LeetCode 1. Two Sum，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。 解题方法暴力求解很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。 12345678910public int[] twoSum(int[] nums, int target) &amp;#123;">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/TwoSum.jpg">
 
   
@@ -41,7 +43,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +60,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,7 +156,7 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/TwoSum.jpg" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/TwoSum.jpg" alt=""></p>
 <p><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="noopener">LeetCode 1. Two Sum</a>，题目的意思简单来说就是给 Target，从数组中找到两个数和，同一个数不可以用两次，且我在测试的时候发现会有同一个值出现两次的情况。</p>
 <h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><h2 id="暴力求解"><a href="#暴力求解" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>很简单的方式，两个 for loop 就能解决，时间复杂度为 O(n²)。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] == target - nums[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; i, j &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"No two sum solution"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -161,7 +165,7 @@
 <p>PS: 本来没打算写这篇博客，主要是我朋友在写这一条的写了 Python 算法，如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">two_sum</span><span class="params">(nums, target)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> index, item <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">            a = target - item</span><br><span class="line">            list = copy.copy(nums)</span><br><span class="line">            <span class="keyword">del</span> list[index]</span><br><span class="line">            <span class="keyword">if</span> a <span class="keyword">in</span> list:</span><br><span class="line">                <span class="keyword">if</span> nums.index(a) == index:</span><br><span class="line">                    <span class="keyword">return</span> [index,list.index(a)+<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">return</span> [index, nums.index(a)]</span><br></pre></td></tr></table></figure>
 <p>简单的来看，是读取一个数首先删除本身，然后去判断 target - item 是不是存在数组中。我开始很疑惑，在没有使用散列表的情况下，只用数组解出来一定是牺牲了时空复杂度。果然问题在 <code>if a in list:</code>，python 的语法糖在做这句话的时候，其实是做了 For loop，所以时间复杂度为 O(n²)。迷惑了我朋友很久才想通的问题，大家在刷题的时候一定要注意：<strong>高级语言的语法糖和数据结构在带来遍历的同时，在处理方式上面可能会存在你不知道的时空耗费。</strong></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/09/TwoSum/">http://yeziahehe.com/2017/10/09/TwoSum/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/10/09/TwoSum/">http://yeziahehe.com/2017/10/09/TwoSum/</a></blockquote>
     
   </div>
 

@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>objc中国学习--并发编程 | Ivan&#39;s Blog</title>
@@ -12,22 +12,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,objc中国,">
+    <meta name="keywords" content="iOS,objc中国," />
   
 
   <meta name="description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
-<meta name="keywords" content="iOS,objc中国">
 <meta property="og:type" content="article">
 <meta property="og:title" content="objc中国学习--并发编程">
-<meta property="og:url" content="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent Programming/index.html">
+<meta property="og:url" content="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2016-09-02T03:01:47.000Z">
+<meta property="article:published_time" content="2015-09-19T15:21:37.000Z">
+<meta property="article:modified_time" content="2016-09-02T03:01:47.000Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="objc中国">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="objc中国学习--并发编程">
-<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。 并发编程 卷首语  并发编程：API 及挑战  常见的后台实践  底层并发 API  线程安全类的设计  测试并发程序   线程线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的 —— 包括 GCD 和操作队列（operation queues）。 直接使用线程可能会引发的一">
 <meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
   
@@ -40,7 +40,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -55,8 +57,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -131,7 +133,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -178,7 +180,7 @@
 <h3 id="Run-Loops"><a href="#Run-Loops" class="headerlink" title="Run Loops"></a>Run Loops</h3><p>Run loop并不像 GCD 或者操作队列那样是一种并发机制，因为它并不能并行执行任务。不过在主 dispatch/operation 队列中， run loop 将直接配合任务的执行，它提供了一种异步执行代码的机制。</p>
 <p>Run loop 比起操作队列或者 GCD 来说容易使用得多，因为通过 run loop ，你不必处理并发中的复杂情况，就能异步地执行任务。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.objcio.cn/issue-2/" target="_blank" rel="noopener">#2 并发编程</a></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent">http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent</a> Programming/</blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/">http://yeziahehe.com/2015/09/19/Objc_learning--Concurrent%20Programming/</a></blockquote>
     
   </div>
 

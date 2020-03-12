@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Plus One | Ivan&#39;s Blog</title>
@@ -12,23 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Math,Array,">
+    <meta name="keywords" content="算法,LeetCode,Math,Array," />
   
 
-  <meta name="description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 12345678910">
-<meta name="keywords" content="算法,LeetCode,Math,Array">
+  <meta name="description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路先把数组反向然后遍历，如果是 index &#x3D;&#x3D; 0 就加一，记录下进位值 carry &#x3D; sum &#x2F; 10 和加一后的当前数字 reDigits[index] &#x3D; sum % 10。 12345678910">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Plus One">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/07/PlusOne/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 12345678910">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路先把数组反向然后遍历，如果是 index &#x3D;&#x3D; 0 就加一，记录下进位值 carry &#x3D; sum &#x2F; 10 和加一后的当前数字 reDigits[index] &#x3D; sum % 10。 12345678910">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PlusOne.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-05T07:28:14.986Z">
+<meta property="article:published_time" content="2017-11-07T13:09:54.000Z">
+<meta property="article:modified_time" content="2020-03-05T07:28:14.986Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Array">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus One">
-<meta name="twitter:description" content="题目介绍 LeetCode 66. Plus One，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路先把数组反向然后遍历，如果是 index == 0 就加一，记录下进位值 carry = sum / 10 和加一后的当前数字 reDigits[index] = sum % 10。 12345678910">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PlusOne.png">
 
   
@@ -41,7 +43,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +60,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,14 +156,14 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PlusOne.png" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PlusOne.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/plus-one/description/" target="_blank" rel="noopener">LeetCode 66. Plus One</a>，题目的意思给定一个非负数组表示一个数字，从高位向低位排，加一之后输出结果。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>先把数组反向然后遍历，如果是 <code>index == 0</code> 就加一，记录下进位值 <code>carry = sum / 10</code> 和加一后的当前数字 <code>reDigits[index] = sum % 10</code>。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plusOne</span><span class="params">(<span class="number">_</span> digits: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> reDigits: [<span class="type">Int</span>] = digits.reversed()</span><br><span class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (index, digit) <span class="keyword">in</span> reDigits.enumerated() &#123;</span><br><span class="line">            <span class="keyword">let</span> sum = index == <span class="number">0</span> ? digit + <span class="number">1</span> + carry : digit + carry</span><br><span class="line">            carry = sum / <span class="number">10</span></span><br><span class="line">            reDigits[index] = sum % <span class="number">10</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> carry &gt; <span class="number">0</span> &#123;</span><br><span class="line">            reDigits.append(carry)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> reDigits.reversed()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有个巧妙点的解法，按逆序遍历，把当前位置 + 1 后取余，并且如果当前位置 + 1 后不进位就直接返回数组，因为后面都不会进位了。走出循环还不返回说明还要在 index = 0 补上一位。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plusOne</span><span class="params">(<span class="number">_</span> digits: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> s: [<span class="type">Int</span>] = digits</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s.enumerated().reversed() &#123;</span><br><span class="line">            s[i.offset] += <span class="number">1</span></span><br><span class="line">            s[i.offset] %= <span class="number">10</span></span><br><span class="line">            <span class="keyword">if</span> s[i.offset] != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> s</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 还没 return 说明要加 1</span></span><br><span class="line">        s.insert(<span class="number">1</span>, at: <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/07/PlusOne/">http://yeziahehe.com/2017/11/07/PlusOne/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/07/PlusOne/">http://yeziahehe.com/2017/11/07/PlusOne/</a></blockquote>
     
   </div>
 

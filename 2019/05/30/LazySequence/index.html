@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>从 xx_ 前缀向 xx. 命名空间协议转变 | Ivan&#39;s Blog</title>
@@ -12,22 +12,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Swift,">
+    <meta name="keywords" content="iOS,Swift," />
   
 
   <meta name="description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
-<meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从 xx_ 前缀向 xx. 命名空间协议转变">
 <meta property="og:url" content="http://yeziahehe.com/2019/05/30/LazySequence/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-05-30T08:32:07.491Z">
+<meta property="article:published_time" content="2019-05-30T03:09:30.000Z">
+<meta property="article:modified_time" content="2019-05-30T08:32:07.491Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从 xx_ 前缀向 xx. 命名空间协议转变">
-<meta name="twitter:description" content="写在前面最近在写新项目的时候，在一个下拉组件中看到了 .es 的语法，于是想到了很多的第三库如 Kingfisher, RxSwift 都使用了类似的 .kf, .rx 语法，从而引发了一段思考。 首先说说这个语法出现的场景，通常自己写的类或者封装的组件都会自己加前缀，但是在系统方法扩展的时候官方在 OC 时代给到的推荐是 前缀_ 的方式，在 Swift 语言出现后一段时间，开发者保留了这样的写法">
 <meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
   
@@ -40,7 +40,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -55,8 +57,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -131,7 +133,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -171,7 +173,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIImage</span>: <span class="title">KingfisherCompatible</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Kingfisher</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">UIImageView</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">setImage</span><span class="params">(image: UIImage)</span></span> &#123;</span><br><span class="line">        base.image = image</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><p>从上面的分析中来看，这样通过协议命名空间方法实现的 extension 看上去会跟优雅，也能过解决在项目中 manually 方式引入第三方库的时候，出现同名的扩展引起的冲突。但是在扩展的时候我同样发现一个问题，对于 <code>initializers methods</code> 是没办法使用命名空间去扩展的，我们只能对应的给一个 func 返回设置好的 Color 作为返回值。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(hex: <span class="type">Int</span>, alpha: <span class="type">CGFloat</span> = <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> t_alpha = alpha</span><br><span class="line">        <span class="keyword">if</span> t_alpha &lt; <span class="number">0</span> &#123; t_alpha = <span class="number">0</span> &#125;</span><br><span class="line">        <span class="keyword">if</span> t_alpha &gt; <span class="number">1</span> &#123; t_alpha = <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> red = (hex &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xff</span></span><br><span class="line">        <span class="keyword">let</span> green = (hex &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xff</span></span><br><span class="line">        <span class="keyword">let</span> blue = hex &amp; <span class="number">0xff</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(red: red, green: green, blue: blue, alpha: t_alpha)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2019/05/30/LazySequence/">http://yeziahehe.com/2019/05/30/LazySequence/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2019/05/30/LazySequence/">http://yeziahehe.com/2019/05/30/LazySequence/</a></blockquote>
     
   </div>
 
@@ -208,7 +210,7 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2018/01/02/Bye 2017，Hi 2018/">
+    <a class="show pull-left" href="/2018/01/02/Bye%202017%EF%BC%8CHi%202018/">
         <i class="icon icon-angle-left"></i>
     </a>
     <a class="show pull-right" href="/2020/01/19/UIKit_in_main_thread/">

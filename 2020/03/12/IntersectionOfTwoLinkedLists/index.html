@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Intersection of Two Linked Lists | Ivan&#39;s Blog</title>
@@ -12,24 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Linked List,">
+    <meta name="keywords" content="算法,LeetCode,Linked List," />
   
 
-  <meta name="description" content="题目介绍 LeetCode 160. Intersection of Two Linked Lists。 复杂度时间复杂度: O(m+n), 空间复杂度: O(1) 解题思路主要的思路是消除两个链表的长度差。  指针 pA 指向 A 链表，指针 pB 指向 B 链表，往后遍历 如果 pA 到了尾指针，则 pA = headB 继续遍历 如果 pB 到了尾指针，则 pB = headA 继续遍历">
-<meta name="keywords" content="算法,LeetCode,Linked List">
+  <meta name="description" content="题目介绍 LeetCode 160. Intersection of Two Linked Lists。 复杂度时间复杂度: O(m+n), 空间复杂度: O(1) 解题思路主要的思路是消除两个链表的长度差。  指针 pA 指向 A 链表，指针 pB 指向 B 链表，往后遍历 如果 pA 到了尾指针，则 pA &#x3D; headB 继续遍历 如果 pB 到了尾指针，则 pB &#x3D; headA 继续遍历">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intersection of Two Linked Lists">
 <meta property="og:url" content="http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 160. Intersection of Two Linked Lists。 复杂度时间复杂度: O(m+n), 空间复杂度: O(1) 解题思路主要的思路是消除两个链表的长度差。  指针 pA 指向 A 链表，指针 pB 指向 B 链表，往后遍历 如果 pA 到了尾指针，则 pA = headB 继续遍历 如果 pB 到了尾指针，则 pB = headA 继续遍历">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11下午05.20.23.png">
+<meta property="og:description" content="题目介绍 LeetCode 160. Intersection of Two Linked Lists。 复杂度时间复杂度: O(m+n), 空间复杂度: O(1) 解题思路主要的思路是消除两个链表的长度差。  指针 pA 指向 A 链表，指针 pB 指向 B 链表，往后遍历 如果 pA 到了尾指针，则 pA &#x3D; headB 继续遍历 如果 pB 到了尾指针，则 pB &#x3D; headA 继续遍历">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8B%E5%8D%8805.20.23.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-12T03:10:28.770Z">
+<meta property="article:published_time" content="2020-03-12T03:10:27.000Z">
+<meta property="article:modified_time" content="2020-03-12T03:10:28.770Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intersection of Two Linked Lists">
-<meta name="twitter:description" content="题目介绍 LeetCode 160. Intersection of Two Linked Lists。 复杂度时间复杂度: O(m+n), 空间复杂度: O(1) 解题思路主要的思路是消除两个链表的长度差。  指针 pA 指向 A 链表，指针 pB 指向 B 链表，往后遍历 如果 pA 到了尾指针，则 pA = headB 继续遍历 如果 pB 到了尾指针，则 pB = headA 继续遍历">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11下午05.20.23.png">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8B%E5%8D%8805.20.23.png">
 
   
 
@@ -41,7 +42,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +59,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,7 +155,7 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11下午05.20.23.png" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11下午05.20.23.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">LeetCode 160. Intersection of Two Linked Lists</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(m+n), 空间复杂度: O(1)</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>主要的思路是消除两个链表的长度差。</p>
@@ -163,7 +166,7 @@
 </ul>
 <p>这样的话就会消除长度差，并且在交点处相遇，还是个数学问题。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">getIntersectionNode</span><span class="params">(headA: ListNode?, headB: ListNode?)</span></span> -&gt; <span class="type">ListNode?</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> headA != <span class="literal">nil</span> &amp;&amp; headB != <span class="literal">nil</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> pA = headA</span><br><span class="line">        <span class="keyword">var</span> pB = headB</span><br><span class="line">        <span class="keyword">while</span> pA !== pB &#123;</span><br><span class="line">            pA = pA == <span class="literal">nil</span> ? headB : pA?.next</span><br><span class="line">            pB = pB == <span class="literal">nil</span> ? headA : pB?.next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pA</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/">http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/">http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/</a></blockquote>
     
   </div>
 

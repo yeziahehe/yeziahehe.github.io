@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>自定义库封装思路和Cocoapods发布 | Ivan&#39;s Blog</title>
@@ -12,25 +12,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS，Cocoapods,">
+    <meta name="keywords" content="iOS，Cocoapods," />
   
 
   <meta name="description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
-<meta name="keywords" content="iOS，Cocoapods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义库封装思路和Cocoapods发布">
 <meta property="og:url" content="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewbuttom.gif">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcenter.gif">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewcocoapods.jpg">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:57:02.867Z">
+<meta property="article:published_time" content="2015-10-22T15:32:23.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:57:02.867Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS，Cocoapods">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义库封装思路和Cocoapods发布">
-<meta name="twitter:description" content="写在前面近期自己封装了iOS客户端启动页的自定义库，在封装的过程中学习了很多，包括封装的思想以及Cocoapods发布。 原因首先是因为千篇一律的使用图片进行启动页，在用户体验上确实引起了审美疲劳，然后是收到了Coding的启发，于是准备进行启动页的封装。 PS：不会设计的程序员不是好程序员！ YFStartView目前YFStartView已经开源，效果图如下。   几点说明：  尽量不要使用三">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/YFStartViewbuttom.gif">
 
   
@@ -43,7 +42,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -58,8 +59,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -134,7 +135,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -188,7 +189,7 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://iiiyu.com/2013/03/01/learning-ios-notes-sixteen/" target="_blank" rel="noopener">配置自己的CocoaPods库</a></p>
 <p><a href="http://iiiyu.com/2013/12/19/learning-ios-notes-thirty-one/" target="_blank" rel="noopener">CocoaPods 手把手五分钟教你制作自己的podspec文件</a></p>
 <p><a href="http://www.cnblogs.com/wengzilin/p/4742530.html" target="_blank" rel="noopener">iOS：手把手教你发布代码到CocoaPods(Trunk方式)</a></p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/">http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/">http://yeziahehe.com/2015/10/22/own_framework_and_Cocoapods_release/</a></blockquote>
     
   </div>
 

@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>从 UI 操作在主线程聊起 | Ivan&#39;s Blog</title>
@@ -12,22 +12,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,">
+    <meta name="keywords" content="iOS," />
   
 
   <meta name="description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
-<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从 UI 操作在主线程聊起">
 <meta property="og:url" content="http://yeziahehe.com/2020/01/19/UIKit_in_main_thread/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-01-19T06:08:07.684Z">
+<meta property="article:published_time" content="2020-01-19T05:57:58.000Z">
+<meta property="article:modified_time" content="2020-01-19T06:08:07.684Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从 UI 操作在主线程聊起">
-<meta name="twitter:description" content="从 UI 操作在主线程聊起在开发过程中，会经常做的一件事就是在主线程中去刷新 UI，基于这个操作我们作如下几个思考。  为什么 UI 操作一定要在主线程？ 如果把 UI 操作放到后台线程会出现什么样的情况呢？  从 UIKit 说起我们首先先了解一下 UIKit | Apple Developer Documentation  ，简单概括就是在 主线程 响应用户事件、展示视图。文档里面特别强调了一">
 <meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
   
@@ -40,7 +39,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -55,8 +56,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -131,7 +132,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -171,7 +172,7 @@
 <li><a href="https://juejin.im/post/5c406d97e51d4552475fe178" target="_blank" rel="noopener">iOS拾遗——为什么必须在主线程操作UI</a></li>
 <li><a href="https://objccn.io/issue-2-4/" target="_blank" rel="noopener">ObjC 中国 - 线程安全类的设计</a></li>
 </ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/01/19/UIKit_in_main_thread/">http://yeziahehe.com/2020/01/19/UIKit_in_main_thread/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/01/19/UIKit_in_main_thread/">http://yeziahehe.com/2020/01/19/UIKit_in_main_thread/</a></blockquote>
     
   </div>
 

@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Roman to Integer | Ivan&#39;s Blog</title>
@@ -12,23 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,String,Math,">
+    <meta name="keywords" content="算法,LeetCode,String,Math," />
   
 
-  <meta name="description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
-<meta name="keywords" content="算法,LeetCode,String,Math">
+  <meta name="description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ &#x3D; 3； 小的数字在大的数字的右边，所表示的数等于这些数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Roman to Integer">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/14/RomanToInteger/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ &#x3D; 3； 小的数字在大的数字的右边，所表示的数等于这些数">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/RomanToInteger.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T08:36:32.004Z">
+<meta property="article:published_time" content="2017-11-14T15:34:48.000Z">
+<meta property="article:modified_time" content="2019-03-31T08:36:32.004Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Roman to Integer">
-<meta name="twitter:description" content="题目介绍 LeetCode 13. Roman to Integer，题目的意思将罗马数字转换为对应的整数，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/RomanToInteger.png">
 
   
@@ -41,7 +43,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +60,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -152,7 +156,7 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/RomanToInteger.png" alt></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/RomanToInteger.png" alt=""></p>
 <p><a href="https://leetcode.com/problems/roman-to-integer/description/" target="_blank" rel="noopener">LeetCode 13. Roman to Integer</a>，题目的意思将罗马数字转换为对应的整数，范围 1~3999。</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先肯定先了解下罗马数字的构成规则：</p>
 <table>
@@ -189,7 +193,7 @@
 </ol>
 <p>思路很简单，从低位向高位按位转换成整数进行加减。因为不存在违规的罗马数字，所以高位比低位低的则为减，否则则为加。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">romanToInt</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> pre = <span class="type">Int</span>.<span class="built_in">min</span></span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> character <span class="keyword">in</span> s.reversed() &#123;</span><br><span class="line">            <span class="keyword">let</span> int = toInt(character)</span><br><span class="line">            <span class="keyword">if</span> int &lt; pre &#123;</span><br><span class="line">                sum -= int</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                sum += int</span><br><span class="line">            &#125;</span><br><span class="line">            pre = int</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">toInt</span><span class="params">(<span class="number">_</span> character: Character)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> character &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"M"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1000</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"D"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">500</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"C"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">100</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"L"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">50</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"X"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"V"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"I"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/14/RomanToInteger/">http://yeziahehe.com/2017/11/14/RomanToInteger/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/14/RomanToInteger/">http://yeziahehe.com/2017/11/14/RomanToInteger/</a></blockquote>
     
   </div>
 

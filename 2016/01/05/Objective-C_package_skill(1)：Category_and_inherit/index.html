@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>Objective-C封装技巧（一）：Category和继承的博弈 | Ivan&#39;s Blog</title>
@@ -12,23 +12,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Objective-C,封装,继承,Category,">
+    <meta name="keywords" content="iOS,Objective-C,封装,继承,Category," />
   
 
   <meta name="description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta name="keywords" content="iOS,Objective-C,封装,继承,Category">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
-<meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/index.html">
+<meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2019-03-31T09:02:01.171Z">
+<meta property="article:published_time" content="2016-01-05T07:24:19.000Z">
+<meta property="article:modified_time" content="2019-03-31T09:02:01.171Z">
+<meta property="article:author" content="叶帆">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Objective-C">
+<meta property="article:tag" content="封装">
+<meta property="article:tag" content="继承">
+<meta property="article:tag" content="Category">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
-<meta name="twitter:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 
   
@@ -41,7 +44,9 @@
 
 
   
-    <link rel="stylesheet" href="/css/personal-style.css">
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
   
 
   
@@ -56,8 +61,8 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
 <body>
 
 
@@ -132,7 +137,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </span>
 
 
@@ -189,7 +194,7 @@
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>大家对于Category的封装，可以参考<a href="https://github.com/ibireme" target="_blank" rel="noopener">Yaoyuan</a>大神的<a href="https://github.com/ibireme/YYCategories" target="_blank" rel="noopener">YYCategory</a>，直接拿来就能用。对他为开源做出的贡献表示感谢。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过上述的展开，我们可以大概总结一下。对于需要重写的父类的方法，或者需要对实例属性进行操作的时候，我们需要选择继承，继承通常应在UIKit的对象中。对于现有类方法的扩展，或者对于Foundation中对象的封装，通常首先考虑使用Category。<br>最后，本篇文章回答了第一次问题，其他的两个问题，将在下面两篇博客中来展开。</p>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/">http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/</a></blockquote>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/">http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/</a></blockquote>
     
   </div>
 
@@ -226,10 +231,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2016/01/04/Bye 2015，Hi 2016/">
+    <a class="show pull-left" href="/2016/01/04/Bye%202015%EF%BC%8CHi%202016/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/01/06/Objective-C_package_skill(2)： -- Associated Objects/">
+    <a class="show pull-right" href="/2016/01/06/Objective-C_package_skill(2)%EF%BC%9A%20--%20Associated%20Objects/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

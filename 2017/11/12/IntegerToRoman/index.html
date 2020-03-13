@@ -12,23 +12,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,String,Math,">
+    <meta name="keywords" content="算法,LeetCode,Math,String,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
-<meta name="keywords" content="算法,LeetCode,String,Math">
+  <meta name="description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M    数字 1 5 10 50 100 500 1000    相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数字相">
+<meta name="keywords" content="算法,LeetCode,Math,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Integer to Roman">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/12/IntegerToRoman/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
+<meta property="og:description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M    数字 1 5 10 50 100 500 1000    相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数字相">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IntegerToRoman.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2019-03-31T08:43:34.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integer to Roman">
-<meta name="twitter:description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M     数字 1 5 10 50 100 500 1000     相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数">
+<meta name="twitter:description" content="题目介绍 LeetCode 12. Integer to Roman，题目的意思将整数转换为对应的罗马数字，范围 1~3999。 解题思路首先肯定先了解下罗马数字的构成规则：    字符 I V X L C D M    数字 1 5 10 50 100 500 1000    相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3； 小的数字在大的数字的右边，所表示的数等于这些数字相">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IntegerToRoman.png">
 
   
@@ -153,35 +153,33 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IntegerToRoman.png" alt=""></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IntegerToRoman.png" alt></p>
 <p><a href="https://leetcode.com/problems/integer-to-roman/description/" target="_blank" rel="noopener">LeetCode 12. Integer to Roman</a>，题目的意思将整数转换为对应的罗马数字，范围 1~3999。</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先肯定先了解下罗马数字的构成规则：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">I</th>
-<th style="text-align:center">V</th>
-<th style="text-align:center">X</th>
-<th style="text-align:center">L</th>
-<th style="text-align:center">C</th>
-<th style="text-align:center">D</th>
-<th style="text-align:center">M</th>
+<th align="center">字符</th>
+<th align="center">I</th>
+<th align="center">V</th>
+<th align="center">X</th>
+<th align="center">L</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">M</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">数字</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">500</td>
-<td style="text-align:center">1000</td>
+<tbody><tr>
+<td align="center">数字</td>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">10</td>
+<td align="center">50</td>
+<td align="center">100</td>
+<td align="center">500</td>
+<td align="center">1000</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ol>
 <li>相同的数字连写，所表示的数等于这些数字相加得到的数，如：Ⅲ = 3；</li>
 <li>小的数字在大的数字的右边，所表示的数等于这些数字相加得到的数， 如：Ⅷ = 8；Ⅻ = 12；</li>
@@ -196,13 +194,23 @@
 <li><code>I: Nil, I, II, III, IV, V, VI, VII, VIII, IX</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">intToRoman</span><span class="params">(<span class="number">_</span> num: Int)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="type">M</span> = [<span class="string">""</span>, <span class="string">"M"</span>, <span class="string">"MM"</span>, <span class="string">"MMM"</span>]</span><br><span class="line">        <span class="keyword">let</span> <span class="type">C</span> = [<span class="string">""</span>, <span class="string">"C"</span>, <span class="string">"CC"</span>, <span class="string">"CCC"</span>, <span class="string">"CD"</span>, <span class="string">"D"</span>, <span class="string">"DC"</span>, <span class="string">"DCC"</span>, <span class="string">"DCCC"</span>, <span class="string">"CM"</span>]</span><br><span class="line">        <span class="keyword">let</span> <span class="type">X</span> = [<span class="string">""</span>, <span class="string">"X"</span>, <span class="string">"XX"</span>, <span class="string">"XXX"</span>, <span class="string">"XL"</span>, <span class="string">"L"</span>, <span class="string">"LX"</span>, <span class="string">"LXX"</span>, <span class="string">"LXXX"</span>, <span class="string">"XC"</span>]</span><br><span class="line">        <span class="keyword">let</span> <span class="type">I</span> = [<span class="string">""</span>, <span class="string">"I"</span>, <span class="string">"II"</span>, <span class="string">"III"</span>, <span class="string">"IV"</span>, <span class="string">"V"</span>, <span class="string">"VI"</span>, <span class="string">"VII"</span>, <span class="string">"VIII"</span>, <span class="string">"IX"</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="type">M</span>[num/<span class="number">1000</span>] + <span class="type">C</span>[num/<span class="number">100</span>%<span class="number">10</span>] + <span class="type">X</span>[num/<span class="number">10</span>%<span class="number">10</span>] + <span class="type">I</span>[num%<span class="number">10</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>在看过 <code>Discuss</code> 之后发现贪心算法，每次都去减去当前范围最大值。</p>
 <ul>
 <li><code>let int = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]</code></li>
 <li><code>let roman = [&quot;M&quot;, &quot;CM&quot;, &quot;D&quot;, &quot;CD&quot;, &quot;C&quot;, &quot;XC&quot;, &quot;L&quot;, &quot;XL&quot;, &quot;X&quot;, &quot;IX&quot;, &quot;V&quot;, &quot;IV&quot;, &quot;I&quot;]</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">intToRoman</span><span class="params">(<span class="number">_</span> num: Int)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> val = num</span><br><span class="line">        <span class="keyword">var</span> res = <span class="string">""</span></span><br><span class="line">        <span class="keyword">let</span> int = [<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">let</span> roman = [<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>...<span class="number">12</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (val &gt;= int[index]) &#123;</span><br><span class="line">                val -= int[index]</span><br><span class="line">                res += roman[index]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/11/12/IntegerToRoman/">http://yeziahehe.com/2017/11/12/IntegerToRoman/</a></blockquote>
+
+
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2017/11/12/IntegerToRoman/">http://yeziahehe.com/2017/11/12/IntegerToRoman/</a></p></blockquote><p></p>
+
     
   </div>
 

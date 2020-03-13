@@ -151,29 +151,49 @@
 <p>jekyll的口号就是将纯文本转化成静态网站和博客，尝试了一下，发现很好用，官方网站:<a href="http://jekyll.bootcss.com/" target="_blank" rel="noopener">http://jekyll.bootcss.com/</a></p>
 <p>安装Homebrew的开发环境</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+
 <p>可能会碰到以下情况</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access <span class="string">'https://github.com/Homebrew/homebrew/'</span>: SSLRead() <span class="built_in">return</span> error -9806 Failed during: git fetch origin</span><br><span class="line">master:refs/remotes/origin/master -n --depth=1</span><br></pre></td></tr></table></figure>
+
 <p>需要在/etc/resolv.conf中加上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 8.8.8.8&lt;br&gt;</span><br><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure>
+
 <p>如果出现了Permission denied需要分配权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R <span class="variable">$USER</span> /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+
 <p>在Mac上面配置jekyll的开发环境首先需要需要配置好rvm，否则会报各种花式错误！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
+
 <p>然后重新source一下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
+
 <p>接下我就开始安装ruby-2.1.1，但是报了如下错误：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Searching <span class="keyword">for</span> binary rubies, this might take some time.</span><br><span class="line">No binary rubies available <span class="keyword">for</span>: osx/10.10/x86_64/ruby-2.1.1.</span><br><span class="line">Continuing with compilation. Please <span class="built_in">read</span> <span class="string">'rvm help mount'</span> to get more information on binary rubies.</span><br><span class="line">Checking requirements <span class="keyword">for</span> osx.</span><br><span class="line">Installing requirements <span class="keyword">for</span> osx.</span><br><span class="line">Updating system.......</span><br><span class="line">Error running <span class="string">'requirements_osx_brew_update_system ruby-2.1.1'</span>,</span><br><span class="line">showing last 15 lines of /Users/ivan/.rvm/<span class="built_in">log</span>/1436855825_ruby-2.1.1/update_system.log</span><br><span class="line">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span><br><span class="line">and make sure `brew update` works before continuing.<span class="string">'</span></span><br><span class="line"><span class="string">++ rvm_pretty_print stderr</span></span><br><span class="line"><span class="string">++ case "$&#123;rvm_pretty_print_flag:=auto&#125;" in</span></span><br><span class="line"><span class="string">++ case "$&#123;TERM:-dumb&#125;" in</span></span><br><span class="line"><span class="string">++ case "$1" in</span></span><br><span class="line"><span class="string">++ [[ -t 2 ]]</span></span><br><span class="line"><span class="string">++ return 1</span></span><br><span class="line"><span class="string">++ printf %b '</span>Failed to update Homebrew, follow instructions here:</span><br><span class="line">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span><br><span class="line">and make sure `brew update` works before continuing.\n<span class="string">'</span></span><br><span class="line"><span class="string">Failed to update Homebrew, follow instructions here:</span></span><br><span class="line"><span class="string">    https://github.com/Homebrew/homebrew/wiki/Common-Issues</span></span><br><span class="line"><span class="string">and make sure `brew update` works before continuing.</span></span><br><span class="line"><span class="string">++ return 1</span></span><br><span class="line"><span class="string">Requirements installation failed with status: 1.</span></span><br></pre></td></tr></table></figure>
+
 <p>谷歌了很久，提供的方案就是</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brew install autoconf</span><br><span class="line">brew install automake</span><br><span class="line">brew install libtool</span><br><span class="line">brew install homebrew/dupes/apple-gcc42</span><br><span class="line">brew install libyaml</span><br><span class="line">brew install libxslt</span><br><span class="line">brew install libksba</span><br><span class="line">brew install openssl</span><br></pre></td></tr></table></figure>
+
 <p>然后运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install 2.1.1</span><br></pre></td></tr></table></figure>
+
 <p>接着开始安装jekyll</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll</span><br><span class="line">jekyll new my-awesome-site</span><br><span class="line"><span class="built_in">cd</span> my-awesome-site  </span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure>
+
 <p>最后就是Markdown语法高亮的问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install redcarpet</span><br></pre></td></tr></table></figure>
+
 <p>然后去修改_congif.yml</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">markdown: redcarpet</span><br><span class="line">redcarpet:</span><br><span class="line">  extensions: [<span class="string">"no_intra_emphasis"</span>, <span class="string">"fenced_code_blocks"</span>, <span class="string">"autolink"</span>, <span class="string">"strikethrough"</span>, <span class="string">"superscript"</span>]</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2015/07/15/jekyll_env_build/">http://yeziahehe.com/2015/07/15/jekyll_env_build/</a></blockquote>
+
+
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2015/07/15/jekyll_env_build/">http://yeziahehe.com/2015/07/15/jekyll_env_build/</a></p></blockquote><p></p>
+
     
   </div>
 

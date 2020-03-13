@@ -158,7 +158,8 @@
     
       <h1 id="事件响应机制"><a href="#事件响应机制" class="headerlink" title="事件响应机制"></a>事件响应机制</h1><p>上面我们提到 UIKit 主要是通过响应者（UIResponder）来响应用户事件，那么系统是如何来处理的呢？</p>
 <h2 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h2><p>首先我们看下目前系统的定义的 <code>UIEventType</code>，我们主要通过 UIEventTypeTouches 来了解下事件响应：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef NS_ENUM(NSInteger, UIEventType) &#123;</span><br><span class="line">    UIEventTypeTouches, &#x2F;&#x2F; 触摸事件</span><br><span class="line">    UIEventTypeMotion, &#x2F;&#x2F; 晃动事件</span><br><span class="line">    UIEventTypeRemoteControl, &#x2F;&#x2F; 远程控制事件，主要是外部辅助设备或者耳机的远程命令，例如控制音乐声音的大小，或者下一首歌。</span><br><span class="line">    UIEventTypePresses API_AVAILABLE(iOS(9.0)), &#x2F;&#x2F; 物理按键事件</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef NS_ENUM(NSInteger, UIEventType) &#123;</span><br><span class="line">    UIEventTypeTouches, // 触摸事件</span><br><span class="line">    UIEventTypeMotion, // 晃动事件</span><br><span class="line">    UIEventTypeRemoteControl, // 远程控制事件，主要是外部辅助设备或者耳机的远程命令，例如控制音乐声音的大小，或者下一首歌。</span><br><span class="line">    UIEventTypePresses API_AVAILABLE(iOS(9.0)), // 物理按键事件</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <h2 id="从一个触摸事件说起"><a href="#从一个触摸事件说起" class="headerlink" title="从一个触摸事件说起"></a>从一个触摸事件说起</h2><p>我们为了搞清楚事件响应机制，我们用触摸事件来进行举例。当触摸事件发生的时候，一直到找到对应这个事件的响应，我把这个过程分为两步：</p>
 <ul>
 <li>通过事件传递机制找到 <strong>First Responder</strong></li>
@@ -202,6 +203,7 @@
 </blockquote>
 <p>根据官方文档 <a href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events?language=objc" target="_blank" rel="noopener">Using Responders and the Responder Chain to Handle Events | Apple Developer Documentation</a> ，我们发现事件响应链和事件传递完全是相反的过程。最有机会处理事件的就是通过事件传递找到的 first responder，如果没有进行处理，就会沿着事件响应链传递给下一个响应者 nextResponder，一直追溯到最上层 UIApplication。若都没有进行处理，就丢弃事件。</p>
 <h3 id="处理事件"><a href="#处理事件" class="headerlink" title="处理事件"></a>处理事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesMoved:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesEnded:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (void)touchesCancelled:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+
 <p>对于触摸事件，系统提供了上面四种方法来处理。如果重写了上述方法，那么事件就会在此中断，并且不再沿着事件响应链进行传递；如果需要继续进行传递，则需要调用 <code>super</code> 方法。</p>
 <h3 id="决定第一响应者"><a href="#决定第一响应者" class="headerlink" title="决定第一响应者"></a>决定第一响应者</h3><p>我们上面通过事件传递机制寻找 first responder 主要是针对 UIEventTypeTouches 事件，但是 UIKit 决定 first responder 是根据事件类型来的。</p>
 <table>
@@ -211,8 +213,7 @@
 <th>First responder</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Touch events</td>
 <td>触摸发生的 view</td>
 </tr>
@@ -232,8 +233,7 @@
 <td>Editing menu messages</td>
 <td>用户（UIKit）制定的对象</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <blockquote>
 <p>与加速计、陀螺仪、磁力仪相关的运动事件，不遵循事件响应链。Core Motion 直接将这些事件传递给指定的对象。更多信息参照  <a href="https://developer.apple.com/library/archive/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/CoreServicesLayer/CoreServicesLayer.html#//apple_ref/doc/uid/TP40007898-CH10-SW27" target="_blank" rel="noopener">Core Motion Framework</a>   </p>
 </blockquote>
@@ -258,7 +258,14 @@
 <li><a href="http://smnh.me/hit-testing-in-ios/" target="_blank" rel="noopener">Hit-Testing in iOS</a></li>
 <li><a href="https://blog.boolchow.com/2018/03/25/iOS-Event-Response/" target="_blank" rel="noopener">iOS 中的事件响应与处理 · Hexo</a></li>
 </ul>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/01/19/responder_chain/">http://yeziahehe.com/2020/01/19/responder_chain/</a></blockquote>
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/01/19/responder_chain/">http://yeziahehe.com/2020/01/19/responder_chain/</a></p></blockquote><p></p>
+
     
   </div>
 

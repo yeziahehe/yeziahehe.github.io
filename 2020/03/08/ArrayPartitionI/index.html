@@ -15,20 +15,20 @@
     <meta name="keywords" content="算法,LeetCode,Array,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans &amp;#x3D; nums.sorted()        re">
+  <meta name="description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans = nums.sorted()        return">
 <meta name="keywords" content="算法,LeetCode,Array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array Partition I">
 <meta property="og:url" content="http://yeziahehe.com/2020/03/08/ArrayPartitionI/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans &amp;#x3D; nums.sorted()        re">
+<meta property="og:description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans = nums.sorted()        return">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XBGfNJ.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
 <meta property="og:updated_time" content="2020-03-07T16:25:27.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array Partition I">
-<meta name="twitter:description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans &amp;#x3D; nums.sorted()        re">
+<meta name="twitter:description" content="题目介绍 LeetCode 561. Array Partition I。 复杂度时间复杂度: O(nlogn), 空间复杂度: O(1) 解题思路123456class Solution &amp;#123;    func arrayPairSum(_ nums: [Int]) -&amp;gt; Int &amp;#123;        let ans = nums.sorted()        return">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XBGfNJ.png">
 
   
@@ -153,11 +153,18 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XBGfNJ.png" alt=""></p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XBGfNJ.png" alt></p>
 <p><a href="https://leetcode.com/problems/array-partition-i/" target="_blank" rel="noopener">LeetCode 561. Array Partition I</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(nlogn), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func arrayPairSum(_ nums: [Int]) -&gt; Int &#123;</span><br><span class="line">        let ans &#x3D; nums.sorted()</span><br><span class="line">        return ans.enumerated().filter &#123; $0.offset % 2 &#x3D;&#x3D; 0 &#125;.reduce(0) &#123; $0 + $1.element &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/ArrayPartitionI/">http://yeziahehe.com/2020/03/08/ArrayPartitionI/</a></blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func arrayPairSum(_ nums: [Int]) -&gt; Int &#123;</span><br><span class="line">        let ans = nums.sorted()</span><br><span class="line">        return ans.enumerated().filter &#123; $0.offset % 2 == 0 &#125;.reduce(0) &#123; $0 + $1.element &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/03/08/ArrayPartitionI/">http://yeziahehe.com/2020/03/08/ArrayPartitionI/</a></p></blockquote><p></p>
+
     
   </div>
 

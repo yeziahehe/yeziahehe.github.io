@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Meiryo";
+  src: url("/fonts/Meiryo.eot");
+
+  /* IE9 */
+  src: url("/fonts/Meiryo.eot?#iefix") format("embedded-opentype"), url("/fonts/Meiryo.woff") format("woff"), url("/fonts/Meiryo.ttf") format("truetype"), url("/fonts/Meiryo.svg#Meiryo") format("svg");
+
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+
+html.page-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /*background-image: url('/images/bg.jpg');
+  background-color: transparent;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;*/
+
+  /*background: linear-gradient( #1abc9c, transparent), linear-gradient( 90deg, skyblue, transparent), linear-gradient( -90deg, coral, transparent);*/
+  /*background-blend-mode: screen;*/
+
+  /*background: linear-gradient(to left, #5f2c82, #49a09d);*/
+}
+
+/*html.page-home body {
+  background: transparent;
+}*/
+
+<blockquote class="blockquote-center">
+**版权声明**
+
+![](/cc.png)
+
+[Ivan's Blog](http://yeziahehe.com) by [Ivan Ye](http://yeziahehe.com/about) is licensed under a [Creative Commons BY-NC-ND 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).  
+由[叶帆](http://yeziahehe.com/about)创作并维护的[叶帆的博客](http://yeziahehe.com)博客采用[创作共用保留署名-非商业-禁止演绎4.0国际许可证](http://creativecommons.org/licenses/by-nc-nd/4.0/)。
+
+本文首发于[Ivan's Blog | 叶帆的博客](http://yeziahehe.com)博客（ http://yeziahehe.com ），版权所有，侵权必究。
+
+本文链接：http://yeziahehe.com/css/personal-style.css</blockquote>

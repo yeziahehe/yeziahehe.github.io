@@ -15,13 +15,13 @@
     <meta name="keywords" content="iOS,Swift,">
   
 
-  <meta name="description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+  <meta name="description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。          系统触感强度设置 饿了么刷">
 <meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
 <meta property="og:url" content="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+<meta property="og:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。          系统触感强度设置 饿了么刷">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/system.jpg">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ele.jpg">
@@ -30,7 +30,7 @@
 <meta property="og:updated_time" content="2019-03-31T08:48:54.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 UIFeedbackGenerator 来实现触觉反馈">
-<meta name="twitter:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。           系统触感强度设置 饿了么">
+<meta name="twitter:description" content="写在前面Tips：触觉反馈的特性从 iOS 10 开始支持，并且需要iPhone 7 和 iPhone 7 Plus 内置的新 Taptic 引擎支持这些应用程序接口（API）。 最近在使用饿了么定外卖的时候，偶然感觉到饿了么下拉刷新有个震动。起初我并不知道这个是触觉反馈，后来我发现包括调用 Apple Pay 支付的时候，成功和失败都回引起触觉反馈。          系统触感强度设置 饿了么刷">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/system.jpg">
 
   
@@ -160,19 +160,17 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/system.jpg" alt=""></th>
-<th style="text-align:center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ele.jpg" alt=""></th>
-<th style="text-align:center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Apple_Pay.jpg" alt=""></th>
+<th align="center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/system.jpg" alt></th>
+<th align="center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ele.jpg" alt></th>
+<th align="center"><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/Apple_Pay.jpg" alt></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">系统触感强度设置</td>
-<td style="text-align:center">饿了么刷新触觉反馈</td>
-<td style="text-align:center">Apple Pay 支付成功和失败触觉反馈</td>
+<tbody><tr>
+<td align="center">系统触感强度设置</td>
+<td align="center">饿了么刷新触觉反馈</td>
+<td align="center">Apple Pay 支付成功和失败触觉反馈</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="触觉反馈"><a href="#触觉反馈" class="headerlink" title="触觉反馈"></a>触觉反馈</h1><p>iOS 10 引入了一种新的产生触觉反馈的方式，通过使用系统的预定义震动模式，让用户在进行操作时得到不同的震动反馈。这个功能有新增的 <code>UIFeedbackGenerator</code> 提供，根据官方的<a href="https://developer.apple.com/documentation/uikit/uifeedbackgenerator" target="_blank" rel="noopener">文档</a>：</p>
 <blockquote>
 <p>The abstract superclass for all feedback generators.</p>
@@ -195,7 +193,16 @@
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>最后讲一下用法，掘金的翻译计划 <a href="https://juejin.im/entry/5810433ac4c9710058a74100" target="_blank" rel="noopener">[译] 如何使用 UIFeedbackGenerator 让应用支持 iOS 10 的触觉反馈</a> 中，给出了一个 Demo。注意 Demo 中有个问题，<strong>addsubview 应该在添加约束之前，否则会引起崩溃。</strong></p>
 <p>不过根据官方的文档,触发触觉效果之前，在你的生成器 (generator) 内调用 prepare() 方法，这样可以有效的减少延迟。可以参考官方文档中的代码，也可以参考如下代码：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> feedbackGenerator : <span class="type">UIImpactFeedbackGenerator?</span> = <span class="type">UIImpactFeedbackGenerator</span>(style: .heavy)</span><br><span class="line"></span><br><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    feedbackGenerator = <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    feedbackGenerator?.prepare()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">getNewGank</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</span><br><span class="line">    feedbackGenerator?.impactOccurred()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></blockquote>
+
+
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/">http://yeziahehe.com/2017/07/07/Haptic_feedback_with_uifeedbackgenerator/</a></p></blockquote><p></p>
+
     
   </div>
 

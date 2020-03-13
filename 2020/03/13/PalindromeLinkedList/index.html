@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Max Consecutive Ones | Ivan&#39;s Blog</title>
+  <title>Palindrome Linked List | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,Linked List. Two Pointer,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 485. Max Consecutive Ones。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路123456789101112131415class Solution &amp;#123;    func findMaxConsecutiveOnes(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var ans = 0">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 234. Palindrome Linked List。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这一题思路比较多，比如赋值到数组里面在去进行判断，要满足 O(1) 的空间复杂度，需要考虑下。 大概分为三个函数：  使用快慢指针找到链表的中间节点（第一次看到这个用途，很巧妙）； 使用反转链表函数反转后半部分链表； 进行比较并将后半部分链表反转回去">
+<meta name="keywords" content="算法,LeetCode,Linked List. Two Pointer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Max Consecutive Ones">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/08/MaxConsecutiveOnes/index.html">
+<meta property="og:title" content="Palindrome Linked List">
+<meta property="og:url" content="http://yeziahehe.com/2020/03/13/PalindromeLinkedList/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 485. Max Consecutive Ones。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路123456789101112131415class Solution &amp;#123;    func findMaxConsecutiveOnes(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var ans = 0">
+<meta property="og:description" content="题目介绍 LeetCode 234. Palindrome Linked List。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这一题思路比较多，比如赋值到数组里面在去进行判断，要满足 O(1) 的空间复杂度，需要考虑下。 大概分为三个函数：  使用快慢指针找到链表的中间节点（第一次看到这个用途，很巧妙）； 使用反转链表函数反转后半部分链表； 进行比较并将后半部分链表反转回去">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PCgWd5.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/d4672n.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-08T05:40:05.057Z">
+<meta property="og:updated_time" content="2020-03-13T03:26:39.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Max Consecutive Ones">
-<meta name="twitter:description" content="题目介绍 LeetCode 485. Max Consecutive Ones。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路123456789101112131415class Solution &amp;#123;    func findMaxConsecutiveOnes(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var ans = 0">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PCgWd5.png">
+<meta name="twitter:title" content="Palindrome Linked List">
+<meta name="twitter:description" content="题目介绍 LeetCode 234. Palindrome Linked List。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这一题思路比较多，比如赋值到数组里面在去进行判断，要满足 O(1) 的空间复杂度，需要考虑下。 大概分为三个函数：  使用快慢指针找到链表的中间节点（第一次看到这个用途，很巧妙）； 使用反转链表函数反转后半部分链表； 进行比较并将后半部分链表反转回去">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/d4672n.png">
 
   
 
@@ -113,14 +113,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-MaxConsecutiveOnes" class="article article-type-post" itemprop="blogPost">
+   <article id="post-PalindromeLinkedList" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Max Consecutive Ones</h1>
+    <h1 class="post-title">Palindrome Linked List</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.08</span>
+        <span>2020.03.13</span>
       </span>
 
       
@@ -153,11 +153,18 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PCgWd5.png" alt=""></p>
-<p><a href="https://leetcode.com/problems/max-consecutive-ones/" target="_blank" rel="noopener">LeetCode 485. Max Consecutive Ones</a>。</p>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/d4672n.png" alt=""></p>
+<p><a href="https://leetcode.com/problems/palindrome-linked-list/" target="_blank" rel="noopener">LeetCode 234. Palindrome Linked List</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findMaxConsecutiveOnes</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> k = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">0</span> &#123;</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, k)</span><br><span class="line">                k = <span class="number">0</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                k += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(ans, k)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/08/MaxConsecutiveOnes/">http://yeziahehe.com/2020/03/08/MaxConsecutiveOnes/</a></blockquote>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这一题思路比较多，比如赋值到数组里面在去进行判断，要满足 O(1) 的空间复杂度，需要考虑下。</p>
+<p>大概分为三个函数：</p>
+<ul>
+<li>使用<strong>快慢指针</strong>找到链表的中间节点（第一次看到这个用途，很巧妙）；</li>
+<li>使用反转链表函数反转后半部分链表；</li>
+<li>进行比较并将后半部分链表反转回去，保证原链表的完整性。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/13/PalindromeLinkedList/">http://yeziahehe.com/2020/03/13/PalindromeLinkedList/</a></blockquote>
     
   </div>
 
@@ -194,10 +201,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/08/RemoveElement/">
+    <a class="show pull-left" href="/2020/03/13/OddEvenLinkedList/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/08/MinimumSizeSubarraySum/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

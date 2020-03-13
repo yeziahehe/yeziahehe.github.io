@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>利用 Background Fetch + UNUserNotificationCenter 实现伪推送 | Ivan&#39;s Blog</title>
@@ -12,25 +12,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Swift," />
+    <meta name="keywords" content="iOS,Swift,">
   
 
   <meta name="description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
+<meta name="keywords" content="iOS,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
 <meta property="og:url" content="http://yeziahehe.com/2017/07/19/Background_Fetch_and_UNUserNotificationCenter/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/back_refresh.jpeg?imageView2/2/h/750">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/debug.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="article:published_time" content="2017-07-19T15:12:46.000Z">
-<meta property="article:modified_time" content="2019-03-31T08:23:37.383Z">
-<meta property="article:author" content="叶帆">
-<meta property="article:tag" content="iOS">
-<meta property="article:tag" content="Swift">
+<meta property="og:updated_time" content="2019-03-31T08:23:37.383Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 Background Fetch + UNUserNotificationCenter 实现伪推送">
+<meta name="twitter:description" content="写在前面Tips：UNUserNotificationCenter 从 iOS 10 开始支持，低于版本的本地推送请自行谷歌。 最近项目里面利用了第三方的 API，由干货集中营提供每日干货。由于没办法实现远程推送，考虑通过本地推送 + 后台获取的方式来实现【伪推送】，其实很多第三方的客户端，如微博的第三方客户端 Moke、奇点，HIPDA 论坛的第三方客户端，都是采用这样的方式进行推送的。如果有自">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xcode_background_fetch.jpg">
 
   
@@ -43,9 +43,7 @@
 
 
   
-    
-<link rel="stylesheet" href="/css/personal-style.css">
-
+    <link rel="stylesheet" href="/css/personal-style.css">
   
 
   
@@ -60,8 +58,9 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
-
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
 <body>
 
 
@@ -136,7 +135,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </span>
 
 

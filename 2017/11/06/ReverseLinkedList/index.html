@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Reverse Linked List | Ivan&#39;s Blog</title>
@@ -12,24 +12,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Linked List," />
+    <meta name="keywords" content="算法,LeetCode,Linked List,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&gt;2-&gt;3-&gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&gt;2-&gt;1保存为pre以供下次迭代，">
+  <meta name="description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
+<meta name="keywords" content="算法,LeetCode,Linked List">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reverse Linked List">
 <meta property="og:url" content="http://yeziahehe.com/2017/11/06/ReverseLinkedList/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&gt;2-&gt;3-&gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&gt;2-&gt;1保存为pre以供下次迭代，">
+<meta property="og:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ReverseLinkedList.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="article:published_time" content="2017-11-06T11:57:00.000Z">
-<meta property="article:modified_time" content="2020-03-12T06:00:09.312Z">
-<meta property="article:author" content="叶帆">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Linked List">
+<meta property="og:updated_time" content="2020-03-12T06:00:09.312Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reverse Linked List">
+<meta name="twitter:description" content="题目介绍 LeetCode 206. Reverse Linked List，反转链表，迭代法和递归法同时实现。 解题思路迭代法迭代的精髓在于按顺序对指针指向的扭转。以1-&amp;gt;2-&amp;gt;3-&amp;gt;4为例，当迭代到第三次时，前面的运算已经保存了一个pre值，值为2-&amp;gt;1，这时到3这个节点，只需把它的指向指到pre即可，而构成的新的链表3-&amp;gt;2-&amp;gt;1保存为pre以供下次迭代，">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ReverseLinkedList.png">
 
   
@@ -42,9 +41,7 @@
 
 
   
-    
-<link rel="stylesheet" href="/css/personal-style.css">
-
+    <link rel="stylesheet" href="/css/personal-style.css">
   
 
   
@@ -59,8 +56,9 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
-
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
 <body>
 
 

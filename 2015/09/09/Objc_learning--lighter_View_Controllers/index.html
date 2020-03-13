@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>objc中国学习--更轻量的 View Controllers | Ivan&#39;s Blog</title>
@@ -12,22 +12,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,objc中国," />
+    <meta name="keywords" content="iOS,objc中国,">
   
 
   <meta name="description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
+<meta name="keywords" content="iOS,objc中国">
 <meta property="og:type" content="article">
 <meta property="og:title" content="objc中国学习--更轻量的 View Controllers">
 <meta property="og:url" content="http://yeziahehe.com/2015/09/09/Objc_learning--lighter_View_Controllers/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="article:published_time" content="2015-09-09T15:19:20.000Z">
-<meta property="article:modified_time" content="2016-09-02T03:01:51.000Z">
-<meta property="article:author" content="叶帆">
-<meta property="article:tag" content="iOS">
-<meta property="article:tag" content="objc中国">
+<meta property="og:updated_time" content="2016-09-02T03:01:51.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="objc中国学习--更轻量的 View Controllers">
+<meta name="twitter:description" content="从今天开始学习objc中国的所有博客。 更轻量的 View Controllers 介绍  更轻量的 View Controllers  整洁的 Table View 代码  测试 View Controllers  View Controller 容器   NSCoding协议  NSKeyedArchiver归档为了将应用数据存储到硬盘中实现数据持久化，iOS提供3种方法：  属性列表：基本的">
 <meta name="twitter:image" content="http://yeziahehe.com/cc.png">
 
   
@@ -40,9 +40,7 @@
 
 
   
-    
-<link rel="stylesheet" href="/css/personal-style.css">
-
+    <link rel="stylesheet" href="/css/personal-style.css">
   
 
   
@@ -57,8 +55,9 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
-
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
 <body>
 
 
@@ -107,8 +106,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更轻量的-View-Controllers"><span class="toc-text">更轻量的 View Controllers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NSCoding协议-NSKeyedArchiver归档"><span class="toc-text">NSCoding协议 
- NSKeyedArchiver归档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把网络请求逻辑移到-Model-层"><span class="toc-text">把网络请求逻辑移到 Model 层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让事情保持简单"><span class="toc-text">让事情保持简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更轻量的-View-Controllers"><span class="toc-text">更轻量的 View Controllers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NSCoding协议-NSKeyedArchiver归档"><span class="toc-text">NSCoding协议  NSKeyedArchiver归档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把网络请求逻辑移到-Model-层"><span class="toc-text">把网络请求逻辑移到 Model 层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让事情保持简单"><span class="toc-text">让事情保持简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
   </div>
 
 
@@ -134,7 +132,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </span>
 
 
@@ -238,7 +236,7 @@
     <a class="show pull-left" href="/2015/07/29/UINavigationBar_translate/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2015/09/19/Objc_learning--Concurrent%20Programming/">
+    <a class="show pull-right" href="/2015/09/19/Objc_learning--Concurrent Programming/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

@@ -4,7 +4,7 @@
   <html class="light page-post">
 
 
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Objective-C封装技巧（一）：Category和继承的博弈 | Ivan&#39;s Blog</title>
@@ -12,26 +12,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="iOS,Objective-C,封装,继承,Category," />
+    <meta name="keywords" content="iOS,Objective-C,封装,继承,Category,">
   
 
   <meta name="description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
+<meta name="keywords" content="iOS,Objective-C,封装,继承,Category">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
-<meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)%EF%BC%9ACategory_and_inherit/index.html">
+<meta property="og:url" content="http://yeziahehe.com/2016/01/05/Objective-C_package_skill(1)：Category_and_inherit/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
 <meta property="og:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="article:published_time" content="2016-01-05T07:24:19.000Z">
-<meta property="article:modified_time" content="2019-03-31T09:02:01.171Z">
-<meta property="article:author" content="叶帆">
-<meta property="article:tag" content="iOS">
-<meta property="article:tag" content="Objective-C">
-<meta property="article:tag" content="封装">
-<meta property="article:tag" content="继承">
-<meta property="article:tag" content="Category">
+<meta property="og:updated_time" content="2019-03-31T09:02:01.171Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C封装技巧（一）：Category和继承的博弈">
+<meta name="twitter:description" content="写在前面有经验的工程师在经历过一些项目之后，会慢慢的去考虑之前项目中遇到的坑，思考的过程中就会诞生设计模式和架构的雏形。我这次毕业设计的项目架构正在酝酿中，因为自己本身经验并没有很丰富，所以浅谈自己封装的一些想法，权当抛砖引玉。 平时项目中我们经常会对重复使用的代码进行封装，那么对于封装的场景是否有过思考？是否想过各种封装方法的使用场景和原则。我们实现提出在封装常用的方法：继承和Category。">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/baseclass.png">
 
   
@@ -44,9 +41,7 @@
 
 
   
-    
-<link rel="stylesheet" href="/css/personal-style.css">
-
+    <link rel="stylesheet" href="/css/personal-style.css">
   
 
   
@@ -61,8 +56,9 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
-
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
 <body>
 
 
@@ -137,7 +133,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </span>
 
 
@@ -231,10 +227,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2016/01/04/Bye%202015%EF%BC%8CHi%202016/">
+    <a class="show pull-left" href="/2016/01/04/Bye 2015，Hi 2016/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/01/06/Objective-C_package_skill(2)%EF%BC%9A%20--%20Associated%20Objects/">
+    <a class="show pull-right" href="/2016/01/06/Objective-C_package_skill(2)： -- Associated Objects/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

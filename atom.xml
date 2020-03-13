@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-03-13T01:58:55.651Z</updated>
+  <updated>2020-03-13T03:26:39.864Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -14,7 +14,37 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Palindrome Linked List</title>
+    <link href="http://yeziahehe.com/2020/03/13/PalindromeLinkedList/"/>
+    <id>http://yeziahehe.com/2020/03/13/PalindromeLinkedList/</id>
+    <published>2020-03-13T03:23:22.000Z</published>
+    <updated>2020-03-13T03:26:39.864Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/d4672n.png" alt=""></p><p><a href="https://leetcode.com/problems/palindrome-linked-list/" target="_blank" rel="noopener">LeetCode 234. Palindrome Linked List</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这一题思路比较多，比如赋值到数组里面在去进行判断，要满足 O(1) 的空间复杂度，需要考虑下。</p><p>大概分为三个函数：</p><ul><li>使用<strong>快慢指针</strong>找到链表的中间节点（第一次看到这个用途，很巧妙）；</li><li>使用反转链表函数反转后半部分链表；</li><li>进行比较并将后半部分链表反转回去，保证原链表的完整性。</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/13/PalindromeLinkedList/">http://yeziahehe.com/2020/03/13/PalindromeLinkedList/</a></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Linked List. Two Pointer" scheme="http://yeziahehe.com/tags/Linked-List-Two-Pointer/"/>
+    
+  </entry>
   
   <entry>
     <title>Odd Even Linked List</title>
@@ -33,6 +63,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -63,6 +94,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -91,6 +123,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -123,6 +156,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -151,6 +185,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -183,6 +218,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -213,6 +249,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -245,6 +282,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -276,6 +314,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -304,6 +343,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -334,6 +374,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -363,6 +404,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -391,6 +433,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -425,6 +468,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -453,6 +497,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -484,6 +529,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -518,6 +564,7 @@
     
     </summary>
     
+    
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
     
@@ -546,6 +593,7 @@
       
     
     </summary>
+    
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -576,34 +624,6 @@
     
     </summary>
     
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Add Binary</title>
-    <link href="http://yeziahehe.com/2020/03/07/AddBinary/"/>
-    <id>http://yeziahehe.com/2020/03/07/AddBinary/</id>
-    <published>2020-03-07T13:26:16.000Z</published>
-    <updated>2020-03-08T04:33:02.316Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/jmfFIQ.png" alt=""></p><p><a href="https://leetcode.com/problems/add-binary/" target="_blank" rel="noopener">LeetCode 67. Add Binary</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(Max(m, n)), 空间复杂度: O(Max(m, n))</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>使用内置函数，但是打印了下最大支持，理论上是超过 64 位 1 就不行了。</p><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/截屏2020-03-07下午5.55.35.png" alt=""></p><ul><li>转成十进制</li><li>相加</li><li>转成二进制输出</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addBinary</span><span class="params">(<span class="number">_</span> a: String, <span class="number">_</span> b: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="built_in">max</span> = <span class="type">String</span>(<span class="type">UInt64</span>.<span class="built_in">max</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(max) has \(max.count) digits."</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="type">String</span>((<span class="type">UInt64</span>(a, radix: <span class="number">2</span>) ?? <span class="number">0</span>) + (<span class="type">UInt64</span>(b, radix: <span class="number">2</span>) ?? <span class="number">0</span>), radix: <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p>首先说明和上面问题一样，Int 64 的局限性，说下思路。</p><p>看到二进制的题目，要善用位运算。<br>相加用位运算分两步：</p><ul><li>按位异或 ^ ：算出不进位每一位的相加值</li><li>按位与 &amp; 并左移以为 &lt;&lt; ：算出需要进位的二进制值</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addBinary</span><span class="params">(<span class="number">_</span> a: String, <span class="number">_</span> b: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> x = <span class="type">Int</span>(a, radix: <span class="number">2</span>) ?? <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> y = <span class="type">Int</span>(b, radix: <span class="number">2</span>) ?? <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> ans: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> carry: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> y != <span class="number">0</span> &#123;</span><br><span class="line">            ans = x ^ y</span><br><span class="line">            carry = (x &amp; y) &lt;&lt; <span class="number">1</span></span><br><span class="line">            x = ans</span><br><span class="line">            y = carry</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>(ans, radix: <span class="number">2</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">addBinary</span><span class="params">(<span class="number">_</span> a: String, <span class="number">_</span> b: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a = <span class="type">Array</span>(a)</span><br><span class="line">        <span class="keyword">let</span> b = <span class="type">Array</span>(b)</span><br><span class="line">        <span class="keyword">var</span> ans = <span class="string">""</span></span><br><span class="line">        <span class="keyword">var</span> carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> i = a.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> j = b.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span> || carry &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> i &gt;= <span class="number">0</span> &#123;</span><br><span class="line">                carry += <span class="type">Int</span>(<span class="type">String</span>(a[i]))!</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> j &gt;= <span class="number">0</span> &#123;</span><br><span class="line">                carry += <span class="type">Int</span>(<span class="type">String</span>(b[j]))!</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            ans = <span class="string">"\(carry % 2)"</span> + ans</span><br><span class="line">            carry = carry / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    func addBinary(_ a: String, _ b: String) -&gt; String &#123;</span></span><br><span class="line"><span class="comment">        let max = String(UInt64.max)</span></span><br><span class="line"><span class="comment">        print("\(max) has \(max.count) digits.")</span></span><br><span class="line"><span class="comment">        return String((UInt64(a, radix: 2) ?? 0) + (UInt64(b, radix: 2) ?? 0), radix: 2)</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    func addBinary(_ a: String, _ b: String) -&gt; String &#123;</span></span><br><span class="line"><span class="comment">        var x = Int(a, radix: 2) ?? 0</span></span><br><span class="line"><span class="comment">        var y = Int(b, radix: 2) ?? 0</span></span><br><span class="line"><span class="comment">        var ans: Int = 0</span></span><br><span class="line"><span class="comment">        var carry: Int = 0</span></span><br><span class="line"><span class="comment">        while y != 0 &#123;</span></span><br><span class="line"><span class="comment">            ans = x ^ y</span></span><br><span class="line"><span class="comment">            carry = (x &amp; y) &lt;&lt; 1</span></span><br><span class="line"><span class="comment">            x = ans</span></span><br><span class="line"><span class="comment">            y = carry</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        return String(ans, radix: 2)</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">看到二进制的题目，要善用位运算。</span></span><br><span class="line"><span class="comment">相加用位运算分两步：</span></span><br><span class="line"><span class="comment">- 按位异或 ^ ：算出不进位每一位的相加值</span></span><br><span class="line"><span class="comment">- 按位与 &amp; 并左移以为 &lt;&lt; ：算出需要进位的二进制值</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><blockquote class="blockquote-center"><br><strong>版权声明</strong><br><br><img src="/cc.png" alt=""><br><br><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br><br>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。<br><br>本文链接：<a href="http://yeziahehe.com/2020/03/07/AddBinary/">http://yeziahehe.com/2020/03/07/AddBinary/</a></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
     
       <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
     
@@ -613,8 +633,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
-    
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
   </entry>
   

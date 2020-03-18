@@ -15,20 +15,20 @@
     <meta name="keywords" content="算法,Linked List,LeetCode,Two Pointer,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代">
+  <meta name="description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路算法学习 - 链表 对这题有扩展。 这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指">
 <meta name="keywords" content="算法,Linked List,LeetCode,Two Pointer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linked List Cycle">
 <meta property="og:url" content="http://yeziahehe.com/2020/03/11/LinkedListCycle/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代">
+<meta property="og:description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路算法学习 - 链表 对这题有扩展。 这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8A%E5%8D%8811.33.05.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-11T03:38:48.582Z">
+<meta property="og:updated_time" content="2020-03-18T06:28:07.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linked List Cycle">
-<meta name="twitter:description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代">
+<meta name="twitter:description" content="题目介绍 LeetCode 141. Linked List Cycle。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路算法学习 - 链表 对这题有扩展。 这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。  如果没有环，快指针将停在链表的末尾。 如果有环，快指针最终将与慢指针相遇。  这两个指针的适当速度应该是多少？ 一个安全的选择是每次移动慢指">
 <meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8A%E5%8D%8811.33.05.png">
 
   
@@ -156,7 +156,8 @@
       <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8A%E5%8D%8811.33.05.png" alt></p>
 <p><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">LeetCode 141. Linked List Cycle</a>。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p><a href="https://yeziahehe.com/2020/03/13/Algorithm_LinkedList/">算法学习 - 链表</a> 对这题有扩展。</p>
+<p>这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。</p>
 <ul>
 <li>如果没有环，快指针将停在链表的末尾。</li>
 <li>如果有环，快指针最终将与慢指针相遇。</li>

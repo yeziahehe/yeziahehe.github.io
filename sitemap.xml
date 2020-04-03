@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/leetcode/index.html</loc>
+    
+    <lastmod>2020-04-03T10:14:56.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2020/04/03/CopyListWithRandomPointer/</loc>
+    
+    <lastmod>2020-04-03T10:13:07.953Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/2020/03/12/IntersectionOfTwoLinkedLists/</loc>
     
     <lastmod>2020-03-18T06:29:59.178Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://yeziahehe.com/2020/03/13/PalindromeLinkedList/</loc>
     
     <lastmod>2020-03-16T05:42:29.959Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/leetcode/index.html</loc>
-    
-    <lastmod>2020-03-13T03:28:44.029Z</lastmod>
     
   </url>
   

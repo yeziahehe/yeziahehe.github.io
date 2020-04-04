@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-04-04T14:27:56.542Z</updated>
+  <updated>2020-04-04T15:29:41.600Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Valid Parentheses</title>
+    <link href="http://yeziahehe.com/2020/04/04/ValidParentheses/"/>
+    <id>http://yeziahehe.com/2020/04/04/ValidParentheses/</id>
+    <published>2020-04-04T15:27:48.000Z</published>
+    <updated>2020-04-04T15:29:41.600Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/5E5ZOT.png" alt></p><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">LeetCode 20. Valid Parentheses</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isValid</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> charArray = [<span class="type">Character</span>]()</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> s &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">c</span> == <span class="string">"("</span> || <span class="built_in">c</span> == <span class="string">"&#123;"</span> || <span class="built_in">c</span> == <span class="string">"["</span> &#123;</span><br><span class="line">                charArray.append(<span class="built_in">c</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 右半边</span></span><br><span class="line">                <span class="keyword">if</span> charArray.isEmpty &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">c</span> == <span class="string">")"</span> &amp;&amp; charArray.removeLast() != <span class="string">"("</span>) || (<span class="built_in">c</span> == <span class="string">"]"</span> &amp;&amp; charArray.removeLast() != <span class="string">"["</span>) || (<span class="built_in">c</span> == <span class="string">"&#125;"</span> &amp;&amp; charArray.removeLast() != <span class="string">"&#123;"</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> charArray.isEmpty ? <span class="literal">true</span> : <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/04/ValidParentheses/">http://yeziahehe.com/2020/04/04/ValidParentheses/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="String" scheme="http://yeziahehe.com/tags/String/"/>
+    
+      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
+    
+  </entry>
   
   <entry>
     <title>Min Stack</title>
@@ -385,9 +417,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
-    
       <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
   </entry>
   
@@ -604,38 +636,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Remove Element</title>
-    <link href="http://yeziahehe.com/2020/03/08/RemoveElement/"/>
-    <id>http://yeziahehe.com/2020/03/08/RemoveElement/</id>
-    <published>2020-03-08T04:44:25.000Z</published>
-    <updated>2020-03-08T05:21:36.542Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-08%E4%B8%8B%E5%8D%8812.45.47.png" alt></p><p><a href="https://leetcode.com/problems/remove-element/" target="_blank" rel="noopener">LeetCode 27. Remove Element</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>使用两个指针，一个快指针 i 和一个慢指针 k 。i 每次移动一步，而 k 只在添加新的被需要的值时才移动一步。</p><p>解决这类问题的关键是：<strong>确定两个指针的移动策略。</strong></p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">removeElement</span><span class="params">(<span class="number">_</span> nums: <span class="keyword">inout</span> [Int], <span class="number">_</span> val: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> k = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[i] != val &#123;</span><br><span class="line">                nums[k] = nums[i]</span><br><span class="line">                k += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> k</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/03/08/RemoveElement/">http://yeziahehe.com/2020/03/08/RemoveElement/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
     
   </entry>
   

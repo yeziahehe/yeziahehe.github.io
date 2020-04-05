@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-04-05T12:19:37.998Z</updated>
+  <updated>2020-04-05T13:19:38.865Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Evaluate Reverse Polish Notation</title>
+    <link href="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/"/>
+    <id>http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/</id>
+    <published>2020-04-05T13:15:31.000Z</published>
+    <updated>2020-04-05T13:19:38.865Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/44WaoT.png" alt></p><p><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">LeetCode 150. Evaluate Reverse Polish Notation</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">evalRPN</span><span class="params">(<span class="number">_</span> tokens: [String])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> stack: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> token <span class="keyword">in</span> tokens &#123;</span><br><span class="line">            <span class="keyword">if</span> token == <span class="string">"+"</span> || token == <span class="string">"-"</span> || token == <span class="string">"*"</span> || token == <span class="string">"/"</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> second = stack.popLast()!</span><br><span class="line">                <span class="keyword">let</span> first = stack.popLast()!</span><br><span class="line">                <span class="keyword">switch</span> token &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">                    stack.append(first + second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">                    stack.append(first - second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">                    stack.append(first * second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">                    stack.append(first / second)</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 数字</span></span><br><span class="line">                stack.append(<span class="type">Int</span>(token)!)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.last!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/">http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
+    
+  </entry>
   
   <entry>
     <title>Daily Temperatures</title>
@@ -449,9 +479,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
-    
       <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
+    
+      <category term="Math" scheme="http://yeziahehe.com/tags/Math/"/>
     
   </entry>
   
@@ -604,40 +634,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Minimum Size Subarray Sum</title>
-    <link href="http://yeziahehe.com/2020/03/08/MinimumSizeSubarraySum/"/>
-    <id>http://yeziahehe.com/2020/03/08/MinimumSizeSubarraySum/</id>
-    <published>2020-03-08T10:03:49.000Z</published>
-    <updated>2020-03-08T14:06:17.133Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/43VbxO.png" alt></p><p><a href="https://leetcode.com/problems/minimum-size-subarray-sum/" target="_blank" rel="noopener">LeetCode 209. Minimum Size Subarray Sum</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度：O(n)。每个指针移动都需要 O(n)O(n) 的时间。每个元素至多被访问两次，一次被右端点访问，一次被左端点访问。<br>空间复杂度: O(1)。</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="number">_</span> s: Int, <span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> ans = <span class="type">Int</span>.<span class="built_in">max</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            sum += nums[i]</span><br><span class="line">            <span class="keyword">while</span> sum &gt;= s &#123;</span><br><span class="line">                ans = <span class="built_in">min</span>(ans, i-j+<span class="number">1</span>)</span><br><span class="line">                sum -= nums[j]</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans != <span class="type">Int</span>.<span class="built_in">max</span> ? ans : <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/03/08/MinimumSizeSubarraySum/">http://yeziahehe.com/2020/03/08/MinimumSizeSubarraySum/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
-      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
-    
-      <category term="Binary Search" scheme="http://yeziahehe.com/tags/Binary-Search/"/>
     
   </entry>
   

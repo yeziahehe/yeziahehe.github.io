@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Largest Number At Least Twice of Others | Ivan&#39;s Blog</title>
+  <title>Evaluate Reverse Polish Notation | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,Stack,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 747. Largest Number At Least Twice of Others。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路考虑只要第二大数字的两倍小于最大数字即可。 123456789101112131415class Solution &amp;#123;    func dominantIndex(_ nums: [Int]) -&amp;gt;">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 150. Evaluate Reverse Polish Notation。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路123456789101112131415161718192021222324252627class Solution &amp;#123;    func evalRPN(_ tokens: [String]) -&amp;gt; Int &amp;#">
+<meta name="keywords" content="算法,LeetCode,Stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Largest Number At Least Twice of Others">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/index.html">
+<meta property="og:title" content="Evaluate Reverse Polish Notation">
+<meta property="og:url" content="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 747. Largest Number At Least Twice of Others。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路考虑只要第二大数字的两倍小于最大数字即可。 123456789101112131415class Solution &amp;#123;    func dominantIndex(_ nums: [Int]) -&amp;gt;">
+<meta property="og:description" content="题目介绍 LeetCode 150. Evaluate Reverse Polish Notation。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路123456789101112131415161718192021222324252627class Solution &amp;#123;    func evalRPN(_ tokens: [String]) -&amp;gt; Int &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QiMXgQ.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/44WaoT.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-05T05:40:35.054Z">
+<meta property="og:updated_time" content="2020-04-05T13:19:38.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Largest Number At Least Twice of Others">
-<meta name="twitter:description" content="题目介绍 LeetCode 747. Largest Number At Least Twice of Others。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路考虑只要第二大数字的两倍小于最大数字即可。 123456789101112131415class Solution &amp;#123;    func dominantIndex(_ nums: [Int]) -&amp;gt;">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QiMXgQ.png">
+<meta name="twitter:title" content="Evaluate Reverse Polish Notation">
+<meta name="twitter:description" content="题目介绍 LeetCode 150. Evaluate Reverse Polish Notation。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路123456789101112131415161718192021222324252627class Solution &amp;#123;    func evalRPN(_ tokens: [String]) -&amp;gt; Int &amp;#">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/44WaoT.png">
 
   
 
@@ -113,14 +113,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-LargestNumberAtLeastTwiceOfOthers" class="article article-type-post" itemprop="blogPost">
+   <article id="post-EvaluateReversePolishNotation" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Largest Number At Least Twice of Others</h1>
+    <h1 class="post-title">Evaluate Reverse Polish Notation</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.05</span>
+        <span>2020.04.05</span>
       </span>
 
       
@@ -153,18 +153,19 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QiMXgQ.png" alt></p>
-<p><a href="https://leetcode.com/problems/largest-number-at-least-twice-of-others/" target="_blank" rel="noopener">LeetCode 747. Largest Number At Least Twice of Others</a>。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>考虑只要第二大数字的两倍小于最大数字即可。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">dominantIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> nums.<span class="built_in">count</span> == <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> s = nums.sorted()</span><br><span class="line">        <span class="keyword">if</span> s[nums.<span class="built_in">count</span> - <span class="number">1</span>] &gt;= s[nums.<span class="built_in">count</span> - <span class="number">2</span>] * <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> nums.firstIndex(of: s[nums.<span class="built_in">count</span> - <span class="number">1</span>])!</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/44WaoT.png" alt></p>
+<p><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">LeetCode 150. Evaluate Reverse Polish Notation</a>。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">evalRPN</span><span class="params">(<span class="number">_</span> tokens: [String])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> stack: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> token <span class="keyword">in</span> tokens &#123;</span><br><span class="line">            <span class="keyword">if</span> token == <span class="string">"+"</span> || token == <span class="string">"-"</span> || token == <span class="string">"*"</span> || token == <span class="string">"/"</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> second = stack.popLast()!</span><br><span class="line">                <span class="keyword">let</span> first = stack.popLast()!</span><br><span class="line">                <span class="keyword">switch</span> token &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">                    stack.append(first + second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">                    stack.append(first - second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">                    stack.append(first * second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">                    stack.append(first / second)</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 数字</span></span><br><span class="line">                stack.append(<span class="type">Int</span>(token)!)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.last!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <blockquote class="blockquote-center">
 **版权声明**
 
 <p><img src="/cc.png" alt></p>
 <p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/">http://yeziahehe.com/2020/03/05/LargestNumberAtLeastTwiceOfOthers/</a></p></blockquote><p></p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/">http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/</a></p></blockquote><p></p>
 
     
   </div>
@@ -202,10 +203,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/05/DiagonalTraverse/">
+    <a class="show pull-left" href="/2020/04/05/DailyTemperatures/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/05/FindPivotIndex/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

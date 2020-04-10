@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-04-10T09:13:50.691Z</updated>
+  <updated>2020-04-10T13:25:26.819Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Binary Tree Level Order Traversal</title>
+    <link href="http://yeziahehe.com/2020/04/10/BinaryTreeLevelOrderTraversal/"/>
+    <id>http://yeziahehe.com/2020/04/10/BinaryTreeLevelOrderTraversal/</id>
+    <published>2020-04-10T13:23:53.000Z</published>
+    <updated>2020-04-10T13:25:26.819Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/sTjKQX.png" alt></p><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">LeetCode 102. Binary Tree Level Order Traversal</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">levelOrder</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> ans: [[<span class="type">Int</span>]] = []</span><br><span class="line">        <span class="keyword">var</span> queue: [<span class="type">TreeNode</span>] = [root]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> !queue.isEmpty &#123;</span><br><span class="line">            <span class="keyword">var</span> nextLevel: [<span class="type">TreeNode</span>] = []</span><br><span class="line">            <span class="keyword">var</span> val: [<span class="type">Int</span>] = []</span><br><span class="line">            <span class="keyword">while</span> queue.<span class="built_in">count</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> node = queue.removeFirst()</span><br><span class="line">                val.append(node.val)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = node.<span class="keyword">left</span> &#123;</span><br><span class="line">                    nextLevel.append(<span class="keyword">left</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = node.<span class="keyword">right</span> &#123;</span><br><span class="line">                    nextLevel.append(<span class="keyword">right</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.append(val)</span><br><span class="line">            queue = nextLevel</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/10/BinaryTreeLevelOrderTraversal/">http://yeziahehe.com/2020/04/10/BinaryTreeLevelOrderTraversal/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
+    
+      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Binary Tree Postorder Traversal</title>
+    <link href="http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/"/>
+    <id>http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/</id>
+    <published>2020-04-10T09:48:32.000Z</published>
+    <updated>2020-04-10T09:49:37.752Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/sSdQRa.png" alt></p><p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="noopener">LeetCode 145. Binary Tree Postorder Traversal</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">postorderTraversal</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        ans += postorderTraversal(root.<span class="keyword">left</span>)</span><br><span class="line">        ans += postorderTraversal(root.<span class="keyword">right</span>)</span><br><span class="line">        ans.append(root.val)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">postorderTraversal1</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">var</span> stack: [<span class="type">TreeNode</span>] = [root]</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">let</span> node = stack.popLast() &#123;</span><br><span class="line">            ans.append(node.val)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = node.<span class="keyword">left</span> &#123;</span><br><span class="line">                stack.append(<span class="keyword">left</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = node.<span class="keyword">right</span> &#123;</span><br><span class="line">                stack.append(<span class="keyword">right</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.reversed()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/">http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
+    
+      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
+    
+  </entry>
   
   <entry>
     <title>Binary Tree Inorder Traversal</title>
@@ -42,11 +106,11 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
+      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
       <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
     
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
-    
-      <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
     
   </entry>
   
@@ -268,9 +332,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
-    
       <category term="Hash Table" scheme="http://yeziahehe.com/tags/Hash-Table/"/>
+    
+      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
     
   </entry>
   
@@ -582,70 +646,6 @@
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
       <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linked List Cycle II</title>
-    <link href="http://yeziahehe.com/2020/03/11/LinkedListCycleII/"/>
-    <id>http://yeziahehe.com/2020/03/11/LinkedListCycleII/</id>
-    <published>2020-03-11T07:48:58.000Z</published>
-    <updated>2020-03-11T07:52:58.824Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8B%E5%8D%8803.46.17.png" alt></p><p><a href="https://leetcode.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">LeetCode 142. Linked List Cycle II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>先看下 <a href="http://yeziahehe.com/2020/03/11/LinkedListCycle/">Linked List Cycle</a> 的题解，找到入环节点是个数学问题。<br>第一次相遇后，fast 指针移到 head，然后和 slow 指针一起一次移动一步，再次相遇时的节点就是入环节点。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">detectCycle</span><span class="params">(head: ListNode?)</span></span> -&gt; <span class="type">ListNode?</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> slow = head</span><br><span class="line">        <span class="keyword">var</span> fast = head</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">true</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> fast == <span class="literal">nil</span> || fast?.next == <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">            &#125;</span><br><span class="line">            slow = slow?.next</span><br><span class="line">            fast = fast?.next?.next</span><br><span class="line">            <span class="keyword">if</span> slow === fast &#123;</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        fast = head</span><br><span class="line">        <span class="keyword">while</span> slow !== fast &#123;</span><br><span class="line">            slow = slow?.next</span><br><span class="line">            fast = fast?.next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/03/11/LinkedListCycleII/">http://yeziahehe.com/2020/03/11/LinkedListCycleII/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
-    
-      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linked List Cycle</title>
-    <link href="http://yeziahehe.com/2020/03/11/LinkedListCycle/"/>
-    <id>http://yeziahehe.com/2020/03/11/LinkedListCycle/</id>
-    <published>2020-03-11T03:32:26.000Z</published>
-    <updated>2020-03-18T06:28:07.087Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-11%E4%B8%8A%E5%8D%8811.33.05.png" alt></p><p><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">LeetCode 141. Linked List Cycle</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p><a href="https://yeziahehe.com/2020/03/13/Algorithm_LinkedList/">算法学习 - 链表</a> 对这题有扩展。</p><p>这是一道经典的链表题目 - 环形链表，基本的解题思路是双指针技巧里面的快慢指针。</p><ul><li>如果没有环，快指针将停在链表的末尾。</li><li>如果有环，快指针最终将与慢指针相遇。</li></ul><p>这两个指针的适当速度应该是多少？</p><p><strong>一个安全的选择是每次移动慢指针一步，而移动快指针两步。每一次迭代，快速指针将额外移动一步。如果环的长度为 M，经过 M 次迭代后，快指针肯定会多绕环一周，并赶上慢指针。</strong></p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> next: <span class="type">ListNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.next = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hasCycle</span><span class="params">(<span class="number">_</span> head: ListNode?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> head == <span class="literal">nil</span> || head?.next == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> slow = head</span><br><span class="line">        <span class="keyword">var</span> fast = head?.next</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> fast?.next != <span class="literal">nil</span> &amp;&amp; fast?.next?.next != <span class="literal">nil</span> &#123;</span><br><span class="line">            slow = slow?.next</span><br><span class="line">            fast = fast?.next?.next</span><br><span class="line">            <span class="keyword">if</span> slow === fast &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/03/11/LinkedListCycle/">http://yeziahehe.com/2020/03/11/LinkedListCycle/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Linked List" scheme="http://yeziahehe.com/tags/Linked-List/"/>
-    
-      <category term="Two Pointer" scheme="http://yeziahehe.com/tags/Two-Pointer/"/>
     
   </entry>
   

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Binary Tree Postorder Traversal | Ivan&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="算法,LeetCode,Stack,Tree,">
+  
+
+  <meta name="description" content="题目介绍 LeetCode 145. Binary Tree Postorder Traversal。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路1234567891011121314151617181920212223242526272829303132333435363738394041public class TreeNode &amp;#123;    public var">
+<meta name="keywords" content="算法,LeetCode,Stack,Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Binary Tree Postorder Traversal">
+<meta property="og:url" content="http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="题目介绍 LeetCode 145. Binary Tree Postorder Traversal。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路1234567891011121314151617181920212223242526272829303132333435363738394041public class TreeNode &amp;#123;    public var">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/sSdQRa.png">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2020-04-10T09:49:37.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Binary Tree Postorder Traversal">
+<meta name="twitter:description" content="题目介绍 LeetCode 145. Binary Tree Postorder Traversal。 复杂度时间复杂度: O(n), 空间复杂度: O(n) 解题思路1234567891011121314151617181920212223242526272829303132333435363738394041public class TreeNode &amp;#123;    public var">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/sSdQRa.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">·</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">·</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Blog
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/leetcode"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            OJ
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目介绍"><span class="toc-text">题目介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复杂度"><span class="toc-text">复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-text">解题思路</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-BinaryTreePostorderTraversal" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Binary Tree Postorder Traversal</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.04.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>叶帆</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/LeetCode-OJ/">LeetCode OJ</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/sSdQRa.png" alt></p>
+<p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="noopener">LeetCode 145. Binary Tree Postorder Traversal</a>。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">postorderTraversal</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        ans += postorderTraversal(root.<span class="keyword">left</span>)</span><br><span class="line">        ans += postorderTraversal(root.<span class="keyword">right</span>)</span><br><span class="line">        ans.append(root.val)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">postorderTraversal1</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> ans: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">var</span> stack: [<span class="type">TreeNode</span>] = [root]</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">let</span> node = stack.popLast() &#123;</span><br><span class="line">            ans.append(node.val)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">left</span> = node.<span class="keyword">left</span> &#123;</span><br><span class="line">                stack.append(<span class="keyword">left</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> <span class="keyword">right</span> = node.<span class="keyword">right</span> &#123;</span><br><span class="line">                stack.append(<span class="keyword">right</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.reversed()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/">http://yeziahehe.com/2020/04/10/BinaryTreePostorderTraversal/</a></p></blockquote><p></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持yeziahehe</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/04/10/BinaryTreeInorderTraversal/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/04/10/BinaryTreeLevelOrderTraversal/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Blog
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/leetcode"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              OJ
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

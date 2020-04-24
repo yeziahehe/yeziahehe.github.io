@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/2020/02/05/smooth_user_interfaces_for_ios/</loc>
+    
+    <lastmod>2020-04-24T08:29:02.287Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/leetcode/index.html</loc>
     
     <lastmod>2020-04-12T14:53:02.262Z</lastmod>
@@ -380,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2020/02/05/smooth_user_interfaces_for_ios/</loc>
-    
-    <lastmod>2020-03-01T04:56:43.442Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2020/01/19/responder_chain/</loc>
     
     <lastmod>2020-02-07T07:18:50.794Z</lastmod>
@@ -590,14 +590,14 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
+    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
     
     <lastmod>2019-03-17T02:56:00.984Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
+    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
     
     <lastmod>2019-03-17T02:56:00.984Z</lastmod>
     
@@ -681,20 +681,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/10/06/fork_project_sync_update/</loc>
-    
-    <lastmod>2016-09-02T03:02:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/10/06/Coding_iOS_client_learning--AppDelegate(update)/</loc>
-    
-    <lastmod>2016-09-02T03:02:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2015/10/10/Block_learning/</loc>
     
     <lastmod>2016-09-02T03:02:18.000Z</lastmod>
@@ -716,13 +702,6 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2016/08/31/August_Reading/</loc>
-    
-    <lastmod>2016-09-02T02:55:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yeziahehe.com/2016/01/04/Bye%202015%EF%BC%8CHi%202016/</loc>
     
     <lastmod>2016-08-07T20:30:11.000Z</lastmod>
@@ -740,13 +719,6 @@
     <loc>http://yeziahehe.com/tags/index.html</loc>
     
     <lastmod>2016-01-07T16:15:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/2015/07/15/jekyll_env_build/</loc>
-    
-    <lastmod>2015-12-16T15:01:41.000Z</lastmod>
     
   </url>
   

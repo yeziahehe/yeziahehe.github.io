@@ -25,8 +25,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/ResponseChain/WithRoundedCorners.png">
 <meta property="og:image" content="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Art/visual-shadow_2x.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QxtJd2.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-01T04:56:43.442Z">
+<meta property="og:updated_time" content="2020-04-24T08:29:02.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何让界面保持流畅">
 <meta name="twitter:description" content="首先建议大家先读一读这篇文章 iOS 保持界面流畅的技巧 | Garan no dou ，从原理层面讲的很清楚。 离屏渲染（offscreen rendering）关于离屏渲染的概念推荐这篇文章 离屏渲染优化详解：实例示范+性能测试 - 简书，我们主要说说具体的离屏渲染优化方案。 圆角 cornerRadius首先了解下 cornerRadius 概念，参考 cornerRadius - CALa">
@@ -108,7 +109,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#离屏渲染（offscreen-rendering）"><span class="toc-text">离屏渲染（offscreen rendering）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#圆角-cornerRadius"><span class="toc-text">圆角 cornerRadius</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UIImageView"><span class="toc-text">UIImageView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIButton-设置背景图或-Image"><span class="toc-text">UIButton 设置背景图或 Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UILabel"><span class="toc-text">UILabel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影-shadow"><span class="toc-text">阴影 shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遮罩-masks"><span class="toc-text">遮罩 masks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列表"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预加载"><span class="toc-text">预加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程"><span class="toc-text">多线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#离屏渲染（offscreen-rendering）"><span class="toc-text">离屏渲染（offscreen rendering）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#圆角-cornerRadius"><span class="toc-text">圆角 cornerRadius</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UIImageView"><span class="toc-text">UIImageView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIButton-设置背景图或-Image"><span class="toc-text">UIButton 设置背景图或 Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UILabel"><span class="toc-text">UILabel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阴影-shadow"><span class="toc-text">阴影 shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遮罩-masks"><span class="toc-text">遮罩 masks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#列表"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预加载"><span class="toc-text">预加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程"><span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他-1"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
   </div>
 
 
@@ -229,6 +230,18 @@
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其他的 GroupOpacity、EdgeAntialiasing 在 iOS 10 &amp; Later 后做了优化，日常使用场景较少，不做过多说明。</p>
 <h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>类似于 UITableView、UICollectionView 等滚动视图最能反映界面是否流畅，且也最容易出现肉眼可见的不流畅现象。系统对于该视图也有优化，比如常见的在滑动时将 RunLoop 的模式切换到 UITrackingRunLoopMode。</p>
 <p>根据开篇的文章，我们知道视图在显示的过程中，CPU 和 GPU 分别承担了部分工作，所以我们做列表层面的优化也要从这两个方面分别入手，我们着重补充下 CPU 部分，GPU 可以直接参考开篇文章。</p>
+<p>在屏幕成像的过程中，CPU和GPU起着至关重要的作用</p>
+<ul>
+<li>CPU（Central Processing Unit，中央处理器）<ul>
+<li>对象的创建和销毁、对象属性的调整、布局计算、文本的计算和排版、图片的格式转换和解码、图像的绘制（Core Graphics）</li>
+</ul>
+</li>
+<li>GPU（Graphics Processing Unit，图形处理器）<ul>
+<li>纹理的渲染</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/QxtJd2.png" alt="QxtJd2"></p>
 <h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p>在滑动过程中CPU占用特点是：</p>
 <ul>
 <li>滑动时CPU占用率高、空闲时占用率低</li>
@@ -259,6 +272,10 @@
 <li>屏幕上能看到的所有文本内容控件，包括 UIWebView，在底层都是通过 CoreText 排版、绘制为 Bitmap 显示的。常见的文本控件 （UILabel、UITextView 等），其排版和绘制都是在主线程进行的，当显示大量文本时，CPU 的压力会非常大。对此解决方案只有一个，那就是自定义文本控件，用 TextKit 或最底层的 CoreText 对文本异步绘制。尽管这实现起来非常麻烦，但其带来的优势也非常大，CoreText 对象创建好后，能直接获取文本的宽高等信息，避免了多次计算（调整 UILabel 大小时算一遍、UILabel 绘制时内部再算一遍）；CoreText 对象占用内存较少，可以缓存下来以备稍后多次渲染。</li>
 </ul>
 </li>
+</ul>
+<h3 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>尽量用轻量级的对象，比如用不到事件处理的地方，可以考虑使用 CALayer 取代 UIView</li>
+<li>不要频繁地调用UIView的相关属性，比如 frame、bounds 等属性</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="noopener">iOS 保持界面流畅的技巧 | Garan no dou</a></li>

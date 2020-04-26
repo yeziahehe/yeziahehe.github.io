@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>设计一个简单准确的定时器 | Ivan&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="iOS,">
+  
+
+  <meta name="description" content="NSTimer 问题项目中有定时刷新的功能需求，使用 NSTimer 一把梭之后发现了如下的问题，我们首先写一段示例代码： 1234567891011121314151617class ViewController: UIViewController &amp;#123;	  private var timer: Timer?	  deinit &amp;#123;        timer?.invalidat">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计一个简单准确的定时器">
+<meta property="og:url" content="http://yeziahehe.com/2020/04/26/design_a_simple_timer/index.html">
+<meta property="og:site_name" content="Ivan&#39;s Blog">
+<meta property="og:description" content="NSTimer 问题项目中有定时刷新的功能需求，使用 NSTimer 一把梭之后发现了如下的问题，我们首先写一段示例代码： 1234567891011121314151617class ViewController: UIViewController &amp;#123;	  private var timer: Timer?	  deinit &amp;#123;        timer?.invalidat">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yeziahehe.com/cc.png">
+<meta property="og:updated_time" content="2020-04-26T01:55:08.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计一个简单准确的定时器">
+<meta name="twitter:description" content="NSTimer 问题项目中有定时刷新的功能需求，使用 NSTimer 一把梭之后发现了如下的问题，我们首先写一段示例代码： 1234567891011121314151617class ViewController: UIViewController &amp;#123;	  private var timer: Timer?	  deinit &amp;#123;        timer?.invalidat">
+<meta name="twitter:image" content="http://yeziahehe.com/cc.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<link rel="alternate" href="/atom.xml" title="Ivan's Blog" type="application/atom+xml">
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">·</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">·</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Blog
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/leetcode"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            OJ
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NSTimer-问题"><span class="toc-text">NSTimer 问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CADisplayLink"><span class="toc-text">CADisplayLink</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GCD"><span class="toc-text">GCD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-design_a_simple_timer" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">设计一个简单准确的定时器</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.04.26</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>叶帆</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="NSTimer-问题"><a href="#NSTimer-问题" class="headerlink" title="NSTimer 问题"></a>NSTimer 问题</h1><p>项目中有定时刷新的功能需求，使用 <code>NSTimer</code> 一把梭之后发现了如下的问题，我们首先写一段示例代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">var</span> timer: <span class="type">Timer?</span></span><br><span class="line"></span><br><span class="line">	  <span class="keyword">deinit</span> &#123;</span><br><span class="line">        timer?.invalidate()</span><br><span class="line">        timer = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">		  timer = <span class="type">Timer</span>.scheduledTimer(timeInterval: <span class="number">1.0</span>, target: <span class="keyword">self</span>, selector: #selector(<span class="built_in">count</span>), userInfo: <span class="literal">nil</span>, repeats: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	  <span class="meta">@objc</span> <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">count</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"timer"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>循环引用<br>timer 会强引用 target，而 target 又强引用者 timer 对象，最后就会导致当前 viewcontroller 不会被释放，deinit 方法也不会被调用，从而产生了循环引用。</li>
+</ol>
+<p>第一种可以通过 Timer 的另一个方法，不去使用 target，在 block 中弱引用 self，可以解决循环引用的问题，代码如下。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">timer = <span class="type">Timer</span>.scheduledTimer(withTimeInterval: <span class="number">1.0</span>, repeats: <span class="literal">true</span>, block: &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">self</span>?.<span class="built_in">count</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第二种方式可以通过引入一个中间对象，让 target 强引用中间对象，中间对象在弱引用 timer，这样一旦 viewcontroller 被释放掉，deinit 方法就会被调用，timer 就会被释放掉。但是这样存在一个问题是，中间对象其实是无法响应 selector，会导致崩溃。这样就是需要用到消息转发机制，将所有中间对象收到的事件都转发给 self.target 进行响应，代码如下。<br>主类的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer = <span class="type">Timer</span>.scheduledTimer(timeInterval: <span class="number">1.0</span>, target: <span class="type">MyProxy</span>.proxy(target: <span class="keyword">self</span>), selector: #selector(<span class="built_in">count</span>), userInfo: <span class="literal">nil</span>, repeats: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+<p>中间对象 MyProxy 的代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyProxy</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">weak</span> <span class="keyword">var</span> target: <span class="type">Any?</span></span><br><span class="line"></span><br><span class="line">	  <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">proxy</span>(<span class="title">withTarget</span> <span class="title">target</span>: <span class="title">Any</span>?) -&gt; <span class="title">Self</span> </span>&#123;</span><br><span class="line">    	  <span class="keyword">let</span> proxy = <span class="type">MyProxy</span>()</span><br><span class="line">        proxy.target = target</span><br><span class="line">        <span class="keyword">return</span> proxy</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">forwardingTarget</span><span class="params">(<span class="keyword">for</span> aSelector: Selector!)</span></span> -&gt; <span class="type">Any?</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> target</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他还有些方式，可以看看这篇博客 <a href="https://juejin.im/post/5da72cb6e51d4524d55484cf" target="_blank" rel="noopener">iOS之NSTimer循环引用的解决方案 - 掘金</a>，这边不做详细介绍了。</p>
+<ol start="2">
+<li>Runloop 导致计时不准确<br>由于 NSTimer 是依赖于 RunLoop 机制的，所以会因为 Runloop 的问题导致计时不准确。上面两个 <code>Timer.scheduledTimer</code>  初始化方法都是默认运行在 Runloop 的 default mode 中。</li>
+</ol>
+<p>在 ScrollView 在滑动的过程中，主线程的 Runloop 会切换到 <code>UITrackingRunLoopMode</code> ，这个时候 timer 就不会运行，就会导致计时不准确。如果想要滑动的时候不失效，可以将 timer 运行在 <code>NSRunLoopCommonModes</code>。</p>
+<ol start="3">
+<li>线程问题<br>同样由于 NSTimer 是依赖于 RunLoop 机制的，所以在子线程中初始化一个 timer 默认是不会运行的。原因是因为子线程并没有创建 Runloop。</li>
+</ol>
+<h1 id="CADisplayLink"><a href="#CADisplayLink" class="headerlink" title="CADisplayLink"></a>CADisplayLink</h1><p>官方文档对于 CADisplayLink 的介绍是：</p>
+<blockquote>
+<p>A timer object that allows your application to synchronize its drawing to the refresh rate of the display.</p>
+</blockquote>
+<p>一般情况下，我们的屏幕刷新率是1/60s 一次。CADisplayLink 跟 NSTimer 的用法基本相似，NSTimer 的时间间隔是以秒为单位，而 CADisplayLink 是使用帧率来作为时间间隔的单位。</p>
+<p>所以说 CADisplayLink 最常见到的应用场景就是写一个监测 FPS 的工具，我这里引用 <code>YYLabel</code> 的代码实现大概介绍下原理：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">YYFPSLabel</span> </span>&#123;</span><br><span class="line">    <span class="built_in">CADisplayLink</span> *_link;</span><br><span class="line">    <span class="built_in">NSUInteger</span> _count;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> _lastTime;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)init &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">self</span> )&#123;        </span><br><span class="line">    _link = [<span class="built_in">CADisplayLink</span> displayLinkWithTarget:[YYWeakProxy proxyWithTarget:<span class="keyword">self</span>] selector:<span class="keyword">@selector</span>(tick:)];</span><br><span class="line">    [_link addToRunLoop:[<span class="built_in">NSRunLoop</span> mainRunLoop] forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [_link invalidate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)tick:(<span class="built_in">CADisplayLink</span> *)link &#123;</span><br><span class="line">    <span class="keyword">if</span> (_lastTime == <span class="number">0</span>) &#123;</span><br><span class="line">        _lastTime = link.timestamp;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _count++;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> delta = link.timestamp - _lastTime;</span><br><span class="line">    <span class="keyword">if</span> (delta &lt; <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    _lastTime = link.timestamp;</span><br><span class="line">    <span class="keyword">float</span> fps = _count / delta;</span><br><span class="line">    _count = <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，使用方法与 NSTimer 基本一致，同样是使用了 <code>YYWeakProxy</code> 来避免循环引用，且 CADisplayLink 还需要手动添加到 Runloop 中。那么问题在哪里？问题就出在 CADisplayLink 仍然是基于 Runloop 来实现的，而 RunLoop 的运行取决于其所在的 mode 以及 CPU 的繁忙程度，当 CPU 忙于计算显示内容或者 GPU 工作太繁重时，就会导致显示出来的 FPS 与 Instrument 的不一致。所以说基于CADisplayLink实现的 FPS 无法完全检测出当前 Core Animation 的性能情况，它只能检测出当前 RunLoop 的帧率。</p>
+<h1 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h1><p>最后我们说到今天的重点，通过 GCD 来实现 Timer，主要是使用 <code>DispatchSource</code>。步骤如下：创建一个监听的事件类型对应的 dispatch source，然后给这个 source 指定闭包和 Dispatch Queue。当 source 监听到相应的事件时，就会将该闭包自动加到 queue 中执行。代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SwiftTimer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> internalTimer: <span class="type">DispatchSourceTimer</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(interval: <span class="type">DispatchTimeInterval</span>, repeats: <span class="type">Bool</span> = <span class="literal">false</span>, queue: <span class="type">DispatchQueue</span> = .main , handler: () -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line"></span><br><span class="line">        internalTimer = <span class="type">DispatchSource</span>.makeTimerSource(queue: queue)</span><br><span class="line">        internalTimer.setEventHandler(handler: handler)</span><br><span class="line">        <span class="keyword">if</span> repeats &#123;</span><br><span class="line">            internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            internalTimer.scheduleOneshot(deadline: .now() + interval)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">deinit</span>() &#123;</span><br><span class="line">    	  internalTimer.cancel()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">rescheduleRepeating</span><span class="params">(interval: DispatchTimeInterval)</span></span> &#123;</span><br><span class="line">    	  internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们再看看代码，循环引用、计时不准确、线程问题都得到了解决，相比较除了代码量稍微多一些，在精度方面无疑是最好的。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://github.com/aozhimin/iOS-Monitor-Platform#fps" target="_blank" rel="noopener">GitHub - aozhimin/iOS-Monitor-Platform: iOS 性能监控 SDK —— Wedjat（华狄特）开发过程的调研和整理</a></li>
+<li><a href="https://github.com/100mango/zen/blob/master/%E6%89%93%E9%80%A0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84Timer/make%20a%20timer.md" target="_blank" rel="noopener">zen/make a timer.md at master · 100mango/zen · GitHub</a></li>
+<li><a href="https://juejin.im/post/5bf934e56fb9a049b2218b0b" target="_blank" rel="noopener">iOS-简单易用的GCD计时器 - 掘金</a></li>
+</ul>
+<blockquote class="blockquote-center">
+**版权声明**
+
+<p><img src="/cc.png" alt></p>
+<p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/04/26/design_a_simple_timer/">http://yeziahehe.com/2020/04/26/design_a_simple_timer/</a></p></blockquote><p></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持yeziahehe</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://blog-config-1258094708.cos.ap-shanghai.myqcloud.com/alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/04/12/PathSum/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Blog
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/leetcode"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              OJ
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

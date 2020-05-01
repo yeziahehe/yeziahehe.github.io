@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yeziahehe.com/leetcode/index.html</loc>
+    
+    <lastmod>2020-05-01T12:42:10.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2020/05/01/ConstructBinaryTreeFromPreorderAndInorderTraversal/</loc>
+    
+    <lastmod>2020-05-01T12:40:37.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yeziahehe.com/2020/05/01/ConstructBinaryTreeFromInorderAndPostorderTraversal/</loc>
+    
+    <lastmod>2020-05-01T11:50:10.975Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yeziahehe.com/2020/04/26/design_a_simple_timer/</loc>
     
     <lastmod>2020-04-26T02:21:36.929Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://yeziahehe.com/2020/02/05/smooth_user_interfaces_for_ios/</loc>
     
     <lastmod>2020-04-24T08:43:35.537Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yeziahehe.com/leetcode/index.html</loc>
-    
-    <lastmod>2020-04-12T14:53:02.262Z</lastmod>
     
   </url>
   
@@ -597,14 +611,14 @@
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
+    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
     
     <lastmod>2019-03-17T02:56:00.984Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yeziahehe.com/2015/12/15/Objective-C_epoch--ReactiveCocoa_framwork/</loc>
+    <loc>http://yeziahehe.com/2015/12/13/use_Travis_CI_auto_build_Hexo_static_blog/</loc>
     
     <lastmod>2019-03-17T02:56:00.984Z</lastmod>
     

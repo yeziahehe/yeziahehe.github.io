@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Two Sum II - Input array is sorted | Ivan&#39;s Blog</title>
+  <title>Find Minimum in Rotated Sorted Array | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,Binary Search,Two Pointer,">
+    <meta name="keywords" content="算法,LeetCode,Array,Binary Search,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 167. Two Sum II - Input array is sorted。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题方法要把排好序这个特征充分利用，利用双指针，分别从头尾开始，两数相加，和如果为 target 直接返回；如果偏大，尾指针前移；如果偏小，头指针后移。 123456789101112131415161718class Solutio">
-<meta name="keywords" content="算法,LeetCode,Array,Binary Search,Two Pointer">
+  <meta name="description" content="题目介绍 LeetCode 153. Find Minimum in Rotated Sorted Array。 复杂度时间复杂度: O(logn), 空间复杂度: O(1) 解题思路123456789101112131415161718class Solution &amp;#123;    func findMin(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var">
+<meta name="keywords" content="算法,LeetCode,Array,Binary Search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Two Sum II - Input array is sorted">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/08/TwoSumII/index.html">
+<meta property="og:title" content="Find Minimum in Rotated Sorted Array">
+<meta property="og:url" content="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 167. Two Sum II - Input array is sorted。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题方法要把排好序这个特征充分利用，利用双指针，分别从头尾开始，两数相加，和如果为 target 直接返回；如果偏大，尾指针前移；如果偏小，头指针后移。 123456789101112131415161718class Solutio">
+<meta property="og:description" content="题目介绍 LeetCode 153. Find Minimum in Rotated Sorted Array。 复杂度时间复杂度: O(logn), 空间复杂度: O(1) 解题思路123456789101112131415161718class Solution &amp;#123;    func findMin(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IoQKgr.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XqxvyU.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-08T04:25:20.666Z">
+<meta property="og:updated_time" content="2020-06-22T09:36:01.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Two Sum II - Input array is sorted">
-<meta name="twitter:description" content="题目介绍 LeetCode 167. Two Sum II - Input array is sorted。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题方法要把排好序这个特征充分利用，利用双指针，分别从头尾开始，两数相加，和如果为 target 直接返回；如果偏大，尾指针前移；如果偏小，头指针后移。 123456789101112131415161718class Solutio">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IoQKgr.png">
+<meta name="twitter:title" content="Find Minimum in Rotated Sorted Array">
+<meta name="twitter:description" content="题目介绍 LeetCode 153. Find Minimum in Rotated Sorted Array。 复杂度时间复杂度: O(logn), 空间复杂度: O(1) 解题思路123456789101112131415161718class Solution &amp;#123;    func findMin(_ nums: [Int]) -&amp;gt; Int &amp;#123;        var">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XqxvyU.png">
 
   
 
@@ -107,20 +107,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目介绍"><span class="toc-text">题目介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复杂度"><span class="toc-text">复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题方法"><span class="toc-text">解题方法</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目介绍"><span class="toc-text">题目介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复杂度"><span class="toc-text">复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解题思路"><span class="toc-text">解题思路</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-TwoSumII" class="article article-type-post" itemprop="blogPost">
+   <article id="post-FindMinimumInRotatedSortedArray" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Two Sum II - Input array is sorted</h1>
+    <h1 class="post-title">Find Minimum in Rotated Sorted Array</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.08</span>
+        <span>2020.06.22</span>
       </span>
 
       
@@ -153,18 +153,19 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/IoQKgr.png" alt></p>
-<p><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">LeetCode 167. Two Sum II - Input array is sorted</a>。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>要把排好序这个特征充分利用，利用双指针，分别从头尾开始，两数相加，和如果为 target 直接返回；如果偏大，尾指针前移；如果偏小，头指针后移。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">twoSum</span><span class="params">(<span class="number">_</span> numbers: [Int], <span class="number">_</span> target: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> j = numbers.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; j &#123;</span><br><span class="line">            <span class="keyword">let</span> sum = numbers[i] + numbers[j]</span><br><span class="line">            <span class="keyword">if</span> sum == target &#123;</span><br><span class="line">                <span class="keyword">return</span> [i+<span class="number">1</span>, j+<span class="number">1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sum &lt; target &#123;</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XqxvyU.png" alt></p>
+<p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">LeetCode 153. Find Minimum in Rotated Sorted Array</a>。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(logn), 空间复杂度: O(1)</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findMin</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> low = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> high = nums.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[low] &lt; nums[high] &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[low]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> mid = (low + high) / <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] &gt; nums[high]  &#123;</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high = mid</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <blockquote class="blockquote-center">
 **版权声明**
 
 <p><img src="/cc.png" alt></p>
 <p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2020/03/08/TwoSumII/">http://yeziahehe.com/2020/03/08/TwoSumII/</a></p></blockquote><p></p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/">http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/</a></p></blockquote><p></p>
 
     
   </div>
@@ -202,10 +203,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/08/ArrayPartitionI/">
+    <a class="show pull-left" href="/2020/06/22/ClimbingStairs/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/08/RemoveElement/">
+    <a class="show pull-right" href="/2020/06/22/FindMinimumInRotatedSortedArrayII/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

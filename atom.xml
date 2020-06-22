@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-06-22T07:44:38.537Z</updated>
+  <updated>2020-06-22T09:45:23.914Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Find Minimum in Rotated Sorted Array II</title>
+    <link href="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArrayII/"/>
+    <id>http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArrayII/</id>
+    <published>2020-06-22T09:42:44.000Z</published>
+    <updated>2020-06-22T09:45:23.914Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/jrY8Gr.png" alt></p><p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">LeetCode 154. Find Minimum in Rotated Sorted Array II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(logn), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findMin</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> low = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> high = nums.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[low] &lt; nums[high] &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[low]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> mid = (low + high) / <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] &gt; nums[high] &#123;</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> nums[mid] &lt; nums[high] &#123;</span><br><span class="line">                high = mid</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 处理重复元素</span></span><br><span class="line">                high -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArrayII/">http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArrayII/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Binary search" scheme="http://yeziahehe.com/tags/Binary-search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Find Minimum in Rotated Sorted Array</title>
+    <link href="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/"/>
+    <id>http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/</id>
+    <published>2020-06-22T09:23:07.000Z</published>
+    <updated>2020-06-22T09:36:01.564Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/XqxvyU.png" alt></p><p><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">LeetCode 153. Find Minimum in Rotated Sorted Array</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(logn), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findMin</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> low = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> high = nums.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high &#123;</span><br><span class="line">            <span class="keyword">if</span> nums[low] &lt; nums[high] &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[low]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> mid = (low + high) / <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid] &gt; nums[high]  &#123;</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high = mid</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[low]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/">http://yeziahehe.com/2020/06/22/FindMinimumInRotatedSortedArray/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+      <category term="Binary Search" scheme="http://yeziahehe.com/tags/Binary-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>Climbing Stairs</title>
@@ -583,70 +647,6 @@
       <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
     
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Decode String</title>
-    <link href="http://yeziahehe.com/2020/04/08/DecodeString/"/>
-    <id>http://yeziahehe.com/2020/04/08/DecodeString/</id>
-    <published>2020-04-08T03:21:39.000Z</published>
-    <updated>2020-04-08T03:28:22.685Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/PHS3uS.png" alt></p><p><a href="https://leetcode.com/problems/decode-string/" target="_blank" rel="noopener">LeetCode 394. Decode String</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ol><li>构建辅助栈 stack， 遍历字符串 s 中每个字符 c；<ul><li>当 c 为数字时，将数字字符转化为数字 multi，用于后续倍数计算；</li><li>当 c 为字母时，在 ans 尾部添加 c；</li><li>当 c 为 [ 时，将当前 multi 和 ans 入栈，并分别置空置 0：<ul><li>记录此 [ 前的临时结果 ans 至栈，用于发现对应 ] 后的拼接操作；</li><li>记录此 [ 前的倍数 multi 至栈，用于发现对应 ] 后，获取 multi × […] 字符串。</li><li>进入到新 [ 后，ans 和 multi 重新记录。</li></ul></li><li>当 c 为 ] 时，stack 出栈，拼接字符串 ans = $1 + $0 * ans，其中:<ul><li>$1 是上个 [ 到当前 [ 的字符串，例如 “3[a2[c]]” 中的 a；</li><li>$0 是当前 [ 到 ] 内字符串的重复倍数，例如 “3[a2[c]]” 中的 2。</li></ul></li></ul></li><li>返回字符串 res。</li></ol><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">decodeString</span><span class="params">(<span class="number">_</span> s: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> stack: [(<span class="type">Int</span>, <span class="type">String</span>)] = []</span><br><span class="line">        <span class="keyword">var</span> ans: <span class="type">String</span> = <span class="string">""</span></span><br><span class="line">        <span class="keyword">var</span> mulit: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> <span class="type">Array</span>(s) &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">c</span>.isLetter &#123;</span><br><span class="line">                ans += <span class="type">String</span>(<span class="built_in">c</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">c</span>.isNumber &#123;</span><br><span class="line">                mulit = mulit * <span class="number">10</span> + <span class="type">Int</span>(<span class="type">String</span>(<span class="built_in">c</span>))!</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">c</span> == <span class="string">"["</span> &#123;</span><br><span class="line">                stack.append((mulit, ans))</span><br><span class="line">                mulit = <span class="number">0</span></span><br><span class="line">                ans = <span class="string">""</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">c</span> == <span class="string">"]"</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> temp = stack.popLast()!</span><br><span class="line">                <span class="keyword">var</span> repeatStr = <span class="string">""</span></span><br><span class="line">                <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;temp.<span class="number">0</span> &#123;</span><br><span class="line">                    repeatStr += ans</span><br><span class="line">                &#125;</span><br><span class="line">                ans = temp.<span class="number">1</span> + repeatStr</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/08/DecodeString/">http://yeziahehe.com/2020/04/08/DecodeString/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
-    
-      <category term="DFS" scheme="http://yeziahehe.com/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Implement Queue using Stacks</title>
-    <link href="http://yeziahehe.com/2020/04/07/ImplementQueueUsingStacks/"/>
-    <id>http://yeziahehe.com/2020/04/07/ImplementQueueUsingStacks/</id>
-    <published>2020-04-07T13:53:19.000Z</published>
-    <updated>2020-04-08T03:24:05.879Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/h2RrtB.png" alt></p><p><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener">LeetCode 232. Implement Queue using Stacks</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O()</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> array = [<span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(x: Int)</span></span> &#123;</span><br><span class="line">        array.append(x)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.removeFirst()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">empty</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.isEmpty</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">peek</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.first ?? -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> queue = <span class="type">Queue</span>()</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="type">Queue</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Push element x onto stack. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> x: Int)</span></span> &#123;</span><br><span class="line">        temp.push(x: x)</span><br><span class="line">        <span class="keyword">while</span> !queue.empty() &#123;</span><br><span class="line">            temp.push(x: queue.pop())</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> !temp.empty() &#123;</span><br><span class="line">            queue.push(x: temp.pop())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the element on top of the stack and returns that element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.pop()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Get the top element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.peek()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns whether the stack is empty. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">empty</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.empty()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/07/ImplementQueueUsingStacks/">http://yeziahehe.com/2020/04/07/ImplementQueueUsingStacks/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
-    
-      <category term="Design" scheme="http://yeziahehe.com/tags/Design/"/>
     
   </entry>
   

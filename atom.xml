@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-05-06T08:11:04.225Z</updated>
+  <updated>2020-06-22T03:30:03.359Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Search a 2D Matrix II</title>
+    <link href="http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/"/>
+    <id>http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/</id>
+    <published>2020-06-22T03:02:16.000Z</published>
+    <updated>2020-06-22T03:30:03.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/DpCPPE.png" alt></p><p><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/" target="_blank" rel="noopener">LeetCode 240. Search a 2D Matrix II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(m+n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">searchMatrix</span><span class="params">(<span class="number">_</span> matrix: [[Int]], <span class="number">_</span> target: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> matrix.isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> i = matrix.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> &amp;&amp; j &lt; matrix[<span class="number">0</span>].<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] == target &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] &gt; target &#123;</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/">http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Binary Search" scheme="http://yeziahehe.com/tags/Binary-Search/"/>
+    
+      <category term="Divide and Conquer" scheme="http://yeziahehe.com/tags/Divide-and-Conquer/"/>
+    
+  </entry>
   
   <entry>
     <title>Serialize and Deserialize Binary Tree</title>
@@ -326,9 +358,9 @@
     
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
     
-      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
-    
       <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
+    
+      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
     
   </entry>
   
@@ -616,41 +648,11 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
-    
       <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
     
+      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
+    
       <category term="Union Find" scheme="http://yeziahehe.com/tags/Union-Find/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Evaluate Reverse Polish Notation</title>
-    <link href="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/"/>
-    <id>http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/</id>
-    <published>2020-04-05T13:15:31.000Z</published>
-    <updated>2020-04-05T13:19:38.865Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/44WaoT.png" alt></p><p><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">LeetCode 150. Evaluate Reverse Polish Notation</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">evalRPN</span><span class="params">(<span class="number">_</span> tokens: [String])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> stack: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">for</span> token <span class="keyword">in</span> tokens &#123;</span><br><span class="line">            <span class="keyword">if</span> token == <span class="string">"+"</span> || token == <span class="string">"-"</span> || token == <span class="string">"*"</span> || token == <span class="string">"/"</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> second = stack.popLast()!</span><br><span class="line">                <span class="keyword">let</span> first = stack.popLast()!</span><br><span class="line">                <span class="keyword">switch</span> token &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">                    stack.append(first + second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">                    stack.append(first - second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">                    stack.append(first * second)</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">                    stack.append(first / second)</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 数字</span></span><br><span class="line">                stack.append(<span class="type">Int</span>(token)!)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.last!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/">http://yeziahehe.com/2020/04/05/EvaluateReversePolishNotation/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
     
   </entry>
   

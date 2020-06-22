@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-06-22T03:30:03.359Z</updated>
+  <updated>2020-06-22T07:44:38.537Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -17,13 +17,73 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Climbing Stairs</title>
+    <link href="http://yeziahehe.com/2020/06/22/ClimbingStairs/"/>
+    <id>http://yeziahehe.com/2020/06/22/ClimbingStairs/</id>
+    <published>2020-06-22T07:42:25.000Z</published>
+    <updated>2020-06-22T07:44:38.537Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/UsZOCN.png" alt></p><p><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">LeetCode 70. Climbing Stairs</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>递归会造成大量的重复计算，可以考虑 dp 解法。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">climbStairs</span><span class="params">(<span class="number">_</span> n: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">3</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> n</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> dp: [<span class="type">Int</span>] = <span class="type">Array</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: n + <span class="number">1</span>)</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        dp[<span class="number">2</span>] = <span class="number">2</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">3</span>...n &#123;</span><br><span class="line">            dp[i] = dp[i-<span class="number">1</span>] + dp[i-<span class="number">2</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/ClimbingStairs/">http://yeziahehe.com/2020/06/22/ClimbingStairs/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yeziahehe.com/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fibonacci Number</title>
+    <link href="http://yeziahehe.com/2020/06/22/FibonacciNumber/"/>
+    <id>http://yeziahehe.com/2020/06/22/FibonacciNumber/</id>
+    <published>2020-06-22T07:02:10.000Z</published>
+    <updated>2020-06-22T07:12:32.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/orJtte.png" alt></p><p><a href="https://leetcode-cn.com/problems/fibonacci-number/" target="_blank" rel="noopener">LeetCode 509. Fibonacci Number</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>递归会造成大量的重复计算。</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fib</span><span class="params">(<span class="number">_</span> N: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="type">N</span> &lt; <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">N</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">2</span>...<span class="type">N</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> temp = b</span><br><span class="line">            b += a</span><br><span class="line">            a = temp</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/FibonacciNumber/">http://yeziahehe.com/2020/06/22/FibonacciNumber/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Search a 2D Matrix II</title>
     <link href="http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/"/>
     <id>http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/</id>
     <published>2020-06-22T03:02:16.000Z</published>
-    <updated>2020-06-22T03:30:03.359Z</updated>
+    <updated>2020-06-22T07:12:47.013Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/DpCPPE.png" alt></p><p><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/" target="_blank" rel="noopener">LeetCode 240. Search a 2D Matrix II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(m+n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">searchMatrix</span><span class="params">(<span class="number">_</span> matrix: [[Int]], <span class="number">_</span> target: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> matrix.isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> i = matrix.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> &amp;&amp; j &lt; matrix[<span class="number">0</span>].<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] == target &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] &gt; target &#123;</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/">http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/</a></p></blockquote><p></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/4QQLtk.png" alt></p><p><a href="https://leetcode-cn.com/problems/search-a-2d-matrix-ii/" target="_blank" rel="noopener">LeetCode 240. Search a 2D Matrix II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(m+n), 空间复杂度: O(1)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">searchMatrix</span><span class="params">(<span class="number">_</span> matrix: [[Int]], <span class="number">_</span> target: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> matrix.isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> i = matrix.<span class="built_in">count</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> j = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> &amp;&amp; j &lt; matrix[<span class="number">0</span>].<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] == target &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> matrix[i][j] &gt; target &#123;</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/">http://yeziahehe.com/2020/06/22/SearchA2DMatrixII/</a></p></blockquote><p></p>]]></content>
     
     <summary type="html">
     
@@ -358,9 +418,9 @@
     
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
     
-      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
-    
       <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
+    
+      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
     
   </entry>
   
@@ -587,72 +647,6 @@
       <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
     
       <category term="Design" scheme="http://yeziahehe.com/tags/Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Implement Stack using Queues</title>
-    <link href="http://yeziahehe.com/2020/04/06/ImplementStackUsingQueues/"/>
-    <id>http://yeziahehe.com/2020/04/06/ImplementStackUsingQueues/</id>
-    <published>2020-04-06T09:27:51.000Z</published>
-    <updated>2020-04-07T13:54:09.201Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/xPmAWA.png" alt></p><p><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">LeetCode 225. Implement Stack using Queues</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> array = [<span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(x: Int)</span></span> &#123;</span><br><span class="line">        array.append(x)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.removeFirst()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">empty</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.isEmpty</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">peek</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array.first ?? -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> queue = <span class="type">Queue</span>()</span><br><span class="line">    <span class="keyword">var</span> temp = <span class="type">Queue</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Push element x onto stack. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> x: Int)</span></span> &#123;</span><br><span class="line">        temp.push(x: x)</span><br><span class="line">        <span class="keyword">while</span> !queue.empty() &#123;</span><br><span class="line">            temp.push(x: queue.pop())</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> !temp.empty() &#123;</span><br><span class="line">            queue.push(x: temp.pop())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the element on top of the stack and returns that element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.pop()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Get the top element. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.peek()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Returns whether the stack is empty. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">empty</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queue.empty()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/06/ImplementStackUsingQueues/">http://yeziahehe.com/2020/04/06/ImplementStackUsingQueues/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
-    
-      <category term="Design" scheme="http://yeziahehe.com/tags/Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Number of Islands</title>
-    <link href="http://yeziahehe.com/2020/04/06/NumberOfIslands/"/>
-    <id>http://yeziahehe.com/2020/04/06/NumberOfIslands/</id>
-    <published>2020-04-06T06:22:52.000Z</published>
-    <updated>2020-04-06T09:25:05.902Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/1K5Ydn.png" alt></p><p><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener">LeetCode 200. Number of Islands</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(w)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/06/NumberOfIslands/">http://yeziahehe.com/2020/04/06/NumberOfIslands/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
-    
-      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
-    
-      <category term="Union Find" scheme="http://yeziahehe.com/tags/Union-Find/"/>
     
   </entry>
   

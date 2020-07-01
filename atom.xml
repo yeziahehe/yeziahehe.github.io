@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yeziahehe.com/"/>
-  <updated>2020-06-29T06:27:44.871Z</updated>
+  <updated>2020-07-01T03:22:55.790Z</updated>
   <id>http://yeziahehe.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Path Sum II</title>
+    <link href="http://yeziahehe.com/2020/07/01/PathSumII/"/>
+    <id>http://yeziahehe.com/2020/07/01/PathSumII/</id>
+    <published>2020-07-01T03:20:48.000Z</published>
+    <updated>2020-07-01T03:22:55.790Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/dlzFFW.png" alt></p><p><a href="https://leetcode-cn.com/problems/path-sum-ii/" target="_blank" rel="noopener">LeetCode 113. Path Sum II</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res: [[<span class="type">Int</span>]] = []</span><br><span class="line">    <span class="keyword">var</span> path: [<span class="type">Int</span>] = []</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pathSum</span><span class="params">(<span class="number">_</span> root: TreeNode?, <span class="number">_</span> sum: Int)</span></span> -&gt; [[<span class="type">Int</span>]] &#123;</span><br><span class="line">        recur(root, sum)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">recur</span><span class="params">(<span class="number">_</span> root: TreeNode?, <span class="number">_</span> sum: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> root = root <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        path.append(root.val)</span><br><span class="line">        <span class="keyword">let</span> tar = sum - root.val</span><br><span class="line">        <span class="keyword">if</span> tar == <span class="number">0</span> &amp;&amp; root.<span class="keyword">left</span> == <span class="literal">nil</span> &amp;&amp; root.<span class="keyword">right</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">            res.append(path)</span><br><span class="line">        &#125;</span><br><span class="line">        recur(root.<span class="keyword">left</span>, sum - root.val)</span><br><span class="line">        recur(root.<span class="keyword">right</span>, sum - root.val)</span><br><span class="line">        path.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/07/01/PathSumII/">http://yeziahehe.com/2020/07/01/PathSumII/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
+    
+      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Validate Stack Sequences</title>
+    <link href="http://yeziahehe.com/2020/07/01/ValidateStackSequences/"/>
+    <id>http://yeziahehe.com/2020/07/01/ValidateStackSequences/</id>
+    <published>2020-07-01T02:41:17.000Z</published>
+    <updated>2020-07-01T02:43:46.874Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/HT58FD.png" alt></p><p><a href="https://leetcode-cn.com/problems/validate-stack-sequences/" target="_blank" rel="noopener">LeetCode 946. Validate Stack Sequences</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">validateStackSequences</span><span class="params">(<span class="number">_</span> pushed: [Int], <span class="number">_</span> popped: [Int])</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> a: [<span class="type">Int</span>] = []</span><br><span class="line">        <span class="keyword">var</span> i: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> pushed &#123;</span><br><span class="line">            a.append(v)</span><br><span class="line">            <span class="keyword">while</span> !a.isEmpty &amp;&amp; a.last == popped[i] &#123;</span><br><span class="line">                a.removeLast()</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a.isEmpty</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/07/01/ValidateStackSequences/">http://yeziahehe.com/2020/07/01/ValidateStackSequences/</a></p></blockquote><p></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
+    
+    
+      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
+    
+      <category term="Stack" scheme="http://yeziahehe.com/tags/Stack/"/>
+    
+  </entry>
   
   <entry>
     <title>Invert Binary Tree</title>
@@ -510,9 +572,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
     
@@ -544,9 +606,9 @@
     
       <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
     
-      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
-    
       <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
+    
+      <category term="Array" scheme="http://yeziahehe.com/tags/Array/"/>
     
       <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
     
@@ -575,72 +637,6 @@
     
     
       <category term="iOS" scheme="http://yeziahehe.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Path Sum</title>
-    <link href="http://yeziahehe.com/2020/04/12/PathSum/"/>
-    <id>http://yeziahehe.com/2020/04/12/PathSum/</id>
-    <published>2020-04-12T14:43:37.000Z</published>
-    <updated>2020-04-12T14:51:45.070Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/x9YhgT.png" alt></p><p><a href="https://leetcode.com/problems/path-sum/" target="_blank" rel="noopener">LeetCode 112. Path Sum</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">hasPathSum</span><span class="params">(<span class="number">_</span> root: TreeNode?, <span class="number">_</span> sum: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root?.<span class="keyword">left</span> == <span class="literal">nil</span> &amp;&amp; root?.<span class="keyword">right</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (sum - root!.val) == <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hasPathSum(root?.<span class="keyword">left</span>, sum - root!.val) || hasPathSum(root?.<span class="keyword">right</span>, sum - root!.val)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/12/PathSum/">http://yeziahehe.com/2020/04/12/PathSum/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
-    
-      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Symmetric Tree</title>
-    <link href="http://yeziahehe.com/2020/04/12/SymmetricTree/"/>
-    <id>http://yeziahehe.com/2020/04/12/SymmetricTree/</id>
-    <published>2020-04-12T14:17:36.000Z</published>
-    <updated>2020-04-12T14:38:40.667Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/TLa6oG.png" alt></p><p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">LeetCode 101. Symmetric Tree</a>。</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(n)</p><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> val: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">left</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">var</span> <span class="keyword">right</span>: <span class="type">TreeNode?</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(<span class="number">_</span> val: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.val = val</span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">left</span> = <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="keyword">right</span> = <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isSymmetric</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> isMirror(root, root)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isMirror</span><span class="params">(<span class="number">_</span> <span class="keyword">left</span>: TreeNode?, <span class="number">_</span> <span class="keyword">right</span>: TreeNode?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> == <span class="literal">nil</span> &amp;&amp; <span class="keyword">right</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span> == <span class="literal">nil</span> || <span class="keyword">right</span> == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">left</span>?.val != <span class="keyword">right</span>?.val &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isMirror(<span class="keyword">left</span>?.<span class="keyword">right</span>, <span class="keyword">right</span>?.<span class="keyword">left</span>) &amp;&amp; isMirror(<span class="keyword">left</span>?.<span class="keyword">left</span>, <span class="keyword">right</span>?.<span class="keyword">right</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isSymmetric</span><span class="params">(<span class="number">_</span> root: TreeNode?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> queue: [<span class="type">TreeNode?</span>] = []</span><br><span class="line">        queue.append(root)</span><br><span class="line">        queue.append(root)</span><br><span class="line">        <span class="keyword">while</span> !queue.isEmpty &#123;</span><br><span class="line">            <span class="keyword">let</span> q = queue.removeFirst()</span><br><span class="line">            <span class="keyword">let</span> p = queue.removeFirst()</span><br><span class="line">            <span class="keyword">if</span> q == <span class="literal">nil</span> &amp;&amp; p == <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> q == <span class="literal">nil</span> || p == <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> q!.val != p!.val &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            queue.append(q!.<span class="keyword">left</span>)</span><br><span class="line">            queue.append(p!.<span class="keyword">right</span>)</span><br><span class="line">            queue.append(q!.<span class="keyword">right</span>)</span><br><span class="line">            queue.append(p!.<span class="keyword">left</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote class="blockquote-center">**版权声明**<p><img src="/cc.png" alt></p><p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p><p>本文链接：<a href="http://yeziahehe.com/2020/04/12/SymmetricTree/">http://yeziahehe.com/2020/04/12/SymmetricTree/</a></p></blockquote><p></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;题目介绍&quot;&gt;&lt;a href=&quot;#题目介绍&quot; class=&quot;headerlink&quot; title=&quot;题目介绍&quot;&gt;&lt;/a&gt;题目介绍&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://blog-1258094708.cos.ap-shanghai.myqcloud.com
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode OJ" scheme="http://yeziahehe.com/categories/LeetCode-OJ/"/>
-    
-    
-      <category term="算法" scheme="http://yeziahehe.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="LeetCode" scheme="http://yeziahehe.com/tags/LeetCode/"/>
-    
-      <category term="Tree" scheme="http://yeziahehe.com/tags/Tree/"/>
-    
-      <category term="Breadth-first Search" scheme="http://yeziahehe.com/tags/Breadth-first-Search/"/>
-    
-      <category term="Depth-first Search" scheme="http://yeziahehe.com/tags/Depth-first-Search/"/>
     
   </entry>
   

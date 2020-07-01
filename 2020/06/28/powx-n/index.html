@@ -7,29 +7,29 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Find Pivot Index | Ivan&#39;s Blog</title>
+  <title>Pow(x, n) | Ivan&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法,LeetCode,Array,">
+    <meta name="keywords" content="算法,LeetCode,Math,Binary search,">
   
 
-  <meta name="description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
-<meta name="keywords" content="算法,LeetCode,Array">
+  <meta name="description" content="题目介绍 LeetCode 50. Pow(x, n)。 复杂度时间复杂度: O(log2n) , 空间复杂度: O(1) 解题思路12345678910111213141516171819202122232425class Solution &amp;#123;    func myPow(_ x: Double, _ n: Int) -&amp;gt; Double &amp;#123;        if x ==">
+<meta name="keywords" content="算法,LeetCode,Math,Binary search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Find Pivot Index">
-<meta property="og:url" content="http://yeziahehe.com/2020/03/05/FindPivotIndex/index.html">
+<meta property="og:title" content="Pow(x, n)">
+<meta property="og:url" content="http://yeziahehe.com/2020/06/28/powx-n/index.html">
 <meta property="og:site_name" content="Ivan&#39;s Blog">
-<meta property="og:description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
+<meta property="og:description" content="题目介绍 LeetCode 50. Pow(x, n)。 复杂度时间复杂度: O(log2n) , 空间复杂度: O(1) 解题思路12345678910111213141516171819202122232425class Solution &amp;#123;    func myPow(_ x: Double, _ n: Int) -&amp;gt; Double &amp;#123;        if x ==">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05%E4%B8%8B%E5%8D%8801.10.53.png">
+<meta property="og:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/SDdGsf.png">
 <meta property="og:image" content="http://yeziahehe.com/cc.png">
-<meta property="og:updated_time" content="2020-03-05T05:36:57.273Z">
+<meta property="og:updated_time" content="2020-06-28T09:42:21.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Find Pivot Index">
-<meta name="twitter:description" content="题目介绍 LeetCode 724. Find Pivot Index。 复杂度时间复杂度: O(n), 空间复杂度: O(1) 解题思路有重复返回最左边，考虑数组元素前缀和。 1234567891011121314class Solution &amp;#123;    func pivotIndex(_ nums: [Int]) -&amp;gt; Int &amp;#123;        // 求和">
-<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05%E4%B8%8B%E5%8D%8801.10.53.png">
+<meta name="twitter:title" content="Pow(x, n)">
+<meta name="twitter:description" content="题目介绍 LeetCode 50. Pow(x, n)。 复杂度时间复杂度: O(log2n) , 空间复杂度: O(1) 解题思路12345678910111213141516171819202122232425class Solution &amp;#123;    func myPow(_ x: Double, _ n: Int) -&amp;gt; Double &amp;#123;        if x ==">
+<meta name="twitter:image" content="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/SDdGsf.png">
 
   
 
@@ -113,14 +113,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-FindPivotIndex" class="article article-type-post" itemprop="blogPost">
+   <article id="post-powx-n" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Find Pivot Index</h1>
+    <h1 class="post-title">Pow(x, n)</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.03.05</span>
+        <span>2020.06.28</span>
       </span>
 
       
@@ -153,18 +153,19 @@
 
   <div class="article-content">
     
-      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/iShot2020-03-05%E4%B8%8B%E5%8D%8801.10.53.png" alt></p>
-<p><a href="https://leetcode.com/problems/find-pivot-index/" target="_blank" rel="noopener">LeetCode 724. Find Pivot Index</a>。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(n), 空间复杂度: O(1)</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有重复返回最左边，考虑数组元素前缀和。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pivotIndex</span><span class="params">(<span class="number">_</span> nums: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="comment">// 求和</span></span><br><span class="line">        <span class="keyword">let</span> sum = nums.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;</span><br><span class="line">        <span class="keyword">var</span> leftSum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;nums.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> leftSum == sum - leftSum - nums[i] &#123;</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">            &#125;</span><br><span class="line">            leftSum += nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h1><p><img src="https://blog-1258094708.cos.ap-shanghai.myqcloud.com/SDdGsf.png" alt></p>
+<p><a href="https://leetcode-cn.com/problems/powx-n/" target="_blank" rel="noopener">LeetCode 50. Pow(x, n)</a>。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度: O(log2n) , 空间复杂度: O(1)</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">myPow</span><span class="params">(<span class="number">_</span> x: Double, <span class="number">_</span> n: Int)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> x == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> myPow(<span class="number">1</span>/x, -n)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> x = x</span><br><span class="line">        <span class="keyword">var</span> n = n</span><br><span class="line">        <span class="keyword">var</span> res = <span class="number">1.0</span></span><br><span class="line">        <span class="keyword">while</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             根据二分推导，可通过循环 x = x^2 操作，每次把幂从 n 降至 n//2 ，直至将幂降为 0 ；</span></span><br><span class="line"><span class="comment">             设 res=1 ，则初始状态 x^n = x^n * res。在循环二分时，每当 n 为奇数时，将多出的一项 x 乘入 res ，则最终可化至 x^n = x^0 * res  ，返回 res 即可。</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span> n &amp; <span class="number">1</span> == <span class="number">1</span> &#123;</span><br><span class="line">                res *= x</span><br><span class="line">            &#125;</span><br><span class="line">            x *= x</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <blockquote class="blockquote-center">
 **版权声明**
 
 <p><img src="/cc.png" alt></p>
 <p><a href="http://yeziahehe.com">Ivan’s Blog</a> by <a href="http://yeziahehe.com/about">Ivan Ye</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="http://yeziahehe.com/about">叶帆</a>创作并维护的<a href="http://yeziahehe.com">叶帆的博客</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
 <p>本文首发于<a href="http://yeziahehe.com">Ivan’s Blog | 叶帆的博客</a>博客（ <a href="http://yeziahehe.com">http://yeziahehe.com</a> ），版权所有，侵权必究。</p>
-<p>本文链接：<a href="http://yeziahehe.com/2020/03/05/FindPivotIndex/">http://yeziahehe.com/2020/03/05/FindPivotIndex/</a></p></blockquote><p></p>
+<p>本文链接：<a href="http://yeziahehe.com/2020/06/28/powx-n/">http://yeziahehe.com/2020/06/28/powx-n/</a></p></blockquote><p></p>
 
     
   </div>
@@ -202,10 +203,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/03/03/MovingAverageFromDataStream/">
+    <a class="show pull-left" href="/2020/06/28/NumberOf1Bits/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/05/LargestNumberAtLeastTwiceOfOthers/">
+    <a class="show pull-right" href="/2020/06/29/InvertBinaryTree/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
